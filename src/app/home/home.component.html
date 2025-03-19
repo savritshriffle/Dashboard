@@ -1,1 +1,19 @@
-<p>home works!</p>
+<div class="icon"><i class="fa-solid fa-magnifying-glass"></i><input type="search" placeholder="Enter Userid or id" class="search"></div>
+<table>
+    <thead>
+    <tr>
+        <th>UserId</th>
+        <th>Id</th>
+        <th>title</th>
+        <th>body</th>
+    </tr>
+</thead>
+<tbody>
+    <tr  *ngFor="let post of posts">
+        <td>{{post.userId}}</td>
+        <td>{{post.id}}</td>
+        <td>{{post.title}}</td>
+        <td>{{post.body}}</td>
+    </tr>
+</tbody>
+</table>
