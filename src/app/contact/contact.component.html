@@ -1,1 +1,11 @@
-<p>contact works!</p>
+<mat-dialog-actions>
+    <label>Title :</label>
+    <input type="text" [(ngModel)]="data.title"><br>
+</mat-dialog-actions>
+<mat-dialog-actions>
+    <label>Body :</label>
+    <textarea [(ngModel)]="data.body"></textarea>
+</mat-dialog-actions>
+<mat-dialog-actions>
+    <button mat-button (click)="saveData()">Save</button>
+</mat-dialog-actions>

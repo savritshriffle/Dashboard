@@ -13,8 +13,10 @@ import { MatToolbarModule } from "@angular/material/toolbar";
 import { MatIconModule } from "@angular/material/icon";
 import { HttpClientModule } from '@angular/common/http';
 import { MatTableModule } from '@angular/material/table';
-import { CommonModule } from '@angular/common';
 import { MatCommonModule } from '@angular/material/core';
+import { FormsModule } from '@angular/forms';
+import { NgxPaginationModule } from 'ngx-pagination';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,6 +28,7 @@ import { MatCommonModule } from '@angular/material/core';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FormsModule,
     BrowserAnimationsModule,
     MatDialogModule,
     MatButtonModule,
@@ -34,7 +37,7 @@ import { MatCommonModule } from '@angular/material/core';
     MatTableModule,
     MatCommonModule,
     HttpClientModule,
-
+    NgxPaginationModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,19 +1,27 @@
-<div class="icon"><i class="fa-solid fa-magnifying-glass"></i><input type="search" placeholder="Enter Userid or id" class="search"></div>
+<div class="icon">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <input type="search" placeholder="Enter UserId or Id" class="search" [(ngModel)]="searchData">
+    <button (click)="Search()">Submit</button>
+</div>
 <table>
     <thead>
-    <tr>
+      <tr>
         <th>UserId</th>
         <th>Id</th>
-        <th>title</th>
-        <th>body</th>
-    </tr>
-</thead>
-<tbody>
-    <tr  *ngFor="let post of posts">
-        <td>{{post.userId}}</td>
-        <td>{{post.id}}</td>
-        <td>{{post.title}}</td>
-        <td>{{post.body}}</td>
-    </tr>
-</tbody>
+        <th>Title</th>
+        <th>Body</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let post of filterData | paginate: { itemsPerPage: Pages, currentPage: currentPage }">
+        <td>{{ post.userId }}</td>
+        <td>{{ post.id }}</td>
+        <td>{{ post.title }}</td>
+        <td>{{ post.body }}</td>
+        <td><button (click)="editTask(post)">Edit</button></td>
+      </tr>
+    </tbody>
 </table>
+
+<pagination-controls (pageChange)="currentPage = $event"></pagination-controls>
+

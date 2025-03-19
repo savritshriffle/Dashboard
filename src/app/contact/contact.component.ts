@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Inject } from '@angular/core';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-contact',
@@ -7,4 +8,10 @@ import { Component } from '@angular/core';
 })
 export class ContactComponent {
 
+  constructor(public dialogRef: MatDialogRef<ContactComponent>, @Inject(MAT_DIALOG_DATA) public data: any) {
+  }
+
+  saveData(): void {
+    this.dialogRef.close(this.data);
+  }
 }

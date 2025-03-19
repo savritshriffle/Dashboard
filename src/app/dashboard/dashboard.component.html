@@ -1,8 +1,12 @@
 <mat-toolbar color="primary">
     <mat-icon><i class="fa-solid fa-face-smile"></i></mat-icon>
-    <button mat-button routerLink="/">Home</button>
+    <button mat-button routerLink="/" style="margin-left: 20px;">Home</button>
     <button mat-button routerLink="/about">About</button>
     <button mat-button routerLink="/contact">Contact</button>
-    <button mat-icon (click)="openDialog()" class="Dialog"><i class="fa-regular fa-circle-user"></i></button>
+    <mat-dialog-content>
+      </mat-dialog-content>
+      <mat-dialog-actions>
+        <button mat-icon (click)="openDialog()" class="Dialog"><i class="fa-solid fa-user"></i></button>
+      </mat-dialog-actions>
   </mat-toolbar>
   <router-outlet></router-outlet>
