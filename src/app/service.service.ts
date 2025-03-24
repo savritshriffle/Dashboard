@@ -6,13 +6,12 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ServiceService {
-  private apiUrl = 'https://jsonplaceholder.typicode.com/posts';
+  private apiUrl = `https://jsonplaceholder.typicode.com/posts`;
   constructor(private http: HttpClient) { }
   getPosts(): Observable<any> {
-    return this.http.get(this.apiUrl)
+    return this.http.get(`${this.apiUrl}`)
   }
-
-  updateData(id: string, updateData: any) {
-    return this.http.put(`${this.apiUrl}/${id}`, updateData);
-  } 
+  
+   
+  
 }

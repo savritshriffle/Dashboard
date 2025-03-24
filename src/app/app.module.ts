@@ -15,8 +15,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { MatTableModule } from '@angular/material/table';
 import { MatCommonModule } from '@angular/material/core';
 import { FormsModule } from '@angular/forms';
-import { NgxPaginationModule } from 'ngx-pagination';
-
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatSortModule } from '@angular/material/sort';
+import { MatCardModule } from '@angular/material/card';
 @NgModule({
   declarations: [
     AppComponent,
@@ -37,7 +39,11 @@ import { NgxPaginationModule } from 'ngx-pagination';
     MatTableModule,
     MatCommonModule,
     HttpClientModule,
-    NgxPaginationModule
+    MatPaginatorModule,
+    MatFormFieldModule,
+    MatSortModule,
+    MatCardModule,
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

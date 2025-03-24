@@ -1,27 +1,51 @@
 <div class="icon">
-    <i class="fa-solid fa-magnifying-glass"></i>
-    <input type="search" placeholder="Enter UserId or Id" class="search" [(ngModel)]="searchData">
-    <button (click)="Search()">Submit</button>
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search" placeholder="Enter UserId or Id" class="search" (keyup)="search($any($event.target).value)">
 </div>
-<table>
-    <thead>
-      <tr>
-        <th>UserId</th>
-        <th>Id</th>
-        <th>Title</th>
-        <th>Body</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let post of filterData | paginate: { itemsPerPage: Pages, currentPage: currentPage }">
-        <td>{{ post.userId }}</td>
-        <td>{{ post.id }}</td>
-        <td>{{ post.title }}</td>
-        <td>{{ post.body }}</td>
-        <td><button (click)="editTask(post)">Edit</button></td>
-      </tr>
-    </tbody>
+<table mat-table [dataSource]="dataSources" matSort (matSortChange)="sortData($event)" class="mat-elevation-z8">
+   <ng-container matColumnDef="userId">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header="userId">userId</th>
+    <td  mat-cell *matCellDef="let post">{{post.userId}}
+      <input *ngIf="post.isEdit"  matInput value={{post.userId}} (change)="handleOnChnage($event,post, 'userId')">
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="id">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header="id" >id</th>
+    <td  mat-cell *matCellDef="let post">{{post.id}}
+      <input *ngIf="post.isEdit"  matInput value={{post.id}} (change)="handleOnChnage($event, post, 'id')">
+    </td>
+  
+  </ng-container>
+
+  <ng-container matColumnDef="title">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header="title">title</th>
+    <td mat-cell *matCellDef="let post">{{post.title}}
+      <input *ngIf="post.isEdit" matInput value={{post.title}} (change)="handleOnChnage($event, post, 'title')">
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="body">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header="body">body</th>
+    <td   mat-cell *matCellDef="let post">{{post.body}}
+      <input *ngIf="post.isEdit" matInput value={{post.body}} (change)="handleOnChnage($event, post, 'body')">
+    </td>
+ </ng-container>
+ <ng-container matColumnDef="Action">
+  <th mat-header-cell *matHeaderCellDef>Action</th>
+  <td mat-cell *matCellDef="let post">
+    <button mat-raised-button color="primary" (click)="Edit(post)">Edit</button>
+    <br>
+    <button mat-raised-button color="primary" (change)="save($event,post,'id')">Save</button></td>
+</ng-container>
+
+ <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+ <tr mat-row *matRowDef="let row; columns:  displayedColumns;"></tr>
 </table>
-
-<pagination-controls (pageChange)="currentPage = $event"></pagination-controls>
-
+<!-- <div> -->
+  <mat-paginator #paginator [pageSizeOptions]="[5, 10, 20]"
+                 showFirstLastButtons
+                 aria-label="Select page of periodic elements"
+                 >
+  </mat-paginator>
+<!-- </div> -->
