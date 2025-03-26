@@ -6,7 +6,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { MatSort, Sort } from '@angular/material/sort';
 import { MatPaginator, PageEvent } from '@angular/material/paginator';
 import { ActivatedRoute } from '@angular/router';
-
+import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -26,7 +26,7 @@ dataSources = new MatTableDataSource<any>([]);
 sortedData = new MatSort();
 currentPage = 0;
 currentSize = 0;
-constructor(private service: ServiceService, public dialog: MatDialog, private cdr: ChangeDetectorRef, private router : ActivatedRoute) {
+constructor(private service: ServiceService, public dialog: MatDialog, private cdr: ChangeDetectorRef, private router : ActivatedRoute, private toastr: ToastrService) {
 
 }
 
@@ -104,6 +104,7 @@ deleteData(id: string) {
     let index = this.dataSources.data.find((value) =>value.id === id) 
     this.dataSources.data.splice(index, 1)
     this.dataSources.data = [...this.dataSources.data]
+    this.toastr.info("deleted Data   " + id)
   }
     //  console.log(id)
     //  const dataApi = localStorage.getItem('apiData')

@@ -21,6 +21,10 @@ import { MatSortModule } from '@angular/material/sort';
 import { MatCardModule } from '@angular/material/card';
 import { LoginComponent } from './login/login.component';
 import { MatInputModule } from '@angular/material/input'
+import { provideAnimations } from '@angular/platform-browser/animations';
+import { provideToastr } from 'ngx-toastr';
+import { StockChartComponent } from './chart/chart.component';
+import { HighchartsChartModule } from 'highcharts-angular';
 
 @NgModule({
   declarations: [
@@ -29,7 +33,8 @@ import { MatInputModule } from '@angular/material/input'
     HomeComponent,
     AboutComponent,
     ContactComponent,
-    LoginComponent
+    LoginComponent,
+    StockChartComponent
   ],
   imports: [
     BrowserModule,
@@ -49,9 +54,11 @@ import { MatInputModule } from '@angular/material/input'
     MatCardModule,
     MatInputModule,
     ReactiveFormsModule,
-    
+    HighchartsChartModule
   ],
-  providers: [],
+  providers: [ 
+    provideAnimations(), 
+    provideToastr()],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

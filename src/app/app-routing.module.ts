@@ -5,6 +5,7 @@ import { AboutComponent } from './about/about.component';
 import { ContactComponent } from './contact/contact.component';
 import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { StockChartComponent } from './chart/chart.component';
 
 const routes: Routes = [
   {
@@ -25,10 +26,14 @@ const routes: Routes = [
         component: AboutComponent
       },
       {
-        path: 'contact/:id',
+        path: 'contact',
         component: ContactComponent
       },
     ]
+  },
+  {
+    path:'chart',
+    component: StockChartComponent
   },
   {
     path: '',
