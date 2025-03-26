@@ -99,18 +99,17 @@ onPaginateChange(e: any) {
 
 
 deleteData(id: string) {
-    // let index = this.dataSources.data.find((value) =>value.id === id) 
-    // this.dataSources.data.splice(index, 1)
-    // this.dataSources.data = [...this.dataSources.data]
-     console.log(id)
-     const dataApi = localStorage.getItem('apiData')
-     const move = localStorage.removeItem(id);
-     console.log(move)
-     console.log(dataApi?.includes(id))
-     
-     if(dataApi?.includes(id) == true) {
-       localStorage.removeItem(id)
-     }
+    let index = this.dataSources.data.find((value) =>value.id === id) 
+    this.dataSources.data.splice(index, 1)
+    this.dataSources.data = [...this.dataSources.data]
+
+
+    //  console.log(id)
+    //  const dataApi = localStorage.getItem('apiData')
+    //  console.log(dataApi?.match(id))
+    //  if(dataApi?.match(id)) {
+    //    localStorage.removeItem(id)
+    //  }
 }     
 
 sortData(sort :Sort) {
