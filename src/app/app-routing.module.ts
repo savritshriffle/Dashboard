@@ -3,19 +3,38 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
 import { ContactComponent } from './contact/contact.component';
+import { LoginComponent } from './login/login.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 const routes: Routes = [
   {
-    path:'',
-    component: HomeComponent
+    path: 'login',
+    component: LoginComponent
+  },
+  
+  {
+    path: 'dashboard',
+    component: DashboardComponent,
+    children: [
+      {
+        path:'home',
+        component: HomeComponent
+      },
+      {
+        path: 'about',
+        component: AboutComponent
+      },
+      {
+        path: 'contact/:id',
+        component: ContactComponent
+      },
+    ]
   },
   {
-    path: 'about',
-    component: AboutComponent
-  },
-  {
-    path: 'contact/:id',
-    component: ContactComponent
+    path: '',
+    redirectTo: '/login',
+    pathMatch: 'full'
+
   }
 ];
 

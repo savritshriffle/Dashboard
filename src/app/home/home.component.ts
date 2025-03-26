@@ -99,11 +99,12 @@ onPaginateChange(e: any) {
 
 
 deleteData(id: string) {
+  const con = confirm("are you sure...")
+  if(con){
     let index = this.dataSources.data.find((value) =>value.id === id) 
     this.dataSources.data.splice(index, 1)
     this.dataSources.data = [...this.dataSources.data]
-
-
+  }
     //  console.log(id)
     //  const dataApi = localStorage.getItem('apiData')
     //  console.log(dataApi?.match(id))

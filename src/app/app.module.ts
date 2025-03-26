@@ -14,18 +14,22 @@ import { MatIconModule } from "@angular/material/icon";
 import { HttpClientModule } from '@angular/common/http';
 import { MatTableModule } from '@angular/material/table';
 import { MatCommonModule } from '@angular/material/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSortModule } from '@angular/material/sort';
 import { MatCardModule } from '@angular/material/card';
+import { LoginComponent } from './login/login.component';
+import { MatInputModule } from '@angular/material/input'
+
 @NgModule({
   declarations: [
     AppComponent,
     DashboardComponent,
     HomeComponent,
     AboutComponent,
-    ContactComponent
+    ContactComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -43,6 +47,8 @@ import { MatCardModule } from '@angular/material/card';
     MatFormFieldModule,
     MatSortModule,
     MatCardModule,
+    MatInputModule,
+    ReactiveFormsModule,
     
   ],
   providers: [],
