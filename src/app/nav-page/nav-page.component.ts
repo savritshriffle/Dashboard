@@ -1,18 +1,18 @@
 import { ChangeDetectorRef, Component, OnChanges, OnInit, SimpleChanges, ViewChild } from '@angular/core';
 import { ServiceService } from '../service.service';
 import { MatDialog } from '@angular/material/dialog';
+import { ContactComponent } from '../contact/contact.component';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatSort, Sort } from '@angular/material/sort';
-import { MatPaginator } from '@angular/material/paginator';
+import { MatPaginator, PageEvent } from '@angular/material/paginator';
 import { ActivatedRoute } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css'],
-  
+  selector: 'app-nav-page',
+  templateUrl: './nav-page.component.html',
+  styleUrls: ['./nav-page.component.css']
 })
-export class HomeComponent implements OnInit, OnChanges{
+export class NavPageComponent implements OnInit, OnChanges {
 @ViewChild(MatSort) sort!: MatSort;
 @ViewChild(MatPaginator, {static: false}) paginator!: MatPaginator;
 posts: any[] = [];   
@@ -142,7 +142,7 @@ sortData(sort :Sort) {
 }
 function compare(a: number | string, b: number | string, isAsc: boolean) {
       return (a < b ? -1 : 1) * (isAsc ? 1 : -1);
-}
- 
-  
+} 
+
+
 

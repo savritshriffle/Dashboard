@@ -6,6 +6,7 @@ import { ContactComponent } from './contact/contact.component';
 import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { StockChartComponent } from './chart/chart.component';
+import { NavPageComponent } from './nav-page/nav-page.component';
 
 const routes: Routes = [
   {
@@ -29,6 +30,10 @@ const routes: Routes = [
         path: 'contact',
         component: ContactComponent
       },
+      {
+        path: 'navpage',
+        component: NavPageComponent
+      }
     ]
   },
   {

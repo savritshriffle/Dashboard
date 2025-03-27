@@ -56,7 +56,6 @@
   <mat-paginator #paginator [pageSizeOptions]="[5, 10, 20]"
                 *ngIf="!currentPage"
                  showFirstLastButtons 
-                 pageSize="5"
                  (page)="onPaginateChange($event)"
                  aria-label="Select page of periodic elements"
                  >

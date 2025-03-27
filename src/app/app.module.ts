@@ -25,6 +25,7 @@ import { provideAnimations } from '@angular/platform-browser/animations';
 import { provideToastr } from 'ngx-toastr';
 import { StockChartComponent } from './chart/chart.component';
 import { HighchartsChartModule } from 'highcharts-angular';
+import { NavPageComponent } from './nav-page/nav-page.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { HighchartsChartModule } from 'highcharts-angular';
     AboutComponent,
     ContactComponent,
     LoginComponent,
-    StockChartComponent
+    StockChartComponent,
+    NavPageComponent
   ],
   imports: [
     BrowserModule,
