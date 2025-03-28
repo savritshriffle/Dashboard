@@ -1,5 +1,5 @@
 <div>
-    <input  type="search" placeholder="enter number" class="input" [(ngModel)]="searchData" (keyup)="search()">
+    <input  type="search" placeholder="enter number" class="input" [(ngModel)]="searchData" (input)="search()">
 </div>
 <highcharts-chart 
 [Highcharts]="Highcharts"
