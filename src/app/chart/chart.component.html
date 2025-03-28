@@ -1,4 +1,5 @@
-<div><input  type="search" placeholder="enter number" class="input" (keyup)="search($any($event.target).value)">
+<div>
+    <input  type="search" placeholder="enter number" class="input" [(ngModel)]="searchData" (keyup)="search()">
 </div>
 <highcharts-chart 
 [Highcharts]="Highcharts"

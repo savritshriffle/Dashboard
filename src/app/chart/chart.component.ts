@@ -12,9 +12,9 @@ export class StockChartComponent implements OnInit {
     'Mon 27-03-2025', 'Tue 27-03-2025','Wed 27-03-2025','Thu 27-03-2025', 'Fri 27-03-2025', 'Sat 27-03-2025', 'Sun 27-03-2025',
     'Mon 27-03-2025', 'Tue 27-03-2025','Wed 27-03-2025','Thu 27-03-2025', 'Fri 27-03-2025', 'Sat 27-03-2025', 'Sun 27-03-2025'
   ];
-  // searchData!: string;
+  searchData: string = '';
+  filterData:any = [...this.data];
   Highcharts: typeof Highcharts = Highcharts;
-  
   
   chartOptions: Highcharts.Options = {
     title : {
@@ -26,26 +26,26 @@ export class StockChartComponent implements OnInit {
         text : 'Chart data'
       } 
     },
-    // yAxis :{
-    //   title : {
-    //     text :'Chart Values'
-    //   }
-    // },
-
-    plotOptions: {
-      series: {
-          pointStart: '2020-01-01',
-          pointInterval: 36e5, 
-          relativeXValue: true,
-          showCheckbox: true,
-          // stacking: 'overlap',
-          // step:'right',
-          // dataSorting: undefined,
-          // shadow: true,
-          // stickyTracking: false,
-          
+    yAxis :{
+      title : {
+        text :'Chart Values'
       }
-  },
+    },
+
+  //   plotOptions: {
+  //     series: {
+  //         pointStart: '2020-01-01',
+  //         pointInterval: 36e5, 
+  //         relativeXValue: true,
+  //         showCheckbox: true,
+  //         stacking: 'overlap',
+  //         step:'right',
+  //         dataSorting: undefined,
+  //         shadow: true,
+  //         stickyTracking: false,
+          
+  //     }
+  // },
     tooltip:{
       style : {
         fontSize:16,
@@ -54,7 +54,8 @@ export class StockChartComponent implements OnInit {
     series: [
       {
       name: 'First Demo',
-      data: this.data ,
+      data: this.filterData,
+      showCheckbox: true,
       // showInLegend: true,
       // showInNavigator: true,
   
@@ -71,19 +72,18 @@ export class StockChartComponent implements OnInit {
 constructor() {}
 ngOnInit(): void {}
 
-search(searchData: number[]){
+search(){
   // debugger
-  const data =this.chartOptions.series?.filter((value )=> value)
-  
-  const index: any =this.data.find((value) => value.toString().includes(String(searchData)))
-  if(index === searchData) {
-    this.data = [...searchData]
+  if(!this.searchData){
+    this.filterData = [...this.data]
   }
-  this.data = [...this.data]
-  console.log(index)
-  console.log(searchData)
-  // console.log(this.chartOptions.series)
-  // console.log(data)
+  else {
+    this.filterData = this.data.map((value) => value.toString().includes(this.searchData) ? value : null)
+    console.log(this.filterData)
+    console.log(this.searchData)
+  }
+  (this.chartOptions.series as any)[0].data = this.filterData
+   Highcharts.chart(this.chartOptions)
 }
  
 
