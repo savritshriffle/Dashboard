@@ -7,6 +7,7 @@ import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { StockChartComponent } from './chart/chart.component';
 import { NavPageComponent } from './nav-page/nav-page.component';
+import { MultiChartComponent } from './multi-chart/multi-chart.component';
 
 const routes: Routes = [
   {
@@ -39,6 +40,10 @@ const routes: Routes = [
   {
     path:'chart',
     component: StockChartComponent
+  },
+  {
+    path:'multi-chart',
+    component: MultiChartComponent
   },
   {
     path: '',

@@ -26,6 +26,7 @@ import { provideToastr } from 'ngx-toastr';
 import { StockChartComponent } from './chart/chart.component';
 import { HighchartsChartModule } from 'highcharts-angular';
 import { NavPageComponent } from './nav-page/nav-page.component';
+import { MultiChartComponent } from './multi-chart/multi-chart.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { NavPageComponent } from './nav-page/nav-page.component';
     ContactComponent,
     LoginComponent,
     StockChartComponent,
-    NavPageComponent
+    NavPageComponent,
+    MultiChartComponent
   ],
   imports: [
     BrowserModule,
