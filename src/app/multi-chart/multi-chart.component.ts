@@ -41,7 +41,7 @@ export class MultiChartComponent {
       },
       {
         chart: {
-          type: 'scatter'
+          type: 'pie'
         },
         title: {
           text: 'Chart 3'
@@ -50,13 +50,27 @@ export class MultiChartComponent {
           name: 'Data3',
           data: this.filterData
         }]
+      },
+      {
+        chart: {
+          type: 'scatter'
+        },
+        title: {
+          text: 'Chart 4'
+        },
+        series: [{
+          name: 'Data4',
+          data: this.filterData
+        }]
       }
     ];
   }
+
   search() {
     if (!this.searchData) {
       this.filterData = [...this.data];
-    } else {
+    } 
+    else {
       this.filterData = this.data.filter((value) =>
         value.toLocaleString().toString().includes(this.searchData)
       );
@@ -65,8 +79,23 @@ export class MultiChartComponent {
     for (let i = 0; i < this.chartOptions.length; i++) {
       this.chartOptions[i].series[0].data = [...this.filterData];
       Highcharts.charts[i]?.update(this.chartOptions[i]);
+     }
+   }
+
+   aesending() {
+    this.filterData = [...this.data].sort((a, b) => a- b)
+    for(let i=0; i< this.chartOptions.length; i++){
+      this.chartOptions[i].series[0].data = [...this.filterData];
+      Highcharts.charts[i]?.update(this.chartOptions[i])
     }
-  }
+   }
+   desending() {
+    this.filterData = [...this.data].sort((a, b) => b - a)
+    for(let i=0; i< this.chartOptions.length; i++){
+      this.chartOptions[i].series[0].data = [...this.filterData];
+      Highcharts.charts[i]?.update(this.chartOptions[i])
+    }
+   }
   
 }
 

@@ -1,6 +1,9 @@
 <div>
     <input  type="search" placeholder="enter number" class="input" [(ngModel)]="searchData" (input)="search()">
 </div>
+
+<button type="button" (click)="aesending()">Aesending</button>
+<button type="button" (click)="desending()">Desending</button>
 <div *ngFor="let chart of chartOptions; let i = index">
     <highcharts-chart 
       [Highcharts]="Highcharts"

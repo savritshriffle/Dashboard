@@ -12,6 +12,8 @@ export class ServiceService {
     return this.http.get(`${this.apiUrl}`)
   }
   
-   
+  getChartApi(): Observable<any> {
+    return this.http.get('https://fakestoreapi.com/products');
+  }
   
 }

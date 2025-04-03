@@ -27,6 +27,7 @@ import { StockChartComponent } from './chart/chart.component';
 import { HighchartsChartModule } from 'highcharts-angular';
 import { NavPageComponent } from './nav-page/nav-page.component';
 import { MultiChartComponent } from './multi-chart/multi-chart.component';
+import { ChartApiComponent } from './chart-api/chart-api.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { MultiChartComponent } from './multi-chart/multi-chart.component';
     LoginComponent,
     StockChartComponent,
     NavPageComponent,
-    MultiChartComponent
+    MultiChartComponent,
+    ChartApiComponent
   ],
   imports: [
     BrowserModule,

@@ -8,6 +8,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { StockChartComponent } from './chart/chart.component';
 import { NavPageComponent } from './nav-page/nav-page.component';
 import { MultiChartComponent } from './multi-chart/multi-chart.component';
+import { ChartApiComponent } from './chart-api/chart-api.component';
 
 const routes: Routes = [
   {
@@ -44,6 +45,10 @@ const routes: Routes = [
   {
     path:'multi-chart',
     component: MultiChartComponent
+  },
+  {
+    path:'chart-api',
+    component: ChartApiComponent
   },
   {
     path: '',

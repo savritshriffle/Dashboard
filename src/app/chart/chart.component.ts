@@ -99,7 +99,8 @@ ngOnInit(): void {
 search() {
   if (!this.searchData) {
     this.filterData = [...this.data];
-  } else {
+  } 
+  else {
     this.filterData = this.data.filter((value) =>
       value.toLocaleString().toString().includes(this.searchData)
   );    // console.log(this.filterData);
@@ -109,39 +110,35 @@ search() {
   Highcharts.charts[0]?.update(this.chartOptions);
   }
 }
-  typeChart() {
-    if (this.chartOptions.series) {
-      for (let i = 0; i < this.chartOptions.series.length; i++) {
-        if (this.chartOptions.series[i] && this.chartOptions.series[i].type == this.chartType) {
-          this.chartOptions.series[i].type = this.chartType; 
-          this.chartOptions.series[i].visible = true;
-        }
-        else{
-          this.chartOptions.series[i].visible = false;
-        }
+
+  
+typeChart() {
+  if (this.chartOptions.series) {
+    for (let i = 0; i < this.chartOptions.series.length; i++) {
+      if (this.chartOptions.series[i].type == this.chartType) {
+        this.chartOptions.series[i].type = this.chartType; 
+        this.chartOptions.series[i].visible = true;
+      }
+      else{
+        this.chartOptions.series[i].visible = false;
       }
     }
-    Highcharts.charts[0]?.update(this.chartOptions);
   }
+        Highcharts.charts[0]?.update(this.chartOptions);
+}
   
 aesending() {
   this.filterData = [...this.data].sort((a , b) => a - b);
-  (this.chartOptions.series as any)[0].data = [...this.filterData];
-  this.Highcharts.charts[0]?.update(this.chartOptions);
-  
+  for (let i = 0; i < (this.chartOptions.series as any).length; i++) {
+    (this.chartOptions.series as any)[i].data = [...this.filterData];
+     Highcharts.charts[0]?.update(this.chartOptions);
+  }
 }
 desending() {
   this.filterData = [...this.data].sort((a , b) => b - a);
-  (this.chartOptions.series as any)[0].data = [...this.filterData];
-  this.Highcharts.charts[0]?.update(this.chartOptions);
-}
- 
-
-
-dataArray() {
-  return this.data.map(m => m);
-}
-dayArray() {
-  return this.day.map(m => m)
+   for (let i = 0; i < (this.chartOptions.series as any).length; i++) {
+    (this.chartOptions.series as any)[i].data = [...this.filterData];
+     Highcharts.charts[0]?.update(this.chartOptions);
+    }
 }
 }
