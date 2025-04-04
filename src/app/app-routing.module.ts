@@ -9,6 +9,9 @@ import { StockChartComponent } from './chart/chart.component';
 import { NavPageComponent } from './nav-page/nav-page.component';
 import { MultiChartComponent } from './multi-chart/multi-chart.component';
 import { ChartApiComponent } from './chart-api/chart-api.component';
+import { AutoCompleteComponent } from './auto-complete/auto-complete.component';
+import { SerachAutoComponent } from './serach-auto/serach-auto.component';
+import { FormComponent } from './form/form.component';
 
 const routes: Routes = [
   {
@@ -51,11 +54,24 @@ const routes: Routes = [
     component: ChartApiComponent
   },
   {
+    path:'auto-complete',
+    component: AutoCompleteComponent
+  },
+  {
+    path:'search-auto',
+    component: SerachAutoComponent
+  },
+  {
+    path:'form',
+    component: FormComponent
+  },
+  {
     path: '',
     redirectTo: '/login',
     pathMatch: 'full'
 
-  }
+  },
+  
 ];
 
 @NgModule({

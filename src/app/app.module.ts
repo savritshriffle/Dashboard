@@ -28,6 +28,13 @@ import { HighchartsChartModule } from 'highcharts-angular';
 import { NavPageComponent } from './nav-page/nav-page.component';
 import { MultiChartComponent } from './multi-chart/multi-chart.component';
 import { ChartApiComponent } from './chart-api/chart-api.component';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MatSelectModule } from '@angular/material/select';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import { MatChipsModule} from '@angular/material/chips';
+import { AutoCompleteComponent } from './auto-complete/auto-complete.component';
+import { SerachAutoComponent } from './serach-auto/serach-auto.component';
+import { FormComponent } from './form/form.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +47,11 @@ import { ChartApiComponent } from './chart-api/chart-api.component';
     StockChartComponent,
     NavPageComponent,
     MultiChartComponent,
-    ChartApiComponent
+    ChartApiComponent,
+    AutoCompleteComponent,
+    SerachAutoComponent,
+    FormComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -60,7 +71,12 @@ import { ChartApiComponent } from './chart-api/chart-api.component';
     MatCardModule,
     MatInputModule,
     ReactiveFormsModule,
-    HighchartsChartModule
+    HighchartsChartModule,
+    MatAutocompleteModule,
+    MatSelectModule,
+    MatCheckboxModule,
+    MatChipsModule,
+
   ],
   providers: [ 
     provideAnimations(), 
