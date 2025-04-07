@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-
+import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-form',
@@ -8,41 +7,36 @@ import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@ang
   styleUrls: ['./form.component.css']
 })
 export class FormComponent {
- inputField: any; 
-constructor(private fb: FormBuilder) {}
+  inputField: FormGroup;
 
-  ngOnInit() {
-     this.inputField = this.fb.group({
-      firstName: new FormControl<string>('', [Validators.required]),
-      lastName: new FormControl<string>('', [Validators.required]),
-      email: new FormControl<string>('', [Validators.required,Validators.email]),
-      password: new FormControl<string>('', [Validators.required, Validators.min(6)]),
-      address:  new FormArray([
-       
+  constructor(private fb: FormBuilder) {
+    this.inputField = this.fb.group({
+      firstName: ['', Validators.required],
+      lastName: ['', Validators.required],
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required, Validators.minLength(6)]],
+      address: this.fb.array([
+        this.fb.control('', Validators.required)
       ])
-     })
+    });
   }
 
-  onSubmit() {
-    console.log(this.inputField)
-   const value =  this.inputField.get('address')['controls']
-   console.log(value)
-   
-  }
-  get settings(): FormArray {
-    return <FormArray>this.inputField.get('address');
+  get address(): FormArray {
+    return this.inputField.get('address') as FormArray;
   }
 
-  addAddress() {
-    
-    this.inputField.address.push(new FormGroup({
-        newAddress: new FormControl('',Validators.required)
-    }))
-    this.inputField.get('address').push(new FormControl())
-    
+  addAddress(): void {
+    this.address.push(this.fb.control('', Validators.required));
   }
-  remove(index : number) {
-    this.inputField.get('address').removeAt(index);
+
+  removeAddress(index: number): void {
+    this.address.removeAt(index);
   }
- 
+
+  onSubmit(): void {
+    // if (this.inputField.valid) {
+      console.log(this.inputField); 
+      // console.log('Form is invalid');
+    }
+  // }
 }
