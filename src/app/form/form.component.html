@@ -1,52 +1,52 @@
-<div class="container" >
-    <h1>Submit From</h1>
-    
-<form [formGroup]="form">
-  
-    <mat-form-field>
-        <mat-label>fristName</mat-label>
-        <input matInput placeholder="Enter firstName" type="text" formControlName="firstName" required>
-    </mat-form-field>
-    <mat-form-field>
-        <mat-label>lastName</mat-label>
-        <input matInput placeholder="Enter lastName" type="text" formControlName="lastName" required>
-    </mat-form-field>
-    <mat-form-field>
-        <mat-label>email</mat-label>
-        <input matInput placeholder="Enter email" type="text" formControlName="email" required>
-    </mat-form-field>
-    <mat-form-field>
-        <mat-label>password</mat-label>
-        <input matInput placeholder="Enter password" type="text" formControlName="password" required>
-    </mat-form-field>
-    <mat-form-field>
-        <mat-label>address</mat-label>
-    
-        <input 
-            matInput 
-            placeholder="Enter address" 
-            type="text" 
-            formControlName="address" 
-            required
-           
-         >
-
+<div class="container">
+    <h1>Form Here</h1>
+    <form [formGroup]="inputField">
+        <mat-form-field>
+            <mat-label>FirstName</mat-label>
+            <input matInput placeholder="firstName" formControlName="firstName">
         </mat-form-field>
-        <button mat-raised-button isActive="true"  (click)="save()">+</button>
-        <mat-form-field  *ngIf="isActive" >
-            <mat-label>address</mat-label>
-            <input 
-         
-                matInput 
-                placeholder="Enter address" 
-                type="text" 
-                formControlName="address" 
-                required >
-            </mat-form-field> 
-            <button mat-raised-button *ngIf="isActive" (click)="save()" style="margin-left: 76%;">+</button>
-            <button mat-raised-button *ngIf="isDeactive" (click)="delete()" style="margin-left: 76%;">-</button>
-            <div *ngFor="let i of addressValue">{{i}}</div><br>
-        <!-- <button  mat-raised-button color="primary" (click)="submit()">Submit</button>      -->
-   
-</form>
+        <div style="color: red;" *ngIf="inputField.get('firstName')?.errors?.required">
+            First name is required.
+        </div>
+
+        <mat-form-field>
+            <mat-label>LastName</mat-label>
+            <input matInput placeholder="lastName" formControlName="lastName">
+        </mat-form-field>
+        <div style="color: red;" *ngIf="inputField.get('lastName')?.errors?.required">
+            Last is required.        
+        </div>
+
+        <mat-form-field>
+            <mat-label>Email</mat-label>
+            <input matInput placeholder="Enter email" formControlName="email">
+        </mat-form-field>
+        <div style="color: red;" *ngIf="inputField.get('email')?.errors?.required">
+            Email is required.
+        </div>
+        <div style="color: red;" *ngIf="inputField.get('email')?.errors?.email">
+            Please enter a valid email address.
+        </div>
+        
+         <mat-form-field>
+            <mat-label>Password</mat-label>
+            <input matInput placeholder="password" formControlName="password">
+        </mat-form-field>
+        <div style="color: red;" *ngIf="inputField.get('password')?.errors?.required">
+            Password is required Max.Length is 6        
+        </div>
+
+        <div *ngFor="let control of inputField.get('address')['controls']; let i = index"> 
+            <mat-form-field>
+                <mat-label>Address</mat-label>
+                <input matInput placeholder="address" [formControl]="control">
+            </mat-form-field>
+            <button *ngIf="i>0"  (click)="remove(i)">-</button>
+            <div style="color: red;" *ngIf="inputField.get('address')?.errors?.required">
+                Address is required.        
+            </div>
+        </div>
+            <button mat-raised-button color="primary" (click)="addAddress()">+</button>
+            <button mat-raised-button (click)="onSubmit()">Submit</button> 
+    </form>
 </div>

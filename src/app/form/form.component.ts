@@ -1,7 +1,6 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
-import { FormControl, FormGroup,FormBuilder, Validators } from '@angular/forms';
-import { MatAutocompleteTrigger } from '@angular/material/autocomplete';
-import { map, Observable, startWith } from 'rxjs';
+import { Component } from '@angular/core';
+import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+
 
 @Component({
   selector: 'app-form',
@@ -9,52 +8,29 @@ import { map, Observable, startWith } from 'rxjs';
   styleUrls: ['./form.component.css']
 })
 export class FormComponent {
-    addressValue : string[] = [];
-    formaddress: string[] =[];
-    isActive = false;
-    isDeactive = true;
+ inputField:any; 
+constructor(private fb: FormBuilder) {}
 
-    // formInput = new FormGroup ({
-    //   firstName : new FormControl<string>('',[Validators.required]),
-    //   lastName : new FormControl<string>('',[Validators.required]),
-    //   email : new FormControl('',[Validators.email]),
-    //   password : new FormControl('',[Validators.required, Validators.minLength(6)]),
-    //   address : 
-    // })
-
-   fb = new FormBuilder();
-
-   form = this.fb.group({
-     firstName : '',
-     lastName : '',
-     email : '',
-     password : '',
-     address : ['']
-   })
-
-
-    
-    constructor() { 
-     
-     }
-
-
-  submit() {
-    console.log(this.form)
+  ngOnInit() {
+     this.inputField = this.fb.group({
+      firstName: new FormControl<string>('', [Validators.required]),
+      lastName: new FormControl<string>('', [Validators.required]),
+      email: new FormControl<string>('', [Validators.required,Validators.email]),
+      password: new FormControl<string>('', [Validators.required, Validators.min(6)]),
+      address: new FormArray([
+        new FormControl(null)
+      ])
+     })
   }
 
-  save() {
-    const value = this.form.controls.address.value
-    if(value) {
-      this.addressValue.push(value)
-      this.isActive = true;
-    }
-    else{
-      this.addressValue = ['']
-    }
+  onSubmit() {
+    console.log(this.inputField)
   }
-  
- delete() {
-  this.isDeactive = false;
-}
+
+  addAddress() {
+    (<FormArray>this.inputField.get('address')).push(new FormControl())
+  }
+  remove(index : number) {
+    (<FormArray>this.inputField.get('address')).removeAt(index);
+  }
 }
