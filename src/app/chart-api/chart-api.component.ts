@@ -14,17 +14,18 @@ export class ChartApiComponent implements OnInit {
   chart!: Highcharts.Chart; 
 
   constructor(private service: ServiceService) {}
-  chartOptions: Highcharts.Options ={}
   ngOnInit(): void {
-    this.service.getChartApi().subscribe((data) => {
-      this.apiData = data;
-      this.value = [this.apiData.map((m) => m.price)] 
+    this.service.getChartApi().subscribe() 
+    // => {
+    //   this.apiData = data.next(data);
+    //   this.value = [this.apiData.map((m) => m.price)] 
       
-    });
+    // });
     console.log(this.value); 
     
 }
-this. chartOptions = {
+
+chartOptions: Highcharts.Options ={
   title: {
     text: 'Chart Data From API',
   },
@@ -41,8 +42,8 @@ this. chartOptions = {
   series: [
     {
       name: 'Chart 1',
-      data: [], // Initially empty, will be updated dynamically
-      type: 'column', // Setting chart type as 'column'
+      data: this.value, 
+      type: 'column', 
     }
   ],
 };

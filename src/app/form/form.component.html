@@ -2,8 +2,9 @@
     <h1>Form Here</h1>
     <form [formGroup]="inputField">
         <mat-form-field>
+            
             <mat-label>FirstName</mat-label>
-            <input matInput placeholder="firstName" formControlName="firstName">
+            <input matInput placeholder="firstName" formControlName="firstName" >
         </mat-form-field>
         <div style="color: red;" *ngIf="inputField.get('firstName')?.errors?.required">
             First name is required.
@@ -24,9 +25,6 @@
         <div style="color: red;" *ngIf="inputField.get('email')?.errors?.required">
             Email is required.
         </div>
-        <div style="color: red;" *ngIf="inputField.get('email')?.errors?.email">
-            Please enter a valid email address.
-        </div>
         
          <mat-form-field>
             <mat-label>Password</mat-label>
@@ -36,17 +34,17 @@
             Password is required Max.Length is 6        
         </div>
 
-        <div *ngFor="let control of inputField.get('address')['controls']; let i = index"> 
-            <mat-form-field>
-                <mat-label>Address</mat-label>
-                <input matInput placeholder="address" [formControl]="control">
-            </mat-form-field>
-            <button *ngIf="i>0"  (click)="remove(i)">-</button>
-            <div style="color: red;" *ngIf="inputField.get('address')?.errors?.required">
-                Address is required.        
+        <div *ngFor="let control of inputField.controls.address; let i = index"> 
+        <mat-form-field [formGroup]="inputField.controls.address[i]">
+            <mat-label>Address</mat-label>
+            <input matInput placeholder="address" formControlName="newAddress">
+        </mat-form-field>
+        <button mat-raised-button *ngIf="inputField.get('address')['controls'].length > 1"  (click)="remove(i)">-</button>
+        <button mat-raised-button *ngIf="control.valid" color="primary"  (click)="addAddress()">+</button>
+        <div style="color: red;" *ngIf="">
+                Address is required {{control.status}}
             </div>
         </div>
-            <button mat-raised-button color="primary" (click)="addAddress()">+</button>
-            <button mat-raised-button (click)="onSubmit()">Submit</button> 
+        <button [disabled]="inputField.invalid" mat-raised-button (click)="onSubmit()">Submit</button> 
     </form>
-</div>
+</div> 
