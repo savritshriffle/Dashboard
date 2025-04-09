@@ -1,1 +1,17 @@
-<p>serach-auto works!</p>
+<div class="container">
+    <mat-form-field appearance="fill">
+      <input matInput [(ngModel)]="searchText" />
+      <mat-select [formControl]="optionsControl" multiple>
+        <mat-option *ngFor="let option of filteredOptions" [value]="option">
+         {{ option }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+      <h3>Selected Options:</h3>
+      <ul>
+        <li *ngFor="let option of optionsControl.value">{{ option }}</li>
+      </ul>
+
+  </div>
+  

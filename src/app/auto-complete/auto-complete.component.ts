@@ -15,10 +15,8 @@ import {map, startWith} from 'rxjs/operators';
   styleUrls: ['./auto-complete.component.css'],
 })
 export class AutoCompleteComponent {
-  visible = true;
   selectable = true;
   removable = true;
-  separatorKeysCodes: number[] = [ENTER, COMMA];
   fruitCtrl = new FormControl();
   filteredFruits: Observable<string[]>;
   fruits: string[] = [];

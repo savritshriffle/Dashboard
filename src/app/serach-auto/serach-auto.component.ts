@@ -1,24 +1,23 @@
-import { Component, OnInit } from '@angular/core';
-import { ServiceService } from '../service.service';
+import { Component } from '@angular/core';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-serach-auto',
   templateUrl: './serach-auto.component.html',
   styleUrls: ['./serach-auto.component.css']
 })
-export class SerachAutoComponent implements OnInit{
-  dataList: any[] =[];
-  List: any;
-  constructor(private service: ServiceService) {}
-  ngOnInit(): void {
-    this.service.getPosts().subscribe((data) => {
-      this.dataList = data
-      this.List = this.dataList.forEach((value) => {
-        return value
-      })
+export class SerachAutoComponent {
+  optionsControl = new FormControl<string>('');
+  
+  allOptions = ['Option 1', 'Option 2', 'Option 3', 'Option 4', 'Option 5'];
 
-      console.log(this.List)
-    })
+  searchText = '';
+
+  get filteredOptions(): string[] {
+    return this.allOptions.filter(option =>
+      option.toLowerCase().includes(this.searchText.toLowerCase())
+    );
   }
 
+ 
 }
