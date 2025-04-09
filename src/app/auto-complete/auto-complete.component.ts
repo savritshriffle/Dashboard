@@ -15,10 +15,8 @@ import {map, startWith} from 'rxjs/operators';
   styleUrls: ['./auto-complete.component.css'],
 })
 export class AutoCompleteComponent {
-  visible = true;
-  selectable = true;
+  // selectable = false;
   removable = true;
-  separatorKeysCodes: number[] = [ENTER, COMMA];
   fruitCtrl = new FormControl();
   filteredFruits: Observable<string[]>;
   fruits: string[] = [];
@@ -47,17 +45,19 @@ export class AutoCompleteComponent {
         
   }
 
-  add(event: any): void {
-    const input = event.input;
-    const value = event.value;
-   if ((value || '').trim()) {
-      this.fruits.push(value.trim());
-    }
-   if (input) {
-      input.value = '';
-    }
-    this.fruitCtrl.setValue(null);
-  }
+  // add(event: any): void {
+  //   const input = event.input;
+  //   // console.log(input,"input Value")
+  //   const value = event.value;
+  //   // console.log(value," Value")
+  //  if ((value || '').trim()) {
+  //     this.fruits.push(value.trim());
+  //   }
+  //  if (input) {
+  //     input.value = '';
+  //   }
+  //   this.fruitCtrl.setValue(null);
+  // }
 
   remove(fruit: string): void {
     const index = this.fruits.indexOf(fruit);
@@ -67,7 +67,7 @@ export class AutoCompleteComponent {
   }
 
   selected(event: MatAutocompleteSelectedEvent): void {
-    // console.log(event.source)
+    console.log(event.option.viewValue)
     const newValue = event.option.viewValue;
     if (this.fruits.includes(newValue)) {
       this.fruits = [...this.fruits.filter(fruit=>fruit !== newValue)];
@@ -78,9 +78,9 @@ export class AutoCompleteComponent {
     this.fruitCtrl.setValue(null);
 
  
-  requestAnimationFrame(()=>{
-    return this.openAuto(this.matACTrigger);
-    })
+  // requestAnimationFrame(()=>{
+  //   return this.openAuto(this.matACTrigger);
+  //   })
 
   }
 
@@ -92,9 +92,9 @@ export class AutoCompleteComponent {
    
   }
 
-  openAuto(trigger: MatAutocompleteTrigger) {
-    trigger.openPanel();
-    this.fruitInput.nativeElement.focus();
-    // console.log(trigger );
-  }
+  // openAuto(trigger: MatAutocompleteTrigger) {
+  //   trigger.openPanel();
+  //   this.fruitInput.nativeElement.focus();
+  //   // console.log(trigger );
+  // }
 }

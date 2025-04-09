@@ -15,15 +15,13 @@ export class ChartApiComponent implements OnInit {
 
   constructor(private service: ServiceService) {}
   ngOnInit(): void {
-    this.service.getChartApi().subscribe() 
-    // => {
-    //   this.apiData = data.next(data);
-    //   this.value = [this.apiData.map((m) => m.price)] 
-      
-    // });
-    console.log(this.value); 
+    this.service.getChartApi().subscribe((data) => {
+      this.apiData = data;
+      this.value = this.apiData.filter((ele) => ele.products)
+      console.log(this.value)
+    })
     
-}
+  }
 
 chartOptions: Highcharts.Options ={
   title: {
@@ -39,12 +37,6 @@ chartOptions: Highcharts.Options ={
       text: 'YAxis Data',
     },
   },
-  series: [
-    {
-      name: 'Chart 1',
-      data: this.value, 
-      type: 'column', 
-    }
-  ],
+  series: [],
 };
 }
