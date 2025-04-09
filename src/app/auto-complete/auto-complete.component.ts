@@ -15,8 +15,10 @@ import {map, startWith} from 'rxjs/operators';
   styleUrls: ['./auto-complete.component.css'],
 })
 export class AutoCompleteComponent {
-  // selectable = false;
+  visible = true;
+  selectable = true;
   removable = true;
+  separatorKeysCodes: number[] = [ENTER, COMMA];
   fruitCtrl = new FormControl();
   filteredFruits: Observable<string[]>;
   fruits: string[] = [];
@@ -67,12 +69,13 @@ export class AutoCompleteComponent {
   }
 
   selected(event: MatAutocompleteSelectedEvent): void {
-    console.log(event.option.viewValue)
+    // console.log(event.option.viewValue)
     const newValue = event.option.viewValue;
     if (this.fruits.includes(newValue)) {
       this.fruits = [...this.fruits.filter(fruit=>fruit !== newValue)];
     } else {
       this.fruits.push(event.option.viewValue);
+      console.log(this.fruits, 'push data fruits')
     }
     this.fruitInput.nativeElement.value = '';
     this.fruitCtrl.setValue(null);
@@ -87,7 +90,7 @@ export class AutoCompleteComponent {
   private _filter(value: string): string[] {
     // console.log(value)
     const filterValue = value.toLowerCase();
-    // console.log(filterValue)
+    console.log(filterValue)
     return this.allFruits.filter(fruit => fruit.toLowerCase().includes(filterValue));
    
   }

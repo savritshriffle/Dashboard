@@ -1,31 +1,24 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { debounceTime, map, startWith, Subject, Subscription } from 'rxjs';
-import { ServiceService } from '../service.service';
+
 @Component({
   selector: 'app-form',
   templateUrl: './form.component.html',
   styleUrls: ['./form.component.css']
 })
-export class FormComponent implements OnInit {
+export class FormComponent {
   inputField: FormGroup;
-  constructor(private fb: FormBuilder, private service: ServiceService) {
 
+  constructor(private fb: FormBuilder) {
     this.inputField = this.fb.group({
-      firstName: this.fb.control<string>('', Validators.required),
-      lastName: this.fb.control<string>('', Validators.required),
-      email: this.fb.control<string>('', [Validators.required, Validators.email]),
-      password: this.fb.control<string>('', [Validators.required, Validators.minLength(6)]),
+      firstName: ['', Validators.required],
+      lastName: ['', Validators.required],
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required, Validators.minLength(6)]],
       address: this.fb.array([
-        this.fb.control<string>('', Validators.required)
+        this.fb.control('', Validators.required)
       ])
     });
-
-
-  }
-
-  ngOnInit(): void {
-    
   }
 
   get address(): FormArray {
@@ -41,12 +34,9 @@ export class FormComponent implements OnInit {
   }
 
   onSubmit(): void {
-    console.log(this.inputField.value)
-    this.service.customApi(this.inputField.value).subscribe((data) => {
-      const payload = data.firstName.value 
-
-      console.log(payload) 
-    })
-  }
- 
+    // if (this.inputField.valid) {
+      console.log(this.inputField); 
+      // console.log('Form is invalid');
+    }
+  // }
 }

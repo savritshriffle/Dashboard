@@ -1,1 +1,30 @@
-<p>serach-auto works!</p>
+<div class="container">
+<!-- <div *ngFor="let op of allOptions">
+  <button (click)="remove(op)">clear</but>
+</div> -->
+    <mat-form-field appearance="fill">
+      
+      <!-- <mat-chip *ngFor="let option of allOptions"
+       *ngIf="removeble">
+        <mat-icon (click)="remove(option)"  >clear</mat-icon>
+        </mat-chip> -->
+      <mat-label>Search here</mat-label>
+      <input matInput [(ngModel)]="searchText" />
+      <mat-select [formControl]="optionsControl" multiple>
+        <mat-option *ngFor="let option of filteredOptions;" [value]="option">
+          {{option}}
+         </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+      <h3>Selected Options:</h3>
+      <ul>
+        <li *ngFor="let option of optionsControl.value">
+        
+          {{ option }}</li>
+      </ul>
+
+  </div>
+  
+
+  <button (click)="getObject()">Get Object</button>
