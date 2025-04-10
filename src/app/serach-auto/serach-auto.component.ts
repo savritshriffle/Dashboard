@@ -10,7 +10,7 @@ export class SerachAutoComponent {
   optionsControl = new FormControl<string>('');
   removeble = true;
   allOptions = ['Red', 'Green', 'Orenge', 'Blue', 'Pink', 'Black', 'Cat', 'Dog'];
-
+  searchInput: any[] = [];
   searchText = '';
 
   get filteredOptions(): string[] {
@@ -26,6 +26,30 @@ export class SerachAutoComponent {
     }   
   }
  
+
+  selected(event: any): void {
+      // this.searchInput = event.value;
+      // console.log(this.searchInput, "searchInput")
+      const newValue = event.value;
+      console.log(newValue, "newValue")
+      if (this.searchInput.includes(newValue)) {
+        this.searchInput = [...this.searchInput.filter(val=> val !== newValue)];
+        let index = this.searchInput.indexOf(event.value)
+        this.searchInput.splice(index, 1)
+        console.log(this.searchInput, "inside condition")
+      }
+
+      else {
+      this.searchInput = [...this.searchInput,  newValue]
+      console.log(this.searchInput, 'add data fruits')
+      
+     }
+
+     this.searchInput = this.searchInput.map(value => value) 
+     
+  
+    }
+  
 
 
   getObject() {
@@ -53,6 +77,21 @@ export class SerachAutoComponent {
     for(let ele in obj){
       obj[ele].filter((value: any)=> (value)).map((data: any) => console.log(data.array))
     }
+
+    let myObject = {
+      name: 'firstName',
+      age: 100,
+      contact: 123456798,
+      address: {
+        state: 'm.p',
+        city: 'Indore'
+      }
+    }
+    console.log(myObject)
+    let {name, contact, address : {city}} = myObject 
+    console.log(contact=10000) 
+    console.log(name, contact, city) 
+    
   }
 
   

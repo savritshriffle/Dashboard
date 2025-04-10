@@ -1,20 +1,16 @@
 <div class="container">
-<!-- <div *ngFor="let op of allOptions">
-  <button (click)="remove(op)">clear</but>
-</div> -->
     <mat-form-field appearance="fill">
       
-      <!-- <mat-chip *ngFor="let option of allOptions"
-       *ngIf="removeble">
-        <mat-icon (click)="remove(option)"  >clear</mat-icon>
-        </mat-chip> -->
+      <mat-chip *ngFor="let option of searchInput">{{option}}</mat-chip>
       <mat-label>Search here</mat-label>
       <input matInput [(ngModel)]="searchText" />
-      <mat-select [formControl]="optionsControl" multiple>
-        <mat-option *ngFor="let option of filteredOptions;" [value]="option">
+      <mat-select [formControl]="optionsControl" (selectionChange)="selected($event)" multiple>
+        <mat-option  *ngFor="let option of filteredOptions;" [value]="option">
           {{option}}
          </mat-option>
       </mat-select>
+      <button matSuffix  mat-icon-button color="primary" (click)="getObject()">+</button>
+  
     </mat-form-field>
 
       <h3>Selected Options:</h3>
@@ -25,6 +21,6 @@
       </ul>
 
   </div>
+  <button mat-raised-button color="Accent" (click)="getObject()">Get Object</button>
+ 
   
-
-  <button (click)="getObject()">Get Object</button>

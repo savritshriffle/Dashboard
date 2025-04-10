@@ -8,19 +8,39 @@ import * as Highcharts from 'highcharts';
   styleUrls: ['./chart-api.component.css']
 })
 export class ChartApiComponent implements OnInit {
-  apiData: any[] = [];
+  public apiData: any[] = [];
   public value: any[] = [];
-  Highcharts: typeof Highcharts = Highcharts; 
-  chart!: Highcharts.Chart; 
+  public Highcharts: typeof Highcharts = Highcharts; 
+  // chart!: Highcharts.Chart; 
 
   constructor(private service: ServiceService) {}
   ngOnInit(): void {
     this.service.getChartApi().subscribe((data) => {
-      this.apiData = data;
-      this.value = this.apiData.filter((ele) => ele.products)
-      console.log(this.value)
-    })
+      this.apiData = data.products
+      console.log(this.apiData)
+     this.value = this.apiData.map((value) => value.price)
+    //  console.log(this.value);
+
+     
+    });
+     this.getData()
+
+    //  console.log(this.value);
+    // (this.chartOptions.series as any)[0].data = [1,2,3];
+  
     
+  }
+
+
+  getData(){
+     this.service.getChartApi().subscribe((data) =>{
+     this.apiData = data.products
+     this.value = [this.apiData.map((value) => value.price)]
+     console.log(this.value);
+
+     
+    });
+    (this.chartOptions.series as any)[0].data = this.value[0];
   }
 
 chartOptions: Highcharts.Options ={
@@ -37,6 +57,13 @@ chartOptions: Highcharts.Options ={
       text: 'YAxis Data',
     },
   },
-  series: [],
+  series: [
+    {
+      name: 'Chart 1',
+      data: [],
+      type: 'column'
+    }
+  ]
 };
+
 }
