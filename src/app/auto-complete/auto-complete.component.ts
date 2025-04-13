@@ -74,8 +74,6 @@ export class AutoCompleteComponent {
     }
     this.fruitInput.nativeElement.value = '';
     this.fruitCtrl.setValue(null);
-
- 
   requestAnimationFrame(()=>{
     return this.openAuto(this.matACTrigger);
     })
