@@ -7,33 +7,132 @@ import { FormControl } from '@angular/forms';
   styleUrls: ['./serach-auto.component.css']
 })
 export class SerachAutoComponent {
-  optionsControl = new FormControl<string>('');
+  // optionsControl = new FormControl<string>('');
   
-  allOptions = ['Option 1', 'Option 2', 'Option 3', 'Option 4', 'Option 5'];
-  selectedOptions: string[] = [];
-  searchText = '';
+  // allOptions = ['Option 1', 'Option 2', 'Option 3', 'Option 4', 'Option 5'];
+  // selectedOptions: string[] = [];
+  // searchText = '';
 
-  get filteredOptions(): string[] {
-    return this.allOptions.filter(option =>
-      option.toLowerCase().includes(this.searchText.toLowerCase())
-    );
-  }
+  // get filteredOptions(): string[] {
+  //   return this.allOptions.filter(option =>
+  //     option.toLowerCase().includes(this.searchText.toLowerCase())
+  //   );
+  // }
 
-  onSelectionChange(event: any): void {
-    console.log(this.selectedOptions);
-    let newValue = event.value;
-    console.log(this.selectedOptions, newValue);
+  // onSelectionChange(event: any): void {
+  //   console.log(this.selectedOptions);
+  //   let newValue = event.value;
+  //   console.log(this.selectedOptions, newValue);
   
-    if (this.selectedOptions.includes(newValue)) {
-      this.selectedOptions = this.selectedOptions.filter(value => value !== newValue);
-    } else {
+  //   if (this.selectedOptions.includes(newValue)) {
+  //     this.selectedOptions = this.selectedOptions.filter(value => value !== newValue);
+  //   } else {
     
-      // this.selectedOptions.push(newValue)
-      this.selectedOptions = [...this.selectedOptions, newValue];
-    }
+  //     // this.selectedOptions.push(newValue)
+  //     this.selectedOptions = [...this.selectedOptions, newValue];
+  //   }
   
-    console.log("Selected Options:", this.selectedOptions);
-  }
-  
+  //   console.log("Selected Options:", this.selectedOptions);
+  // }
+
+  // name = 'Simple filter';
+
+  // searchsText = '';
+
+  // characters = [
+  //   'Ironman',
+  //   'Spiderman',
+  //   'Thor',
+  //   'Captain America',
+  //   'Black widow',
+  //   'Hulk',
+  //   'Hawkeye',
+  //   'Falcon',
+  //   'Captain Marvel'
+  // ];
+  // filterdata : any[] =[...this.characters];
+
+
+  // filterfun() {
+  //  this.filterdata = this.filterdata.filter((value) => value.toLowerCase().includes(this.searchsText))
+  //     console.log(this.filterdata)
+  //  } 
  
+  Data = [
+    {
+      id:1,
+      name: 'rahul',
+      age: 20,
+      contact:1234567,
+      post: 'student'
+    },
+    {
+      id:2,
+      name: 'ram',
+      age: 20,
+      contact:1234567,
+      post: 'student'
+    },
+    {
+      id:3,
+      name: 'kiran',
+      age: 20,
+      contact:1234567,
+      post: 'student'
+    },
+    {
+      id:4,
+      name: 'jyoti',
+      age: 20,
+      contact:1234567,
+      post: 'student'
+    },
+    {
+      id:5,
+      name: 'priya',
+      age: 20,
+      contact:1234567,
+      post: 'student'
+    },
+    {
+      id:7,
+      name: 'savri',
+      age: 20,
+      contact:1234567,
+      post: 'student'
+    },
+    {
+      id:8,
+      name: 'siya',
+      age: 20,
+      contact:1234567,
+      post: 'student'
+    },
+    {
+      id:9,
+      name: 'riya',
+      age: 20,
+      contact:1234567,
+      post: 'student'
+    },
+    {
+      id:10,
+      name: 'arya',
+      age: 20,
+      contact:1234567,
+      post: 'student'
+    },
+  ]
+  displayedColumns = ['id', 'name', 'age', 'contact', 'post']
+ searchInput = '';
+ filterData = [...this.Data]
+ searchFunc() {
+  console.log(this.searchInput)
+  const input = this.searchInput.toLowerCase();
+  console.log(input)
+  this.filterData = this.filterData.filter((value) => {
+    return Object.values(value).includes(input)
+  })
+ }
+
 }
