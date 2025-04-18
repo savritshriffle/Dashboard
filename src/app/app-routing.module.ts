@@ -61,10 +61,11 @@ const routes: Routes = [
     path:'search-auto',
     component: SerachAutoComponent
   },
-  {
-    path:'form',
-    component: FormComponent
-  },
+  // {
+  //   path:'form',
+  //   component: FormComponent
+  // },
+
   
   {
     path: '',
