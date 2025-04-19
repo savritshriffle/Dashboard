@@ -22,5 +22,23 @@ export class NewTestComponent {
     console.log('massage change')
     console.log('masssge change')
     console.log('helloo')
+
+
+
+
+
+
+    console.log('hello')
+    console.log('hello')
+
+
+
+
+    console.log('hello')
+    console.log('hello')
+
+
+    console.log('hello')
+    console.log('hello')
    }
 }
