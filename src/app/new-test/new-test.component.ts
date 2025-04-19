@@ -6,5 +6,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./new-test.component.css']
 })
 export class NewTestComponent {
-
+   some() {
+    console.log('helloo')
+    console.log('helloo')
+    console.log('helloo')
+    console.log('helloo')
+    console.log('helloo')
+   }
 }
