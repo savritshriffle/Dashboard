@@ -12,5 +12,23 @@ export class NewTestComponent {
     console.log('helloo')
     console.log('helloo')
     console.log('helloo')
+
+
+
+
+
+
+    console.log('hello')
+    console.log('hello')
+
+
+
+
+    console.log('hello')
+    console.log('hello')
+
+
+    console.log('hello')
+    console.log('hello')
    }
 }
