@@ -123,16 +123,32 @@ export class SerachAutoComponent {
       post: 'student'
     },
   ]
-  displayedColumns = ['id', 'name', 'age', 'contact', 'post']
+displayedColumns = ['id', 'name', 'age', 'contact', 'post', 'action']
  searchInput = '';
+ isEdit = false
+ inputId: number = 0;
  filterData = [...this.Data]
  searchFunc() {
-  console.log(this.searchInput)
-  const input = this.searchInput.toLowerCase();
-  console.log(input)
-  this.filterData = this.filterData.filter((value) => {
-    return Object.values(value).includes(input)
-  })
- }
+  const input = this.searchInput.toLowerCase().trim();
+
+  if (input) {
+    this.filterData = this.Data.filter(item =>
+      Object.values(item).some(value =>
+        value.toString().toLowerCase().includes(input)
+      )
+    );
+  } else {
+    this.filterData = [...this.Data];
+  }
+}
+ 
+  // console.log(this.filterData)
+ 
+
+remove(id : number) {
+  this.filterData = this.filterData.filter(item => item.id !== id);
+}
+
+
 
 }
