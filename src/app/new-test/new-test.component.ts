@@ -34,6 +34,11 @@ export class NewTestComponent {
 
 
     console.log('hellow change')
+    console.log('hellow')
+    console.log('hellow')
+
+
+    console.log('hellow change')
     console.log('hellow change')
     console.log('hellow change')
    }
