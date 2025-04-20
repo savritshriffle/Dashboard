@@ -33,12 +33,8 @@ export class NewTestComponent {
 
 
 
-
-    console.log('hello')
-    console.log('hello')
-
-
-    console.log('hello')
-    console.log('hello')
+    console.log('hellow change')
+    console.log('hellow change')
+    console.log('hellow change')
    }
 }
