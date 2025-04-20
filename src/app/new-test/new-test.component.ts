@@ -9,8 +9,8 @@ export class NewTestComponent {
    some() {
     console.log('helloo')
     console.log('helloo')
-    console.log('helloo')
-    console.log('helloo')
+    console.log('massage change')
+    console.log('masssge change')
     console.log('helloo')
    }
 }
