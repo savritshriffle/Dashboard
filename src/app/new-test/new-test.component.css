@@ -1,6 +1,23 @@
 body {
     background-color: green;
     color: white;
+<<<<<<< HEAD
     border: 0cap;
     border-radius: 0%;
+=======
+}
+body {
+    background-color: green;
+    color: white;
+}
+
+
+body {
+    background-color: green;
+    color: white;
+}
+body {
+    background-color: green;
+    color: white;
+>>>>>>> e82de56 (src/app/new-test/new-test.component.css)
 }
