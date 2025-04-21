@@ -17,29 +17,26 @@ export class NewTestComponent {
     console.log('massage change')
     console.log('masssge change')
     console.log('helloo')
+    console.log('hello')
+    console.log('hello')
 
+
+
+    console.log('hellow change')
+    console.log('hellow')
+    console.log('hellow')
+
+
+    console.log('hellow change')
+    console.log('hellow change')
+    console.log('hellow change')
 
     console.log('massage change')
     console.log('masssge change')
     console.log('helloo')
+    console.log('massage change')
+    console.log('masssge change')
+    console.log('helloo')
 
-
-
-
-
-
-    console.log('hello')
-    console.log('hello')
-
-
-
-    console.log('hellow change')
-    console.log('hellow')
-    console.log('hellow')
-
-
-    console.log('hellow change')
-    console.log('hellow change')
-    console.log('hellow change')
    }
 }
