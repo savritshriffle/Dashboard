@@ -36,6 +36,7 @@ import { AutoCompleteComponent } from './auto-complete/auto-complete.component';
 import { SerachAutoComponent } from './serach-auto/serach-auto.component';
 import { FormComponent } from './form/form.component';
 import { NewTestComponent } from './new-test/new-test.component';
+import { NewTaskComponent } from './new-task/new-task.component';
 
 @NgModule({
   declarations: [
@@ -52,8 +53,8 @@ import { NewTestComponent } from './new-test/new-test.component';
     AutoCompleteComponent,
     SerachAutoComponent,
     FormComponent,
-    NewTestComponent,
-
+    NewTaskComponent,
+    NewTestComponent
   ],
   imports: [
     BrowserModule,
