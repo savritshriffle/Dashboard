@@ -111,6 +111,17 @@ deleteData(id: string) {
     //  if(dataApi?.match(id)) {
     //    localStorage.removeItem(id)
     //  }
+    //  console.log(id)
+    //  const dataApi = localStorage.getItem('apiData')
+    //  console.log(dataApi?.match(id))
+    //  if(dataApi?.match(id)) {
+    //    localStorage.removeItem(id)
+    //  }//  console.log(id)
+    //  const dataApi = localStorage.getItem('apiData')
+    //  console.log(dataApi?.match(id))
+    //  if(dataApi?.match(id)) {
+    //    localStorage.removeItem(id)
+    //  }
 }     
 
 sortData(sort :Sort) {

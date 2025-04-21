@@ -93,7 +93,17 @@ export class MultiChartComponent {
     this.filterData = [...this.data].sort((a, b) => b - a)
     for(let i=0; i< this.chartOptions.length; i++){
       this.chartOptions[i].series[0].data = [...this.filterData];
-      Highcharts.charts[i]?.update(this.chartOptions[i])
+      Highcharts.charts[i]?.update(this.chartOptions[i]);
+
+
+
+
+      //  console.log(id)
+    //  const dataApi = localStorage.getItem('apiData')
+    //  console.log(dataApi?.match(id))
+    //  if(dataApi?.match(id)) {
+    //    localStorage.removeItem(id)
+    //  }
     }
    }
   
