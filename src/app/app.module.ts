@@ -35,11 +35,8 @@ import { MatChipsModule} from '@angular/material/chips';
 import { AutoCompleteComponent } from './auto-complete/auto-complete.component';
 import { SerachAutoComponent } from './serach-auto/serach-auto.component';
 import { FormComponent } from './form/form.component';
-<<<<<<< Updated upstream
-=======
 import { NewTestComponent } from './new-test/new-test.component';
 import { NewTaskComponent } from './new-task/new-task.component';
->>>>>>> Stashed changes
 
 @NgModule({
   declarations: [
@@ -56,12 +53,8 @@ import { NewTaskComponent } from './new-task/new-task.component';
     AutoCompleteComponent,
     SerachAutoComponent,
     FormComponent,
-<<<<<<< Updated upstream
-=======
-    NewTestComponent,
     NewTaskComponent,
->>>>>>> Stashed changes
-
+    NewTestComponent
   ],
   imports: [
     BrowserModule,
