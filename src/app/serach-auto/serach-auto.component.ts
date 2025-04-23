@@ -149,6 +149,10 @@ remove(id : number) {
   this.filterData = this.filterData.filter(item => item.id !== id);
 }
 
+edit(index : number) {
+  console.log(index)
+  this.isEdit = true;
+}
 
 
 }
