@@ -12,6 +12,7 @@ import { ChartApiComponent } from './chart-api/chart-api.component';
 import { AutoCompleteComponent } from './auto-complete/auto-complete.component';
 import { SerachAutoComponent } from './serach-auto/serach-auto.component';
 import { FormComponent } from './form/form.component';
+import { SearchNewComponent } from './search-new/search-new.component';
 
 const routes: Routes = [
   {
@@ -64,6 +65,10 @@ const routes: Routes = [
   {
     path:'form',
     component: FormComponent
+  },
+  {
+    path:'search-new',
+    component: SearchNewComponent
   },
 
   

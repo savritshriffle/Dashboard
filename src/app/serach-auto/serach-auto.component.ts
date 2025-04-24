@@ -123,9 +123,8 @@ export class SerachAutoComponent {
       post: 'student'
     },
   ]
-displayedColumns = ['id', 'name', 'age', 'contact', 'post', 'action']
+displayedColumns = ['id', 'name', 'age', 'contact', 'post', 'Delete' ,'action']
  searchInput = '';
- isEdit = false
  inputId: number = 0;
  filterData = [...this.Data]
  searchFunc() {
@@ -149,10 +148,21 @@ remove(id : number) {
   this.filterData = this.filterData.filter(item => item.id !== id);
 }
 
-edit(index : number) {
-  console.log(index)
-  this.isEdit = true;
+edit(post : any) {
+  // console.log(post)
+  post.isEdit = true
 }
 
+handleOnChange(event:any , post:any , key:any) {
+  post[key] = event.target.value
+  this.filterData = [...this.filterData]
+}
 
+save(post: any) {
+  console.log(post);
+  localStorage.setItem('tableData', JSON.stringify(post));
+  const data =  JSON.parse(JSON.stringify(localStorage.getItem('tableData')));
+  this.filterData = [...data]
+ 
+}
 }

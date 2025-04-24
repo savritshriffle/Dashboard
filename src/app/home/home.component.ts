@@ -85,6 +85,7 @@ save(post: any){
 handleOnChange(e: any, post: any, key: any) {
     post[key]= e.target.value;
     this.dataSources.data = [...this.dataSources.data];
+    console.log(this.dataSources)
 }
 
 

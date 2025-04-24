@@ -7,6 +7,8 @@ import { Observable } from 'rxjs';
 })
 export class ServiceService {
   private apiUrl = `https://jsonplaceholder.typicode.com/posts`;
+  private productApi = `https://dummyjson.com/products`;
+
   constructor(private http: HttpClient) { }
   getPosts(): Observable<any> {
     return this.http.get(`${this.apiUrl}`)
@@ -15,5 +17,9 @@ export class ServiceService {
   getChartApi(): Observable<any> {
     return this.http.get('https://fakestoreapi.com/products');
   }
+
+ getProducts(): Observable<any> {
+  return this.http.get(`${this.productApi}`)
+ }
   
 }
