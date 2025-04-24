@@ -15,7 +15,10 @@ export class SearchNewComponent implements OnInit{
 
   }
   ngOnInit(): void {
-    this.dynamic();
+    // this.dynamic();
+this.service.getProducts().subscribe((data) => {
+  this.deepTraverse(data.products);
+})
   }
   // array =['a','b','c',['1',['2',['3', ['4', ['5']]]]]];
 
@@ -24,46 +27,67 @@ export class SearchNewComponent implements OnInit{
   //   [{id:'7',name:'aa'},{'id':'8',name:'bb'},{id:'9',name:'cc'}],
   // ]
 
-  dynamic() {
-    // let val = this.array.length+1;
-    // let value = this.array.flat(val)
-    // console.log(value, val)
-    // console.log(this.obj)
-    // let len = this.obj.length+1;
-    // let value = this.obj.flat(len)
-    // let data = value.map((val) =>{
-    //   console.log(val)
-    // })
-    this.service.getProducts().subscribe((data) => {
-      this.filterData = data.products;
-      // console.log(this.filterData);
+  // dynamic() {
+  //   // let val = this.array.length+1;
+  //   // let value = this.array.flat(val)
+  //   // console.log(value, val)
+  //   // console.log(this.obj)
+  //   // let len = this.obj.length+1;
+  //   // let value = this.obj.flat(len)
+  //   // let data = value.map((val) =>{
+  //   //   console.log(val)
+  //   // })
+  //   this.service.getProducts().subscribe((data) => {
+  //     this.filterData = data.products;
+  //     // console.log(this.filterData);
 
-    //   this.filterData.filter((value: any) => {
-    //     Object.keys(value).forEach((key: any) => {  
-    //       Object.values(value).filter((value) =>{  
-    //         console.log(key, value, typeof value) 
-    //            if(typeof value === 'object') {
-    //              for(let val in value) {
-    //                console.log(typeof val)
-    //              }
-    //            }
-    //       })
-    //     })
-    //   })
+  //   //   this.filterData.filter((value: any) => {
+  //   //     Object.keys(value).forEach((key: any) => {  
+  //   //       Object.values(value).filter((value) =>{  
+  //   //         console.log(key, value, typeof value) 
+  //   //            if(typeof value === 'object') {
+  //   //              for(let val in value) {
+  //   //                console.log(typeof val)
+  //   //              }
+  //   //            }
+  //   //       })
+  //   //     })
+  //   //   })
 
-    this.filterData.forEach((value: any) => {
-        for(let val in value) {
-          console.log(val, typeof value[val])
+  //   type Data = {
 
-          if(typeof value[val] === 'object') {
-              Object.entries(value[val]).forEach((value) =>{
-                console.log( typeof value)
-              })
-          }
+  //   }
+  //   this.filterData.forEach((value: any) => {
+  //       for(let val in value) {
+  //         console.log(val, typeof value[val])
+
+  //         if(typeof value[val] === 'object') {
+  //             Object.entries(value[val]).forEach((value) =>{
+  //               console.log( typeof value)
+  //             })
+  //         }
            
+  //       }
+  //   })
+  //   })
+  // } 
+
+ deepTraverse(data: any): void {
+    if (Array.isArray(data)) {
+      for (const item of data) {
+        this.deepTraverse(item); 
+      }
+    } else if (typeof data === 'object' && data !== null) {
+      for (const key in data) {
+        if (typeof data[key] === 'object') {
+          console.log(key, typeof data[key]);
+          this.deepTraverse(data[key]); 
+        } else {
+          console.log(key, typeof data[key]);
         }
-    })
-    })
-  } 
+      }
+    }
+  }
+  
 }
 
