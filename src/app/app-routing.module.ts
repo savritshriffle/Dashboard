@@ -13,6 +13,7 @@ import { AutoCompleteComponent } from './auto-complete/auto-complete.component';
 import { SerachAutoComponent } from './serach-auto/serach-auto.component';
 import { FormComponent } from './form/form.component';
 import { SearchNewComponent } from './search-new/search-new.component';
+import { NewTaskComponent } from './new-task/new-task.component';
 
 const routes: Routes = [
   {
@@ -69,6 +70,10 @@ const routes: Routes = [
   {
     path:'search-new',
     component: SearchNewComponent
+  },
+  {
+    path:'complete',
+    component: NewTaskComponent
   },
 
   

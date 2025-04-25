@@ -6,37 +6,79 @@ import { Component } from '@angular/core';
   styleUrls: ['./new-test.component.css']
 })
 export class NewTestComponent {
-   some() {
-    console.log('helloo')
-    console.log('helloo')
-    console.log('massage change')
-    console.log('masssge change')
-    console.log('helloo')
+    arrData = [
+      {
+        id:1,
+        name:'Aadi',
+        contect:10235,
+        compete: true
+      },
+      {
+        id:2,
+        name:'Book',
+        contect:10235,
+        compete: true
+      },
+      {
+        id:3,
+        name:'Cat',
+        contect:10235,
+        compete: true
+      },
+      {
+        id:4,
+        name:'diya',
+        contect:10235,
+        compete: false
+      },
+      {
+        id:5,
+        name:'Siva',
+        contect:10235,
+        compete: false
+      },
+      {
+        id:6,
+        name:'Ram',
+        contect:10235,
+        compete: true
+      },
+      {
+        id:7,
+        name:'Raghav',
+        contect:10235,
+        compete: false
+      },
+      {
+        id:8,
+        name:'Siya',
+        contect:10235,
+        compete: false
+      },
+      {
+        id:9,
+        name:'Riya',
+        contect:10235,
+        compete: true
+      },
+      {
+        id:10,
+        name:'Priya',
+        contect:10235,
+        compete: true
+      },
+    ]
 
-
-    console.log('massage change')
-    console.log('masssge change')
-    console.log('helloo')
-    console.log('hello')
-    console.log('hello')
-
-
-
-    console.log('hellow change')
-    console.log('hellow')
-    console.log('hellow')
-
-
-    console.log('hellow change')
-    console.log('hellow change')
-    console.log('hellow change')
-
-    console.log('massage change')
-    console.log('masssge change')
-    console.log('helloo')
-    console.log('massage change')
-    console.log('masssge change')
-    console.log('helloo')
-
-   }
+  completeFun() {
+    this.arrData.forEach((value) =>{
+      if(value.compete === true)
+         console.log(value)
+    })
+  }
+  unCompleteFun() {
+    this.arrData.forEach((value) =>{
+      if(value.compete === false)
+         console.log(value)
+    })
+  }
 }
