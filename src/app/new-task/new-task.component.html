@@ -1,3 +1,6 @@
-
-<mat-checkbox [(ngModel)]="data1" (change)="completeFun()">Complete</mat-checkbox>
-<mat-checkbox [(ngModel)]="data"(change)="UncompleteFun()">UnComplete</mat-checkbox>
+<span *ngFor="let data of filterData" >
+<mat-checkbox [(ngModel)]="data.value" (change)="completeFun()">{{data.name}}</mat-checkbox>
+</span>
+<div *ngFor="let filter of arrData">
+    {{filter.complete}}
+</div>

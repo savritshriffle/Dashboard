@@ -6,101 +6,90 @@ import { Component } from '@angular/core';
   styleUrls: ['./new-task.component.css']
 })
 export class NewTaskComponent {
-  isChecked = false
+  filterData = [
+    {
+      name: 'complete',
+      value: false
+    },
+    {
+      name: 'Incomplete',
+      value: false
+    },
+  ]
   arrData = [
     {
       id:1,
       name:'Aadi',
       contect:10235,
-      compete: true,
+      complete: true,
     },
     {
       id:2,
       name:'Book',
       contect:10235,
-      compete: true
+      complete: true
     },
     {
       id:3,
       name:'Cat',
       contect:10235,
-      compete: true
+      complete: true
     },
     {
       id:4,
       name:'diya',
       contect:10235,
-      compete: false
+      complete: false
     },
     {
       id:5,
       name:'Siva',
       contect:10235,
-      compete: false
+      complete: false
     },
     {
       id:6,
       name:'Ram',
       contect:10235,
-      compete: true
+      complete: true
     },
     {
       id:7,
       name:'Raghav',
       contect:10235,
-      compete: false
+      complete: false
     },
     {
       id:8,
       name:'Siya',
       contect:10235,
-      compete: false
+      complete: false
     },
     {
       id:9,
       name:'Riya',
       contect:10235,
-      compete: true
+      complete: true
     },
     {
       id:10,
       name:'Priya',
       contect:10235,
-      compete: true
+      complete: true
     },
   ]
   data1: any;
-  data: any
+  data: any;
+
   completeFun() {
-      if(this.data1 === true) {
-        this.arrData.forEach((value) =>{
-          if(value.compete === true){
-            console.log(value)
-          }
-        })
-      }
-    }
     
-
-    
-    
-  
-
-  UncompleteFun() {
-    if(this.data && this.data1) {
-      this.arrData.forEach((value) =>{
-        console.log(value)
-      })
-      if(this.data.true) {
-        this.arrData.forEach((value) =>{
-          if(value.compete === false) {
-            console.log(false)
-          }
-        })
-      }
-    }
   }
-}
+    
+
+
+   
+  
+  }
 
 
 
