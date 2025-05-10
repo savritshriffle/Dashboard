@@ -103,7 +103,7 @@ search() {
   else {
     this.filterData = this.data.filter((value) =>
       value.toLocaleString().toString().includes(this.searchData)
-  );    // console.log(this.filterData);
+  );   
   }
   for (let i = 0; i < (this.chartOptions.series as any).length; i++) {
   (this.chartOptions.series as any)[i].data = [...this.filterData];

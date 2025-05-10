@@ -6,6 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./new-task.component.css']
 })
 export class NewTaskComponent {
+  filterValue: any[] = [];
   filterData = [
     {
       name: 'complete',
@@ -16,7 +17,7 @@ export class NewTaskComponent {
       value: false
     },
   ]
-  arrData = [
+  studentData = [
     {
       id:1,
       name:'Aadi',
@@ -78,11 +79,24 @@ export class NewTaskComponent {
       complete: true
     },
   ]
-  data1: any;
-  data: any;
-
+  
   completeFun() {
-    
+    const isCheckData = this.filterData.find((value) => value.name === 'complete')?.value;
+    const isInCheckedData = this.filterData.find((value) => value.name === 'Incomplete')?.value;
+    const trueValue = this.studentData.filter((val) => val.complete === true);
+    const falseValue = this.studentData.filter((val) => val.complete === false);
+  
+    if(isCheckData && isInCheckedData){
+      console.log(this.filterValue)
+    }
+    else if(isCheckData){
+      console.log(trueValue)
+    }
+    else if(isInCheckedData){
+      console.log(falseValue)
+    }else {
+      console.log(this.filterValue)
+    }
   }
     
 

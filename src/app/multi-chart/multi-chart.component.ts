@@ -95,15 +95,6 @@ export class MultiChartComponent {
       this.chartOptions[i].series[0].data = [...this.filterData];
       Highcharts.charts[i]?.update(this.chartOptions[i]);
 
-
-
-
-      //  console.log(id)
-    //  const dataApi = localStorage.getItem('apiData')
-    //  console.log(dataApi?.match(id))
-    //  if(dataApi?.match(id)) {
-    //    localStorage.removeItem(id)
-    //  }
     }
    }
   

@@ -1,10 +1,9 @@
 import { ChangeDetectorRef, Component, OnChanges, OnInit, SimpleChanges, ViewChild } from '@angular/core';
 import { ServiceService } from '../service.service';
 import { MatDialog } from '@angular/material/dialog';
-import { ContactComponent } from '../contact/contact.component';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatSort, Sort } from '@angular/material/sort';
-import { MatPaginator, PageEvent } from '@angular/material/paginator';
+import { MatPaginator } from '@angular/material/paginator';
 import { ActivatedRoute } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 @Component({
@@ -105,23 +104,6 @@ deleteData(id: string) {
     this.dataSources.data = [...this.dataSources.data]
     this.toastr.info("deleted Data   " + id)
   }
-    //  console.log(id)
-    //  const dataApi = localStorage.getItem('apiData')
-    //  console.log(dataApi?.match(id))
-    //  if(dataApi?.match(id)) {
-    //    localStorage.removeItem(id)
-    //  }
-    //  console.log(id)
-    //  const dataApi = localStorage.getItem('apiData')
-    //  console.log(dataApi?.match(id))
-    //  if(dataApi?.match(id)) {
-    //    localStorage.removeItem(id)
-    //  }//  console.log(id)
-    //  const dataApi = localStorage.getItem('apiData')
-    //  console.log(dataApi?.match(id))
-    //  if(dataApi?.match(id)) {
-    //    localStorage.removeItem(id)
-    //  }
 }     
 
 sortData(sort :Sort) {

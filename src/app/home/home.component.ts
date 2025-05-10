@@ -106,12 +106,7 @@ deleteData(id: string) {
     this.dataSources.data = [...this.dataSources.data]
     this.toastr.info("deleted Data   " + id)
   }
-    //  console.log(id)
-    //  const dataApi = localStorage.getItem('apiData')
-    //  console.log(dataApi?.match(id))
-    //  if(dataApi?.match(id)) {
-    //    localStorage.removeItem(id)
-    //  }
+   
 }     
 
 sortData(sort :Sort) {
