@@ -78,9 +78,20 @@ export class NewTaskComponent {
       contect:10235,
       complete: true
     },
+    {
+      id:10,
+      name:'Priya',
+      contect:10235,
+      complete: true
+    },{
+      id:11,
+      name:'Tiya',
+      contect:10235,
+      complete: true
+    },
   ]
   
-  completeFun() {
+  onFilterData() {
     const isCheckData = this.filterData.find((value) => value.name === 'complete')?.value;
     const isInCheckedData = this.filterData.find((value) => value.name === 'Incomplete')?.value;
     const trueValue = this.studentData.filter((val) => val.complete === true);

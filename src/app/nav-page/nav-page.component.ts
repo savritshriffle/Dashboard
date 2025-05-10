@@ -4,7 +4,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatSort, Sort } from '@angular/material/sort';
 import { MatPaginator } from '@angular/material/paginator';
-import { ActivatedRoute } from '@angular/router';
+
 import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-nav-page',
@@ -24,7 +24,7 @@ dataSources = new MatTableDataSource<any>([]);
 sortedData = new MatSort();
 currentPage = 0;
 currentSize = 0;
-constructor(private service: ServiceService, public dialog: MatDialog, private cdr: ChangeDetectorRef, private router : ActivatedRoute, private toastr: ToastrService) {
+constructor(private service: ServiceService, public dialog: MatDialog, private toastr: ToastrService) {
 
 }
 

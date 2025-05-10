@@ -158,7 +158,7 @@ handleOnChange(event:any , post:any , key:any) {
   this.filterData = [...this.filterData]
 }
 
-save(post: any) {
+saveData(post: any) {
   console.log(post);
   localStorage.setItem('tableData', JSON.stringify(post));
   const data =  JSON.parse(JSON.stringify(localStorage.getItem('tableData')));

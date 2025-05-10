@@ -70,15 +70,15 @@ getPostData() {
   });
 }
 
-search(filtervalue: string){
+filterSearch(filtervalue: string){
   this.dataSources.filter = filtervalue.trim().toLowerCase();
 }
 
-Edit(post: any) {
+editData(post: any) {
     post.isEdit= true
   }
   
-save(post: any){
+onSaveData(post: any){
     post.isEdit = false;
     this.dataSources.data = [...this.dataSources.data]
 }

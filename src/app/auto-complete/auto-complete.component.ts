@@ -26,6 +26,7 @@ export class AutoCompleteComponent {
     'Pineapple',
     'Dragonfruit',
     'BlackBerry',
+    'Blueberry',
     'The Long Name of a Fruit That is Yet to be Discovered',
   ];
   opened = false;
