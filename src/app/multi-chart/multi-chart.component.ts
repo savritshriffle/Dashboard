@@ -13,8 +13,7 @@ export class MultiChartComponent {
   chartFilter: string = '';
   Highcharts = Highcharts;  
   chartOptions: any[] = []; 
-  constructor() {
-    
+  constructor() {  
     this.chartOptions = [
       {
         chart: {
