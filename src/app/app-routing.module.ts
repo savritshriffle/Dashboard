@@ -2,13 +2,13 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
-import { NavbarComponent } from './navbar/navbar.component';
 import { StockChartComponent } from './chart/chart.component';
 import { MultiChartComponent } from './multi-chart/multi-chart.component';
 import { AutoCompleteComponent } from './auto-complete/auto-complete.component';
 import { SerachAutoComponent } from './search-auto/search-auto.component';
 import { CheckboxComponent } from './checkbox-filter/checkbox.component';
 import { StudentComponent } from './student-Data/student-Data.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 
 const routes: Routes = [
@@ -22,7 +22,7 @@ const routes: Routes = [
   
   {
     path: 'dashboard',
-    component: NavbarComponent,
+    component: DashboardComponent,
     children: [
       {
         path:'home',

@@ -1,4 +1,4 @@
-<app-navbar></app-navbar>
+<app-dashboard></app-dashboard>
 <span *ngFor="let data of filterData" >
     <mat-checkbox [(ngModel)]="data.value" (change)="onFilterData()">{{data.name}}</mat-checkbox>
 </span>
