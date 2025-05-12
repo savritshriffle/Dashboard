@@ -34,9 +34,6 @@ export class FormComponent {
   }
 
   onSubmit(): void {
-    // if (this.inputField.valid) {
-      console.log(this.inputField); 
-      // console.log('Form is invalid');
-    }
-  // }
+    console.log(this.inputField, "formdata"); 
+  }
 }

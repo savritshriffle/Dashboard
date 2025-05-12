@@ -1,5 +1,5 @@
-body {
-    columns: 1;
-    color: aqua;
-    background-color: beige;
+.input{
+    margin: 2px;
+    height: 30px;
+    width: 300px;
 }

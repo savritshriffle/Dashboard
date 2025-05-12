@@ -20,7 +20,7 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void { }
    
   logIn() {
-      const userData = localStorage.setItem('userData', JSON.stringify(this.loginInput.value)) 
+      localStorage.setItem('userData', JSON.stringify(this.loginInput.value)) 
       this.localData = localStorage.getItem('userData');
       const data= JSON.parse(this.localData)
       if(data != null) {

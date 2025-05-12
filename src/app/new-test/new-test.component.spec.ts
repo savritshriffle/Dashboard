@@ -17,13 +17,6 @@ describe('NewTestComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
-    console.log('hello')
-    console.log('hello')
-    console.log('hello')
-    console.log('hello')
-
-
-    console.log('hello')
-    console.log('hello')
+ 
   });
 });

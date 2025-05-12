@@ -2,16 +2,17 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
-import { ContactComponent } from './contact/contact.component';
 import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { StockChartComponent } from './chart/chart.component';
 import { NavPageComponent } from './nav-page/nav-page.component';
 import { MultiChartComponent } from './multi-chart/multi-chart.component';
-import { ChartApiComponent } from './chart-api/chart-api.component';
 import { AutoCompleteComponent } from './auto-complete/auto-complete.component';
 import { SerachAutoComponent } from './serach-auto/serach-auto.component';
 import { FormComponent } from './form/form.component';
+import { NewTaskComponent } from './new-task/new-task.component';
+import { NewTestComponent } from './new-test/new-test.component';
+
 
 const routes: Routes = [
   {
@@ -32,10 +33,6 @@ const routes: Routes = [
         component: AboutComponent
       },
       {
-        path: 'contact',
-        component: ContactComponent
-      },
-      {
         path: 'navpage',
         component: NavPageComponent
       }
@@ -50,10 +47,6 @@ const routes: Routes = [
     component: MultiChartComponent
   },
   {
-    path:'chart-api',
-    component: ChartApiComponent
-  },
-  {
     path:'auto-complete',
     component: AutoCompleteComponent
   },
@@ -65,8 +58,14 @@ const routes: Routes = [
     path:'form',
     component: FormComponent
   },
-
-  
+  {
+    path:'complete',
+    component: NewTaskComponent
+  },
+  {
+    path: 'new-Test',
+    component: NewTestComponent
+  },
   {
     path: '',
     redirectTo: '/login',

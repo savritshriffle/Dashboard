@@ -1,6 +1,7 @@
-export interface Price {
-    id: number
-    title: string
-    price: number
-    description: string
-}
+  export interface getData { 
+        en: string | number | undefined;
+        es: string | number | undefined;
+        de: string | number | undefined;
+  
+  }
+  

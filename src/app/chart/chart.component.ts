@@ -103,7 +103,7 @@ search() {
   else {
     this.filterData = this.data.filter((value) =>
       value.toLocaleString().toString().includes(this.searchData)
-  );    // console.log(this.filterData);
+  );   
   }
   for (let i = 0; i < (this.chartOptions.series as any).length; i++) {
   (this.chartOptions.series as any)[i].data = [...this.filterData];
@@ -127,14 +127,14 @@ typeChart() {
         Highcharts.charts[0]?.update(this.chartOptions);
 }
   
-aesending() {
+filterAesending() {
   this.filterData = [...this.data].sort((a , b) => a - b);
   for (let i = 0; i < (this.chartOptions.series as any).length; i++) {
     (this.chartOptions.series as any)[i].data = [...this.filterData];
      Highcharts.charts[0]?.update(this.chartOptions);
   }
 }
-desending() {
+filterDesending() {
   this.filterData = [...this.data].sort((a , b) => b - a);
    for (let i = 0; i < (this.chartOptions.series as any).length; i++) {
     (this.chartOptions.series as any)[i].data = [...this.filterData];

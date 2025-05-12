@@ -37,7 +37,7 @@ import { SerachAutoComponent } from './serach-auto/serach-auto.component';
 import { FormComponent } from './form/form.component';
 import { NewTestComponent } from './new-test/new-test.component';
 import { NewTaskComponent } from './new-task/new-task.component';
-
+import {MatRadioModule} from '@angular/material/radio';
 @NgModule({
   declarations: [
     AppComponent,
@@ -79,7 +79,7 @@ import { NewTaskComponent } from './new-task/new-task.component';
     MatSelectModule,
     MatCheckboxModule,
     MatChipsModule,
-
+    MatRadioModule,
   ],
   providers: [ 
     provideAnimations(), 

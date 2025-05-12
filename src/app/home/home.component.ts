@@ -70,21 +70,22 @@ getPostData() {
   });
 }
 
-search(filtervalue: string){
+filterSearch(filtervalue: string){
   this.dataSources.filter = filtervalue.trim().toLowerCase();
 }
 
-Edit(post: any) {
+editData(post: any) {
     post.isEdit= true
   }
   
-save(post: any){
+onSaveData(post: any){
     post.isEdit = false;
     this.dataSources.data = [...this.dataSources.data]
 }
 handleOnChange(e: any, post: any, key: any) {
     post[key]= e.target.value;
     this.dataSources.data = [...this.dataSources.data];
+    console.log(this.dataSources)
 }
 
 
@@ -105,12 +106,7 @@ deleteData(id: string) {
     this.dataSources.data = [...this.dataSources.data]
     this.toastr.info("deleted Data   " + id)
   }
-    //  console.log(id)
-    //  const dataApi = localStorage.getItem('apiData')
-    //  console.log(dataApi?.match(id))
-    //  if(dataApi?.match(id)) {
-    //    localStorage.removeItem(id)
-    //  }
+   
 }     
 
 sortData(sort :Sort) {

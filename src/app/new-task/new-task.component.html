@@ -1,1 +1,7 @@
-<p>new-task works!</p>
+<span *ngFor="let data of filterData" >
+<mat-checkbox [(ngModel)]="data.value" (change)="onFilterData()">{{data.name}}</mat-checkbox>
+</span>
+<div *ngFor="let filter of filterValue">
+    {{filter.name}} : {{filter.complete}}
+</div>
+
