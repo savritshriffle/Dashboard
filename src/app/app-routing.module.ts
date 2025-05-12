@@ -27,10 +27,6 @@ const routes: Routes = [
         path:'home',
         component: HomeComponent
       },
-      {
-        path: 'about',
-        component: DialogboxComponent
-      }
     ]
   },
   {
@@ -42,16 +38,8 @@ const routes: Routes = [
     component: MultiChartComponent
   },
   {
-    path:'auto-complete',
-    component: DialogboxComponent
-  },
-  {
     path:'search-auto',
     component: SerachAutoComponent
-  },
-  {
-    path:'form',
-    component: FormComponent
   },
   {
     path:'checkbox',
@@ -61,13 +49,6 @@ const routes: Routes = [
     path: 'student-data',
     component: StudentComponent
   },
-  {
-    path: '',
-    redirectTo: '/login',
-    pathMatch: 'full'
-
-  },
-  
 ];
 
 @NgModule({

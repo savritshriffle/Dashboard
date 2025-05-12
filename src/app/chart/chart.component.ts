@@ -12,9 +12,9 @@ export class StockChartComponent {
     'Mon 27-03-2025', 'Tue 27-03-2025','Wed 27-03-2025','Thu 27-03-2025', 'Fri 27-03-2025', 'Sat 27-03-2025', 'Sun 27-03-2025',
     'Mon 27-03-2025', 'Tue 27-03-2025','Wed 27-03-2025','Thu 27-03-2025', 'Fri 27-03-2025', 'Sat 27-03-2025', 'Sun 27-03-2025'
   ];
-  chartType: string = '';
+  chartType: string = 'column';
   searchData: string = '';
-  chartFilter: string = '';
+  chartFilter: string = 'ascending';
   filterData:any  = [...this.data];
   Highcharts: typeof Highcharts = Highcharts;
   
