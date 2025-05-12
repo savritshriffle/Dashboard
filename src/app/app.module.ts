@@ -30,7 +30,7 @@ import { MatSelectModule } from '@angular/material/select';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import { MatChipsModule} from '@angular/material/chips';
 import { AutoCompleteComponent } from './auto-complete/auto-complete.component';
-import { SerachAutoComponent } from './serach-auto/serach-auto.component';
+import { SerachAutoComponent } from './search-auto/search-auto.component';
 import { FormComponent } from './form/form.component';
 import { CheckboxComponent } from './checkbox-filter/checkbox.component';
 import { MatRadioModule } from '@angular/material/radio';

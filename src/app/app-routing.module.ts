@@ -7,7 +7,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { StockChartComponent } from './chart/chart.component';
 import { MultiChartComponent } from './multi-chart/multi-chart.component';
 import { AutoCompleteComponent } from './auto-complete/auto-complete.component';
-import { SerachAutoComponent } from './serach-auto/serach-auto.component';
+import { SerachAutoComponent } from './search-auto/search-auto.component';
 import { FormComponent } from './form/form.component';
 import { CheckboxComponent } from './checkbox-filter/checkbox.component';
 import { StudentComponent } from './student-Data/student-Data.component';
