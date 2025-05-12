@@ -12,21 +12,21 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./nav-page.component.css']
 })
 export class NavPageComponent implements OnInit, OnChanges {
-@ViewChild(MatSort) sort!: MatSort;
-@ViewChild(MatPaginator, {static: false}) paginator!: MatPaginator;
-posts: any[] = [];   
-pageIndex = 1;
-filterData: any[] = []; 
-searchData: string = '';
-displayedColumns: string[] = ['userId', 'id', 'title', 'body', 'Action', 'Delete'];
-selectedPost:any = null;
-dataSources = new MatTableDataSource<any>([]);
-sortedData = new MatSort();
-currentPage = 0;
-currentSize = 0;
-constructor(private service: ServiceService, public dialog: MatDialog, private toastr: ToastrService) {
+  @ViewChild(MatSort) sort!: MatSort;
+  @ViewChild(MatPaginator, {static: false}) paginator!: MatPaginator;
+  posts: any[] = [];   
+  pageIndex = 1;
+  filterData: any[] = []; 
+  searchData: string = '';
+  displayedColumns: string[] = ['userId', 'id', 'title', 'body', 'Action', 'Delete'];
+  selectedPost:any = null;
+  dataSources = new MatTableDataSource<any>([]);
+  sortedData = new MatSort();
+  currentPage = 0;
+  currentSize = 0;
+  constructor(private service: ServiceService, public dialog: MatDialog, private toastr: ToastrService) {
 
-}
+  }
 
 ngOnInit(): void { 
     this.getPostData();
@@ -69,15 +69,15 @@ getPostData() {
   });
 }
 
-search(filtervalue: string){
+filterSearch(filtervalue: string){
   this.dataSources.filter = filtervalue.trim().toLowerCase();
 }
 
-Edit(post: any) {
+EditData(post: any) {
     post.isEdit= true
   }
   
-save(post: any){
+saveData(post: any){
     post.isEdit = false;
     this.dataSources.data = [...this.dataSources.data]
 }

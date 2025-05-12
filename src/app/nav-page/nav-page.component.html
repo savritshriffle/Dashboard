@@ -1,29 +1,6 @@
-<div class="parent-container">
-    <div class="container"> 
-        <div class="top-container">Links</div>
-        <nav class="nav">
-            <a href="#" class="link">Home</a><br>
-            <a href="#" class="link">About</a><br>
-            <a href="#" class="link">Contact</a><br>
-            <a href="#" class="link">Product</a><br>
-            <a href="#" class="link">Product-list</a><br>
-        </nav>
-    </div>
-
-<div class="content">
-   <h1 style="color: red;">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nostrum maiores officiis sit. Ea laborum dolorem, expedita eum dolor earum culpa consequatur minus omnis numquam harum veniam, facilis, necessitatibus magni unde! Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate illo suscipit atque, ratione aspernatur explicabo? Sit, labore veniam, repudiandae oLorem ipsum dolor, sit amet consectetur adipisicing elit. Nostrum maiores officiis sit. Ea laborum dolorem, expedita eum dolor earum culpa consequatur minus omnis numquam harum veniam, facilis, necessitatibus magni unde! Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate illo suscipit atque, ratione aspernatur explicabo? Sit, labore veniam, repudiandae obcaecati quam porro pariatur tempora tempore illum consequatur quia impedit deleniti?Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nostrum maiores officiis sit. Ea laborum dolorem, expedita eum dolor earum culpa consequatur minus omnis numquam harum veniam, facilis, necessitatibus magni unde! Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate illo suscipit atque, ratione aspernatur explicabo? Sit, labore veniam, repudiandae obcaecati quam porro pariatur tempora tempore illum consequatur quia impedit deleniti?Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nostrum maiores officiis sit. Ea laborum dolorem, expedita eum dolor earum culpa consequatur minus omnis numquam harum veniam, facilis, necessitatibus magni unde! Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate illo suscipit atque, ratione aspernatur explicabo? Sit, labore veniam, repudiandae obcaecati quam porro pariatur tempora tempore illum consequatur quia impedit deleniti?Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nostrum maiores officiis sit. Ea laborum dolorem, expedita eum dolor earum culpa consequatur minus omnis numquam harum veniam, facilis, necessitatibus magni unde! Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate illo suscipit atque, ratione aspernatur explicabo? Sit, labore veniam, repudiandae obcaecati quam porro pariatur tempora tempore illum consequatur quia impedit deleniti?bcaecati quam porro pariatur tempora tempore illum consequatur quia impedit deleniti?
-    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nostrum maiores officiis sit. Ea laborum dolorem, expedita eum dolor earum culpa consequatur minus omnis numquam harum veniam, facilis, necessitatibus magni unde! Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate illo suscipit atque, ratione aspernatur explicabo? Sit, labore veniam, repudiandae obcaecati quam porro pariatur tempora tempore illum consequatur quia impedit deleniti?
-   </h1>
-   <h1 style="color: blue;">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nostrum maiores officiis sit. Ea laborum dolorem, expedita eum dolor earum culpa consequatur minus omnis numquam harum veniam, facilis, necessitatibus magni unde! Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate illo suscipit atque, ratione aspernatur explicabo? Sit, labore veniam, repudiandae obcaecati quam porro pariatur tempora tempore illum consequatur quia impedit deleniti? Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nostrum maiores officiis sit. Ea laborum dolorem, expedita eum dolor earum culpa consequatur minus omnis numquam harum veniam, facilis, necessitatibus magni unde! Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate illo suscipit atque, ratione aspernatur explicabo? Sit, labore veniam, repudiandae obcaecati quam porro pariatur tempora tempore illum consequatur quia impedit deleniti?</h1>
-   <h1 style="color: green;">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nostrum maiores officiis sit. Ea laborum dolorem, expedita eum dolor earum culpa consequatur minus omnis numquam harum veniam, facilis, necessitatibus magni unde! Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate illo suscipit atque, ratione aspernatur explicabo? Sit, labore veniam, repudiandae obcaecati quam porro pariatur tempora tempore illum consequatur quia impedit deleniti?
-    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nostrum maiores officiis sit. Ea laborum dolorem, expedita eum dolor earum culpa consequatur minus omnis numquam harum veniam, facilis, necessitatibus Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nostrum maiores officiis sit. Ea laborum dolorem, expedita eum dolor earum culpa consequatur minus omnis numquam harum veniam, facilis, necessitatibus magni unde! Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate illo suscipit atque, ratione aspernatur explicabo? Sit, labore veniam, repudiandae obcaecati quam porro pariatur tempora tempore illum consequatur quia impedit deleniti?magni unde! Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate illo suscipit atque, ratione aspernatur explicabo? Sit, labore veniam, repudiandae obcaecati quam porro pariatur tempora tempore illum consequatur quia impedit deleniti?
-   </h1>
-  
-
-   
-   <div class="icon">
+<div class="icon">
     <i class="fa-solid fa-magnifying-glass"></i>
-    <input type="search" placeholder="Enter UserId or Id" class="search" (keyup)="search($any($event.target).value)">
+    <input type="search" placeholder="Enter UserId or Id" class="search" (keyup)="filterSearch($any($event.target).value)">
   </div>
   <table mat-table [dataSource]="dataSources" matSort (matSortChange)="sortData($event)" class="mat-elevation-z8">
      <ng-container matColumnDef="userId">
@@ -67,10 +44,10 @@
    <ng-container matColumnDef="Action">
     <th mat-header-cell *matHeaderCellDef>Action</th>
     <td mat-cell *matCellDef="let post">
-      <button mat-raised-button color="primary" *ngIf="!post.isEdit" (click)="Edit(post)">Edit</button>
+      <button mat-raised-button color="primary" *ngIf="!post.isEdit" (click)="EditData(post)">Edit</button>
       <br>
       <br>
-      <button mat-raised-button color="primary" *ngIf="post.isEdit" (click)="save(post)">Save</button></td>
+      <button mat-raised-button color="primary" *ngIf="post.isEdit" (click)="saveData(post)">Save</button></td>
   </ng-container>
   
    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

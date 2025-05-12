@@ -110,11 +110,7 @@ export class NewTaskComponent {
     }
   }
     
-
-
-   
-  
-  }
+}
 
 
 
