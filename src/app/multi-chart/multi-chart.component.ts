@@ -89,7 +89,7 @@ export class MultiChartComponent {
       Highcharts.charts[i]?.update(this.chartOptions[i])
     }
    }
-   onDesendingDataa() {
+   onDesendingData() {
     this.filterData = [...this.data].sort((a, b) => b - a)
     for(let i=0; i< this.chartOptions.length; i++){
       this.chartOptions[i].series[0].data = [...this.filterData];

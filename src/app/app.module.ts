@@ -5,7 +5,6 @@ import { AppComponent } from './app.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
-import { ContactComponent } from './contact/contact.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDialogModule } from "@angular/material/dialog";
 import { MatButtonModule } from "@angular/material/button";
@@ -27,7 +26,6 @@ import { StockChartComponent } from './chart/chart.component';
 import { HighchartsChartModule } from 'highcharts-angular';
 import { NavPageComponent } from './nav-page/nav-page.component';
 import { MultiChartComponent } from './multi-chart/multi-chart.component';
-import { ChartApiComponent } from './chart-api/chart-api.component';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatSelectModule } from '@angular/material/select';
 import {MatCheckboxModule} from '@angular/material/checkbox';
@@ -44,12 +42,10 @@ import {MatRadioModule} from '@angular/material/radio';
     DashboardComponent,
     HomeComponent,
     AboutComponent,
-    ContactComponent,
     LoginComponent,
     StockChartComponent,
     NavPageComponent,
     MultiChartComponent,
-    ChartApiComponent,
     AutoCompleteComponent,
     SerachAutoComponent,
     FormComponent,

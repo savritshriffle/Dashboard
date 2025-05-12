@@ -9,6 +9,9 @@ import { AfterViewInit, Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements AfterViewInit {
+  title(title: any) {
+    throw new Error('Method not implemented.');
+  }
   ngAfterViewInit() {
     bryntum.gantt.GanttProjectModel.loadInlineData({
       startDate: '2025-04-01',
