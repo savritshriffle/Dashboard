@@ -7,12 +7,11 @@ import { AboutComponent } from '../about/about.component';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent {
-  
   constructor(private dialog : MatDialog) {}
-  openDialog() {
-   this.dialog.open(AboutComponent,{
-      width: '300px',
-      height: '100px',
-   })
-  }
+    openDialog() {
+    this.dialog.open(AboutComponent,{
+        width: '300px',
+        height: '100px',
+    })
+    }
 }
