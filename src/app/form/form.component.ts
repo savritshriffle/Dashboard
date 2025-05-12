@@ -34,6 +34,6 @@ export class FormComponent {
   }
 
   onSubmit(): void {
-    console.log(this.inputField); 
+    console.log(this.inputField, "formdata"); 
   }
 }

@@ -1,13 +1,5 @@
-body {
-    background-color: green;
-    color: white;
-    border: 0cap;
-    border-radius: 0%;
-}
-body {
-    background-color: green;
-    color: white;
-    border: 0cqb;
+mat-form-field{
+    display: inline;
 }
 
 

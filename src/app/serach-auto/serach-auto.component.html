@@ -13,7 +13,6 @@
       <ul>
         <li *ngFor="let option of optionsControl.value">{{ option }}</li>
       </ul>
-
   </div>
    -->
 <div>
@@ -74,7 +73,7 @@
     <th mat-header-cell *matHeaderCellDef >action</th>
     <td  mat-cell *matCellDef="let post">
       <button mat-raised-button color=primary *ngIf="!post.isEdit"  (click)="edit(post)">Edit</button>
-      <button mat-raised-button color=primary *ngIf="post.isEdit" (click)="save(post)">Save</button>
+      <button mat-raised-button color=primary *ngIf="post.isEdit" (click)="saveData(post)">saveData</button>
     </td>
   </ng-container>
 

@@ -5,9 +5,6 @@ import { MatSelect } from '@angular/material/select';
 import {Observable} from 'rxjs';
 import {map, startWith} from 'rxjs/operators';
 
-/**
- * @title 
- */
 @Component({
   selector: 'auto-complete.component',
   templateUrl: './auto-complete.component.html',
@@ -29,6 +26,7 @@ export class AutoCompleteComponent {
     'Pineapple',
     'Dragonfruit',
     'BlackBerry',
+    'Blueberry',
     'The Long Name of a Fruit That is Yet to be Discovered',
   ];
   opened = false;
@@ -40,9 +38,7 @@ export class AutoCompleteComponent {
   constructor() {
     this.filteredFruits = this.fruitCtrl.valueChanges.pipe(
         startWith(''),
-        map((fruit: string) => fruit ? this._filter(fruit) : this.allFruits.slice()));
-        // console.log(this.filteredFruits)
-        
+        map((fruit: string) => fruit ? this._filter(fruit) : this.allFruits.slice())); 
   }
 
   add(event: any): void {
@@ -56,9 +52,6 @@ export class AutoCompleteComponent {
       input.value = '';
     }
     this.fruitCtrl.setValue(null);
-  //  setTimeout(()=>{
-  //     this.selectClose();
-  //   },3000)
   }
 
   remove(fruit: string): void {
@@ -69,8 +62,6 @@ export class AutoCompleteComponent {
   }
 
   selected(event: MatAutocompleteSelectedEvent): void {
-
-    // console.log(event.source)
     const newValue = event.option.viewValue;
     if (this.fruits.includes(newValue)) {
       this.fruits = [...this.fruits.filter(fruit=>fruit !== newValue)];
@@ -87,15 +78,12 @@ export class AutoCompleteComponent {
   }
 
   private _filter(value: string): string[] {
-    // console.log(value)
     const filterValue = value.toLowerCase();
-    // console.log(filterValue)
     return this.allFruits.filter(fruit => fruit.toLowerCase().includes(filterValue));
    
   }
 
   openAuto(trigger: MatAutocompleteTrigger) {
-    // debugger
     trigger.openPanel();
     this.fruitInput.nativeElement.focus();
     console.log(trigger );
