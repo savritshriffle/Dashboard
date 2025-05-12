@@ -9,9 +9,9 @@ import { AboutComponent } from '../about/about.component';
 export class DashboardComponent {
   constructor(private dialog : MatDialog) {}
     openDialog() {
-    this.dialog.open(AboutComponent,{
-        width: '300px',
-        height: '100px',
-    })
+      this.dialog.open(AboutComponent,{
+          width: '300px',
+          height: '100px',
+      })
     }
 }

@@ -7,7 +7,7 @@ import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./new-test.component.css']
 })
 export class NewTestComponent {
-  fb =new  FormBuilder();
+  fb = new FormBuilder();
   formData: FormGroup;
   genderData = [
     {
@@ -71,8 +71,8 @@ export class NewTestComponent {
     return this.formData.get('address') as FormArray;
   }
   addAddress() {
-  const address = this.address.push(this.fb.control(''));
-  console.log(address);
+    const address = this.address.push(this.fb.control(''));
+    console.log(address);
   }
   removeAddress(index: number) {
     this.address.removeAt(index);
@@ -95,14 +95,13 @@ export class NewTestComponent {
   }
 
   addGender(event: any) {
-  this.genderData.filter((val) =>{
-    if(event.value === val.value) {
-      console.log(val)
-      console.log(event.value)
-      this.gender.push(event.value);    
-    }
-  })
-  
+    this.genderData.filter((val) =>{
+      if(event.value === val.value) {
+        console.log(val)
+        console.log(event.value)
+        this.gender.push(event.value);    
+      }
+    })
   }
 
   get hobbies() {

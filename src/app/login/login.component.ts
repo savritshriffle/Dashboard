@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormControl, FormGroup, PatternValidator, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 
 @Component({
@@ -16,24 +16,22 @@ export class LoginComponent  {
 
   localData: any;
   loginForm = new FormGroup({
-    email: new FormControl<string>('',[Validators.required]),
+    email: new FormControl<string>('',[Validators.required,  Validators.pattern('^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$')]),
     password: new FormControl<string>('', [Validators.required, Validators.maxLength(8)])
    })
+  data: any;
 
   constructor(private router: Router, private toastr: ToastrService) { }
 
   logIn() {
-      localStorage.setItem('userData', JSON.stringify(this.loginForm.value)) 
-      this.localData = localStorage.getItem('userData');
-      const data= JSON.parse(this.localData)
-      if(data != null) {
-        this.toastr.success('Login Successfully Completed!...', 'Done', {
-          timeOut: 1000,
-        });
-        this.router.navigate(['/dashboard/home']);
-      }
-      else {
-        this.toastr.error('Invalid Inputs..');
+    if(this.loginForm.controls.email.value === this.userData.email && this.loginForm.controls.password.value === this.userData.password) {
+      this.router.navigate(['/dashboard/home']);
+      this.toastr.success('Login Successfully Completed!...', 'Done', {
+            timeOut: 1000,
+      });
+    }
+    else {
+      this.toastr.error('Invalid Inputs..');
     }
   }
 }

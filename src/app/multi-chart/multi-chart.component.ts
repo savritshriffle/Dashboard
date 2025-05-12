@@ -76,7 +76,6 @@ export class MultiChartComponent {
         value.toLocaleString().toString().includes(this.searchData)
       );
     }
-
     for (let i = 0; i < this.chartOptions.length; i++) {
       this.chartOptions[i].series[0].data = [...this.filterData];
       Highcharts.charts[i]?.update(this.chartOptions[i]);
@@ -100,6 +99,5 @@ export class MultiChartComponent {
       }
     }
   }
-  
 }
 

@@ -42,15 +42,14 @@ export class AutoCompleteComponent {
   }
 
   add(event: any): void {
-   
     const input = event.input;
     const value = event.value;
-   if ((value || '').trim()) {
-      this.fruits.push(value.trim());
-    }
-   if (input) {
-      input.value = '';
-    }
+    if ((value || '').trim()) {
+        this.fruits.push(value.trim());
+      }
+    if (input) {
+        input.value = '';
+      }
     this.fruitCtrl.setValue(null);
   }
 
@@ -70,24 +69,19 @@ export class AutoCompleteComponent {
     }
     this.fruitInput.nativeElement.value = '';
     this.fruitCtrl.setValue('');
-  requestAnimationFrame(()=>{
-    return this.openAuto(this.matACTrigger);
-    })
-   
-
+    requestAnimationFrame(()=>{
+      return this.openAuto(this.matACTrigger)})
   }
 
   private _filter(value: string): string[] {
     const filterValue = value.toLowerCase();
     return this.allFruits.filter(fruit => fruit.toLowerCase().includes(filterValue));
-   
   }
 
   openAuto(trigger: MatAutocompleteTrigger) {
     trigger.openPanel();
     this.fruitInput.nativeElement.focus();
-    console.log(trigger );
-    
+    console.log(trigger ); 
   }
 
   selectClose() {

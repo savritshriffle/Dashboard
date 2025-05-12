@@ -6,7 +6,7 @@ import * as Highcharts from 'highcharts';
   templateUrl: './chart.component.html',
   styleUrls: ['./chart.component.css']
 })
-export class StockChartComponent implements OnInit {
+export class StockChartComponent {
   data: number[] = [1, 2, 4, 7, 9, 4, 5,  1, 4, 5, 6, 2, 7, 8, 2, 1, 3, 7, 6, 2];
   day: string[] = ['Mon 27-03-2025', 'Tue 27-03-2025','Wed 27-03-2025','Thu 27-03-2025', 'Fri 27-03-2025', 'Sat 27-03-2025', 'Sun 27-03-2025',
     'Mon 27-03-2025', 'Tue 27-03-2025','Wed 27-03-2025','Thu 27-03-2025', 'Fri 27-03-2025', 'Sat 27-03-2025', 'Sun 27-03-2025',
@@ -91,9 +91,6 @@ export class StockChartComponent implements OnInit {
   };
 
   constructor() {}
-  ngOnInit(): void {
-    
-  }
 
   search() {
     if (!this.searchData) {
@@ -101,8 +98,7 @@ export class StockChartComponent implements OnInit {
     } 
     else {
       this.filterData = this.data.filter((value) =>
-        value.toLocaleString().toString().includes(this.searchData)
-    );   
+        value.toLocaleString().toString().includes(this.searchData));   
     }
     for (let i = 0; i < (this.chartOptions.series as any).length; i++) {
     (this.chartOptions.series as any)[i].data = [...this.filterData];

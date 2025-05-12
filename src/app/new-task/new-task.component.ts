@@ -109,9 +109,5 @@ export class NewTaskComponent {
     }else {
       this.studentData = [...this.studentData]
     }
-  }
-    
+  }   
 }
-
-
-
