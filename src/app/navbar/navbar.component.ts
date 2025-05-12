@@ -2,11 +2,11 @@ import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogboxComponent } from '../dialog-box/dialog-box.component';
 @Component({
-  selector: 'app-dashboard',
-  templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.css']
+  selector: 'app-navbar',
+  templateUrl: './navbar.component.html',
+  styleUrls: ['./navbar.component.css']
 })
-export class DashboardComponent {
+export class NavbarComponent {
   constructor(private dialog : MatDialog) {}
     openDialog() {
       this.dialog.open(DialogboxComponent,{

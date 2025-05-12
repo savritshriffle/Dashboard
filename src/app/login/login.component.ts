@@ -25,7 +25,7 @@ export class LoginComponent  {
 
   logIn() {
     if(this.loginForm.controls.email.value === this.userData.email && this.loginForm.controls.password.value === this.userData.password) {
-      this.router.navigate(['/dashboard/home']);
+      this.router.navigate(['/navbar/home']);
       this.toastr.success('Login Successfully Completed!...', 'Done', {
             timeOut: 1000,
       });
