@@ -18,8 +18,8 @@ export class ServiceService {
     return this.http.get('https://fakestoreapi.com/products');
   }
 
- getProducts(): Observable<any> {
-  return this.http.get(`${this.productApi}`)
- }
+  getProducts(): Observable<any> {
+    return this.http.get(`${this.productApi}`)
+  }
   
 }
