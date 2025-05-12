@@ -136,7 +136,7 @@ export class SerachAutoComponent {
   inputId: number = 0;
   filterData = [...this.Data];
 
-  searchFunc() {
+  search() {
     const input = this.searchInput.toLowerCase().trim();
     if (input) {
       this.filterData = this.Data.filter(item =>

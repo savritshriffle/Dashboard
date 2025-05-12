@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
@@ -8,19 +8,17 @@ import { ToastrService } from 'ngx-toastr';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent  {
   localData: any;
-  loginInput = new FormGroup({
+  loginForm = new FormGroup({
     email: new FormControl<string>('',[Validators.required]),
     password: new FormControl<string>('', [Validators.required, Validators.maxLength(8)])
    })
 
   constructor(private router: Router, private toastr: ToastrService) { }
-   
-  ngOnInit(): void { }
-   
+
   logIn() {
-      localStorage.setItem('userData', JSON.stringify(this.loginInput.value)) 
+      localStorage.setItem('userData', JSON.stringify(this.loginForm.value)) 
       this.localData = localStorage.getItem('userData');
       const data= JSON.parse(this.localData)
       if(data != null) {

@@ -1,6 +1,6 @@
 <div class="icon">
   <i class="fa-solid fa-magnifying-glass"></i>
-  <input type="search" placeholder="Enter UserId or Id" class="search" (keyup)="filterSearch($any($event.target).value)">
+  <input type="search" placeholder="Enter UserId or Id" class="search" (keyup)="search($any($event.target).value)">
 </div>
 <table mat-table [dataSource]="dataSources" matSort (matSortChange)="sortData($event)" class="mat-elevation-z8">
    <ng-container matColumnDef="userId">

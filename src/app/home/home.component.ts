@@ -19,7 +19,14 @@ posts: any[] = [];
 pageIndex = 1;
 filterData: any[] = []; 
 searchData: string = '';
-displayedColumns: string[] = ['userId', 'id', 'title', 'body', 'Action', 'Delete'];
+displayedColumns: string[] = [
+  'userId',
+  'id',
+  'title',
+  'body',
+  'Action',
+  'Delete'
+];
 selectedPost:any = null;
 dataSources = new MatTableDataSource<any>([]);
 sortedData = new MatSort();
@@ -30,9 +37,7 @@ constructor(private service: ServiceService, public dialog: MatDialog, private c
 }
 
 ngOnInit(): void { 
-    this.getPostData();
-  
-  
+    this.getPostData(); 
 }
 
 ngOnChanges(changes: SimpleChanges): void {
@@ -70,7 +75,7 @@ getPostData() {
   });
 }
 
-filterSearch(filtervalue: string){
+search(filtervalue: string){
   this.dataSources.filter = filtervalue.trim().toLowerCase();
 }
 

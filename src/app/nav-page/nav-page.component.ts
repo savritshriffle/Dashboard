@@ -30,8 +30,6 @@ export class NavPageComponent implements OnInit, OnChanges {
 
 ngOnInit(): void { 
     this.getPostData();
-  
-  
 }
 
 ngOnChanges(changes: SimpleChanges): void {
@@ -56,8 +54,7 @@ getPostData() {
     this.dataSources.paginator = this.paginator
   
     localStorage.setItem('apiData', JSON.stringify(data));
-    
-    
+     
     const indexData  =  localStorage.getItem('paginatorIndex');
     const sizeData = localStorage.getItem('paginatorSize')
     
@@ -69,7 +66,7 @@ getPostData() {
   });
 }
 
-filterSearch(filtervalue: string){
+search(filtervalue: string){
   this.dataSources.filter = filtervalue.trim().toLowerCase();
 }
 

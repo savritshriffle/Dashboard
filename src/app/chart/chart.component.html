@@ -1,8 +1,11 @@
 <div>
-    <input  type="search" placeholder="enter number" class="input" [(ngModel)]="searchData" (input)="filterSearch()">
+    <input  type="search" placeholder="enter number" class="input" [(ngModel)]="searchData" (input)="search()">
 </div>
- <button type="button" (click)="filterAesending()">Aesending</button>
- <button type="button" (click)="filterDesending()">Desending</button>
+<select [(ngModel)]="chartFilter" (change)="filter()">
+  <option value="ascending">Ascending</option>
+  <option value="descending">Descending</option>
+</select>
+ 
  <select [(ngModel)]="chartType" (change)="typeChart()">
     <option value="column">column</option>
     <option value="line">line</option>

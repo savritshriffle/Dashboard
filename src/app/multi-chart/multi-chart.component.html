@@ -1,8 +1,11 @@
 <div>
     <input  type="search" placeholder="enter number" class="input" [(ngModel)]="searchData" (input)="search()">
 </div>
-<button type="button" (click)="onAesendingData()">onAesendingDataa</button>
-<button type="button" (click)="onDesendingData()">onDesendingData</button>
+<select [(ngModel)]="chartFilter" (change)="filter()">
+  <option value="ascending">Ascending</option>
+  <option value="descending">Descending</option>
+</select>
+ 
 <div *ngFor="let chart of chartOptions; let i = index">
     <highcharts-chart 
       [Highcharts]="Highcharts"

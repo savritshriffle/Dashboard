@@ -7,10 +7,10 @@ import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./form.component.css']
 })
 export class FormComponent {
-  inputField: FormGroup;
+  formData: FormGroup;
 
   constructor(private fb: FormBuilder) {
-    this.inputField = this.fb.group({
+    this.formData = this.fb.group({
       firstName: ['', Validators.required],
       lastName: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
@@ -22,7 +22,7 @@ export class FormComponent {
   }
 
   get address(): FormArray {
-    return this.inputField.get('address') as FormArray;
+    return this.formData.get('address') as FormArray;
   }
 
   addAddress(): void {
@@ -34,6 +34,6 @@ export class FormComponent {
   }
 
   onSubmit(): void {
-    console.log(this.inputField, "formdata"); 
+    console.log(this.formData, "formdata"); 
   }
 }

@@ -14,6 +14,7 @@ export class StockChartComponent implements OnInit {
   ];
   chartType: string = '';
   searchData: string = '';
+  chartFilter: string = '';
   filterData:any  = [...this.data];
   Highcharts: typeof Highcharts = Highcharts;
   
@@ -86,57 +87,62 @@ export class StockChartComponent implements OnInit {
         type: 'scatter',
         visible:false
       },
-] 
+    ] 
   };
 
-constructor() {}
-ngOnInit(): void {
-  
-}
-
-filterSearch() {
-  if (!this.searchData) {
-    this.filterData = [...this.data];
-  } 
-  else {
-    this.filterData = this.data.filter((value) =>
-      value.toLocaleString().toString().includes(this.searchData)
-  );   
+  constructor() {}
+  ngOnInit(): void {
+    
   }
-  for (let i = 0; i < (this.chartOptions.series as any).length; i++) {
-  (this.chartOptions.series as any)[i].data = [...this.filterData];
-  Highcharts.charts[0]?.update(this.chartOptions);
-  }
-}
 
-  
-typeChart() {
-  if (this.chartOptions.series) {
-    for (let i = 0; i < this.chartOptions.series.length; i++) {
-      if (this.chartOptions.series[i].type == this.chartType) {
-        this.chartOptions.series[i].type = this.chartType; 
-        this.chartOptions.series[i].visible = true;
-      }
-      else{
-        this.chartOptions.series[i].visible = false;
-      }
+  search() {
+    if (!this.searchData) {
+      this.filterData = [...this.data];
+    } 
+    else {
+      this.filterData = this.data.filter((value) =>
+        value.toLocaleString().toString().includes(this.searchData)
+    );   
     }
-  }
+    for (let i = 0; i < (this.chartOptions.series as any).length; i++) {
+    (this.chartOptions.series as any)[i].data = [...this.filterData];
     Highcharts.charts[0]?.update(this.chartOptions);
-}
-  
-filterAesending() {
-  this.filterData = [...this.data].sort((a , b) => a - b);
-  for (let i = 0; i < (this.chartOptions.series as any).length; i++) {
-    (this.chartOptions.series as any)[i].data = [...this.filterData];
-     Highcharts.charts[0]?.update(this.chartOptions);
-  }
-}
-filterDesending() {
-  this.filterData = [...this.data].sort((a , b) => b - a);
-   for (let i = 0; i < (this.chartOptions.series as any).length; i++) {
-    (this.chartOptions.series as any)[i].data = [...this.filterData];
-     Highcharts.charts[0]?.update(this.chartOptions);
     }
-}
+  }
+
+    
+  typeChart() {
+    if (this.chartOptions.series) {
+      for (let i = 0; i < this.chartOptions.series.length; i++) {
+        if (this.chartOptions.series[i].type == this.chartType) {
+          this.chartOptions.series[i].type = this.chartType; 
+          this.chartOptions.series[i].visible = true;
+        }
+        else{
+          this.chartOptions.series[i].visible = false;
+        }
+      }
+    }
+      Highcharts.charts[0]?.update(this.chartOptions);
+  }
+    
+  filter() {
+    if(this.chartFilter === 'ascending') {
+      this.filterData = [...this.data].sort((a , b) => a - b);
+      for (let i = 0; i < (this.chartOptions.series as any).length; i++) {
+        (this.chartOptions.series as any)[i].data = [...this.filterData];
+        Highcharts.charts[0]?.update(this.chartOptions);
+      }
+    }
+    else if(this.chartFilter === 'descending'){
+      this.filterData = [...this.data].sort((a , b) => b - a);
+      for (let i = 0; i < (this.chartOptions.series as any).length; i++) {
+        (this.chartOptions.series as any)[i].data = [...this.filterData];
+        Highcharts.charts[0]?.update(this.chartOptions);
+      }    
+    }
+  }
+  
+   
+  
 }

@@ -1,11 +1,11 @@
 <div class="container">
     <h1>Form Here</h1>
-    <form [formGroup]="inputField" (ngSubmit)="onSubmit()">
+    <form [formGroup]="formData" (ngSubmit)="onSubmit()">
       <mat-form-field>
         <mat-label>First Name</mat-label>
         <input matInput placeholder="First Name" formControlName="firstName">
       </mat-form-field>
-      <div style="color: red;" *ngIf="inputField.get('firstName')?.errors?.['required']">
+      <div style="color: red;" *ngIf="formData.get('firstName')?.errors?.['required']">
         First name is required.
       </div>
   
@@ -13,7 +13,7 @@
         <mat-label>Last Name</mat-label>
         <input matInput placeholder="Last Name" formControlName="lastName">
       </mat-form-field>
-      <div style="color: red;" *ngIf="inputField.get('lastName')?.errors?.['required']">
+      <div style="color: red;" *ngIf="formData.get('lastName')?.errors?.['required']">
         Last name is required.
       </div>
   
@@ -21,7 +21,7 @@
         <mat-label>Email</mat-label>
         <input matInput placeholder="Email" formControlName="email">
       </mat-form-field>
-      <div style="color: red;" *ngIf="inputField.get('email')?.errors?.['required']">
+      <div style="color: red;" *ngIf="formData.get('email')?.errors?.['required']">
         Email is required.
       </div>
   
@@ -29,7 +29,7 @@
         <mat-label>Password</mat-label>
         <input matInput type="password" placeholder="Password" formControlName="password">
       </mat-form-field>
-      <div style="color: red;" *ngIf="inputField.get('password')?.errors?.['required']">
+      <div style="color: red;" *ngIf="formData.get('password')?.errors?.['required']">
         Password is required.
       </div>
   
@@ -47,7 +47,7 @@
         </div>
       </div>
   
-      <button mat-raised-button type="submit" [disabled]="inputField.invalid">Submit</button>
+      <button mat-raised-button type="submit" [disabled]="formData.invalid">Submit</button>
       
     </form>
   </div>
