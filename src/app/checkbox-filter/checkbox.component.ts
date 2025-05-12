@@ -1,11 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector:  'app-checkbox',
   templateUrl:  './checkbox.component.html',
   styleUrls:  ['./checkbox.component.css']
 })
-export class CheckboxComponent {
+export class CheckboxComponent implements OnInit {
   filterValue:  any[] = [];
   filterData = [
     {
@@ -92,6 +92,10 @@ export class CheckboxComponent {
     },
   ]
   
+ ngOnInit(): void {
+   this.filterValue = this.studentData
+ }
+
   onFilterData() {
     const isCheckData = this.filterData.find((value) => value.name === 'complete')?.value;
     const isInCheckedData = this.filterData.find((value) => value.name === 'Incomplete')?.value;
@@ -108,7 +112,7 @@ export class CheckboxComponent {
       this.filterValue = [...falseValue]
     }
     else {
-      this.filterValue = [...this.studentData]
+      this.filterValue = this.studentData
     }
   }   
 }

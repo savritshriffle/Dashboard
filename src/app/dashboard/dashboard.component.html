@@ -1,0 +1,14 @@
+<nav class="link">
+  <a routerLink="/dashboard/home" style="margin-left: 20px;">Home</a>
+  <a routerLink="/chart">Chart</a>
+  <a routerLink="/multi-chart">Multi-Chart</a>
+  <a routerLink="/checkbox">Checkbox</a> 
+  <a routerLink="/student-data">Student-Data</a>
+  <a routerLink="/search-auto">Search-auto</a>
+  <a routerLink="/auto-complete">Auto-Complete</a>
+ 
+  <mat-dialog-actions class="dialog">
+    <a mat-icon (click)="openDialog()" class="dialog"><i class="fa-solid fa-user"></i></a>
+  </mat-dialog-actions>
+</nav>
+<router-outlet></router-outlet>

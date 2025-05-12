@@ -19,17 +19,15 @@
 
     <mat-form-field>
         <mat-label>Email</mat-label>
-        <input matInput formControlName="email" placeholder="Enter your email" type="email"
-          pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"> 
-        <mat-error *ngIf="formData.get('email')?.errors?.['required'] && formData.get('email')?.touched">
-          Please Enter Email.
-        </mat-error>
+        <input matInput formControlName="email" placeholder="Enter your email" type="email"> 
+        <mat-error *ngIf="formData.get('email')?.hasError('required')">Please Enter Email.</mat-error>
+        <mat-error *ngIf="formData.get('email')?.hasError('email')">Please Enter a Valid Email</mat-error>
     </mat-form-field>
 
     <mat-form-field>
       <mat-label>Password</mat-label>
       <input matInput formControlName="password" placeholder="Enter your password" type="password"> 
-      <mat-error *ngIf="formData.get('password')?.errors?.['required'] && formData.get('password')?.touched">
+      <mat-error *ngIf="formData.get('password')?.hasError('required') && formData.get('password')?.touched">
         Please Enter Password.
       </mat-error>
     </mat-form-field>
@@ -59,10 +57,10 @@
       </mat-form-field>
     </div>
 
-    <div formArrayName="gender"> 
+    <div> 
       <mat-radio-group formControlName="gender" (change)="addGender($event)">
           <span  *ngFor="let gender of genderData">
-          <mat-radio-button  [value]="gender.value">{{gender.name}}</mat-radio-button>
+          <mat-radio-button   [value]="gender.value">{{gender.name}}</mat-radio-button>
           </span>
           <mat-error *ngIf="formData.get('gender')?.errors?.['required'] && formData.get('gender')?.touched">Gender required</mat-error>
       </mat-radio-group>

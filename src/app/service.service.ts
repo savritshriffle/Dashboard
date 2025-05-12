@@ -10,7 +10,7 @@ export class ServiceService {
   private productApi = `https://dummyjson.com/products`;
 
   constructor(private http: HttpClient) { }
-  getPosts(): Observable<any> {
+  getData(): Observable<any> {
     return this.http.get(`${this.apiUrl}`)
   }
   

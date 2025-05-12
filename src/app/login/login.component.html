@@ -4,11 +4,18 @@
         <mat-form-field>
             <mat-label>email</mat-label>
             <input matInput type="email" placeholder="enter valid email" formControlName="email">
+            <mat-error *ngIf="loginForm.get('email')?.hasError('required') && loginForm.get('password')?.touched">
+               Email is required.
+            </mat-error>
+            <mat-error *ngIf="loginForm.get('email')?.hasError('email')">Please enter valid email</mat-error>
         </mat-form-field>
         
         <mat-form-field>
             <mat-label>password</mat-label>
             <input matInput type="password" placeholder="enter valid password" formControlName="password">
+            <mat-error *ngIf="loginForm.get('password')?.hasError('required') && loginForm.get('password')?.touched">
+               Password is required.
+            </mat-error>
         </mat-form-field><br>
         <button mat-raised-button color="primary" type="submit" (click)="logIn()">Submit</button><br>
     </form>

@@ -16,7 +16,7 @@ export class LoginComponent  {
 
   localData: any;
   loginForm = new FormGroup({
-    email: new FormControl<string>('',[Validators.required,  Validators.pattern('^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$')]),
+    email: new FormControl<string>('',[Validators.required,  Validators.email]),
     password: new FormControl<string>('', [Validators.required, Validators.maxLength(8)])
    })
   data: any;

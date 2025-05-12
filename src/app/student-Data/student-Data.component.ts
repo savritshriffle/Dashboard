@@ -46,13 +46,11 @@ export class StudentComponent {
     this.formData = this.fb.group({
         firstName:  ['', Validators.required],
         lastName:  ['', Validators.required],
-        email:  ['', Validators.required,
-          Validators.email,
-          Validators.pattern('^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$') ],
-        password:  ['', Validators.required, Validators.minLength(6)],
+        email:  ['', [Validators.required, Validators.email]],
+        password:  ['', Validators.required ],
         address: this.fb.array([
           this.fb.control('')
-        ]),
+        ]), 
         subjects: this.fb.array([
           this.fb.control('')
         ]),
@@ -98,8 +96,8 @@ export class StudentComponent {
     this.genderData.filter((val) =>{
       if(event.value === val.value) {
         console.log(val)
-        console.log(event.value)
-        this.gender.push(event.value);    
+        console.log(event.value);
+        this.formData.get('gender')?.setValue(val.value)
       }
     })
   }

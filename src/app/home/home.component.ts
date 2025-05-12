@@ -53,11 +53,11 @@ export class HomeComponent implements OnInit, OnChanges{
 
 
   getPostData() {
-    this.service.getPosts().subscribe((data) => {
+    this.service.getData().subscribe((data) => {
     this.posts = data; 
-    data.forEach((element:any) => {
-      element.isEdit = false;
-    });
+      data.forEach((element:any) => {
+        element.isEdit = false;
+      });
     this.dataSources = new MatTableDataSource(data);
     this.dataSources.paginator = this.paginator
 
