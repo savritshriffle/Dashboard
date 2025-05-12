@@ -1,9 +1,9 @@
 <div class="icon">
     <i class="fa-solid fa-magnifying-glass"></i>
     <input type="search" placeholder="Enter UserId or Id" class="search" (keyup)="search($any($event.target).value)">
-  </div>
-  <table mat-table [dataSource]="dataSources" matSort (matSortChange)="sortData($event)" class="mat-elevation-z8">
-     <ng-container matColumnDef="userId">
+</div>
+<table mat-table [dataSource]="dataSources" matSort (matSortChange)="sortData($event)" class="mat-elevation-z8">
+    <ng-container matColumnDef="userId">
       <th mat-header-cell *matHeaderCellDef mat-sort-header="userId">userId</th>
       <td  mat-cell *matCellDef="let post">
         <span *ngIf="!post.isEdit">{{ post.userId }}</span>
@@ -17,7 +17,6 @@
         <span *ngIf="!post.isEdit">{{ post.id }}</span>
         <input *ngIf="post.isEdit"  matInput value={{post.id}} (change)="handleOnChange($event, post, 'id')">
       </td>
-    
     </ng-container>
   
     <ng-container matColumnDef="title">
@@ -34,36 +33,32 @@
         <span *ngIf="!post.isEdit">{{ post.body }}</span>
         <input *ngIf="post.isEdit" matInput value={{post.body}} (change)="handleOnChange($event, post, 'body')">
       </td>
-   </ng-container>
-   <ng-container matColumnDef="Delete">
-    <th mat-header-cell *matHeaderCellDef>delete</th>
-    <td mat-cell *matCellDef="let post">
-      <button mat-raised-button color="primary" *ngIf="!post.isEdit" (click)="deleteData(post.id)">Delete</button>
-    </td>
-  </ng-container>
-   <ng-container matColumnDef="Action">
-    <th mat-header-cell *matHeaderCellDef>Action</th>
-    <td mat-cell *matCellDef="let post">
-      <button mat-raised-button color="primary" *ngIf="!post.isEdit" (click)="EditData(post)">Edit</button>
-      <br>
-      <br>
-      <button mat-raised-button color="primary" *ngIf="post.isEdit" (click)="saveData(post)">Save</button></td>
-  </ng-container>
+    </ng-container>
+
+    <ng-container matColumnDef="Delete">
+      <th mat-header-cell *matHeaderCellDef>delete</th>
+      <td mat-cell *matCellDef="let post">
+        <button mat-raised-button color="primary" *ngIf="!post.isEdit" (click)="deleteData(post.id)">Delete</button>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="Action">
+      <th mat-header-cell *matHeaderCellDef>Action</th>
+      <td mat-cell *matCellDef="let post">
+        <button mat-raised-button color="primary" *ngIf="!post.isEdit" (click)="EditData(post)">Edit</button>
+        <br>
+        <br>
+        <button mat-raised-button color="primary" *ngIf="post.isEdit" (click)="saveData(post)">Save</button></td>
+    </ng-container>
   
-   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-   <tr mat-row *matRowDef="let row; columns:  displayedColumns;"></tr>
-  </table>
-    <mat-paginator #paginator [pageSizeOptions]="[5, 10, 20]"
-                  *ngIf="!currentPage"
-                   showFirstLastButtons 
-                   pageSize="5"
-                   (page)="onPaginateChange($event)"
-                   aria-label="Select page of periodic elements"
-                   >
-    </mat-paginator>
-  
-
-
-
-
-
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns:  displayedColumns;"></tr>
+</table>
+<mat-paginator #paginator [pageSizeOptions]="[5, 10, 20]"
+    *ngIf="!currentPage"
+      showFirstLastButtons 
+      pageSize="5"
+      (page)="onPaginateChange($event)"
+      aria-label="Select page of periodic elements"
+      >
+</mat-paginator>

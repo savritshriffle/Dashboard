@@ -3,15 +3,12 @@
     <form [formGroup]="loginForm">
         <mat-form-field>
             <mat-label>email</mat-label>
-            <input matInput type="text"
-            placeholder="enter valid email" 
-            formControlName="email">
+            <input matInput type="email" placeholder="enter valid email" formControlName="email">
         </mat-form-field>
+        
         <mat-form-field>
             <mat-label>password</mat-label>
-            <input matInput type="number"
-            placeholder="enter valid password" 
-            formControlName="password">
+            <input matInput type="password" placeholder="enter valid password" formControlName="password">
         </mat-form-field><br>
         <button mat-raised-button color="primary" type="submit" (click)="logIn()">Submit</button><br>
     </form>

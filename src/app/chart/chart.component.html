@@ -1,21 +1,21 @@
 <div>
     <input  type="search" placeholder="enter number" class="input" [(ngModel)]="searchData" (input)="search()">
 </div>
+
 <select [(ngModel)]="chartFilter" (change)="filter()">
-  <option value="ascending">Ascending</option>
-  <option value="descending">Descending</option>
+    <option value="ascending">Ascending</option>
+    <option value="descending">Descending</option>
 </select>
  
- <select [(ngModel)]="chartType" (change)="typeChart()">
+<select [(ngModel)]="chartType" (change)="typeChart()">
     <option value="column">column</option>
     <option value="line">line</option>
     <option value="spline">spline</option>
     <option value="area">area</option>
     <option value="scatter">scatter</option>
- </select>
+</select>
 <highcharts-chart 
-[Highcharts]="Highcharts"
-[options]="chartOptions"
-
-style="width: 80%; height: 400px; display: block; ">
+    [Highcharts]="Highcharts"
+    [options]="chartOptions"
+    style="width: 80%; height: 400px; display: block; ">
 </highcharts-chart>

@@ -1,28 +1,28 @@
 <mat-form-field >
-      <mat-chip
-        *ngFor="let fruit of fruits"
-        (selectable)="selectable"
-        [removable]="removable"
-        (removed)="remove(fruit)">
-        {{fruit}}
-        <mat-icon matChipRemove *ngIf="removable">-</mat-icon>
-      </mat-chip>
-      <input
-        type="text"
-        matInput
-        placeholder="New fruit..."
-        #fruitInput 
-        #autocompleteTrigger="matAutocompleteTrigger"
-        [formControl]="fruitCtrl"
-        [matAutocomplete]="auto"
-        value="fruit"
-        (click)="add($event)">
-    <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)" autoActiveFirstOption>
-      <mat-option *ngFor="let fruit of filteredFruits | async" [value]="fruit">
-        <mat-checkbox color="primary" style="padding: 0 12px;" [checked]="fruits.indexOf(fruit) >= 0"></mat-checkbox>
-        {{fruit}}
-      </mat-option>
-    </mat-autocomplete>
-    <button mat-icon-button matSuffix style="width: 34px; height: 34px;" (click)="openAuto(autocompleteTrigger)"></button>
-  </mat-form-field>
+  <mat-chip
+    *ngFor="let fruit of fruits"
+    (selectable)="selectable"
+    [removable]="removable"
+    (removed)="remove(fruit)">
+    {{fruit}}
+    <mat-icon matChipRemove *ngIf="removable">-</mat-icon>
+  </mat-chip>
+  <input
+    type="text"
+    matInput
+    placeholder="New fruit..."
+    #fruitInput 
+    #autocompleteTrigger="matAutocompleteTrigger"
+    [formControl]="fruitCtrl"
+    [matAutocomplete]="auto"
+    value="fruit"
+    (click)="add($event)">
+  <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)" autoActiveFirstOption>
+    <mat-option *ngFor="let fruit of filteredFruits | async" [value]="fruit">
+      <mat-checkbox color="primary" style="padding: 0 12px;" [checked]="fruits.indexOf(fruit) >= 0"></mat-checkbox>
+      {{fruit}}
+    </mat-option>
+  </mat-autocomplete>
+  <button mat-icon-button matSuffix style="width: 34px; height: 34px;" (click)="openAuto(autocompleteTrigger)"></button>
+</mat-form-field>
   

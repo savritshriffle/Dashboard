@@ -9,6 +9,11 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent  {
+  userData = {
+    email: 'savri@gmail.com',
+    password: '12345'
+  }
+
   localData: any;
   loginForm = new FormGroup({
     email: new FormControl<string>('',[Validators.required]),
