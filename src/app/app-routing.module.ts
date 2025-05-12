@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
-import { AboutComponent } from './about/about.component';
+import { DialogboxComponent } from './dialog-box/dialog-box.component';
 import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { StockChartComponent } from './chart/chart.component';
@@ -29,7 +29,7 @@ const routes: Routes = [
       },
       {
         path: 'about',
-        component: AboutComponent
+        component: DialogboxComponent
       }
     ]
   },
@@ -43,7 +43,7 @@ const routes: Routes = [
   },
   {
     path:'auto-complete',
-    component: AutoCompleteComponent
+    component: DialogboxComponent
   },
   {
     path:'search-auto',

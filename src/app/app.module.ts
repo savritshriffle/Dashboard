@@ -4,7 +4,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { HomeComponent } from './home/home.component';
-import { AboutComponent } from './about/about.component';
+import { DialogboxComponent } from './dialog-box/dialog-box.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDialogModule } from "@angular/material/dialog";
 import { MatButtonModule } from "@angular/material/button";
@@ -40,7 +40,6 @@ import { StudentComponent } from './student-Data/student-Data.component';
     AppComponent,
     DashboardComponent,
     HomeComponent,
-    AboutComponent,
     LoginComponent,
     StockChartComponent,
     MultiChartComponent,
@@ -48,7 +47,8 @@ import { StudentComponent } from './student-Data/student-Data.component';
     SerachAutoComponent,
     FormComponent,
     CheckboxComponent,
-    StudentComponent
+    StudentComponent,
+    DialogboxComponent
   ],
   imports: [
     BrowserModule,

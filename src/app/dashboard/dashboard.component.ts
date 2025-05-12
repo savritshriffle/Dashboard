@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { AboutComponent } from '../about/about.component';
+import { DialogboxComponent } from '../dialog-box/dialog-box.component';
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
@@ -9,7 +9,7 @@ import { AboutComponent } from '../about/about.component';
 export class DashboardComponent {
   constructor(private dialog : MatDialog) {}
     openDialog() {
-      this.dialog.open(AboutComponent,{
+      this.dialog.open(DialogboxComponent,{
           width: '300px',
           height: '100px',
       })
