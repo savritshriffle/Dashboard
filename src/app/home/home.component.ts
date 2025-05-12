@@ -37,40 +37,40 @@ constructor(private service: ServiceService, public dialog: MatDialog, private c
 }
 
 ngOnInit(): void { 
-    this.getPostData(); 
+  this.getPostData(); 
 }
 
 ngOnChanges(changes: SimpleChanges): void {
-    if (this.searchData.trim() === ''  ) 
-    {
-      return alert("Enter Valid Data"+" "+ changes);
-    }
-    this.filterData = this.posts.filter(user =>
-        user.userId.toString() === this.searchData || user.id.toString() === this.searchData
-    ||  user.title.startsWith('qui est esse'));
-        this.dataSources.data = this.filterData 
-    }
+  if (this.searchData.trim() === ''  ) 
+  {
+    return alert("Enter Valid Data"+" "+ changes);
+  }
+  this.filterData = this.posts.filter(user =>
+      user.userId.toString() === this.searchData || user.id.toString() === this.searchData
+  ||  user.title.startsWith('qui est esse'));
+      this.dataSources.data = this.filterData 
+}
 
 
 getPostData() {
-    this.service.getPosts().subscribe((data) => {
-    this.posts = data; 
-    data.forEach((element:any) => {
-      element.isEdit = false;
-    });
-    this.dataSources = new MatTableDataSource(data);
-    this.dataSources.paginator = this.paginator
+  this.service.getPosts().subscribe((data) => {
+  this.posts = data; 
+  data.forEach((element:any) => {
+    element.isEdit = false;
+  });
+  this.dataSources = new MatTableDataSource(data);
+  this.dataSources.paginator = this.paginator
+
+  localStorage.setItem('apiData', JSON.stringify(data));
   
-    localStorage.setItem('apiData', JSON.stringify(data));
+  
+  const indexData  =  localStorage.getItem('paginatorIndex');
+  const sizeData = localStorage.getItem('paginatorSize')
+  
+  this.dataSources.paginator['pageIndex']= Number(indexData) 
+  this.dataSources.paginator['pageSize']= Number(sizeData)
     
-    
-    const indexData  =  localStorage.getItem('paginatorIndex');
-    const sizeData = localStorage.getItem('paginatorSize')
-    
-    this.dataSources.paginator['pageIndex']= Number(indexData) 
-    this.dataSources.paginator['pageSize']= Number(sizeData)
-      
-    this.dataSources.paginator = this.paginator; 
+  this.dataSources.paginator = this.paginator; 
       
   });
 }
@@ -80,26 +80,26 @@ search(filtervalue: string){
 }
 
 editData(post: any) {
-    post.isEdit= true
+  post.isEdit= true
   }
   
 onSaveData(post: any){
-    post.isEdit = false;
-    this.dataSources.data = [...this.dataSources.data]
+  post.isEdit = false;
+  this.dataSources.data = [...this.dataSources.data]
 }
 handleOnChange(e: any, post: any, key: any) {
-    post[key]= e.target.value;
-    this.dataSources.data = [...this.dataSources.data];
-    console.log(this.dataSources)
+  post[key]= e.target.value;
+  this.dataSources.data = [...this.dataSources.data];
+  console.log(this.dataSources)
 }
 
 
 onPaginateChange(e: any) {
-    let index = this.dataSources.paginator?.pageIndex
-    let size  = this.dataSources.paginator?.pageSize
+  let index = this.dataSources.paginator?.pageIndex
+  let size  = this.dataSources.paginator?.pageSize
 
-    localStorage.setItem('paginatorIndex', JSON.stringify(index))
-    localStorage.setItem('paginatorSize', JSON.stringify(size))
+  localStorage.setItem('paginatorIndex', JSON.stringify(index))
+  localStorage.setItem('paginatorSize', JSON.stringify(size))
 }
 
 
