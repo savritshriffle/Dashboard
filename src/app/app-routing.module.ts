@@ -5,13 +5,12 @@ import { AboutComponent } from './about/about.component';
 import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { StockChartComponent } from './chart/chart.component';
-import { NavPageComponent } from './nav-page/nav-page.component';
 import { MultiChartComponent } from './multi-chart/multi-chart.component';
 import { AutoCompleteComponent } from './auto-complete/auto-complete.component';
 import { SerachAutoComponent } from './serach-auto/serach-auto.component';
 import { FormComponent } from './form/form.component';
-import { NewTaskComponent } from './new-task/new-task.component';
-import { NewTestComponent } from './new-test/new-test.component';
+import { CheckboxComponent } from './checkbox-filter/checkbox.component';
+import { StudentComponent } from './student-Data/student-Data.component';
 
 
 const routes: Routes = [
@@ -31,10 +30,6 @@ const routes: Routes = [
       {
         path: 'about',
         component: AboutComponent
-      },
-      {
-        path: 'navpage',
-        component: NavPageComponent
       }
     ]
   },
@@ -59,12 +54,12 @@ const routes: Routes = [
     component: FormComponent
   },
   {
-    path:'complete',
-    component: NewTaskComponent
+    path:'checkbox',
+    component: CheckboxComponent
   },
   {
-    path: 'new-Test',
-    component: NewTestComponent
+    path: 'student-data',
+    component: StudentComponent
   },
   {
     path: '',

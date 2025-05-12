@@ -125,17 +125,13 @@ export class StockChartComponent {
   filter() {
     if(this.chartFilter === 'ascending') {
       this.filterData = [...this.data].sort((a , b) => a - b);
-      for (let i = 0; i < (this.chartOptions.series as any).length; i++) {
+    }
+    else{
+        this.filterData = [...this.data].sort((a , b) => b - a);
+    }
+    for (let i = 0; i < (this.chartOptions.series as any).length; i++) {
         (this.chartOptions.series as any)[i].data = [...this.filterData];
         Highcharts.charts[0]?.update(this.chartOptions);
-      }
-    }
-    else if(this.chartFilter === 'descending'){
-      this.filterData = [...this.data].sort((a , b) => b - a);
-      for (let i = 0; i < (this.chartOptions.series as any).length; i++) {
-        (this.chartOptions.series as any)[i].data = [...this.filterData];
-        Highcharts.charts[0]?.update(this.chartOptions);
-      }    
-    }
+     }
   }
 }

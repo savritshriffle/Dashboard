@@ -24,7 +24,6 @@ import { provideAnimations } from '@angular/platform-browser/animations';
 import { provideToastr } from 'ngx-toastr';
 import { StockChartComponent } from './chart/chart.component';
 import { HighchartsChartModule } from 'highcharts-angular';
-import { NavPageComponent } from './nav-page/nav-page.component';
 import { MultiChartComponent } from './multi-chart/multi-chart.component';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatSelectModule } from '@angular/material/select';
@@ -33,9 +32,9 @@ import { MatChipsModule} from '@angular/material/chips';
 import { AutoCompleteComponent } from './auto-complete/auto-complete.component';
 import { SerachAutoComponent } from './serach-auto/serach-auto.component';
 import { FormComponent } from './form/form.component';
-import { NewTestComponent } from './new-test/new-test.component';
-import { NewTaskComponent } from './new-task/new-task.component';
+import { CheckboxComponent } from './checkbox-filter/checkbox.component';
 import { MatRadioModule } from '@angular/material/radio';
+import { StudentComponent } from './student-Data/student-Data.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -44,13 +43,12 @@ import { MatRadioModule } from '@angular/material/radio';
     AboutComponent,
     LoginComponent,
     StockChartComponent,
-    NavPageComponent,
     MultiChartComponent,
     AutoCompleteComponent,
     SerachAutoComponent,
     FormComponent,
-    NewTaskComponent,
-    NewTestComponent
+    CheckboxComponent,
+    StudentComponent
   ],
   imports: [
     BrowserModule,
