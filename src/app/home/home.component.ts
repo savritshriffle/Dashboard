@@ -18,8 +18,9 @@ export class HomeComponent implements OnInit {
   @ViewChild(MatPaginator, {static: false}) paginator!: MatPaginator;
   posts: any[] = [];   
   pageIndex = 1;
-  filterData: any[] = []; 
+  filterData: string[] = []; 
   searchData: string = '';
+  searchText: string = '';
   displayedColumns: string[] = [
     'userId',
     'id',
@@ -33,7 +34,7 @@ export class HomeComponent implements OnInit {
   sortedData = new MatSort();
   currentPage = 0;
   currentSize = 0;
-  
+
   constructor(
     private service: ServiceService,
     public dialog: MatDialog,
@@ -55,14 +56,14 @@ export class HomeComponent implements OnInit {
         element.isEdit = false;
       });
     this.dataSources = new MatTableDataSource(data);
-    this.dataSources.paginator = this.paginator
+    this.dataSources.paginator = this.paginator;
 
     localStorage.setItem('apiData', JSON.stringify(data));
     const indexData  =  localStorage.getItem('paginatorIndex');
-    const sizeData = localStorage.getItem('paginatorSize')
+    const sizeData = localStorage.getItem('paginatorSize');
     
-    this.dataSources.paginator['pageIndex']= Number(indexData) 
-    this.dataSources.paginator['pageSize']= Number(sizeData)
+    this.dataSources.paginator['pageIndex']= Number(indexData);
+    this.dataSources.paginator['pageSize']= Number(sizeData);
       
     this.dataSources.paginator = this.paginator; 
     this.dataSources.sort = this.sort;            
@@ -70,6 +71,7 @@ export class HomeComponent implements OnInit {
   }
 
   search(filtervalue: string){
+    console.log(filtervalue)
     this.dataSources.filter = filtervalue.trim().toLowerCase();
   }
 
@@ -79,31 +81,32 @@ export class HomeComponent implements OnInit {
     
   onSaveData(post: any){
     post.isEdit = false;
-    this.dataSources.data = [...this.dataSources.data]
+    this.dataSources.data = [...this.dataSources.data];
+    this.toastr.success("Data Changes Save Successfully...");
   }
 
   handleOnChange(e: any, post: any, key: any) {
     post[key]= e.target.value;
     this.dataSources.data = [...this.dataSources.data];
-    console.log(this.dataSources)
+    console.log(this.dataSources);
   }
 
   onPaginateChange(e: any) {
-    let index = this.dataSources.paginator?.pageIndex
-    let size  = this.dataSources.paginator?.pageSize
+    let index = this.dataSources.paginator?.pageIndex;
+    let size  = this.dataSources.paginator?.pageSize;
 
-    localStorage.setItem('paginatorIndex', JSON.stringify(index))
-    localStorage.setItem('paginatorSize', JSON.stringify(size))
+    localStorage.setItem('paginatorIndex', JSON.stringify(index));
+    localStorage.setItem('paginatorSize', JSON.stringify(size));
   }
 
 
   deleteData(id: string) {
-    const con = confirm("are you sure...")
-    if(con){
+    const message = confirm("are you sure...")
+    if(message){
       let index = this.dataSources.data.find((value) =>value.id === id) 
-      this.dataSources.data.splice(index, 1)
-      this.dataSources.data = [...this.dataSources.data]
-      this.toastr.info("deleted Data   " + id)
+      this.dataSources.data.splice(index, 1);
+      this.dataSources.data = this.dataSources.data;
+      this.toastr.info("Deleted Data   " + id);
     }
   }     
 }

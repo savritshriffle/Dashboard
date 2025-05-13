@@ -7,7 +7,6 @@ import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./student-Data.component.css']
 })
 export class StudentComponent {
-  fb = new FormBuilder();
   formData: FormGroup;
   genderData = [
     {
@@ -42,23 +41,23 @@ export class StudentComponent {
   ];
 
     
-  constructor() {
+  constructor(private fb : FormBuilder) {
     this.formData = this.fb.group({
-        firstName:  ['', Validators.required],
-        lastName:  ['', Validators.required],
-        email:  ['', [Validators.required, Validators.email]],
-        password:  ['', Validators.required ],
-        address: this.fb.array([
-          this.fb.control('')
-        ]), 
-        subjects: this.fb.array([
-          this.fb.control('')
-        ]),
-        gender: ['', Validators.required],
-        hobbies: this.fb.array([
-          this.fb.control('')
-        ])
-      })
+      firstName:  ['', Validators.required],
+      lastName:  ['', Validators.required],
+      email:  ['', [Validators.required, Validators.email]],
+      password:  ['', Validators.required ],
+      address: this.fb.array([
+        this.fb.control('')
+      ]), 
+      subjects: this.fb.array([
+        this.fb.control('')
+      ]),
+      gender: ['', Validators.required],
+      hobbies: this.fb.array([
+        this.fb.control('')
+      ])
+    })
   }
 
   onSubmit() {
@@ -108,12 +107,12 @@ export class StudentComponent {
 
   onHobbyChange(event: any, hobby: any) {
     if (event.checked) {
-      this.hobbies.push(this.fb.control(hobby)); 
+        this.hobbies.push(this.fb.control(hobby)); 
     } 
     else {
       const index = this.hobbies.controls.findIndex(x => x.value.id === hobby.id);
       if (index !== -1) {
-        this.hobbies.removeAt(index); 
+          this.hobbies.removeAt(index); 
       }
     }
   }

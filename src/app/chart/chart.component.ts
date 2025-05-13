@@ -16,6 +16,16 @@ export class StockChartComponent {
   searchData: string = '';
   chartFilter: string = 'ascending';
   filterData:any  = this.data;
+  dataOrder = [
+    {
+      name: 'ascending',
+      value: false,
+    },
+    {
+      name: 'descending',
+      value: false,
+    }
+  ]
   Highcharts: typeof Highcharts = Highcharts;
   
   chartOptions: Highcharts.Options = {  
@@ -98,16 +108,16 @@ export class StockChartComponent {
     } 
     else {
       this.filterData = this.data.filter((value) =>
-        value.toLocaleString().toString().includes(this.searchData));   
+        value.toString().includes(this.searchData));   
     }
-    for (let i = 0; i < (this.chartOptions.series as any).length; i++) {
-    (this.chartOptions.series as any)[i].data = [...this.filterData];
-    Highcharts.charts[0]?.update(this.chartOptions);
-    }
+    this.chartOptions.series?.forEach((data, i ) => {
+      (this.chartOptions.series as any)[i].data = [...this.filterData];
+      Highcharts.charts[0]?.update(this.chartOptions);
+    })
   }
 
     
-  typeChart() {
+  changeChartType() {
     if (this.chartOptions.series) {
       for (let i = 0; i < this.chartOptions.series.length; i++) {
         if (this.chartOptions.series[i].type == this.chartType) {
@@ -122,16 +132,16 @@ export class StockChartComponent {
       Highcharts.charts[0]?.update(this.chartOptions);
   }
     
-  filter() {
+  filterChart() {
     if(this.chartFilter === 'ascending') {
       this.filterData = this.data.sort((a , b) => a - b);
     }
     else{
         this.filterData = this.data.sort((a , b) => b - a);
     }
-    for (let i = 0; i < (this.chartOptions.series as any).length; i++) {
-        (this.chartOptions.series as any)[i].data = [...this.filterData];
-        Highcharts.charts[0]?.update(this.chartOptions);
-     }
+    this.chartOptions.series?.forEach((data, i ) => {
+      (this.chartOptions.series as any)[i].data = [...this.filterData];
+      Highcharts.charts[0]?.update(this.chartOptions);
+    })
   }
 }

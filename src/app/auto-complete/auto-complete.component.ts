@@ -32,25 +32,14 @@ export class AutoCompleteComponent {
   opened = false;
   @ViewChild('fruitInput') fruitInput!: ElementRef<HTMLInputElement> ;
   @ViewChild('auto') matAutocomplete!: MatAutocomplete;
-  @ViewChild('autocompleteTrigger') matACTrigger!: MatAutocompleteTrigger ;
-  @ViewChild('matselect') matselect!: MatSelect
+ 
 
   constructor() {
     this.filteredFruits = this.fruitCtrl.valueChanges.pipe(
         startWith(''),
         map((fruit: string) => fruit ? this._filter(fruit) : this.allFruits.slice())); 
-  }
 
-  add(event: any): void {
-    const input = event.input;
-    const value = event.value;
-    if ((value || '').trim()) {
-        this.fruits.push(value.trim());
-      }
-    if (input) {
-        input.value = '';
-      }
-    this.fruitCtrl.setValue(null);
+        
   }
 
   remove(fruit: string): void {
@@ -74,11 +63,5 @@ export class AutoCompleteComponent {
   private _filter(value: string): string[] {
     const filterValue = value.toLowerCase();
     return this.allFruits.filter(fruit => fruit.toLowerCase().includes(filterValue));
-  }
-
-  selectClose() {
-    this.fruitCtrl.setValue('')
-    this.matselect.close();
-    this.matselect.value = ''
   }
 }

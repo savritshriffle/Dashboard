@@ -8,7 +8,7 @@ import { AutoCompleteComponent } from './auto-complete/auto-complete.component';
 import { AutoSearchCompoent } from './auto-search/auto-search.component';
 import { CheckboxComponent } from './checkbox-filter/checkbox.component';
 import { StudentComponent } from './student-Data/student-Data.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
+import { NavbarComponent } from './Navbar/Navbar.component';
 
 
 const routes: Routes = [
@@ -22,13 +22,11 @@ const routes: Routes = [
   
   {
     path: 'dashboard',
-    component: DashboardComponent,
-    children: [
-      {
-        path:'home',
-        component: HomeComponent
-      },
-    ]
+    component: NavbarComponent,
+  },
+  {
+    path:'home',
+    component: HomeComponent
   },
   {
     path:'chart',

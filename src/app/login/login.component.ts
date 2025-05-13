@@ -25,13 +25,13 @@ export class LoginComponent  {
 
   logIn() {
     if(this.loginForm.controls.email.value === this.userData.email && this.loginForm.controls.password.value === this.userData.password) {
-      this.router.navigate(['/dashboard/home']);
+      this.router.navigate(['/home']);
       this.toastr.success('Login Successfully Completed!...', 'Done', {
             timeOut: 1000,
       });
     }
     else {
-      this.toastr.error('Invalid Inputs..');
+      this.toastr.error(' Invalid Credentials..');
     }
   }
 }

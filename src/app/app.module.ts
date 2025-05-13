@@ -34,11 +34,11 @@ import { FormComponent } from './form/form.component';
 import { CheckboxComponent } from './checkbox-filter/checkbox.component';
 import { MatRadioModule } from '@angular/material/radio';
 import { StudentComponent } from './student-Data/student-Data.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
+import { NavbarComponent } from './Navbar/Navbar.component';
 @NgModule({
   declarations: [
     AppComponent,
-    DashboardComponent,
+    NavbarComponent,
     HomeComponent,
     LoginComponent,
     StockChartComponent,

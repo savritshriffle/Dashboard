@@ -1,20 +1,23 @@
-<app-dashboard></app-dashboard>
+<app-Navbar></app-Navbar>
 <div>
     <input  type="search" placeholder="enter number" class="input" [(ngModel)]="searchData" (input)="search()">
 </div>
+<mat-form-field>
+    <mat-select [(ngModel)]="chartFilter" (ngModelChange)="filterChart()">
+        <mat-option value="ascending">Ascending</mat-option>
+        <mat-option value="descending">Descending</mat-option>
+    </mat-select>
+</mat-form-field>
 
-<select [(ngModel)]="chartFilter" (change)="filter()">
-    <option value="ascending">Ascending</option>
-    <option value="descending">Descending</option>
-</select>
- 
-<select [(ngModel)]="chartType" (change)="typeChart()">
-    <option value="column">column</option>
-    <option value="line">line</option>
-    <option value="spline">spline</option>
-    <option value="area">area</option>
-    <option value="scatter">scatter</option>
-</select>
+<mat-form-field>
+    <mat-select [(ngModel)]="chartType" (ngModelChange)="changeChartType()">
+        <mat-option value="column">column</mat-option>
+        <mat-option value="line">line</mat-option>
+        <mat-option value="spline">spline</mat-option>
+        <mat-option value="area">area</mat-option>
+        <mat-option value="scatter">scatter</mat-option>
+    </mat-select>
+</mat-form-field>
 <highcharts-chart 
     [Highcharts]="Highcharts"
     [options]="chartOptions"

@@ -67,14 +67,7 @@ export class MultiChartComponent {
   }
 
   search() {
-    if (!this.searchData) {
-      this.filterData = this.data;
-    } 
-    else {
-      this.filterData = this.data.filter((value) =>
-        value.toLocaleString().toString().includes(this.searchData)
-      );
-    }
+    this.filterData = this.data.filter((value)=>value.toString().includes(this.searchData));
     for (let i = 0; i < this.chartOptions.length; i++) {
       this.chartOptions[i].series[0].data = [...this.filterData];
       Highcharts.charts[i]?.update(this.chartOptions[i]);

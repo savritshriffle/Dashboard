@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
+import { MatDialogRef } from '@angular/material/dialog';
+
 
 @Component({
   selector: 'app-dialog-box',
@@ -6,5 +8,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./dialog-box.component.css']
 })
 export class DialogboxComponent {
+    constructor(public dialogRef: MatDialogRef<DialogboxComponent>) {
 
-}
+    }
+    closeDialogbox() {
+      this.dialogRef.close();
+    }
+  }
+  

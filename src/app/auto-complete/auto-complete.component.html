@@ -1,4 +1,4 @@
-<app-dashboard></app-dashboard>
+<app-Navbar></app-Navbar>
 <mat-form-field >
   <mat-chip
     *ngFor="let fruit of fruits"
@@ -11,11 +11,9 @@
     matInput
     placeholder="New fruit..."
     #fruitInput 
-    #autocompleteTrigger="matAutocompleteTrigger"
     [formControl]="fruitCtrl"
     [matAutocomplete]="auto"
-    value="fruit"
-    (click)="add($event)">
+    value="fruit">
   <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">
     <mat-option *ngFor="let fruit of filteredFruits | async" [value]="fruit">
       <mat-checkbox color="primary" style="padding: 0 12px;" [checked]="fruits.indexOf(fruit) >= 0"></mat-checkbox>
