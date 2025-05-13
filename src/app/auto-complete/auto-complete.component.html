@@ -14,10 +14,11 @@
     [formControl]="fruitCtrl"
     [matAutocomplete]="auto"
     value="fruit">
-  <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">
+  <mat-autocomplete #auto="matAutocomplete">
     <mat-option *ngFor="let fruit of filteredFruits | async" [value]="fruit">
-      <mat-checkbox color="primary" style="padding: 0 12px;" [checked]="fruits.indexOf(fruit) >= 0"></mat-checkbox>
-      {{fruit}}
+      <mat-checkbox [checked]="fruits.includes(fruit)" (click)="$event.stopPropagation()" (change)="selected($event, fruit)">
+        {{ fruit }}
+      </mat-checkbox>
     </mat-option>
   </mat-autocomplete>
 </mat-form-field>

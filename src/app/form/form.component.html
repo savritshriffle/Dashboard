@@ -1,55 +1,43 @@
 <app-Navbar></app-Navbar>
 <div class="container">
-    <h1>Form Here</h1>
-    <form [formGroup]="formData" (ngSubmit)="onSubmit()">
-      <mat-form-field>
-        <mat-label>First Name</mat-label>
-        <input matInput placeholder="First Name" formControlName="firstName">
-      </mat-form-field>
-      <div style="color: red;" *ngIf="formData.get('firstName')?.errors?.['required']">
-        First name is required.
-      </div>
-  
-      <mat-form-field>
-        <mat-label>Last Name</mat-label>
-        <input matInput placeholder="Last Name" formControlName="lastName">
-      </mat-form-field>
-      <div style="color: red;" *ngIf="formData.get('lastName')?.errors?.['required']">
-        Last name is required.
-      </div>
-  
-      <mat-form-field>
-        <mat-label>Email</mat-label>
-        <input matInput placeholder="Email" formControlName="email">
-      </mat-form-field>
-      <div style="color: red;" *ngIf="formData.get('email')?.errors?.['required']">
-        Email is required.
-      </div>
+  <h1>Form Here</h1>
+  <form [formGroup]="formData" (ngSubmit)="onSubmit()">
+    <mat-form-field>
+      <mat-label>First Name</mat-label>
+      <input matInput placeholder="First Name" formControlName="firstName">
+    </mat-form-field>
+    <div style="color: red;" *ngIf="formData.get('firstName')?.errors?.['required']">First name is required.</div>
 
-      <mat-form-field>
-        <mat-label>Password</mat-label>
-        <input matInput type="password" placeholder="Password" formControlName="password">
-      </mat-form-field>
-      <div style="color: red;" *ngIf="formData.get('password')?.errors?.['required']">
-        Password is required.
+    <mat-form-field>
+      <mat-label>Last Name</mat-label>
+      <input matInput placeholder="Last Name" formControlName="lastName">
+    </mat-form-field>
+    <div style="color: red;" *ngIf="formData.get('lastName')?.errors?.['required']">Last name is required.</div>
+
+    <mat-form-field>
+      <mat-label>Email</mat-label>
+      <input matInput placeholder="Email" formControlName="email">
+    </mat-form-field>
+    <div style="color: red;" *ngIf="formData.get('email')?.errors?.['required']">Email is required.</div>
+
+    <mat-form-field>
+      <mat-label>Password</mat-label>
+      <input matInput type="password" placeholder="Password" formControlName="password">
+    </mat-form-field>
+    <div style="color: red;" *ngIf="formData.get('password')?.errors?.['required']">Password is required.</div>
+
+    <div formArrayName="address">
+      <div *ngFor="let addressCtrl of address.controls; let i = index">
+        <mat-form-field>
+          <mat-label>Address</mat-label>
+          <input matInput placeholder="Address" [formControlName]="i">
+        </mat-form-field>
+        <div style="color: red;" *ngIf="addressCtrl.errors?.['required']">Address is required.</div>
+        <button mat-raised-button  (click)="removeAddress(i)" *ngIf="address.length > 1">-</button>
+        <button mat-raised-button color="primary" *ngIf="addressCtrl.valid" (click)="addAddress()">+</button>
       </div>
-  
-      <div formArrayName="address">
-        <div *ngFor="let addressCtrl of address.controls; let i = index">
-          <mat-form-field>
-            <mat-label>Address</mat-label>
-            <input matInput placeholder="Address" [formControlName]="i">
-          </mat-form-field>
-          <div style="color: red;" *ngIf="addressCtrl.errors?.['required']">
-            Address is required.
-          </div>
-          <button mat-raised-button  (click)="removeAddress(i)" *ngIf="address.length > 1">-</button>
-          <button mat-raised-button color="primary" *ngIf="addressCtrl.valid" (click)="addAddress()">+</button>
-        </div>
-      </div>
-  
-      <button mat-raised-button type="submit" [disabled]="formData.invalid">Submit</button>
-      
-    </form>
-  </div>
+    </div>
+    <button mat-raised-button type="submit" [disabled]="formData.invalid">Submit</button>
+  </form>
+</div>
   

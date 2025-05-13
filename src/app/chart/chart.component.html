@@ -4,14 +4,13 @@
 </div>
 <mat-form-field>
     <mat-select [(value)]="chartFilter">
-      <mat-option (onSelectionChange)="filterChart($event)" *ngFor="let data of dataOrder" [value]="data.value">{{data.name}}</mat-option>
+        <mat-option (onSelectionChange)="filterChart($event)" *ngFor="let data of dataOrder" [value]="data.value">{{data.name}}</mat-option>
     </mat-select>
 </mat-form-field>
+
 <mat-form-field >
-    <mat-select [(ngModel)]="chartType" (ngModelChange)="changeChartType()">
-        <span *ngFor="let type of typeChart">
-            <mat-option [value]="type.value">{{type.name}}</mat-option>
-        </span>     
+    <mat-select [(value)]="chartType">
+        <mat-option (onSelectionChange)="changeChartType($event)" *ngFor="let type of typeChart" [value]="type.value">{{type.name}}</mat-option>  
     </mat-select>
 </mat-form-field>
 <highcharts-chart 

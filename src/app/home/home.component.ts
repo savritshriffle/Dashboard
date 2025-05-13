@@ -9,16 +9,11 @@ import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css'],
-  
+  styleUrls: ['./home.component.css'],  
 })
 export class HomeComponent implements OnInit {
   @ViewChild(MatSort) sort!: MatSort;
   @ViewChild(MatPaginator, {static: false}) paginator!: MatPaginator;
-  public posts: {[key : string] : string | number}[] = [];   
-  public pageIndex = 1;
-  public filterData: {[key : string] : string | number}[] = []; 
-  public searchData: string = '';
   public searchText: string = '';
   public displayedColumns: string[] = [
     'userId',
@@ -38,30 +33,16 @@ export class HomeComponent implements OnInit {
     private toastr: ToastrService) {  }
 
   ngOnInit(): void { 
-    this.filterData = this.posts.filter(user =>
-      user['userId'].toString() === this.searchData || user['id'].toString() === this.searchData.trim() ||user['title']);
-      this.dataSources.data = this.filterData;    
-
-      this.getData(); 
+    this.getData(); 
   }
 
   public getData() {
-    this.service.getData().subscribe((data) => {
-      this.posts = data; 
-        data.forEach((element: {[key: string] : boolean}) => {
-          element['isEdit'] = false;
-        });
+    this.service.getData().subscribe((data) => { 
+      data.forEach((element: {[key: string] : boolean}) => {
+      element['isEdit'] = false;
+      });
       this.dataSources = new MatTableDataSource(data);
       this.dataSources.paginator = this.paginator;
-
-      localStorage.setItem('apiData', JSON.stringify(data));
-      const indexData = localStorage.getItem('paginatorIndex');
-      const sizeData = localStorage.getItem('paginatorSize');
-      
-      this.dataSources.paginator['pageIndex']= Number(indexData);
-      this.dataSources.paginator['pageSize']= Number(sizeData);
-        
-      this.dataSources.paginator = this.paginator; 
       this.dataSources.sort = this.sort;            
     });
   }
@@ -85,16 +66,8 @@ export class HomeComponent implements OnInit {
     this.dataSources.data = this.dataSources.data;
   }
 
-  public onPaginateChange() {
-    let index = this.dataSources.paginator?.pageIndex;
-    let size = this.dataSources.paginator?.pageSize;
-
-    localStorage.setItem('paginatorIndex', JSON.stringify(index));
-    localStorage.setItem('paginatorSize', JSON.stringify(size));
-  }
-
   public deleteData(id: string) {
-    const isConfirm = confirm("are you sure...")
+    const isConfirm = confirm("Are You Sure ?")
     if(isConfirm){
       let index = this.dataSources.data.find((data) =>data['id'] === id) 
       this.dataSources.data.splice(index, 1);
@@ -103,5 +76,3 @@ export class HomeComponent implements OnInit {
     }
   }     
 }
-  
-

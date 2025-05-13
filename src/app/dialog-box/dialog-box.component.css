@@ -1,8 +1,8 @@
-.btn {
-    padding-top: 20px;
-    padding-left: 80px;
+.dialog {
+    padding-top: 10px;
+    padding-left: 95px;
 }
-.button {
+.close-icon {
     margin-left: 90%;
     cursor: pointer;
 }
