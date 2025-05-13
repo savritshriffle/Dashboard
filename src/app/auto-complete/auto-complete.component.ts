@@ -1,7 +1,6 @@
 import {Component, ElementRef, ViewChild} from '@angular/core';
 import {FormControl} from '@angular/forms';
 import {MatAutocompleteSelectedEvent, MatAutocomplete, MatAutocompleteTrigger} from '@angular/material/autocomplete';
-import { MatSelect } from '@angular/material/select';
 import {Observable} from 'rxjs';
 import {map, startWith} from 'rxjs/operators';
 
@@ -53,7 +52,8 @@ export class AutoCompleteComponent {
     const newValue = event.option.viewValue;
     if (this.fruits.includes(newValue)) {
       this.fruits = this.fruits.filter(fruit=>fruit !== newValue);
-    } else {
+    } 
+    else {
       this.fruits.push(event.option.viewValue);
     }
     this.fruitInput.nativeElement.value = '';

@@ -33,7 +33,6 @@ export class HomeComponent implements OnInit {
   dataSources = new MatTableDataSource<any>([]);
   sortedData = new MatSort();
   currentPage = 0;
-  currentSize = 0;
 
   constructor(
     private service: ServiceService,
