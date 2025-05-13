@@ -4,7 +4,7 @@
     *ngFor="let fruit of fruits"
     (removed)="remove(fruit)">
     {{fruit}}
-    <mat-icon matChipRemove *ngIf="removable">-</mat-icon>
+    <mat-icon matChipRemove *ngIf="removable">clear</mat-icon>
   </mat-chip>
   <input
     type="text"

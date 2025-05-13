@@ -26,10 +26,10 @@ import { HighchartsChartModule } from 'highcharts-angular';
 import { MultiChartComponent } from './multi-chart/multi-chart.component';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatSelectModule } from '@angular/material/select';
-import {MatCheckboxModule} from '@angular/material/checkbox';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatChipsModule} from '@angular/material/chips';
 import { AutoCompleteComponent } from './auto-complete/auto-complete.component';
-import { SerachAutoComponent } from './search-auto/search-auto.component';
+import { AutoSearchCompoent } from './auto-search/auto-search.component';
 import { FormComponent } from './form/form.component';
 import { CheckboxComponent } from './checkbox-filter/checkbox.component';
 import { MatRadioModule } from '@angular/material/radio';
@@ -44,7 +44,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     StockChartComponent,
     MultiChartComponent,
     AutoCompleteComponent,
-    SerachAutoComponent,
+    AutoSearchCompoent,
     FormComponent,
     CheckboxComponent,
     StudentComponent,

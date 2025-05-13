@@ -5,7 +5,7 @@ import { LoginComponent } from './login/login.component';
 import { StockChartComponent } from './chart/chart.component';
 import { MultiChartComponent } from './multi-chart/multi-chart.component';
 import { AutoCompleteComponent } from './auto-complete/auto-complete.component';
-import { SerachAutoComponent } from './search-auto/search-auto.component';
+import { AutoSearchCompoent } from './auto-search/auto-search.component';
 import { CheckboxComponent } from './checkbox-filter/checkbox.component';
 import { StudentComponent } from './student-Data/student-Data.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
@@ -39,8 +39,8 @@ const routes: Routes = [
     component: MultiChartComponent
   },
   {
-    path:'search-auto',
-    component: SerachAutoComponent
+    path:'auto-search',
+    component: AutoSearchCompoent
   },
   {
     path:'checkbox',
