@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { StockChartComponent } from './chart.component';
 
 describe('ChartComponent', () => {

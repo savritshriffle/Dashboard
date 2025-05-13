@@ -32,7 +32,6 @@
         <input matInput placeholder="enter name" value="{{element.contact}}" *ngIf="element.isEdit" (change)="handleOnChange($event, element , 'contact')"></td>
     </ng-container>
 
-  
     <ng-container matColumnDef="post">
       <th mat-header-cell *matHeaderCellDef>element</th>
       <td mat-cell *matCellDef="let element">
@@ -43,18 +42,19 @@
     <ng-container matColumnDef="Delete">
       <th mat-header-cell *matHeaderCellDef>Delete</th>
       <td mat-cell *matCellDef="let element">
-        <button mat-raised-button color=warn (click)="removeData(element.id)">Delete</button></td>
+        <button mat-raised-button color=warn (click)="removeData(element.id)">Delete</button>
+      </td>
     </ng-container>
 
     <ng-container matColumnDef="action">
       <th mat-header-cell *matHeaderCellDef>action</th>
       <td mat-cell *matCellDef="let element">
         <button mat-raised-button color=primary *ngIf="!element.isEdit" (click)="editData(element)">Edit</button>
-        <button mat-raised-button color=primary *ngIf="element.isEdit" (click)="saveData(element)">saveData</button></td>
+        <button mat-raised-button color=primary *ngIf="element.isEdit" (click)="saveData(element)">saveData</button>
+      </td>
     </ng-container>
 
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-    
   </table>
 </div>

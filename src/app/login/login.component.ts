@@ -17,8 +17,7 @@ export class LoginComponent  {
   public loginForm = new FormGroup({
     email: new FormControl<string>('',[Validators.required,  Validators.email]),
     password: new FormControl<string>('', [Validators.required, Validators.maxLength(8)])
-   })
-
+  });
 
   constructor(
     private router: Router,
@@ -27,9 +26,7 @@ export class LoginComponent  {
   public logIn() {
     if(this.loginForm.controls.email.value === this.userData.email && this.loginForm.controls.password.value === this.userData.password) {
       this.router.navigate(['/home']);
-      this.toastr.success('Login Successfully Completed!...', 'Done', {
-            timeOut: 1000,
-      });
+      this.toastr.success('Login Successfully Completed!...', 'Done', {timeOut: 1000});
     }
     else {
       this.toastr.error(' Invalid Credentials..');

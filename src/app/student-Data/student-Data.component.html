@@ -4,17 +4,13 @@
     <mat-form-field>
       <mat-label>First Name</mat-label>
       <input matInput placeholder="First Name" formControlName="firstName" type="text">
-      <mat-error *ngIf="formData.get('firstName')?.errors?.['required'] && formData.get('firstName')?.touched">
-          Please Enter First Name.
-      </mat-error>  
+      <mat-error *ngIf="formData.get('firstName')?.errors?.['required'] && formData.get('firstName')?.touched">Please Enter First Name.</mat-error>  
     </mat-form-field>
 
     <mat-form-field>
-        <mat-label>Last Name</mat-label>
-        <input matInput formControlName="lastName" placeholder="Enter your lastName" type="text"> 
-        <mat-error *ngIf="formData.get('lastName')?.errors?.['required'] && formData.get('lastName')?.touched">
-          Please Enter Last Name.
-        </mat-error>
+      <mat-label>Last Name</mat-label>
+      <input matInput formControlName="lastName" placeholder="Enter your lastName" type="text"> 
+      <mat-error *ngIf="formData.get('lastName')?.errors?.['required'] && formData.get('lastName')?.touched">Please Enter Last Name.</mat-error>
     </mat-form-field>
 
     <mat-form-field>
@@ -27,9 +23,7 @@
     <mat-form-field>
       <mat-label>Password</mat-label>
       <input matInput formControlName="password" placeholder="Enter your password" type="password"> 
-      <mat-error *ngIf="formData.get('password')?.hasError('required') && formData.get('password')?.touched">
-        Please Enter Password.
-      </mat-error>
+      <mat-error *ngIf="formData.get('password')?.hasError('required') && formData.get('password')?.touched">Please Enter Password.</mat-error>
     </mat-form-field>
 
     <div formArrayName="address">
@@ -48,9 +42,7 @@
       <mat-form-field appearance="fill" style="width: 100%;">
         <mat-label>Subjects</mat-label>
         <mat-select placeholder="Select Subjects" multiple (selectionChange)="addSubjects($event)">
-          <mat-option *ngFor="let subject of subjectData" [value]="subject">
-            {{ subject }}
-          </mat-option>
+          <mat-option *ngFor="let subject of subjectData" [value]="subject">{{ subject }}</mat-option>
         </mat-select>
         <mat-error *ngIf="formData.get('subjects')?.errors?.['required'] && formData.get('subjects')?.touched">Subjects required</mat-error>
       </mat-form-field>
@@ -68,12 +60,11 @@
     <div>
       <label>Hobbies:</label><br>
       <div *ngFor="let hobby of hobbiesData">
-        <mat-checkbox (change)="onHobbyChange($event, hobby)">
-          {{ hobby.name }}
-        </mat-checkbox>
+        <mat-checkbox (change)="onHobbyChange($event, hobby)">{{ hobby.name }}</mat-checkbox>
       </div>
       <mat-error *ngIf="formData.get('hobbies')?.errors?.['required'] && formData.get('hobbies')?.touched">Hobbies required</mat-error>
     </div>
+    
     <button mat-raised-button color="accent" [disabled]="formData.invalid" type="submit" (click)="onSubmit()">Submit</button>
   </form>
 </div>

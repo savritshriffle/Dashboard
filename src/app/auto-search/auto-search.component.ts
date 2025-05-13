@@ -34,19 +34,19 @@ export class AutoSearchCompoent {
     }
   }
 
-  public removeData(id : number) {
+  public removeData(id: number) {
     this.filterData = this.filterData.filter(item => item.id !== id);
   }
 
-  public editData(post : {[key: string] : boolean}) {
-    post['isEdit'] = true
+  public editData(post : {[key: string]: boolean}) {
+    post['isEdit'] = true;
   }
 
-  public handleOnChange(event:any , post:{[key: string] : string | number} , key:any) {
+  public handleOnChange(event:any , post:{[key: string]: string | number}, key: string) {
     post[key] = event.target.value;
   }
 
-  public saveData(post: {[key: string] : boolean}) {
+  public saveData(post: {[key: string]: boolean}) {
     post['isEdit'] = false;
   }
 }

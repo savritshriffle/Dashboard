@@ -57,9 +57,7 @@ export class StudentComponent {
         this.fb.control('')
       ]),
       gender: ['', Validators.required],
-      hobbies: this.fb.array([
-        this.fb.control('')
-      ])
+      hobbies: this.fb.array([], Validators.required)
     })
   }
 
@@ -70,8 +68,9 @@ export class StudentComponent {
   get address() {
     return this.formData.get('address') as FormArray;
   }
+
   public addAddress() {
-    const address = this.address.push(this.fb.control(''));
+    this.address.push(this.fb.control(''));
   }
   public removeAddress(index: number) {
     this.address.removeAt(index);
@@ -82,7 +81,6 @@ export class StudentComponent {
   }
 
   public addSubjects(event: MatSelectChange) {
-    console.log(event)
     const selectedSubjects = event.value;  
     this.subjects.clear();
     selectedSubjects.forEach((subject: string) => {
@@ -108,12 +106,12 @@ export class StudentComponent {
 
   public onHobbyChange(event: MatCheckboxChange, hobby: {[key: string] : string | number}) {
     if (event.checked) {
-        this.hobbies.push(this.fb.control(hobby)); 
+      this.hobbies.push(this.fb.control(hobby)); 
     }
     else {
       const index = this.hobbies.controls.findIndex(data => data.value.id === hobby['id']);
       if (index !== -1) {
-          this.hobbies.removeAt(index); 
+        this.hobbies.removeAt(index); 
       }
     }
   }

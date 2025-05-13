@@ -87,18 +87,17 @@ export class MultiChartComponent {
 
   public filter(event: MatOptionSelectionChange) {
     if(event.isUserInput) {
-      this.chartFilter = event.source.value
+      this.chartFilter = event.source.value;
       if(this.chartFilter === 'ascending') {
-        this.filterData = this.data.sort((a, b) => a- b)
+        this.filterData = this.data.sort((a, b) => a- b);
       }
       else {
-        this.filterData = this.data.sort((a, b) => b - a)
+        this.filterData = this.data.sort((a, b) => b - a);
       }
-      for(let i=0; i< this.chartOptions.length; i++){
-          this.chartOptions[i].series[0].data = [...this.filterData];
-          Highcharts.charts[i]?.update(this.chartOptions[i]);
-
-      }
+    for(let i=0; i< this.chartOptions.length; i++){
+      this.chartOptions[i].series[0].data = [...this.filterData];
+      Highcharts.charts[i]?.update(this.chartOptions[i]);
+    }
     }
   }
 }

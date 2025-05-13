@@ -47,8 +47,7 @@ export class StockChartComponent {
     {
       name: 'scatter',
       value: 'scatter'
-    },
-    
+    },  
   ]
   public Highcharts: typeof Highcharts = Highcharts;
   public chartOptions: Highcharts.Options = {  
@@ -119,19 +118,22 @@ export class StockChartComponent {
     })
   }
  
-  changeChartType() {
-    if (this.chartOptions.series) {
-      for (let i = 0; i < this.chartOptions.series.length; i++) {
-        if (this.chartOptions.series[i].type == this.chartType) {
-          this.chartOptions.series[i].type = this.chartType; 
-          this.chartOptions.series[i].visible = true;
-        }
-        else{
-          this.chartOptions.series[i].visible = false;
+  changeChartType(event: MatOptionSelectionChange) {
+    if(event.isUserInput) {
+      this.chartType = event.source.value;
+      if (this.chartOptions.series) {
+        for (let i = 0; i < this.chartOptions.series.length; i++) {
+          if (this.chartOptions.series[i].type == this.chartType) {
+            this.chartOptions.series[i].type = this.chartType; 
+            this.chartOptions.series[i].visible = true;
+          }
+          else{
+            this.chartOptions.series[i].visible = false;
+          }
         }
       }
     }
-      Highcharts.charts[0]?.update(this.chartOptions);
+    Highcharts.charts[0]?.update(this.chartOptions);
   }
     
   public filterChart(event: MatOptionSelectionChange) {
@@ -141,7 +143,7 @@ export class StockChartComponent {
         this.filterData = this.data.sort((a, b) => a - b);
       }
       else{
-          this.filterData = this.data.sort((a, b) => b - a);
+        this.filterData = this.data.sort((a, b) => b - a);
       }
       this.chartOptions.series?.forEach((data, i) => {
         (this.chartOptions.series as any)[i].data = [...this.filterData];
