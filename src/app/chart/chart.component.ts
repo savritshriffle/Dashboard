@@ -15,7 +15,7 @@ export class StockChartComponent {
   chartType: string = 'column';
   searchData: string = '';
   chartFilter: string = 'ascending';
-  filterData:any  = this.data;
+  filterData = this.data;
   dataOrder = [
     {
       name: 'ascending',
@@ -123,7 +123,6 @@ export class StockChartComponent {
 
     
   changeChartType() {
-    console.log(this.chartType)
     if (this.chartOptions.series) {
       for (let i = 0; i < this.chartOptions.series.length; i++) {
         if (this.chartOptions.series[i].type == this.chartType) {

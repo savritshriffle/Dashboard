@@ -1,20 +1,3 @@
-<!-- <div class="container">
-  <mat-form-field appearance="fill">
-      <mat-chip *ngFor="let select of selectedOptions">{{select}}</mat-chip>
-      <input matInput [(ngModel)]="searchText" />
-      <mat-select [formControl]="optionsControl" (selectionChange)="onSelectionChange($event)" multiple>
-        <mat-option *ngFor="let option of filteredOptions" [value]="option">
-         {{ option }}
-        </mat-option>
-      </mat-select>
-    </mat-form-field>
-
-      <h3>Selected Options:</h3>
-      <ul>
-        <li *ngFor="let option of optionsControl.value">{{ option }}</li>
-      </ul>
-  </div>
-   -->
 <app-Navbar></app-Navbar>
 <div>
   <input matInput placeholder="enter value" class="input" [(ngModel)]="searchInput" (ngModelChange)="search()" >

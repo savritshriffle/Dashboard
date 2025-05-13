@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { FormControl, FormGroup, PatternValidator, Validators } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 
 @Component({
@@ -14,14 +14,15 @@ export class LoginComponent  {
     password: '12345'
   }
 
-  localData: any;
   loginForm = new FormGroup({
     email: new FormControl<string>('',[Validators.required,  Validators.email]),
     password: new FormControl<string>('', [Validators.required, Validators.maxLength(8)])
    })
-  data: any;
 
-  constructor(private router: Router, private toastr: ToastrService) { }
+
+  constructor(
+    private router: Router,
+    private toastr: ToastrService) { }
 
   logIn() {
     if(this.loginForm.controls.email.value === this.userData.email && this.loginForm.controls.password.value === this.userData.password) {

@@ -69,7 +69,7 @@
     <div>
       <label>Hobbies:</label><br>
       <div *ngFor="let hobby of hobbiesData">
-        <mat-checkbox (change)="onHobbyChange($event.source, hobby)">
+        <mat-checkbox (change)="onHobbyChange($event, hobby)">
           {{ hobby.name }}
         </mat-checkbox>
       </div>

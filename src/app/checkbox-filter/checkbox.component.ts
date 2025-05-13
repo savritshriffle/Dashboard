@@ -6,7 +6,7 @@ import { studentData } from './student-Data';
   styleUrls:  ['./checkbox.component.css']
 })
 export class CheckboxComponent implements OnInit {
-  filterValue:  any[] = [];
+  filterValue:{[key: string] : string | number | boolean}[] = [] ;
   studentData = studentData;
   filterData = [
     {
@@ -19,10 +19,9 @@ export class CheckboxComponent implements OnInit {
     },
   ]
 
-  
- ngOnInit(): void {
-   this.filterValue = this.studentData;
- }
+  ngOnInit(): void {
+    this.filterValue = this.studentData;
+  }
 
   onFilterData() {
     const isCheckData = this.filterData.find((value) => value.name === 'complete')?.value;

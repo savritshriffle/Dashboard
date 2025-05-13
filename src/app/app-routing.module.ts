@@ -8,9 +8,6 @@ import { AutoCompleteComponent } from './auto-complete/auto-complete.component';
 import { AutoSearchCompoent } from './auto-search/auto-search.component';
 import { CheckboxComponent } from './checkbox-filter/checkbox.component';
 import { StudentComponent } from './student-Data/student-Data.component';
-import { NavbarComponent } from './Navbar/Navbar.component';
-import { FormComponent } from './form/form.component';
-
 
 const routes: Routes = [
   {
@@ -19,11 +16,6 @@ const routes: Routes = [
   {
     path:'login',
     component: LoginComponent
-  },
-  
-  {
-    path: 'dashboard',
-    component: NavbarComponent,
   },
   {
     path:'home',

@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatCheckboxChange } from '@angular/material/checkbox';
+import { MatRadioChange } from '@angular/material/radio';
+import { MatSelectChange } from '@angular/material/select';
 
 @Component({
   selector: 'app-student',
@@ -31,7 +34,8 @@ export class StudentComponent {
     'Computer Science',
     'Biology',
     'Physics',
-    'Chemistry'];
+    'Chemistry'
+  ];
 
   hobbiesData = [
     { id: 1, name: 'Reading' },
@@ -78,10 +82,11 @@ export class StudentComponent {
     return this.formData.get('subjects') as FormArray;
   }
 
-  addSubjects(event: any) {
+  addSubjects(event: MatSelectChange) {
+    console.log(event)
     const selectedSubjects = event.value;  
     this.subjects.clear();
-    selectedSubjects.forEach((subject: any) => {
+    selectedSubjects.forEach((subject: string) => {
       this.subjects.push(this.fb.control(subject));
     });
   }
@@ -90,12 +95,10 @@ export class StudentComponent {
     return this.formData.get('gender')?.value;
   }
 
-  addGender(event: any) {
-    this.genderData.filter((val) =>{
-      if(event.value === val.value) {
-        console.log(val)
-        console.log(event.value);
-        this.formData.get('gender')?.setValue(val.value)
+  addGender(event: MatRadioChange) {
+    this.genderData.filter((data) =>{
+      if(event.value === data.value) {
+        this.formData.get('gender')?.setValue(data.value)
       }
     })
   }
@@ -104,12 +107,12 @@ export class StudentComponent {
     return this.formData.get('hobbies') as FormArray;
   }
 
-  onHobbyChange(event: any, hobby: any) {
+  onHobbyChange(event: MatCheckboxChange, hobby: {[key: string] : string | number}) {
     if (event.checked) {
         this.hobbies.push(this.fb.control(hobby)); 
-    } 
+    }
     else {
-      const index = this.hobbies.controls.findIndex(x => x.value.id === hobby.id);
+      const index = this.hobbies.controls.findIndex(x => x.value.id === hobby['id']);
       if (index !== -1) {
           this.hobbies.removeAt(index); 
       }

@@ -8,11 +8,11 @@ import * as Highcharts from 'highcharts';
 })
 export class MultiChartComponent {
   data: number[] = [1, 2, 4, 7, 9, 4, 5,  1, 4, 5, 6, 2, 7, 8, 2, 1, 3, 7, 6, 2];
-  filterData:any  = this.data;
+  filterData = this.data;
   searchData: string = '';
   chartFilter: string = 'ascending';
   Highcharts = Highcharts;  
-  chartOptions: any[] = []; 
+  chartOptions: any; 
   dataOrder = [
     {
       name: 'ascending',
@@ -79,12 +79,12 @@ export class MultiChartComponent {
   search() {
     this.filterData = this.data.filter((value)=>value.toString().includes(this.searchData));
     for (let i = 0; i < this.chartOptions.length; i++) {
-      this.chartOptions[i].series[0].data = [...this.filterData];
+      this.chartOptions[i].series[0].data = this.filterData;
       Highcharts.charts[i]?.update(this.chartOptions[i]);
-     }
-   }
+    }
+  }
 
-   filter() {
+  filter() {
     if(this.chartFilter === 'ascending') {
       this.filterData = this.data.sort((a, b) => a- b)
     }
@@ -92,11 +92,11 @@ export class MultiChartComponent {
       this.filterData = this.data.sort((a, b) => b - a)
     }
     for(let i=0; i< this.chartOptions.length; i++){
-    this.chartOptions[i].series[0].data = [...this.filterData];
-    Highcharts.charts[i]?.update(this.chartOptions[i]);
+        this.chartOptions[i].series[0].data = this.filterData;
+        Highcharts.charts[i]?.update(this.chartOptions[i]);
 
       }
-    }
   }
+}
 
 

@@ -1,8 +1,8 @@
-import {Component, ElementRef, ViewChild} from '@angular/core';
-import {FormControl} from '@angular/forms';
-import {MatAutocompleteSelectedEvent, MatAutocomplete, MatAutocompleteTrigger} from '@angular/material/autocomplete';
-import {Observable} from 'rxjs';
-import {map, startWith} from 'rxjs/operators';
+import { Component, ElementRef, ViewChild } from '@angular/core';
+import { FormControl } from '@angular/forms';
+import { MatAutocompleteSelectedEvent, MatAutocomplete } from '@angular/material/autocomplete';
+import { Observable } from 'rxjs';
+import { map, startWith } from 'rxjs/operators';
 
 @Component({
   selector: 'auto-complete.component',
@@ -10,7 +10,6 @@ import {map, startWith} from 'rxjs/operators';
   styleUrls: ['./auto-complete.component.css'],
 })
 export class AutoCompleteComponent {
-  selectable = true;
   removable = true;
   fruitCtrl = new FormControl();
   filteredFruits: Observable<string[]>;
@@ -28,7 +27,6 @@ export class AutoCompleteComponent {
     'Blueberry',
     'The Long Name of a Fruit That is Yet to be Discovered',
   ];
-  opened = false;
   @ViewChild('fruitInput') fruitInput!: ElementRef<HTMLInputElement> ;
   @ViewChild('auto') matAutocomplete!: MatAutocomplete;
  
@@ -51,7 +49,7 @@ export class AutoCompleteComponent {
   selected(event: MatAutocompleteSelectedEvent): void {
     const newValue = event.option.viewValue;
     if (this.fruits.includes(newValue)) {
-      this.fruits = this.fruits.filter(fruit=>fruit !== newValue);
+        this.fruits = this.fruits.filter(fruit=>fruit !== newValue);
     } 
     else {
       this.fruits.push(event.option.viewValue);
