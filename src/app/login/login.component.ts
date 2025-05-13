@@ -9,12 +9,12 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent  {
-  userData = {
+  private userData = {
     email: 'savri@gmail.com',
     password: '12345'
   }
 
-  loginForm = new FormGroup({
+  public loginForm = new FormGroup({
     email: new FormControl<string>('',[Validators.required,  Validators.email]),
     password: new FormControl<string>('', [Validators.required, Validators.maxLength(8)])
    })
@@ -24,7 +24,7 @@ export class LoginComponent  {
     private router: Router,
     private toastr: ToastrService) { }
 
-  logIn() {
+  public logIn() {
     if(this.loginForm.controls.email.value === this.userData.email && this.loginForm.controls.password.value === this.userData.password) {
       this.router.navigate(['/home']);
       this.toastr.success('Login Successfully Completed!...', 'Done', {

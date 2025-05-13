@@ -1,13 +1,11 @@
 <app-Navbar></app-Navbar>
 <div>
-  <input  type="search" placeholder="enter number" class="input" [(ngModel)]="searchData" (input)="search()">
+  <input type="search" placeholder="enter number" class="input" [(ngModel)]="searchData" (ngModelChange)="search()">
 </div>
 
 <mat-form-field>
-  <mat-select [(ngModel)]="chartFilter" (ngModelChange)="filter()">
-      <span *ngFor="let data of dataOrder">
-          <mat-option [value]="data.value">{{data.name}}</mat-option>
-      </span>
+  <mat-select [(ngModel)]="chartFilter">
+    <mat-option (onSelectionChange)="filter($event)" *ngFor="let data of dataOrder" [value]="data.value">{{data.name}}</mat-option>
   </mat-select>
 </mat-form-field>
  

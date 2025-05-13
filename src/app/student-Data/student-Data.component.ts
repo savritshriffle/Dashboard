@@ -10,8 +10,8 @@ import { MatSelectChange } from '@angular/material/select';
   styleUrls: ['./student-Data.component.css']
 })
 export class StudentComponent {
-  formData: FormGroup;
-  genderData = [
+  public formData: FormGroup;
+  public genderData = [
     {
       name: 'Female',
       value: 'female',
@@ -21,7 +21,7 @@ export class StudentComponent {
       value: 'male',
     }
   ]
-  subjectData =['Maths',
+  public subjectData =['Maths',
     'Science',
     'English',
     'Hindi',
@@ -37,14 +37,13 @@ export class StudentComponent {
     'Chemistry'
   ];
 
-  hobbiesData = [
+  public hobbiesData = [
     { id: 1, name: 'Reading' },
     { id: 2, name: 'Traveling' },
     { id: 3, name: 'Gaming' },
     { id: 4, name: 'Cooking' }
   ];
-
-    
+ 
   constructor(private fb : FormBuilder) {
     this.formData = this.fb.group({
       firstName:  ['', Validators.required],
@@ -64,17 +63,17 @@ export class StudentComponent {
     })
   }
 
-  onSubmit() {
+  public onSubmit() {
     console.log(this.formData, "form Data")
   }
 
   get address() {
     return this.formData.get('address') as FormArray;
   }
-  addAddress() {
+  public addAddress() {
     const address = this.address.push(this.fb.control(''));
   }
-  removeAddress(index: number) {
+  public removeAddress(index: number) {
     this.address.removeAt(index);
   }
 
@@ -82,7 +81,7 @@ export class StudentComponent {
     return this.formData.get('subjects') as FormArray;
   }
 
-  addSubjects(event: MatSelectChange) {
+  public addSubjects(event: MatSelectChange) {
     console.log(event)
     const selectedSubjects = event.value;  
     this.subjects.clear();
@@ -95,7 +94,7 @@ export class StudentComponent {
     return this.formData.get('gender')?.value;
   }
 
-  addGender(event: MatRadioChange) {
+  public addGender(event: MatRadioChange) {
     this.genderData.filter((data) =>{
       if(event.value === data.value) {
         this.formData.get('gender')?.setValue(data.value)
@@ -107,12 +106,12 @@ export class StudentComponent {
     return this.formData.get('hobbies') as FormArray;
   }
 
-  onHobbyChange(event: MatCheckboxChange, hobby: {[key: string] : string | number}) {
+  public onHobbyChange(event: MatCheckboxChange, hobby: {[key: string] : string | number}) {
     if (event.checked) {
         this.hobbies.push(this.fb.control(hobby)); 
     }
     else {
-      const index = this.hobbies.controls.findIndex(x => x.value.id === hobby['id']);
+      const index = this.hobbies.controls.findIndex(data => data.value.id === hobby['id']);
       if (index !== -1) {
           this.hobbies.removeAt(index); 
       }

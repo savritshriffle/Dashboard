@@ -1,17 +1,14 @@
 <app-Navbar></app-Navbar>
 <div>
-    <input  type="search" placeholder="enter number" class="input" [(ngModel)]="searchData" (input)="search()">
+    <input type="search" placeholder="enter number" class="input" [(ngModel)]="searchData" (ngModelChange)="search()">
 </div>
 <mat-form-field>
-    <mat-select [(ngModel)]="chartFilter" (ngModelChange)="filterChart()">
-        <span *ngFor="let data of dataOrder">
-            <mat-option [value]="data.value">{{data.name}}</mat-option>
-        </span>
+    <mat-select [(value)]="chartFilter">
+      <mat-option (onSelectionChange)="filterChart($event)" *ngFor="let data of dataOrder" [value]="data.value">{{data.name}}</mat-option>
     </mat-select>
 </mat-form-field>
-
 <mat-form-field >
-    <mat-select  [(ngModel)]="chartType" (ngModelChange)="changeChartType()">
+    <mat-select [(ngModel)]="chartType" (ngModelChange)="changeChartType()">
         <span *ngFor="let type of typeChart">
             <mat-option [value]="type.value">{{type.name}}</mat-option>
         </span>     
@@ -20,5 +17,5 @@
 <highcharts-chart 
     [Highcharts]="Highcharts"
     [options]="chartOptions"
-    style="width: 80%; height: 400px; display: block; ">
+    style="width: 80%; height: 400px; display: block;">
 </highcharts-chart>

@@ -1,10 +1,9 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { ServiceService } from '../service.service';
+import { MyServiceService } from '../myservice.service';
 import { MatDialog } from '@angular/material/dialog';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatSort} from '@angular/material/sort';
 import { MatPaginator } from '@angular/material/paginator';
-import { ActivatedRoute } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 
 @Component({
@@ -16,12 +15,12 @@ import { ToastrService } from 'ngx-toastr';
 export class HomeComponent implements OnInit {
   @ViewChild(MatSort) sort!: MatSort;
   @ViewChild(MatPaginator, {static: false}) paginator!: MatPaginator;
-  posts: {[key : string] : string | number}[] = [];   
-  pageIndex = 1;
-  filterData: {[key : string] : string | number}[] = []; 
-  searchData: string = '';
-  searchText: string = '';
-  displayedColumns: string[] = [
+  public posts: {[key : string] : string | number}[] = [];   
+  public pageIndex = 1;
+  public filterData: {[key : string] : string | number}[] = []; 
+  public searchData: string = '';
+  public searchText: string = '';
+  public displayedColumns: string[] = [
     'userId',
     'id',
     'title',
@@ -29,12 +28,12 @@ export class HomeComponent implements OnInit {
     'Action',
     'Delete'
   ];
-  dataSources = new MatTableDataSource<any>();
-  sortedData = new MatSort();
-  currentPage = 0;
+  public dataSources = new MatTableDataSource<any>();
+  public sortedData = new MatSort();
+  public currentPage = 0;
 
   constructor(
-    private service: ServiceService,
+    private service: MyServiceService,
     public dialog: MatDialog,
     private toastr: ToastrService) {  }
 
@@ -46,7 +45,7 @@ export class HomeComponent implements OnInit {
       this.getData(); 
   }
 
-  getData() {
+  public getData() {
     this.service.getData().subscribe((data) => {
       this.posts = data; 
         data.forEach((element: {[key: string] : boolean}) => {
@@ -67,26 +66,26 @@ export class HomeComponent implements OnInit {
     });
   }
 
-  search(filtervalue: string){
+  public search(filtervalue: string){
     this.dataSources.filter = filtervalue.trim().toLowerCase();
   }
 
-  editData(post: {[key: string] : string | number | boolean}) {
+  public editData(post: {[key: string] : string | number | boolean}) {
     post['isEdit'] = true
   }
     
-  onSaveData(post: {[key: string] : string | number | boolean}){
+  public onSaveData(post: {[key: string] : string | number | boolean}){
     post['isEdit'] = false;
     this.dataSources.data = this.dataSources.data;
     this.toastr.success("Data Changes Save Successfully...");
   }
 
-  handleOnChange(e: any, post: {[key: string] : string | number}, key: string) {
+  public handleOnChange(e: any, post: {[key: string] : string | number}, key: string) {
     post[key] = e.target.value;
     this.dataSources.data = this.dataSources.data;
   }
 
-  onPaginateChange() {
+  public onPaginateChange() {
     let index = this.dataSources.paginator?.pageIndex;
     let size = this.dataSources.paginator?.pageSize;
 
@@ -94,13 +93,13 @@ export class HomeComponent implements OnInit {
     localStorage.setItem('paginatorSize', JSON.stringify(size));
   }
 
-  deleteData(id: string) {
+  public deleteData(id: string) {
     const isConfirm = confirm("are you sure...")
     if(isConfirm){
-      let index = this.dataSources.data.find((value) =>value['id'] === id) 
+      let index = this.dataSources.data.find((data) =>data['id'] === id) 
       this.dataSources.data.splice(index, 1);
       this.dataSources.data = this.dataSources.data;
-      this.toastr.info("Deleted Data   " + id);
+      this.toastr.success("Deleted Data" + id);
     }
   }     
 }

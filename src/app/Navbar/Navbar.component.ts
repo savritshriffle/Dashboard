@@ -8,10 +8,10 @@ import { DialogboxComponent } from '../dialog-box/dialog-box.component';
 })
 export class NavbarComponent {
   constructor(private dialog : MatDialog) {}
-    openDialog() {
-      this.dialog.open(DialogboxComponent,{
-          width: '300px',
-          height: '100px',
-      })
-    }
+  openDialog() {
+    this.dialog.open(DialogboxComponent,{
+      width: '300px',
+      height: '100px',
+    })
+  }
 }

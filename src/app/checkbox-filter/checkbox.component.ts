@@ -1,14 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import { studentData } from './student-Data';
+import { Data } from './student-Data';
 @Component({
   selector:  'app-checkbox',
   templateUrl:  './checkbox.component.html',
   styleUrls:  ['./checkbox.component.css']
 })
 export class CheckboxComponent implements OnInit {
-  filterValue:{[key: string] : string | number | boolean}[] = [] ;
-  studentData = studentData;
-  filterData = [
+  public filterValue:{[key: string] : string | number | boolean}[] = [] ;
+  public studentData = Data;
+  public filterData = [
     {
       name:  'complete',
       value: false
@@ -23,12 +23,12 @@ export class CheckboxComponent implements OnInit {
     this.filterValue = this.studentData;
   }
 
-  onFilterData() {
-    const isCheckData = this.filterData.find((value) => value.name === 'complete')?.value;
-    const isInCheckedData = this.filterData.find((value) => value.name === 'Incomplete')?.value;
-    const trueValue = this.studentData.filter((val) => val.complete === true);
-    const falseValue = this.studentData.filter((val) => val.complete === false);
-    
+  public onFilterData() {
+    const isCheckData = this.filterData.find((data) => data.name === 'complete')?.value;
+    const isInCheckedData = this.filterData.find((data) => data.name === 'Incomplete')?.value;
+    const trueValue = this.studentData.filter((data) => data.complete === true);
+    const falseValue = this.studentData.filter((data) => data.complete === false);
+
     if(isCheckData && isInCheckedData){
      this.filterValue = this.studentData;
     }

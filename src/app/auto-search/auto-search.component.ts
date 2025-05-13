@@ -7,7 +7,7 @@ import { Data } from './Data';
   styleUrls: ['./auto-search.component.css']
 })
 export class AutoSearchCompoent {
-  displayedColumns = [
+  public displayedColumns = [
     'id',
     'name',
     'age',
@@ -16,37 +16,37 @@ export class AutoSearchCompoent {
     'Delete', 
     'action'
   ]
-  searchInput = '';
-  Data = Data;
-  filterData = this.Data;
+  public searchInput = '';
+  public studentData = Data;
+  public filterData = this.studentData;
   
-  search() {
+  public search() {
     const input = this.searchInput.toLowerCase().trim();
     if (input) {
-      this.filterData = this.Data.filter(item =>
+      this.filterData = this.studentData.filter(item =>
         Object.values(item).some(value =>
           value.toString().toLowerCase().includes(input)
         )
       );
     } 
     else {
-      this.filterData = this.Data;
+      this.filterData = this.studentData;
     }
   }
 
-  removeData(id : number) {
+  public removeData(id : number) {
     this.filterData = this.filterData.filter(item => item.id !== id);
   }
 
-  editData(post : {[key: string] : boolean}) {
+  public editData(post : {[key: string] : boolean}) {
     post['isEdit'] = true
   }
 
-  handleOnChange(event:any , post:{[key: string] : string | number} , key:any) {
+  public handleOnChange(event:any , post:{[key: string] : string | number} , key:any) {
     post[key] = event.target.value;
   }
 
-  saveData(post: {[key: string] : boolean}) {
+  public saveData(post: {[key: string] : boolean}) {
     post['isEdit'] = false;
   }
 }

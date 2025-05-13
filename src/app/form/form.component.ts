@@ -24,15 +24,15 @@ export class FormComponent {
     return this.formData.get('address') as FormArray;
   }
 
-  addAddress(): void {
+  public addAddress(): void {
     this.address.push(this.fb.control('', Validators.required));
   }
 
-  removeAddress(index: number): void {
+  public removeAddress(index: number): void {
     this.address.removeAt(index);
   }
 
-  onSubmit(): void {
+  public onSubmit(): void {
     console.log(this.formData, "formdata"); 
   }
 }

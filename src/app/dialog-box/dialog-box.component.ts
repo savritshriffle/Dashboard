@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
 
 
@@ -8,8 +8,10 @@ import { MatDialogRef } from '@angular/material/dialog';
   styleUrls: ['./dialog-box.component.css']
 })
 export class DialogboxComponent {
+  
   constructor(public dialogRef: MatDialogRef<DialogboxComponent>) {}
-  closeDialogbox() {
+  
+  public closeDialogbox() {
     this.dialogRef.close();
   }
 }

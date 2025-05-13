@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { MatOptionSelectionChange } from '@angular/material/core';
 import * as Highcharts from 'highcharts';
 
 @Component({
@@ -7,16 +8,16 @@ import * as Highcharts from 'highcharts';
   styleUrls: ['./chart.component.css']
 })
 export class StockChartComponent {
-  data: number[] = [1, 2, 4, 7, 9, 4, 5,  1, 4, 5, 6, 2, 7, 8, 2, 1, 3, 7, 6, 2];
-  day: string[] = ['Mon 27-03-2025', 'Tue 27-03-2025','Wed 27-03-2025','Thu 27-03-2025', 'Fri 27-03-2025', 'Sat 27-03-2025', 'Sun 27-03-2025',
+  private data: number[] = [1, 2, 4, 7, 9, 4, 5,  1, 4, 5, 6, 2, 7, 8, 2, 1, 3, 7, 6, 2];
+  private day: string[] = ['Mon 27-03-2025', 'Tue 27-03-2025','Wed 27-03-2025','Thu 27-03-2025', 'Fri 27-03-2025', 'Sat 27-03-2025', 'Sun 27-03-2025',
     'Mon 27-03-2025', 'Tue 27-03-2025','Wed 27-03-2025','Thu 27-03-2025', 'Fri 27-03-2025', 'Sat 27-03-2025', 'Sun 27-03-2025',
     'Mon 27-03-2025', 'Tue 27-03-2025','Wed 27-03-2025','Thu 27-03-2025', 'Fri 27-03-2025', 'Sat 27-03-2025', 'Sun 27-03-2025'
   ];
-  chartType: string = 'column';
-  searchData: string = '';
-  chartFilter: string = 'ascending';
-  filterData = this.data;
-  dataOrder = [
+  public chartType: string = 'column';
+  public searchData: string = '';
+  public chartFilter: string = 'ascending';
+  public filterData = this.data;
+  public dataOrder = [
     {
       name: 'ascending',
       value: 'ascending',
@@ -49,9 +50,8 @@ export class StockChartComponent {
     },
     
   ]
-  Highcharts: typeof Highcharts = Highcharts;
-  
-  chartOptions: Highcharts.Options = {  
+  public Highcharts: typeof Highcharts = Highcharts;
+  public chartOptions: Highcharts.Options = {  
     title : {
       text : 'my Chart'
     },
@@ -105,8 +105,6 @@ export class StockChartComponent {
     ] 
   };
 
-  constructor() {}
-
   search() {
     if (!this.searchData) {
       this.filterData = this.data;
@@ -120,8 +118,7 @@ export class StockChartComponent {
       Highcharts.charts[0]?.update(this.chartOptions);
     })
   }
-
-    
+ 
   changeChartType() {
     if (this.chartOptions.series) {
       for (let i = 0; i < this.chartOptions.series.length; i++) {
@@ -137,16 +134,19 @@ export class StockChartComponent {
       Highcharts.charts[0]?.update(this.chartOptions);
   }
     
-  filterChart() {
-    if(this.chartFilter === 'ascending') {
-      this.filterData = this.data.sort((a , b) => a - b);
+  public filterChart(event: MatOptionSelectionChange) {
+    if(event.isUserInput) {
+      this.chartFilter = event.source.value;
+      if(this.chartFilter === 'ascending') {
+        this.filterData = this.data.sort((a, b) => a - b);
+      }
+      else{
+          this.filterData = this.data.sort((a, b) => b - a);
+      }
+      this.chartOptions.series?.forEach((data, i) => {
+        (this.chartOptions.series as any)[i].data = [...this.filterData];
+        Highcharts.charts[0]?.update(this.chartOptions);
+      })
     }
-    else{
-        this.filterData = this.data.sort((a , b) => b - a);
-    }
-    this.chartOptions.series?.forEach((data, i ) => {
-      (this.chartOptions.series as any)[i].data = this.filterData;
-      Highcharts.charts[0]?.update(this.chartOptions);
-    })
   }
 }
