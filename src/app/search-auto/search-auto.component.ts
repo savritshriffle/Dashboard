@@ -134,7 +134,7 @@ export class SerachAutoComponent {
   ]
   searchInput = '';
   inputId: number = 0;
-  filterData = [...this.Data];
+  filterData = this.Data;
 
   search() {
     const input = this.searchInput.toLowerCase().trim();
@@ -145,7 +145,7 @@ export class SerachAutoComponent {
         )
       );
     } else {
-      this.filterData = [...this.Data];
+      this.filterData = this.Data;
       }
   }
 
@@ -159,14 +159,14 @@ export class SerachAutoComponent {
 
   handleOnChange(event:any , post:any , key:any) {
     post[key] = event.target.value
-    this.filterData = [...this.filterData]
+    this.filterData = this.filterData;
   }
 
   saveData(post: any) {
     console.log(post);
     localStorage.setItem('tableData', JSON.stringify(post));
     const data =  JSON.parse(JSON.stringify(localStorage.getItem('tableData')));
-    this.filterData = [...data]
+    this.filterData = data;
   
   }
 

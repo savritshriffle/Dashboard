@@ -15,7 +15,7 @@ export class StockChartComponent {
   chartType: string = 'column';
   searchData: string = '';
   chartFilter: string = 'ascending';
-  filterData:any  = [...this.data];
+  filterData:any  = this.data;
   Highcharts: typeof Highcharts = Highcharts;
   
   chartOptions: Highcharts.Options = {  
@@ -94,7 +94,7 @@ export class StockChartComponent {
 
   search() {
     if (!this.searchData) {
-      this.filterData = [...this.data];
+      this.filterData = this.data;
     } 
     else {
       this.filterData = this.data.filter((value) =>
@@ -124,10 +124,10 @@ export class StockChartComponent {
     
   filter() {
     if(this.chartFilter === 'ascending') {
-      this.filterData = [...this.data].sort((a , b) => a - b);
+      this.filterData = this.data.sort((a , b) => a - b);
     }
     else{
-        this.filterData = [...this.data].sort((a , b) => b - a);
+        this.filterData = this.data.sort((a , b) => b - a);
     }
     for (let i = 0; i < (this.chartOptions.series as any).length; i++) {
         (this.chartOptions.series as any)[i].data = [...this.filterData];

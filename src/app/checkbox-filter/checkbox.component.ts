@@ -103,13 +103,13 @@ export class CheckboxComponent implements OnInit {
     const falseValue = this.studentData.filter((val) => val.complete === false);
     
     if(isCheckData && isInCheckedData){
-     this.filterValue = [...this.studentData]
+     this.filterValue = this.studentData;
     }
     else if(isCheckData){
-      this.filterValue = [...trueValue]
+      this.filterValue = trueValue
     }
     else if(isInCheckedData){
-      this.filterValue = [...falseValue]
+      this.filterValue = falseValue
     }
     else {
       this.filterValue = this.studentData

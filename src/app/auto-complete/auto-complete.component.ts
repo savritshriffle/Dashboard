@@ -63,7 +63,7 @@ export class AutoCompleteComponent {
   selected(event: MatAutocompleteSelectedEvent): void {
     const newValue = event.option.viewValue;
     if (this.fruits.includes(newValue)) {
-      this.fruits = [...this.fruits.filter(fruit=>fruit !== newValue)];
+      this.fruits = this.fruits.filter(fruit=>fruit !== newValue);
     } else {
       this.fruits.push(event.option.viewValue);
     }
