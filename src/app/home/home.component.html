@@ -2,7 +2,7 @@
   <i class="fa-solid fa-magnifying-glass"></i>
   <input type="search" placeholder="Enter UserId or Id" class="search" (keyup)="search($any($event.target).value)">
 </div>
-<table mat-table [dataSource]="dataSources" matSort (matSortChange)="sortData($event)" class="mat-elevation-z8">
+<table mat-table [dataSource]="dataSources" matSort class="mat-elevation-z8">
   <ng-container matColumnDef="userId">
     <th mat-header-cell *matHeaderCellDef mat-sort-header="userId">userId</th>
     <td  mat-cell *matCellDef="let post">

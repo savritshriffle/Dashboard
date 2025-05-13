@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component, OnChanges, OnInit, SimpleChanges, ViewChild } from '@angular/core';
+import { AfterViewInit, ChangeDetectorRef, Component, OnChanges, OnInit, SimpleChanges, ViewChild } from '@angular/core';
 import { ServiceService } from '../service.service';
 import { MatDialog } from '@angular/material/dialog';
 import { MatTableDataSource } from '@angular/material/table';
@@ -6,13 +6,14 @@ import { MatSort, Sort } from '@angular/material/sort';
 import { MatPaginator } from '@angular/material/paginator';
 import { ActivatedRoute } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { sort } from 'd3';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css'],
   
 })
-export class HomeComponent implements OnInit, OnChanges{
+export class HomeComponent implements OnInit, OnChanges {
   @ViewChild(MatSort) sort!: MatSort;
   @ViewChild(MatPaginator, {static: false}) paginator!: MatPaginator;
   posts: any[] = [];   
@@ -37,8 +38,10 @@ export class HomeComponent implements OnInit, OnChanges{
   }
 
   ngOnInit(): void { 
-      this.getPostData(); 
+      this.getPostData();    
   }
+
+
 
   ngOnChanges(changes: SimpleChanges): void {
       if (this.searchData.trim() === ''  ) 
@@ -48,7 +51,8 @@ export class HomeComponent implements OnInit, OnChanges{
       this.filterData = this.posts.filter(user =>
           user.userId.toString() === this.searchData || user.id.toString() === this.searchData
       ||  user.title.startsWith('qui est esse'));
-          this.dataSources.data = this.filterData 
+          this.dataSources.data = this.filterData;
+         
   }
 
 
@@ -71,6 +75,7 @@ export class HomeComponent implements OnInit, OnChanges{
     this.dataSources.paginator['pageSize']= Number(sizeData)
       
     this.dataSources.paginator = this.paginator; 
+    this.dataSources.sort = this.sort;        
         
     });
   }
@@ -113,37 +118,6 @@ export class HomeComponent implements OnInit, OnChanges{
     }
     
   }     
-
-  sortData(sort :Sort) {
-      const data = this.posts.slice();
-
-        if(!sort.active || sort.direction === '') {
-          this.posts = data;
-          return
-        }
-
-      const sortedData = data.sort((a, b) => {
-        const isAsc = sort.direction === 'asc';
-          switch (sort.active) {
-            case 'userId':
-              return compare(a.userId, b.userId, isAsc);
-            case 'id':
-              return compare(a.id, b.id, isAsc);
-            case 'title':
-              return compare(a.title, b.title, isAsc);
-            case 'body':
-              return compare(a.body, b.body, isAsc);
-            default:
-              return 0;
-          }
-      });
-          this.dataSources.data = sortedData;
-        
-  }
 }
-function compare(a: number | string, b: number | string, isAsc: boolean) {
-      return (a < b ? -1 : 1) * (isAsc ? 1 : -1);
-}
- 
   
 
