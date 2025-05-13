@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component, OnChanges, OnInit, SimpleChanges, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { ServiceService } from '../service.service';
 import { MatDialog } from '@angular/material/dialog';
 import { MatTableDataSource } from '@angular/material/table';
@@ -13,7 +13,7 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./home.component.css'],
   
 })
-export class HomeComponent implements OnInit, OnChanges {
+export class HomeComponent implements OnInit {
   @ViewChild(MatSort) sort!: MatSort;
   @ViewChild(MatPaginator, {static: false}) paginator!: MatPaginator;
   posts: any[] = [];   
@@ -33,28 +33,20 @@ export class HomeComponent implements OnInit, OnChanges {
   sortedData = new MatSort();
   currentPage = 0;
   currentSize = 0;
-  constructor(private service: ServiceService, public dialog: MatDialog, private cdr: ChangeDetectorRef, private router : ActivatedRoute, private toastr: ToastrService) {
-
-  }
+  
+  constructor(
+    private service: ServiceService,
+    public dialog: MatDialog,
+    private router : ActivatedRoute,
+    private toastr: ToastrService) {  }
 
   ngOnInit(): void { 
-      this.getPostData();    
+    this.filterData = this.posts.filter(user =>
+      user.userId.toString() === this.searchData || user.id.toString() === this.searchData.trim() ||user.title.startsWith('qui est esse'));
+      this.dataSources.data = this.filterData;    
+
+      this.getPostData(); 
   }
-
-
-
-  ngOnChanges(changes: SimpleChanges): void {
-      if (this.searchData.trim() === ''  ) 
-      {
-        return alert("Enter Valid Data"+" "+ changes);
-      }
-      this.filterData = this.posts.filter(user =>
-          user.userId.toString() === this.searchData || user.id.toString() === this.searchData
-      ||  user.title.startsWith('qui est esse'));
-          this.dataSources.data = this.filterData;
-         
-  }
-
 
   getPostData() {
     this.service.getData().subscribe((data) => {
@@ -66,8 +58,6 @@ export class HomeComponent implements OnInit, OnChanges {
     this.dataSources.paginator = this.paginator
 
     localStorage.setItem('apiData', JSON.stringify(data));
-    
-    
     const indexData  =  localStorage.getItem('paginatorIndex');
     const sizeData = localStorage.getItem('paginatorSize')
     
@@ -75,8 +65,7 @@ export class HomeComponent implements OnInit, OnChanges {
     this.dataSources.paginator['pageSize']= Number(sizeData)
       
     this.dataSources.paginator = this.paginator; 
-    this.dataSources.sort = this.sort;        
-        
+    this.dataSources.sort = this.sort;            
     });
   }
 
@@ -86,18 +75,18 @@ export class HomeComponent implements OnInit, OnChanges {
 
   editData(post: any) {
     post.isEdit= true
-    }
+  }
     
   onSaveData(post: any){
     post.isEdit = false;
     this.dataSources.data = [...this.dataSources.data]
   }
+
   handleOnChange(e: any, post: any, key: any) {
     post[key]= e.target.value;
     this.dataSources.data = [...this.dataSources.data];
     console.log(this.dataSources)
   }
-
 
   onPaginateChange(e: any) {
     let index = this.dataSources.paginator?.pageIndex
@@ -116,7 +105,6 @@ export class HomeComponent implements OnInit, OnChanges {
       this.dataSources.data = [...this.dataSources.data]
       this.toastr.info("deleted Data   " + id)
     }
-    
   }     
 }
   
