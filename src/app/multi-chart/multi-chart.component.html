@@ -5,8 +5,9 @@
 
 <mat-form-field>
   <mat-select [(ngModel)]="chartFilter" (ngModelChange)="filter()">
-    <mat-option value="ascending">Ascending</mat-option>
-    <mat-option value="descemat-nding">Descending</mat-option>
+      <span *ngFor="let data of dataOrder">
+          <mat-option [value]="data.value">{{data.name}}</mat-option>
+      </span>
   </mat-select>
 </mat-form-field>
  

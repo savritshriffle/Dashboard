@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import * as Highcharts from 'highcharts';
 
 @Component({
@@ -19,12 +19,35 @@ export class StockChartComponent {
   dataOrder = [
     {
       name: 'ascending',
-      value: false,
+      value: 'ascending',
     },
     {
       name: 'descending',
-      value: false,
+      value: 'descending',
     }
+  ]
+  typeChart = [
+    {
+      name: 'line',
+      value: 'line'
+    },
+    {
+      name: 'column',
+      value: 'column'
+    },
+    {
+      name: 'spline',
+      value: 'spline'
+    },
+    {
+      name: 'area',
+      value: 'area'
+    },
+    {
+      name: 'scatter',
+      value: 'scatter'
+    },
+    
   ]
   Highcharts: typeof Highcharts = Highcharts;
   
@@ -43,24 +66,6 @@ export class StockChartComponent {
         text :'Chart Values'
       }
     },
-
-  //   plotOptions: {
-  //     series: {
-  //         // pointStart: '2020-01-01',
-  //         // pointInterval: 36e5, 
-  //         relativeXValue: true,
-  //         showCheckbox: true,
-  //         stacking: 'overlap',
-  //         step:'right',
-  //         dataSorting: undefined,
-  //         shadow: true,
-  //         stickyTracking: false,
-          
-  //     }
-  // },
-  // accessibility: {
-  //   enabled: false
-  // },
     tooltip:{
       style : {
         fontSize:16,
@@ -111,13 +116,14 @@ export class StockChartComponent {
         value.toString().includes(this.searchData));   
     }
     this.chartOptions.series?.forEach((data, i ) => {
-      (this.chartOptions.series as any)[i].data = [...this.filterData];
+      (this.chartOptions.series as any)[i].data = this.filterData;
       Highcharts.charts[0]?.update(this.chartOptions);
     })
   }
 
     
   changeChartType() {
+    console.log(this.chartType)
     if (this.chartOptions.series) {
       for (let i = 0; i < this.chartOptions.series.length; i++) {
         if (this.chartOptions.series[i].type == this.chartType) {
@@ -140,7 +146,7 @@ export class StockChartComponent {
         this.filterData = this.data.sort((a , b) => b - a);
     }
     this.chartOptions.series?.forEach((data, i ) => {
-      (this.chartOptions.series as any)[i].data = [...this.filterData];
+      (this.chartOptions.series as any)[i].data = this.filterData;
       Highcharts.charts[0]?.update(this.chartOptions);
     })
   }

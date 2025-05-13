@@ -13,6 +13,16 @@ export class MultiChartComponent {
   chartFilter: string = 'ascending';
   Highcharts = Highcharts;  
   chartOptions: any[] = []; 
+  dataOrder = [
+    {
+      name: 'ascending',
+      value: 'ascending',
+    },
+    {
+      name: 'descending',
+      value: 'descending',
+    }
+  ]
   constructor() {  
     this.chartOptions = [
       {

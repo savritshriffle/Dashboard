@@ -4,18 +4,17 @@
 </div>
 <mat-form-field>
     <mat-select [(ngModel)]="chartFilter" (ngModelChange)="filterChart()">
-        <mat-option value="ascending">Ascending</mat-option>
-        <mat-option value="descending">Descending</mat-option>
+        <span *ngFor="let data of dataOrder">
+            <mat-option [value]="data.value">{{data.name}}</mat-option>
+        </span>
     </mat-select>
 </mat-form-field>
 
-<mat-form-field>
-    <mat-select [(ngModel)]="chartType" (ngModelChange)="changeChartType()">
-        <mat-option value="column">column</mat-option>
-        <mat-option value="line">line</mat-option>
-        <mat-option value="spline">spline</mat-option>
-        <mat-option value="area">area</mat-option>
-        <mat-option value="scatter">scatter</mat-option>
+<mat-form-field >
+    <mat-select  [(ngModel)]="chartType" (ngModelChange)="changeChartType()">
+        <span *ngFor="let type of typeChart">
+            <mat-option [value]="type.value">{{type.name}}</mat-option>
+        </span>     
     </mat-select>
 </mat-form-field>
 <highcharts-chart 

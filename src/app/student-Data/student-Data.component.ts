@@ -69,7 +69,6 @@ export class StudentComponent {
   }
   addAddress() {
     const address = this.address.push(this.fb.control(''));
-    console.log(address);
   }
   removeAddress(index: number) {
     this.address.removeAt(index);

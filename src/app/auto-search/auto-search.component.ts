@@ -72,6 +72,7 @@ export class AutoSearchCompoent {
   inputId: number = 0;
   Data = Data;
   filterData = this.Data;
+  
   search() {
     const input = this.searchInput.toLowerCase().trim();
     if (input) {
@@ -80,9 +81,10 @@ export class AutoSearchCompoent {
           value.toString().toLowerCase().includes(input)
         )
       );
-    } else {
+    } 
+    else {
       this.filterData = this.Data;
-      }
+    }
   }
 
   removeData(id : number) {
@@ -94,14 +96,10 @@ export class AutoSearchCompoent {
   }
 
   handleOnChange(event:any , post:any , key:any) {
-    post[key] = event.target.value
-    this.filterData = [...this.filterData];
+    post[key] = event.target.value;
   }
 
   saveData(post: any) {
     post.isEdit = false;
-    localStorage.setItem('tableData', JSON.stringify(post));
-    const data =  JSON.parse(JSON.stringify(localStorage.getItem('tableData')));
-    this.filterData =data;
   }
 }
