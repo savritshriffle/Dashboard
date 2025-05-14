@@ -62,7 +62,7 @@ export class StockChartComponent {
     },
     yAxis: {
       title: {
-        text:'Chart Values'
+        text: 'Chart Values'
       }
     },
     tooltip: {
@@ -73,31 +73,31 @@ export class StockChartComponent {
     series: [
       {
         name: 'First Demo',
-        data:  this.filterData,
+        data: this.filterData,
         type: 'column',
         visible: true
       },
       {
         name: 'Sec Demo',
-        data:  this.filterData,
+        data: this.filterData,
         type: 'line',
         visible: false
       },
       {
         name: 'Third Demo',
-        data:  this.filterData,
+        data: this.filterData,
         type: 'spline',
         visible: false
       },
       {
         name: 'Four Demo',
-        data:  this.filterData,
+        data: this.filterData,
         type: 'area',
         visible: false
       },
       {
         name: 'Five Demo',
-        data:  this.filterData,
+        data: this.filterData,
         type: 'scatter',
         visible: false
       },

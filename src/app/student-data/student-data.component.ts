@@ -105,7 +105,7 @@ export class StudentComponent {
     return this.formData.get('hobbies') as FormArray;
   }
 
-  public onHobbyChange(event: MatCheckboxChange, hobby: {[key: string] : string | number}) {
+  public onHobbyChange(event: MatCheckboxChange, hobby: {[key: string]: string | number}) {
     if(event.checked) {
       this.hobbies.push(this.fb.control(hobby)); 
     }
