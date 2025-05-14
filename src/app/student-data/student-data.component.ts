@@ -45,7 +45,7 @@ export class StudentComponent {
     { id: 4, name: 'Cooking' }
   ];
  
-  constructor(private fb : FormBuilder) {
+  constructor(private fb: FormBuilder) {
     this.formData = this.fb.group({
       firstName:  ['', Validators.required],
       lastName:  ['', Validators.required],
