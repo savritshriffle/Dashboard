@@ -52,7 +52,7 @@ export class HomeComponent implements OnInit {
   }
 
   public editData(post: {[key: string] : string | number | boolean}) {
-    post['isEdit'] = true
+    post['isEdit'] = true;
   }
     
   public onSaveData(post: {[key: string] : string | number | boolean}){
@@ -69,7 +69,7 @@ export class HomeComponent implements OnInit {
   public deleteData(id: string) {
     const isConfirm = confirm("Are You Sure ?")
     if(isConfirm){
-      let index = this.dataSources.data.find((data) =>data['id'] === id) 
+      let index = this.dataSources.data.find((data) =>data['id'] === id); 
       this.dataSources.data.splice(index, 1);
       this.dataSources.data = this.dataSources.data;
       this.toastr.success("Deleted Data" + id);

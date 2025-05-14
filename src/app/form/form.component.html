@@ -33,7 +33,7 @@
           <input matInput placeholder="Address" [formControlName]="i">
         </mat-form-field>
         <div style="color: red;" *ngIf="addressCtrl.errors?.['required']">Address is required.</div>
-        <button mat-raised-button  (click)="removeAddress(i)" *ngIf="address.length > 1">-</button>
+        <button mat-raised-button (click)="removeAddress(i)" *ngIf="address.length > 1">-</button>
         <button mat-raised-button color="primary" *ngIf="addressCtrl.valid" (click)="addAddress()">+</button>
       </div>
     </div>

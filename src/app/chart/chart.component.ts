@@ -122,15 +122,15 @@ export class StockChartComponent {
     if(event.isUserInput) {
       this.chartType = event.source.value;
       if (this.chartOptions.series) {
-        for (let i = 0; i < this.chartOptions.series.length; i++) {
-          if (this.chartOptions.series[i].type == this.chartType) {
-            this.chartOptions.series[i].type = this.chartType; 
-            this.chartOptions.series[i].visible = true;
+        this.chartOptions.series?.forEach((data, i) => {
+          if (data.type == this.chartType) {
+            data.type = this.chartType; 
+            data.visible = true;
           }
           else{
-            this.chartOptions.series[i].visible = false;
+            data.visible = false;
           }
-        }
+        })
       }
     }
     Highcharts.charts[0]?.update(this.chartOptions);
