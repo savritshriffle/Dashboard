@@ -14,10 +14,10 @@
     </mat-form-field>
 
     <mat-form-field>
-        <mat-label>Email</mat-label>
-        <input matInput formControlName="email" placeholder="Enter your email" type="email"> 
-        <mat-error *ngIf="formData.get('email')?.hasError('required')">Please Enter Email.</mat-error>
-        <mat-error *ngIf="formData.get('email')?.hasError('email')">Please Enter a Valid Email</mat-error>
+      <mat-label>Email</mat-label>
+      <input matInput formControlName="email" placeholder="Enter your email" type="email"> 
+      <mat-error *ngIf="formData.get('email')?.hasError('required')">Please Enter Email.</mat-error>
+      <mat-error *ngIf="formData.get('email')?.hasError('email')">Please Enter a Valid Email</mat-error>
     </mat-form-field>
 
     <mat-form-field>
