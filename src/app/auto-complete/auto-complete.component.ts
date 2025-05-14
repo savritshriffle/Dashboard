@@ -72,8 +72,5 @@ export class AutoCompleteComponent {
     this.fruitInput.nativeElement.focus();
     console.log(trigger);
   }
-  public closeAuto() {
-    this.matACTrigger.closePanel();
-    this.fruitInput.nativeElement.focus();
-  }
+ 
 }
