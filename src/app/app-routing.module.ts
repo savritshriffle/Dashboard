@@ -7,7 +7,7 @@ import { MultiChartComponent } from './multi-chart/multi-chart.component';
 import { AutoCompleteComponent } from './auto-complete/auto-complete.component';
 import { AutoSearchCompoent } from './auto-search/auto-search.component';
 import { CheckboxComponent } from './checkbox-filter/checkbox.component';
-import { StudentComponent } from './student-Data/student-Data.component';
+import { StudentComponent } from './student-data/student-data.component';
 
 const routes: Routes = [
   {

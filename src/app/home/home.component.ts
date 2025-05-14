@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { MyServiceService } from '../tableService.service';
+import { tableService } from '../table.service';
 import { MatDialog } from '@angular/material/dialog';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatSort} from '@angular/material/sort';
@@ -28,7 +28,7 @@ export class HomeComponent implements OnInit {
   public currentPage = 0;
 
   constructor(
-    private service: MyServiceService,
+    private service: tableService,
     public dialog: MatDialog,
     private toastr: ToastrService) {  }
 

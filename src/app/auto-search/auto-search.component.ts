@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Data } from './Data';
+import { Data } from './data';
 
 @Component({
   selector: 'app-auto-search',

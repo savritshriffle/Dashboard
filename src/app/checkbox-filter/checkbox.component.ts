@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Data } from './student-Data';
+import { Data } from './data';
 
 @Component({
   selector: 'app-checkbox',

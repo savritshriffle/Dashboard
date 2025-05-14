@@ -6,8 +6,8 @@ import { MatSelectChange } from '@angular/material/select';
 
 @Component({
   selector: 'app-student',
-  templateUrl: './student-Data.component.html',
-  styleUrls: ['./student-Data.component.css']
+  templateUrl: './student-data.component.html',
+  styleUrls: ['./student-data.component.css']
 })
 export class StudentComponent {
   public formData: FormGroup;

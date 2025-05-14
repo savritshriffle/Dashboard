@@ -4,8 +4,8 @@ import { DialogboxComponent } from '../dialog-box/dialog-box.component';
 
 @Component({
   selector: 'app-Navbar',
-  templateUrl: './Navbar.component.html',
-  styleUrls: ['./Navbar.component.css']
+  templateUrl: './navbar.component.html',
+  styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent {
   constructor(private dialog : MatDialog) {}

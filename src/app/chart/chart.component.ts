@@ -29,12 +29,12 @@ export class StockChartComponent {
   ]
   typeChart = [
     {
-      name: 'line',
-      value: 'line'
-    },
-    {
       name: 'column',
       value: 'column'
+    },
+    {
+      name: 'line',
+      value: 'line'
     },
     {
       name: 'spline',
