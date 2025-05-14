@@ -73,7 +73,7 @@ import { NavbarComponent } from './Navbar/Navbar.component';
     MatSelectModule,
     MatCheckboxModule,
     MatChipsModule,
-    MatRadioModule,
+    MatRadioModule
   ],
   providers: [ 
     provideAnimations(), 

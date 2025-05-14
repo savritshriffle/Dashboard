@@ -17,11 +17,11 @@ export class MultiChartComponent {
   public dataOrder = [
     {
       name: 'ascending',
-      value: 'ascending',
+      value: 'ascending'
     },
     {
       name: 'descending',
-      value: 'descending',
+      value: 'descending'
     }
   ]
   constructor() {  
@@ -94,10 +94,10 @@ export class MultiChartComponent {
       else {
         this.filterData = this.data.sort((a, b) => b - a);
       }
-    for(let i=0; i< this.chartOptions.length; i++){
-      this.chartOptions[i].series[0].data = [...this.filterData];
-      Highcharts.charts[i]?.update(this.chartOptions[i]);
-    }
+      for(let i=0; i< this.chartOptions.length; i++){
+        this.chartOptions[i].series[0].data = [...this.filterData];
+        Highcharts.charts[i]?.update(this.chartOptions[i]);
+      }
     }
   }
 }

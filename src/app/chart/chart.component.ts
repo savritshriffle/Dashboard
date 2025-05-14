@@ -51,55 +51,55 @@ export class StockChartComponent {
   ]
   public Highcharts: typeof Highcharts = Highcharts;
   public chartOptions: Highcharts.Options = {  
-    title : {
-      text : 'my Chart'
+    title: {
+      text: 'my Chart'
     },
-    xAxis : {
+    xAxis: {
       categories: this.day,
-      title :{
-        text : 'Chart data'
+      title: {
+        text: 'Chart data'
       } 
     },
-    yAxis :{
-      title : {
-        text :'Chart Values'
+    yAxis: {
+      title: {
+        text:'Chart Values'
       }
     },
-    tooltip:{
-      style : {
-        fontSize:16,
+    tooltip: {
+      style: {
+        fontSize: 16,
       }
     },
     series: [
       {
         name: 'First Demo',
-        data:  this.filterData ,
+        data:  this.filterData,
         type: 'column',
-        visible:true
+        visible: true
       },
       {
         name: 'Sec Demo',
-        data:  this.filterData ,
+        data:  this.filterData,
         type: 'line',
-        visible:false
+        visible: false
       },
       {
         name: 'Third Demo',
-        data:  this.filterData ,
+        data:  this.filterData,
         type: 'spline',
-        visible:false
+        visible: false
       },
       {
         name: 'Four Demo',
-        data:  this.filterData ,
+        data:  this.filterData,
         type: 'area',
-        visible:false
+        visible: false
       },
       {
         name: 'Five Demo',
-        data:  this.filterData ,
+        data:  this.filterData,
         type: 'scatter',
-        visible:false
+        visible: false
       },
     ] 
   };

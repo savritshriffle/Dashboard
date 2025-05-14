@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { MyServiceService } from '../myservice.service';
+import { MyServiceService } from '../tableService.service';
 import { MatDialog } from '@angular/material/dialog';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatSort} from '@angular/material/sort';
@@ -36,10 +36,10 @@ export class HomeComponent implements OnInit {
     this.getData(); 
   }
 
-  public getData() {
+  private getData() {
     this.service.getData().subscribe((data) => { 
-      data.forEach((element: {[key: string] : boolean}) => {
-      element['isEdit'] = false;
+      data.forEach((element: {[key: string]: boolean}) => {
+        element['isEdit'] = false;
       });
       this.dataSources = new MatTableDataSource(data);
       this.dataSources.paginator = this.paginator;
@@ -47,27 +47,27 @@ export class HomeComponent implements OnInit {
     });
   }
 
-  public search(filtervalue: string){
-    this.dataSources.filter = filtervalue.trim().toLowerCase();
+  public search(searchText: string){
+    this.dataSources.filter = searchText.trim().toLowerCase();
   }
 
-  public editData(post: {[key: string] : string | number | boolean}) {
+  public editData(post: {[key: string]: string | number | boolean}) {
     post['isEdit'] = true;
   }
     
-  public onSaveData(post: {[key: string] : string | number | boolean}){
+  public onSaveData(post: {[key: string]: string | number | boolean}){
     post['isEdit'] = false;
     this.dataSources.data = this.dataSources.data;
     this.toastr.success("Data Changes Save Successfully...");
   }
 
-  public handleOnChange(e: any, post: {[key: string] : string | number}, key: string) {
+  public handleOnChange(e: any, post: {[key: string]: string | number}, key: string) {
     post[key] = e.target.value;
     this.dataSources.data = this.dataSources.data;
   }
 
   public deleteData(id: string) {
-    const isConfirm = confirm("Are You Sure ?")
+    const isConfirm = confirm("Are You Sure ?");
     if(isConfirm){
       let index = this.dataSources.data.find((data) =>data['id'] === id); 
       this.dataSources.data.splice(index, 1);

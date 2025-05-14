@@ -4,13 +4,11 @@
    padding: 10px;
    display: flex;
    align-items: center;
+   justify-content: space-between;  
 }
 a {
    color:  white;
    padding: 10px;
    text-decoration: none;
-}
-button {
-   position: relative;
-   justify-content: end;
+   cursor: pointer;
 }

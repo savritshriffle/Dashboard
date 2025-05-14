@@ -67,6 +67,7 @@ export class AutoCompleteComponent {
       }
     } else {
         this.fruits = this.fruits.filter(f => f !== fruit);
+        this.fruitCtrl.setValue(null);
     }
   }
 }

@@ -21,7 +21,8 @@ export class StudentComponent {
       value: 'male',
     }
   ]
-  public subjectData =['Maths',
+  public subjectData = [
+    'Maths',
     'Science',
     'English',
     'Hindi',
@@ -62,7 +63,7 @@ export class StudentComponent {
   }
 
   public onSubmit() {
-    console.log(this.formData, "form Data")
+    console.log(this.formData, "form Data");
   }
 
   get address() {
@@ -95,7 +96,7 @@ export class StudentComponent {
   public addGender(event: MatRadioChange) {
     this.genderData.filter((data) =>{
       if(event.value === data.value) {
-        this.formData.get('gender')?.setValue(data.value)
+        this.formData.get('gender')?.setValue(data.value);
       }
     })
   }
@@ -105,12 +106,12 @@ export class StudentComponent {
   }
 
   public onHobbyChange(event: MatCheckboxChange, hobby: {[key: string] : string | number}) {
-    if (event.checked) {
+    if(event.checked) {
       this.hobbies.push(this.fb.control(hobby)); 
     }
-    else {
+    else{
       const index = this.hobbies.controls.findIndex(data => data.value.id === hobby['id']);
-      if (index !== -1) {
+      if(index !== -1) {
         this.hobbies.removeAt(index); 
       }
     }
