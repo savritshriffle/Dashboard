@@ -1,20 +1,20 @@
 <app-Navbar></app-Navbar>
 <div>
-    <input type="search" placeholder="enter number" class="input" [(ngModel)]="searchData" (ngModelChange)="search()">
+  <input type="search" placeholder="enter number" class="input" [(ngModel)]="searchData" (ngModelChange)="search()">
 </div>
 <mat-form-field>
-    <mat-select [(value)]="chartFilter">
-        <mat-option (onSelectionChange)="filterChart($event)" *ngFor="let data of dataOrder" [value]="data.value">{{data.name}}</mat-option>
-    </mat-select>
+  <mat-select [(value)]="chartFilter" multiple>
+    <mat-option (onSelectionChange)="filterChart($event)" *ngFor="let data of dataOrder" [value]="data.value">{{data.name}}</mat-option>
+  </mat-select>
 </mat-form-field>
 
 <mat-form-field >
-    <mat-select [(value)]="chartType">
-        <mat-option (onSelectionChange)="changeChartType($event)" *ngFor="let type of typeChart" [value]="type.value">{{type.name}}</mat-option>  
-    </mat-select>
+  <mat-select [(value)]="chartType">
+    <mat-option (onSelectionChange)="changeChartType($event)" *ngFor="let type of typeChart" [value]="type.value">{{type.name}}</mat-option>  
+  </mat-select>
 </mat-form-field>
 <highcharts-chart 
-    [Highcharts]="Highcharts"
-    [options]="chartOptions"
-    style="width: 80%; height: 400px; display: block;">
+  [Highcharts]="Highcharts"
+  [options]="chartOptions"
+  style="width: 80%; height: 400px; display: block;">
 </highcharts-chart>

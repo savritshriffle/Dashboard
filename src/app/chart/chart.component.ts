@@ -104,7 +104,7 @@ export class StockChartComponent {
     ] 
   };
 
-  search() {
+  public search() {
     if (!this.searchData) {
       this.filterData = this.data;
     } 
@@ -118,7 +118,7 @@ export class StockChartComponent {
     })
   }
  
-  changeChartType(event: MatOptionSelectionChange) {
+  public changeChartType(event: MatOptionSelectionChange) {
     if(event.isUserInput) {
       this.chartType = event.source.value;
       if (this.chartOptions.series) {
