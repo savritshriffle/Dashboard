@@ -1,6 +1,6 @@
-import {Component, ElementRef, HostListener, ViewChild} from '@angular/core';
+import {Component, ElementRef, ViewChild} from '@angular/core';
 import {FormControl} from '@angular/forms';
-import {MatAutocompleteSelectedEvent, MatAutocomplete, MatAutocompleteTrigger} from '@angular/material/autocomplete';
+import { MatAutocomplete, MatAutocompleteTrigger} from '@angular/material/autocomplete';
 import {Observable} from 'rxjs';
 import {map, startWith} from 'rxjs/operators';
 
@@ -38,29 +38,23 @@ export class AutoCompleteComponent {
 
   public remove(fruit: string): void {
     const index = this.fruits.indexOf(fruit);
-
     if (index >= 0) {
       this.fruits.splice(index, 1);
     }    
   }
 
-  public selected(event: MatAutocompleteSelectedEvent): void {
-    const newValue = event.option.viewValue;
-    console.log(newValue)
-    if (this.fruits.includes(newValue)) {
-      this.fruits = this.fruits.filter(fruit=>fruit !== newValue);
-    } 
-    else {
-      this.fruits.push(event.option.viewValue);
+  public selected(fruit: string, event: Event): void {
+    event.stopPropagation();
+    const index = this.fruits.indexOf(fruit);
+    if (index >= 0) {
+      this.fruits.splice(index, 1);
+    } else {
+      this.fruits.push(fruit);
     }
     this.fruitInput.nativeElement.value = '';
-    this.fruitCtrl.setValue(null);
-
-    requestAnimationFrame(()=>{
-      this.openAuto(this.matACTrigger);
-      
-    });
+    this.fruitCtrl.setValue('');
   }
+  
 
   private _filter(value: string): string[] {
     const filterValue = value.toLowerCase();
@@ -72,5 +66,4 @@ export class AutoCompleteComponent {
     this.fruitInput.nativeElement.focus();
     console.log(trigger);
   }
- 
 }
