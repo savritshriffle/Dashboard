@@ -4,11 +4,12 @@
 </div>
 <div>
   <table mat-table [dataSource]="filterData" class="mat-elevation-z8">
+    
     <ng-container matColumnDef="id">
      <th mat-header-cell *matHeaderCellDef>id</th>
      <td mat-cell *matCellDef="let element">
-      <span *ngIf="!element.isEdit">{{element.id}}</span>
-      <input matInput placeholder="enter name" value="{{element.id}}" *ngIf="element.isEdit" (change)="handleOnChange($event, element , 'id')"></td>
+        <span *ngIf="!element.isEdit">{{element.id}}</span>
+        <input matInput placeholder="enter name" value="{{element.id}}" *ngIf="element.isEdit" (change)="handleOnChange($event, element , 'id')"></td>
     </ng-container>
 
     <ng-container matColumnDef="name">
