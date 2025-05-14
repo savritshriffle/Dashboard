@@ -7,7 +7,7 @@ import { Data } from './student-Data';
   styleUrls:  ['./checkbox.component.css']
 })
 export class CheckboxComponent implements OnInit {
-  public filterValue:{[key: string]: string | number | boolean}[] = [];
+  public filterValue: {[key: string]: string | number | boolean}[] = [];
   public studentData = Data;
   public filterData = [
     {
