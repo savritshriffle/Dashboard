@@ -6,8 +6,6 @@ import { HomeComponent } from './home/home.component';
 import { DialogboxComponent } from './dialog-box/dialog-box.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDialogModule } from "@angular/material/dialog";
-import { MatButtonModule } from "@angular/material/button";
-import { MatToolbarModule } from "@angular/material/toolbar";
 import { MatIconModule } from "@angular/material/icon";
 import { HttpClientModule } from '@angular/common/http';
 import { MatTableModule } from '@angular/material/table';
@@ -16,7 +14,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSortModule } from '@angular/material/sort';
-import { MatCardModule } from '@angular/material/card';
 import { LoginComponent } from './login/login.component';
 import { MatInputModule } from '@angular/material/input'
 import { provideAnimations } from '@angular/platform-browser/animations';
@@ -56,8 +53,6 @@ import { NavbarComponent } from './navbar/navbar.component';
     FormsModule,
     BrowserAnimationsModule,
     MatDialogModule,
-    MatButtonModule,
-    MatToolbarModule,
     MatIconModule,
     MatTableModule,
     MatCommonModule,
@@ -65,7 +60,6 @@ import { NavbarComponent } from './navbar/navbar.component';
     MatPaginatorModule,
     MatFormFieldModule,
     MatSortModule,
-    MatCardModule,
     MatInputModule,
     ReactiveFormsModule,
     HighchartsChartModule,
