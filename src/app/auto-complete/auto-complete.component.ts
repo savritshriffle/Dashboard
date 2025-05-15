@@ -10,11 +10,11 @@ import {map, startWith} from 'rxjs/operators';
   styleUrls: ['auto-complete.component.css'],
 })
 export class AutoCompleteComponent {
-  removable = true;
-  fruitCtrl = new FormControl();
-  filteredFruits: Observable<string[]>;
-  fruits: string[] = [];
-  allFruits: string[] = [
+  public removable = true;
+  public fruitCtrl = new FormControl();
+  public filteredFruits: Observable<string[]>;
+  public fruits: string[] = [];
+  public allFruits: string[] = [
     'Apple', 
     'Lemon', 
     'Lime', 
@@ -64,6 +64,5 @@ export class AutoCompleteComponent {
   public openAuto(trigger: MatAutocompleteTrigger) {
     trigger.openPanel();
     this.fruitInput.nativeElement.focus();
-    console.log(trigger);
   }
 }
