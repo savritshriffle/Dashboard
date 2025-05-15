@@ -18,6 +18,7 @@ import { LoginComponent } from './login/login.component';
 import { MatInputModule } from '@angular/material/input'
 import { provideAnimations } from '@angular/platform-browser/animations';
 import { provideToastr } from 'ngx-toastr';
+import { MatButtonModule } from '@angular/material/button';
 import { StockChartComponent } from './chart/chart.component';
 import { HighchartsChartModule } from 'highcharts-angular';
 import { MultiChartComponent } from './multi-chart/multi-chart.component';
@@ -67,7 +68,8 @@ import { NavbarComponent } from './navbar/navbar.component';
     MatSelectModule,
     MatCheckboxModule,
     MatChipsModule,
-    MatRadioModule
+    MatRadioModule,
+    MatButtonModule
   ],
   providers: [ 
     provideAnimations(), 
