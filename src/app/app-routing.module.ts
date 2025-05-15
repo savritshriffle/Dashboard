@@ -16,7 +16,7 @@ const routes: Routes = [
   },
   {
     path:'login',
-    component: LoginComponent
+    component: LoginComponent,
   },
   {
     path:'home',
@@ -40,7 +40,7 @@ const routes: Routes = [
   },
   {
     path: 'student-data',
-    component: StudentComponent
+    component: StudentComponent,
   },
   {
     path: "auto-complete",
@@ -54,6 +54,6 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
 export class AppRoutingModule { }

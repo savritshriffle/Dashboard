@@ -3,6 +3,8 @@ import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatCheckboxChange } from '@angular/material/checkbox';
 import { MatRadioChange } from '@angular/material/radio';
 import { MatSelectChange } from '@angular/material/select';
+import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-student',
@@ -45,7 +47,11 @@ export class StudentComponent {
     { id: 4, name: 'Cooking' }
   ];
  
-  constructor(private fb: FormBuilder) {
+  constructor(
+    private fb: FormBuilder,
+    private route: Router,
+    private toaster: ToastrService
+    ) {
     this.formData = this.fb.group({
       firstName:  ['', Validators.required],
       lastName:  ['', Validators.required],
@@ -63,7 +69,13 @@ export class StudentComponent {
   }
 
   public onSubmit() {
-    console.log(this.formData, "form Data");
+    if(this.formData.valid) {
+      this.route.navigate(['/home']);
+      this.toaster.success('Registration Successfully Completed!...', 'Done', {timeOut: 1000});
+    }
+    else {
+      this.toaster.error(' Invalid Credentials..');
+    }
   }
 
   get address() {
@@ -73,6 +85,7 @@ export class StudentComponent {
   public addAddress() {
     this.address.push(this.fb.control(''));
   }
+  
   public removeAddress(index: number) {
     this.address.removeAt(index);
   }

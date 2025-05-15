@@ -15,6 +15,7 @@ export class HomeComponent implements OnInit {
   @ViewChild(MatSort) sort!: MatSort;
   @ViewChild(MatPaginator, {static: false}) paginator!: MatPaginator;
   public searchText: string = '';
+  public dataSources = new MatTableDataSource<any>();
   public displayedColumns: string[] = [
     'userId',
     'id',
@@ -23,9 +24,6 @@ export class HomeComponent implements OnInit {
     'Action',
     'Delete'
   ];
-  public dataSources = new MatTableDataSource<any>();
-  public sortedData = new MatSort();
-  public currentPage = 0;
 
   constructor(
     private service: tableService,

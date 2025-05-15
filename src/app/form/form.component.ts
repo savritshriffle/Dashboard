@@ -7,7 +7,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./form.component.css']
 })
 export class FormComponent {
-  formData: FormGroup;
+  public formData: FormGroup;
+  
   constructor(private fb: FormBuilder) {
     this.formData = this.fb.group({
       firstName: ['', Validators.required],

@@ -27,7 +27,6 @@ export class AutoCompleteComponent {
     'The Long Name of a Fruit That is Yet to be Discovered',
   ];
   @ViewChild('fruitInput') fruitInput!: ElementRef<HTMLInputElement>;
-  @ViewChild('auto') matAutocomplete!: MatAutocomplete;
   @ViewChild('autocompleteTrigger') matACTrigger!: MatAutocompleteTrigger;
 
   constructor() {
@@ -53,7 +52,7 @@ export class AutoCompleteComponent {
     }
     this.fruitInput.nativeElement.value = '';
     this.fruitCtrl.setValue('');
-    
+
     requestAnimationFrame(() =>{
       this.openAuto(this.matACTrigger)
     })

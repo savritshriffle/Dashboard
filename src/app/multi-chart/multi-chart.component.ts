@@ -90,7 +90,7 @@ export class MultiChartComponent {
     if(event.isUserInput) {
       this.chartFilter = event.source.value;
       if(this.chartFilter === 'ascending') {
-        this.filterData = this.data.sort((a, b) => a- b);
+        this.filterData = this.data.sort((a, b) => a - b);
       }
       else {
         this.filterData = this.data.sort((a, b) => b - a);

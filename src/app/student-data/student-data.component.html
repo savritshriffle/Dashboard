@@ -1,6 +1,6 @@
-<app-Navbar></app-Navbar>
 <div class="container">
-  <form [formGroup]="formData" (ngSubmit)="onSubmit()">
+  <form [formGroup]="formData">
+    <h1>Registration Form</h1>
     <mat-form-field>
       <mat-label>First Name</mat-label>
       <input matInput placeholder="First Name" formControlName="firstName" type="text">
