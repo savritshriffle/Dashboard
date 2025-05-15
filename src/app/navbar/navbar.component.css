@@ -1,17 +1,17 @@
 .link {
-   font-size: 16px;
-   background-color: navy;
-   padding: 10px;
-   display: flex;
-   align-items: center;
-   justify-content: space-between;  
+  font-size: 16px;
+  background-color: navy;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;  
 }
 a {
-   color:  white;
-   padding: 10px;
-   text-decoration: none;
-   cursor: pointer;
+  color:  white;
+  padding: 10px;
+  text-decoration: none;
+  cursor: pointer;
 }
 button {
-   cursor: pointer;
+  cursor: pointer;
 }
