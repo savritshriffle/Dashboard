@@ -75,4 +75,4 @@ export class HomeComponent implements OnInit {
       this.toastr.success("Deleted Data" + id);
     }
   }     
-}
+};

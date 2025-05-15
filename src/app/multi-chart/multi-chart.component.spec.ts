@@ -17,14 +17,5 @@ describe('MultiChartComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
-
-
-
-    //  console.log(id)
-    //  const dataApi = localStorage.getItem('apiData')
-    //  console.log(dataApi?.match(id))
-    //  if(dataApi?.match(id)) {
-    //    localStorage.removeItem(id)
-    //  }
   });
 });

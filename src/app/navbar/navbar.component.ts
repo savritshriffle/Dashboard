@@ -15,4 +15,4 @@ export class NavbarComponent {
       height: '100px'
     })
   }
-}
+};

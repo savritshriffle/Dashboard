@@ -19,4 +19,4 @@ export class FormComponent {
   public onSubmit(): void {
     console.log(this.formData, "formdata"); 
   }
-}
+};

@@ -32,4 +32,4 @@ export class LoginComponent  {
       this.toastr.error(' Invalid Credentials..');
     }
   }
-}
+};

@@ -64,4 +64,4 @@ export class AutoCompleteComponent {
     trigger.openPanel();
     this.fruitInput.nativeElement.focus();
   }
-}
+};

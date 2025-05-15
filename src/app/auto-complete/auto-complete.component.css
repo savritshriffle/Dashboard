@@ -1,6 +1,7 @@
 .option {
   width: 140px;
   margin-left: 20px;
+  text-align: center;
 }
 .mat-chip {
   overflow: hidden;
@@ -10,7 +11,5 @@
 }
 .fruit-content {
   white-space: break-spaces;
-  padding: 5px;
+  padding: 10px;
 }
-
-

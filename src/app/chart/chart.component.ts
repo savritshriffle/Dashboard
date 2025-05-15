@@ -151,4 +151,4 @@ export class StockChartComponent {
       })
     }
   }
-}
+};

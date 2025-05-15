@@ -12,5 +12,4 @@ export class DialogboxComponent {
   public closeDialogbox() {
     this.dialogRef.close();
   }
-}
-  
+};

@@ -40,4 +40,4 @@ export class CheckboxComponent implements OnInit {
       this.filterValue = this.studentData;
     }
   }   
-}
+};

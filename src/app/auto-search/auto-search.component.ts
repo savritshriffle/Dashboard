@@ -57,4 +57,4 @@ export class AutoSearchCompoent {
     post['isEdit'] = false;
     this.toastr.success("Data Changes Save Successfully...");
   }
-}
+};
