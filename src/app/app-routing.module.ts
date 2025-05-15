@@ -8,6 +8,7 @@ import { AutoCompleteComponent } from './auto-complete/auto-complete.component';
 import { AutoSearchCompoent } from './auto-search/auto-search.component';
 import { CheckboxComponent } from './checkbox-filter/checkbox.component';
 import { StudentComponent } from './student-data/student-data.component';
+import { FormComponent } from './form/form.component';
 
 const routes: Routes = [
   {
@@ -44,7 +45,10 @@ const routes: Routes = [
   {
     path: "auto-complete",
     component: AutoCompleteComponent
-
+  },
+  {
+    path: "form",
+    component: FormComponent
   },
 ];
 

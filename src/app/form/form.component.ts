@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-form',
@@ -14,24 +14,8 @@ export class FormComponent {
       lastName: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(6)]],
-      address: this.fb.array([
-        this.fb.control('', Validators.required)
-      ])
     });
   }
-
-  get address(): FormArray {
-    return this.formData.get('address') as FormArray;
-  }
-
-  public addAddress(): void {
-    this.address.push(this.fb.control('', Validators.required));
-  }
-
-  public removeAddress(index: number): void {
-    this.address.removeAt(index);
-  }
-
   public onSubmit(): void {
     console.log(this.formData, "formdata"); 
   }
