@@ -7,11 +7,5 @@
   vertical-align: middle;
   margin-left: 20px;
 }
-mat-chip {
-  max-width: 100%;
-  white-space: normal !important;
-  overflow: visible !important;
-  text-overflow: unset !important;
-  word-break: break-word;
-}
+
 
