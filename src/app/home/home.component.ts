@@ -1,6 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { tableService } from '../table.service';
-import { MatDialog } from '@angular/material/dialog';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatSort} from '@angular/material/sort';
 import { MatPaginator } from '@angular/material/paginator';
@@ -27,7 +26,6 @@ export class HomeComponent implements OnInit {
 
   constructor(
     private service: tableService,
-    public dialog: MatDialog,
     private toastr: ToastrService) {  }
 
   ngOnInit(): void { 

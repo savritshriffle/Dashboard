@@ -47,21 +47,17 @@ export class StudentComponent {
     { id: 4, name: 'Cooking' }
   ];
  
-  constructor(
-    private fb: FormBuilder,
-    private route: Router,
-    private toaster: ToastrService
-    ) {
+  constructor(private fb: FormBuilder) {
     this.formData = this.fb.group({
       firstName:  ['', Validators.required],
       lastName:  ['', Validators.required],
       email:  ['', [Validators.required, Validators.email]],
       password:  ['', Validators.required ],
       address: this.fb.array([
-        this.fb.control('')
+        this.fb.control('',[Validators.required])
       ]), 
       subjects: this.fb.array([
-        this.fb.control('')
+        this.fb.control('',[Validators.required])
       ]),
       gender: ['', Validators.required],
       hobbies: this.fb.array([], Validators.required)
@@ -69,13 +65,7 @@ export class StudentComponent {
   }
 
   public onSubmit() {
-    if(this.formData.valid) {
-      this.route.navigate(['/home']);
-      this.toaster.success('Registration Successfully Completed!...', 'Done', {timeOut: 1000});
-    }
-    else {
-      this.toaster.error(' Invalid Credentials..');
-    }
+    console.log(this.formData, 'formdata');
   }
 
   get address() {

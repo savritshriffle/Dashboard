@@ -1,6 +1,6 @@
 import {Component, ElementRef, ViewChild} from '@angular/core';
 import {FormControl} from '@angular/forms';
-import {MatAutocomplete, MatAutocompleteTrigger} from '@angular/material/autocomplete';
+import {MatAutocompleteTrigger} from '@angular/material/autocomplete';
 import {Observable} from 'rxjs';
 import {map, startWith} from 'rxjs/operators';
 
@@ -14,7 +14,7 @@ export class AutoCompleteComponent {
   public fruitCtrl = new FormControl();
   public filteredFruits: Observable<string[]>;
   public fruits: string[] = [];
-  public allFruits: string[] = [
+  private allFruits: string[] = [
     'Apple', 
     'Lemon', 
     'Lime', 
@@ -32,7 +32,7 @@ export class AutoCompleteComponent {
   constructor() {
     this.filteredFruits = this.fruitCtrl.valueChanges.pipe(
       startWith(null),
-      map((fruit: string | null) => fruit ? this._filter(fruit) : this.allFruits.slice()));
+      map((fruit: string) => fruit ? this._filter(fruit) : this.allFruits.slice()));
   }
 
   public remove(fruit: string): void {
@@ -50,7 +50,6 @@ export class AutoCompleteComponent {
     } else {
       this.fruits.push(fruit);
     }
-    this.fruitInput.nativeElement.value = '';
     this.fruitCtrl.setValue('');
 
     requestAnimationFrame(() =>{
@@ -62,8 +61,8 @@ export class AutoCompleteComponent {
     const filterValue = value.toLowerCase();
     return this.allFruits.filter(fruit => fruit.toLowerCase().indexOf(filterValue) >= 0);
   }
-
-  public openAuto(trigger: MatAutocompleteTrigger) {
+ 
+  private openAuto(trigger: MatAutocompleteTrigger) {
     trigger.openPanel();
     this.fruitInput.nativeElement.focus();
   }

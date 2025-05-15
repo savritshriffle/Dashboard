@@ -16,7 +16,7 @@ export class StockChartComponent {
   public chartType: string = 'column';
   public searchData: string = '';
   public chartFilter: string = 'ascending';
-  public filterData = this.data;
+  private filterData = this.data;
   public dataOrder = [
     {
       name: 'ascending',

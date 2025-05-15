@@ -8,7 +8,7 @@ import { Data } from './student-Data';
 })
 export class CheckboxComponent implements OnInit {
   public filterValue: {[key: string]: string | number | boolean}[] = [];
-  public studentData = Data;
+  private studentData = Data;
   public filterData = [
     {
       name: 'complete',

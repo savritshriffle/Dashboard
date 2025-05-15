@@ -18,7 +18,7 @@ export class AutoSearchCompoent {
     'action'
   ]
   public searchInput = '';
-  public studentData = Data;
+  private studentData = Data;
   public filterData = this.studentData;
 
   constructor(private toastr: ToastrService) { }

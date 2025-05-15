@@ -9,7 +9,7 @@ import * as Highcharts from 'highcharts';
 })
 export class MultiChartComponent {
   private data: number[] = [1, 2, 4, 7, 9, 4, 5,  1, 4, 5, 6, 2, 7, 8, 2, 1, 3, 7, 6, 2];
-  public filterData = this.data;
+  private filterData = this.data;
   public searchData: string = '';
   public chartFilter: string = 'ascending';
   public Highcharts = Highcharts;  
