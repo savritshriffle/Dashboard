@@ -53,6 +53,10 @@ export class AutoCompleteComponent {
     }
     this.fruitInput.nativeElement.value = '';
     this.fruitCtrl.setValue('');
+    
+    requestAnimationFrame(() =>{
+      this.openAuto(this.matACTrigger)
+    })
   }
   
   private _filter(value: string): string[] {

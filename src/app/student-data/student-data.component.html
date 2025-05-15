@@ -51,7 +51,7 @@
     <div> 
       <mat-radio-group formControlName="gender" (change)="addGender($event)">
         <span *ngFor="let gender of genderData">
-        <mat-radio-button [value]="gender.value">{{gender.name}}</mat-radio-button>
+          <mat-radio-button [value]="gender.value">{{gender.name}}</mat-radio-button>
         </span>
         <mat-error *ngIf="formData.get('gender')?.errors?.['required'] && formData.get('gender')?.touched">Gender required</mat-error>
       </mat-radio-group>
@@ -65,6 +65,6 @@
       <mat-error *ngIf="formData.get('hobbies')?.errors?.['required'] && formData.get('hobbies')?.touched">Hobbies required</mat-error>
     </div>
     
-    <button mat-raised-button color="accent" [disabled]="formData.invalid" type="submit" (click)="onSubmit()">Submit</button>
+    <button class="button" mat-raised-button color="accent" [disabled]="formData.invalid" type="submit" (click)="onSubmit()">Submit</button>
   </form>
 </div>

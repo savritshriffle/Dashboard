@@ -1,9 +1,8 @@
 mat-form-field{
   display: inline;
 }
+
 .container {
-  justify-content: center;
-  text-align: left;
   border: 1px solid grey;
   margin-top: 10%;
   margin-left: 35%;
@@ -12,4 +11,8 @@ mat-form-field{
   width: 300px;
   height: auto;
   box-shadow: 5px 5px 5px grey;
+}
+
+.button {
+  margin-left: 35%;
 }

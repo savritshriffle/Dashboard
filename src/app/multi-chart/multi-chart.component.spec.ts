@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { MultiChartComponent } from './multi-chart.component';
 
 describe('MultiChartComponent', () => {

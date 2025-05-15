@@ -8,12 +8,15 @@
   height: auto;
   box-shadow: 5px 5px 5px grey;
 }
+
 h1 {
   text-align: center;
 }
+
 mat-form-field{
   display: inline;
 }
+
 button {
   margin-left: 33%;
 }
