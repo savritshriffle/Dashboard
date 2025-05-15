@@ -1,11 +1,13 @@
 .truncate-option {
   width: 140px;
+  margin-left: 20px;
+}
+mat-chip {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
   display: inline-block;
   vertical-align: middle;
-  margin-left: 20px;
 }
 
 

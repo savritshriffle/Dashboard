@@ -1,11 +1,12 @@
 <mat-form-field>
   <mat-chip 
+    class="mat-chip"
     *ngFor="let fruit of fruits"
     [removable]="removable"
     (removed)="remove(fruit)">
     {{fruit}}
     <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
-  </mat-chip>
+</mat-chip>
   <input
     matInput
     placeholder="New fruit..."
