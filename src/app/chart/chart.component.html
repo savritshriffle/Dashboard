@@ -3,7 +3,7 @@
   <input type="search" placeholder="enter number" class="input" [(ngModel)]="searchData" (ngModelChange)="search()">
 </div>
 <mat-form-field>
-  <mat-select [(value)]="chartFilter" multiple>
+  <mat-select [(value)]="chartFilter">
     <mat-option (onSelectionChange)="filterChart($event)" *ngFor="let data of dataOrder" [value]="data.value">{{data.name}}</mat-option>
   </mat-select>
 </mat-form-field>

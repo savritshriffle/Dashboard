@@ -27,7 +27,7 @@ export class StockChartComponent {
       value: 'descending',
     }
   ]
-  typeChart = [
+  public typeChart = [
     {
       name: 'column',
       value: 'column'

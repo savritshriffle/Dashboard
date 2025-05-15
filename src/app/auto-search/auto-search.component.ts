@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Data } from './data';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-auto-search',
@@ -19,6 +20,8 @@ export class AutoSearchCompoent {
   public searchInput = '';
   public studentData = Data;
   public filterData = this.studentData;
+
+  constructor(private toastr: ToastrService) { }
   
   public search() {
     const input = this.searchInput.toLowerCase().trim();
@@ -35,7 +38,11 @@ export class AutoSearchCompoent {
   }
 
   public removeData(id: number) {
-    this.filterData = this.filterData.filter(item => item.id !== id);
+    const isConfirm = confirm("Are You Sure ?");
+    if(isConfirm) {
+      this.filterData = this.filterData.filter(item => item.id !== id);
+      this.toastr.success("Deleted Data" + id);
+    }
   }
 
   public editData(post : {[key: string]: boolean}) {
@@ -48,5 +55,6 @@ export class AutoSearchCompoent {
 
   public saveData(post: {[key: string]: boolean}) {
     post['isEdit'] = false;
+    this.toastr.success("Data Changes Save Successfully...");
   }
 }

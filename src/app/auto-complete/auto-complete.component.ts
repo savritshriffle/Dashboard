@@ -1,6 +1,6 @@
 import {Component, ElementRef, ViewChild} from '@angular/core';
 import {FormControl} from '@angular/forms';
-import { MatAutocomplete, MatAutocompleteTrigger} from '@angular/material/autocomplete';
+import {MatAutocomplete, MatAutocompleteTrigger} from '@angular/material/autocomplete';
 import {Observable} from 'rxjs';
 import {map, startWith} from 'rxjs/operators';
 
@@ -55,7 +55,6 @@ export class AutoCompleteComponent {
     this.fruitCtrl.setValue('');
   }
   
-
   private _filter(value: string): string[] {
     const filterValue = value.toLowerCase();
     return this.allFruits.filter(fruit => fruit.toLowerCase().indexOf(filterValue) >= 0);

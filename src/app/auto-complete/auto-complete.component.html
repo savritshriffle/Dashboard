@@ -6,7 +6,7 @@
     (removed)="remove(fruit)">
     {{fruit}}
     <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
-</mat-chip>
+  </mat-chip>
   <input
     matInput
     placeholder="New fruit..."
@@ -16,7 +16,7 @@
     [matAutocomplete]="auto"
   >
   <mat-autocomplete #auto="matAutocomplete" autoActiveFirstOption>
-    <mat-option class="truncate-option" *ngFor="let fruit of filteredFruits | async" [value]="fruit">
+    <mat-option class="option" *ngFor="let fruit of filteredFruits | async" [value]="fruit">
       <mat-checkbox [checked]="fruits.includes(fruit)" (click)="selected(fruit, $event)">{{fruit}}</mat-checkbox>
     </mat-option>
   </mat-autocomplete>

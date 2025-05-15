@@ -7,7 +7,7 @@ import { MatDialogRef } from '@angular/material/dialog';
   styleUrls: ['./dialog-box.component.css']
 })
 export class DialogboxComponent {
-  constructor(public dialogRef: MatDialogRef<DialogboxComponent>) {}
+  constructor(private dialogRef: MatDialogRef<DialogboxComponent>) {}
   
   public closeDialogbox() {
     this.dialogRef.close();
