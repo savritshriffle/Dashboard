@@ -2,7 +2,7 @@
   width: 140px;
   margin-left: 20px;
 }
-mat-chip {
+.mat-chip {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
