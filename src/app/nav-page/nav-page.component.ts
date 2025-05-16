@@ -4,30 +4,29 @@ import { MatDialog } from '@angular/material/dialog';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatSort, Sort } from '@angular/material/sort';
 import { MatPaginator } from '@angular/material/paginator';
-import { ActivatedRoute } from '@angular/router';
+
 import { ToastrService } from 'ngx-toastr';
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css'],
-  
+  selector: 'app-nav-page',
+  templateUrl: './nav-page.component.html',
+  styleUrls: ['./nav-page.component.css']
 })
-export class HomeComponent implements OnInit, OnChanges{
-@ViewChild(MatSort) sort!: MatSort;
-@ViewChild(MatPaginator, {static: false}) paginator!: MatPaginator;
-posts: any[] = [];   
-pageIndex = 1;
-filterData: any[] = []; 
-searchData: string = '';
-displayedColumns: string[] = ['userId', 'id', 'title', 'body', 'Action', 'Delete'];
-selectedPost:any = null;
-dataSources = new MatTableDataSource<any>([]);
-sortedData = new MatSort();
-currentPage = 0;
-currentSize = 0;
-constructor(private service: ServiceService, public dialog: MatDialog, private cdr: ChangeDetectorRef, private router : ActivatedRoute, private toastr: ToastrService) {
+export class NavPageComponent implements OnInit, OnChanges {
+  @ViewChild(MatSort) sort!: MatSort;
+  @ViewChild(MatPaginator, {static: false}) paginator!: MatPaginator;
+  posts: any[] = [];   
+  pageIndex = 1;
+  filterData: any[] = []; 
+  searchData: string = '';
+  displayedColumns: string[] = ['userId', 'id', 'title', 'body', 'Action', 'Delete'];
+  selectedPost:any = null;
+  dataSources = new MatTableDataSource<any>([]);
+  sortedData = new MatSort();
+  currentPage = 0;
+  currentSize = 0;
+  constructor(private service: ServiceService, public dialog: MatDialog, private toastr: ToastrService) {
 
-}
+  }
 
 ngOnInit(): void { 
     this.getPostData();
@@ -74,18 +73,17 @@ filterSearch(filtervalue: string){
   this.dataSources.filter = filtervalue.trim().toLowerCase();
 }
 
-editData(post: any) {
+EditData(post: any) {
     post.isEdit= true
   }
   
-onSaveData(post: any){
+saveData(post: any){
     post.isEdit = false;
     this.dataSources.data = [...this.dataSources.data]
 }
 handleOnChange(e: any, post: any, key: any) {
     post[key]= e.target.value;
     this.dataSources.data = [...this.dataSources.data];
-    console.log(this.dataSources)
 }
 
 
@@ -106,7 +104,6 @@ deleteData(id: string) {
     this.dataSources.data = [...this.dataSources.data]
     this.toastr.info("deleted Data   " + id)
   }
-   
 }     
 
 sortData(sort :Sort) {
@@ -138,7 +135,7 @@ sortData(sort :Sort) {
 }
 function compare(a: number | string, b: number | string, isAsc: boolean) {
       return (a < b ? -1 : 1) * (isAsc ? 1 : -1);
-}
- 
-  
+} 
+
+
 

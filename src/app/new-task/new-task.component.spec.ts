@@ -1,15 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { CheckboxComponent } from './checkbox.component';
+
+import { NewTaskComponent } from './new-task.component';
 
 describe('NewTaskComponent', () => {
-  let component: CheckboxComponent;
-  let fixture: ComponentFixture<CheckboxComponent>;
+  let component: NewTaskComponent;
+  let fixture: ComponentFixture<NewTaskComponent>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [CheckboxComponent]
+      declarations: [NewTaskComponent]
     });
-    fixture = TestBed.createComponent(CheckboxComponent);
+    fixture = TestBed.createComponent(NewTaskComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
