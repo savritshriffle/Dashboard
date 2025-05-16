@@ -1,15 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { AutoSearchCompoent } from './auto-search.component';
+
+import { SerachAutoComponent } from './serach-auto.component';
 
 describe('SerachAutoComponent', () => {
-  let component: AutoSearchCompoent;
-  let fixture: ComponentFixture<AutoSearchCompoent>;
+  let component: SerachAutoComponent;
+  let fixture: ComponentFixture<SerachAutoComponent>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [AutoSearchCompoent]
+      declarations: [SerachAutoComponent]
     });
-    fixture = TestBed.createComponent(AutoSearchCompoent);
+    fixture = TestBed.createComponent(SerachAutoComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
