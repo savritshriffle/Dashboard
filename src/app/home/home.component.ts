@@ -16,10 +16,10 @@ export class HomeComponent implements OnInit {
   public searchText: string = '';
   public dataSource = new MatTableDataSource<any>();
   public displayedColumns: string[] = [
-    'userId',
-    'id',
-    'title',
-    'body',
+    'UserId',
+    'Id',
+    'Title',
+    'Body',
     'Action',
     'Delete'
   ];

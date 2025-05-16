@@ -21,7 +21,8 @@ export class LoginComponent {
 
   constructor(
     private router: Router,
-    private toaster: ToastrService) { }
+    private toaster: ToastrService) {
+  }
 
   public logIn() {
     if(this.loginForm.controls.email.value === this.userData.email && this.loginForm.controls.password.value === this.userData.password) {

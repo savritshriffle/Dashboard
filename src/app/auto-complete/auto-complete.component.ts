@@ -9,7 +9,6 @@ import {map, startWith} from 'rxjs/operators';
   styleUrls: ['auto-complete.component.css'],
 })
 export class AutoCompleteComponent {
-  public removable = true;
   public fruitCtrl = new FormControl();
   public filteredFruits: Observable<string[]>;
   public fruits: string[] = [];
@@ -35,7 +34,7 @@ export class AutoCompleteComponent {
 
   public remove(fruit: string): void {
     const index = this.fruits.indexOf(fruit);
-    if (index >= 0) {
+    if (index != -1) {
       this.fruits.splice(index, 1);
     }    
   }
@@ -43,7 +42,7 @@ export class AutoCompleteComponent {
   public selected(fruit: string, event: Event): void {
     event.stopPropagation();
     const index = this.fruits.indexOf(fruit);
-    if (index >= 0) {
+    if (index != -1) {
       this.fruits.splice(index, 1);
     } else {
       this.fruits.push(fruit);
@@ -52,7 +51,6 @@ export class AutoCompleteComponent {
   }
   
   private _filter(value: string): string[] {
-    const filterValue = value.toLowerCase();
-    return this.allFruits.filter(fruit => fruit.toLowerCase().indexOf(filterValue) >= 0);
+    return this.allFruits.filter(fruit => fruit.toLowerCase().indexOf(value.toLowerCase()) >= 0);
   }
 };

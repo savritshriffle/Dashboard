@@ -9,10 +9,13 @@ import { AutoSearchCompoent } from './auto-search/auto-search.component';
 import { CheckboxComponent } from './checkbox-filter/checkbox.component';
 import { StudentComponent } from './student-data/student-data.component';
 import { FormComponent } from './form/form.component';
+import { authGuard } from './auth.guard';
 
 const routes: Routes = [
   {
-    path: '',redirectTo:'login',pathMatch:'full'
+    path: '',
+    redirectTo:'login',
+    pathMatch:'full'
   },
   {
     path:'login',

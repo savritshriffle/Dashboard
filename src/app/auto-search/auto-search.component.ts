@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Data } from './data';
 import { ToastrService } from 'ngx-toastr';
 
@@ -7,22 +7,32 @@ import { ToastrService } from 'ngx-toastr';
   templateUrl: './auto-search.component.html',
   styleUrls: ['./auto-search.component.css']
 })
-export class AutoSearchCompoent {
+export class AutoSearchCompoent implements OnInit{
   public displayedColumns = [
-    'id',
-    'name',
-    'age',
-    'contact',
-    'post',
+    'Id',
+    'Name',
+    'Age',
+    'Contact',
+    'Post',
     'Delete', 
-    'action'
+    'Action'
   ]
   public searchInput = '';
   private studentData = Data;
-  public filterData = this.studentData;
+  public filterData: {
+    id: number,
+    name: string,
+    age: number,
+    contact: number,
+    post: string
+  }[] = [];
 
   constructor(private toaster: ToastrService) { }
-  
+
+  ngOnInit(): void {
+    this.filterData = this.studentData;
+  }
+
   public search() {
     const input = this.searchInput.toLowerCase().trim();
     if (input) {
@@ -45,11 +55,11 @@ export class AutoSearchCompoent {
     }
   }
 
-  public editData(post : {[key: string]: boolean}) {
+  public editData(post: {[key: string]: boolean}) {
     post['isEdit'] = true;
   }
 
-  public handleOnChange(event:any , post:{[key: string]: string | number}, key: string) {
+  public handleOnChange(event: any , post:{[key: string]: string | number}, key: string) {
     post[key] = event.target.value;
     this.filterData = this.filterData;
   }

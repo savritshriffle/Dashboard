@@ -1,19 +1,16 @@
-import { Inject } from '@angular/core';
-import { CanActivateFn } from '@angular/router';
-import { LoginComponent } from './login/login.component';
+import { inject } from '@angular/core';
+import { CanActivateFn, Router } from '@angular/router';
+import { LoginAuthService } from './login-auth.service';
 
-export const authGuard: CanActivateFn = (route, state) => {
-  const login = Inject(LoginComponent);
+export const authGuard: CanActivateFn = () => {
+  const login = inject(LoginAuthService);
+  const route = inject(Router)
 
-  if(!login.isLogin) {
-    alert('Successfully Completed!');
+  if(login.isLogin) {
     return true;
   }
   else {
     alert("something want wrong")
     return false;
   }
-  return true;
 };
-
-
