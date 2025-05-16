@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { MatOptionSelectionChange } from '@angular/material/core';
 import * as Highcharts from 'highcharts';
 
 @Component({
@@ -7,13 +8,24 @@ import * as Highcharts from 'highcharts';
   styleUrls: ['./multi-chart.component.css']
 })
 export class MultiChartComponent {
-  data: number[] = [1, 2, 4, 7, 9, 4, 5,  1, 4, 5, 6, 2, 7, 8, 2, 1, 3, 7, 6, 2];
-  filterData:any  = [...this.data];
-   searchData: string = '';
-  Highcharts = Highcharts;  
-  chartOptions: any[] = []; 
-  constructor() {
-    
+  private data: number[] = [1, 2, 4, 7, 9, 4, 5,  1, 4, 5, 6, 2, 7, 8, 2, 1, 3, 7, 6, 2];
+  private filterData = this.data;
+  public searchData: string = '';
+  public chartFilter: string = 'ascending';
+  public Highcharts = Highcharts;  
+  public chartOptions: any; 
+  public dataOrder = [
+    {
+      name: 'ascending',
+      value: 'ascending'
+    },
+    {
+      name: 'descending',
+      value: 'descending'
+    }
+  ]
+
+  constructor() {  
     this.chartOptions = [
       {
         chart: {
@@ -66,37 +78,27 @@ export class MultiChartComponent {
     ];
   }
 
-  search() {
-    if (!this.searchData) {
-      this.filterData = [...this.data];
-    } 
-    else {
-      this.filterData = this.data.filter((value) =>
-        value.toLocaleString().toString().includes(this.searchData)
-      );
-    }
-
+  public search() {
+    this.filterData = this.data.filter((value)=>value.toString().includes(this.searchData));
     for (let i = 0; i < this.chartOptions.length; i++) {
-      this.chartOptions[i].series[0].data = [...this.filterData];
+      this.chartOptions[i].series[0].data = this.filterData;
       Highcharts.charts[i]?.update(this.chartOptions[i]);
-     }
-   }
-
-   onAesendingData() {
-    this.filterData = [...this.data].sort((a, b) => a- b)
-    for(let i=0; i< this.chartOptions.length; i++){
-      this.chartOptions[i].series[0].data = [...this.filterData];
-      Highcharts.charts[i]?.update(this.chartOptions[i])
     }
-   }
-   onDesendingData() {
-    this.filterData = [...this.data].sort((a, b) => b - a)
-    for(let i=0; i< this.chartOptions.length; i++){
-      this.chartOptions[i].series[0].data = [...this.filterData];
-      Highcharts.charts[i]?.update(this.chartOptions[i]);
+  }
 
+  public filter(event: MatOptionSelectionChange) {
+    if(event.isUserInput) {
+      this.chartFilter = event.source.value;
+      if(this.chartFilter === 'ascending') {
+        this.filterData = this.data.sort((a, b) => a - b);
+      }
+      else {
+        this.filterData = this.data.sort((a, b) => b - a);
+      }
+      for(let i=0; i< this.chartOptions.length; i++){
+        this.chartOptions[i].series[0].data = [...this.filterData];
+        Highcharts.charts[i]?.update(this.chartOptions[i]);
+      }
     }
-   }
-  
-}
-
+  }
+};

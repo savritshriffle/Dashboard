@@ -1,11 +1,22 @@
 .container {
-    justify-content: center;
-    text-align: center;
-    border: 1px solid grey;
-    margin-top: 5%;
-    margin-left: 33%;
-    padding: 35px;
-    width: 400px;
-    box-shadow: 5px 5px 5px grey;
+  border: 1px solid grey;
+  margin-top: 6%;
+  margin-left: 30%;
+  padding-top: 45px;
+  padding: 20px;
+  width: 300px;
+  height: auto;
+  box-shadow: 5px 5px 5px grey;
 }
 
+h1 {
+  text-align: center;
+}
+
+mat-form-field{
+  display: inline;
+}
+
+button {
+  margin-left: 33%;
+}

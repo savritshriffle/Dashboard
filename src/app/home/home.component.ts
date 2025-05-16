@@ -1,144 +1,74 @@
-import { ChangeDetectorRef, Component, OnChanges, OnInit, SimpleChanges, ViewChild } from '@angular/core';
-import { ServiceService } from '../service.service';
-import { MatDialog } from '@angular/material/dialog';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { tableService } from '../table.service';
 import { MatTableDataSource } from '@angular/material/table';
-import { MatSort, Sort } from '@angular/material/sort';
+import { MatSort} from '@angular/material/sort';
 import { MatPaginator } from '@angular/material/paginator';
-import { ActivatedRoute } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css'],
-  
+  styleUrls: ['./home.component.css'],  
 })
-export class HomeComponent implements OnInit, OnChanges{
-@ViewChild(MatSort) sort!: MatSort;
-@ViewChild(MatPaginator, {static: false}) paginator!: MatPaginator;
-posts: any[] = [];   
-pageIndex = 1;
-filterData: any[] = []; 
-searchData: string = '';
-displayedColumns: string[] = ['userId', 'id', 'title', 'body', 'Action', 'Delete'];
-selectedPost:any = null;
-dataSources = new MatTableDataSource<any>([]);
-sortedData = new MatSort();
-currentPage = 0;
-currentSize = 0;
-constructor(private service: ServiceService, public dialog: MatDialog, private cdr: ChangeDetectorRef, private router : ActivatedRoute, private toastr: ToastrService) {
+export class HomeComponent implements OnInit {
+  @ViewChild(MatSort) sort!: MatSort;
+  @ViewChild(MatPaginator, {static: false}) paginator!: MatPaginator;
+  public searchText: string = '';
+  public dataSources = new MatTableDataSource<any>();
+  public displayedColumns: string[] = [
+    'UserId',
+    'Id',
+    'Title',
+    'Body',
+    'Action',
+    'Delete'
+  ];
 
-}
+  constructor(
+    private service: tableService,
+    private toaster: ToastrService) {  }
 
-ngOnInit(): void { 
-    this.getPostData();
-  
-  
-}
-
-ngOnChanges(changes: SimpleChanges): void {
-    if (this.searchData.trim() === ''  ) 
-    {
-      return alert("Enter Valid Data"+" "+ changes);
-    }
-    this.filterData = this.posts.filter(user =>
-        user.userId.toString() === this.searchData || user.id.toString() === this.searchData
-    ||  user.title.startsWith('qui est esse'));
-        this.dataSources.data = this.filterData 
-    }
-
-
-getPostData() {
-    this.service.getPosts().subscribe((data) => {
-    this.posts = data; 
-    data.forEach((element:any) => {
-      element.isEdit = false;
-    });
-    this.dataSources = new MatTableDataSource(data);
-    this.dataSources.paginator = this.paginator
-  
-    localStorage.setItem('apiData', JSON.stringify(data));
-    
-    
-    const indexData  =  localStorage.getItem('paginatorIndex');
-    const sizeData = localStorage.getItem('paginatorSize')
-    
-    this.dataSources.paginator['pageIndex']= Number(indexData) 
-    this.dataSources.paginator['pageSize']= Number(sizeData)
-      
-    this.dataSources.paginator = this.paginator; 
-      
-  });
-}
-
-filterSearch(filtervalue: string){
-  this.dataSources.filter = filtervalue.trim().toLowerCase();
-}
-
-editData(post: any) {
-    post.isEdit= true
+  ngOnInit(): void { 
+    this.getData(); 
   }
-  
-onSaveData(post: any){
-    post.isEdit = false;
-    this.dataSources.data = [...this.dataSources.data]
-}
-handleOnChange(e: any, post: any, key: any) {
-    post[key]= e.target.value;
-    this.dataSources.data = [...this.dataSources.data];
-    console.log(this.dataSources)
-}
 
-
-onPaginateChange(e: any) {
-    let index = this.dataSources.paginator?.pageIndex
-    let size  = this.dataSources.paginator?.pageSize
-
-    localStorage.setItem('paginatorIndex', JSON.stringify(index))
-    localStorage.setItem('paginatorSize', JSON.stringify(size))
-}
-
-
-deleteData(id: string) {
-  const con = confirm("are you sure...")
-  if(con){
-    let index = this.dataSources.data.find((value) =>value.id === id) 
-    this.dataSources.data.splice(index, 1)
-    this.dataSources.data = [...this.dataSources.data]
-    this.toastr.info("deleted Data   " + id)
-  }
-   
-}     
-
-sortData(sort :Sort) {
-    const data = this.posts.slice();
-
-      if(!sort.active || sort.direction === '') {
-        this.posts = data;
-        return
-      }
-
-    const sortedData = data.sort((a, b) => {
-      const isAsc = sort.direction === 'asc';
-        switch (sort.active) {
-          case 'userId':
-            return compare(a.userId, b.userId, isAsc);
-          case 'id':
-            return compare(a.id, b.id, isAsc);
-          case 'title':
-            return compare(a.title, b.title, isAsc);
-          case 'body':
-            return compare(a.body, b.body, isAsc);
-          default:
-            return 0;
-        }
+  private getData() {
+    this.service.getData().subscribe((data) => { 
+      data.forEach((element: {[key: string]: boolean}) => {
+        element['isEdit'] = false;
+      });
+      this.dataSources = new MatTableDataSource(data)  
+      this.dataSources.paginator = this.paginator;
+      this.dataSources.sort = this.sort;         
     });
-        this.dataSources.data = sortedData;
-       
-}
-}
-function compare(a: number | string, b: number | string, isAsc: boolean) {
-      return (a < b ? -1 : 1) * (isAsc ? 1 : -1);
-}
- 
-  
+  }
 
+  public search(searchText: string){
+    this.dataSources.filter = searchText.trim().toLowerCase();
+  }
+
+  public editData(post: {[key: string]: string | number | boolean}) {
+    post['isEdit'] = true;
+  }
+    
+  public onSaveData(post: {[key: string]: string | number | boolean}){
+    post['isEdit'] = false;
+    this.dataSources.data = this.dataSources.data;
+    this.toaster.success("Data Changes Save Successfully...");
+  }
+
+  public handleOnChange(e: any, post: {[key: string]: string | number}, key: string) {
+    post[key] = e.target.value;
+    this.dataSources.data = this.dataSources.data;
+  }
+
+  public deleteData(id: string) {
+    const isConfirm = confirm("Are You Sure ?");
+    if(isConfirm){
+      let index = this.dataSources.data.find((data) =>data['id'] === id); 
+      this.dataSources.data.splice(index, 1);
+      this.dataSources.data = this.dataSources.data;
+      this.toaster.success("Deleted Data" + id);
+    }
+  }     
+};

@@ -2,13 +2,10 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
 import { HomeComponent } from './home/home.component';
-import { AboutComponent } from './about/about.component';
+import { DialogboxComponent } from './dialog-box/dialog-box.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDialogModule } from "@angular/material/dialog";
-import { MatButtonModule } from "@angular/material/button";
-import { MatToolbarModule } from "@angular/material/toolbar";
 import { MatIconModule } from "@angular/material/icon";
 import { HttpClientModule } from '@angular/common/http';
 import { MatTableModule } from '@angular/material/table';
@@ -17,40 +14,40 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSortModule } from '@angular/material/sort';
-import { MatCardModule } from '@angular/material/card';
 import { LoginComponent } from './login/login.component';
 import { MatInputModule } from '@angular/material/input'
 import { provideAnimations } from '@angular/platform-browser/animations';
 import { provideToastr } from 'ngx-toastr';
+import { MatButtonModule } from '@angular/material/button';
 import { StockChartComponent } from './chart/chart.component';
 import { HighchartsChartModule } from 'highcharts-angular';
-import { NavPageComponent } from './nav-page/nav-page.component';
 import { MultiChartComponent } from './multi-chart/multi-chart.component';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatSelectModule } from '@angular/material/select';
-import {MatCheckboxModule} from '@angular/material/checkbox';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatChipsModule} from '@angular/material/chips';
 import { AutoCompleteComponent } from './auto-complete/auto-complete.component';
-import { SerachAutoComponent } from './serach-auto/serach-auto.component';
+import { AutoSearchCompoent } from './auto-search/auto-search.component';
 import { FormComponent } from './form/form.component';
-import { NewTestComponent } from './new-test/new-test.component';
-import { NewTaskComponent } from './new-task/new-task.component';
-import {MatRadioModule} from '@angular/material/radio';
+import { CheckboxComponent } from './checkbox-filter/checkbox.component';
+import { MatRadioModule } from '@angular/material/radio';
+import { NavbarComponent } from './navbar/navbar.component';
+import { RegistrationForm } from './registration-form/registration-form.component';
+
 @NgModule({
   declarations: [
     AppComponent,
-    DashboardComponent,
+    NavbarComponent,
     HomeComponent,
-    AboutComponent,
     LoginComponent,
     StockChartComponent,
-    NavPageComponent,
     MultiChartComponent,
     AutoCompleteComponent,
-    SerachAutoComponent,
+    AutoSearchCompoent,
     FormComponent,
-    NewTaskComponent,
-    NewTestComponent
+    CheckboxComponent,
+    DialogboxComponent,
+    RegistrationForm
   ],
   imports: [
     BrowserModule,
@@ -58,8 +55,6 @@ import {MatRadioModule} from '@angular/material/radio';
     FormsModule,
     BrowserAnimationsModule,
     MatDialogModule,
-    MatButtonModule,
-    MatToolbarModule,
     MatIconModule,
     MatTableModule,
     MatCommonModule,
@@ -67,7 +62,6 @@ import {MatRadioModule} from '@angular/material/radio';
     MatPaginatorModule,
     MatFormFieldModule,
     MatSortModule,
-    MatCardModule,
     MatInputModule,
     ReactiveFormsModule,
     HighchartsChartModule,
@@ -76,6 +70,7 @@ import {MatRadioModule} from '@angular/material/radio';
     MatCheckboxModule,
     MatChipsModule,
     MatRadioModule,
+    MatButtonModule,
   ],
   providers: [ 
     provideAnimations(), 

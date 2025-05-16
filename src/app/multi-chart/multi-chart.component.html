@@ -1,13 +1,18 @@
+<app-Navbar></app-Navbar>
 <div>
-    <input  type="search" placeholder="enter number" class="input" [(ngModel)]="searchData" (input)="search()">
+  <input type="search" placeholder="enter number" class="input" [(ngModel)]="searchData" (ngModelChange)="search()">
 </div>
-<button type="button" (click)="onAesendingData()">onAesendingDataa</button>
-<button type="button" (click)="onDesendingData()">onDesendingData</button>
-<div *ngFor="let chart of chartOptions; let i = index">
-    <highcharts-chart 
-      [Highcharts]="Highcharts"
-      [options]="chart"
-      [update]="true" 
-      style="width: 100%; height: 400px; display: block;">
-    </highcharts-chart>
-  </div>
+
+<mat-form-field>
+  <mat-select [(value)]="chartFilter">
+    <mat-option (onSelectionChange)="filter($event)" *ngFor="let data of dataOrder" [value]="data.value">{{data.name}}</mat-option>
+  </mat-select>
+</mat-form-field>
+ 
+<div *ngFor="let chart of chartOptions">
+  <highcharts-chart 
+    [Highcharts]="Highcharts"
+    [options]="chart"
+    style="width: 100%; height: 400px; display: block;">
+  </highcharts-chart>
+</div>

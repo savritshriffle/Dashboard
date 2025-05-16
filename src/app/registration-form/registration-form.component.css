@@ -1,0 +1,33 @@
+mat-form-field{
+  display: inline;
+}
+
+.container {
+  border: 1px solid grey;
+  margin-top: 3%;
+  margin-left: 28%;
+  padding-top: 55px;
+  padding: 20px;
+  width: 400px;
+  height: auto;
+  box-shadow: 5px 5px 5px grey;
+}
+
+.button {
+  margin-left: 35%;
+}
+
+h1 {
+  text-align: center;
+  font-weight: 400px;
+}
+
+.address-list {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.add-field {
+  width: 60%;
+}

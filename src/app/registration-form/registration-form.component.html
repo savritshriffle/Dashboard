@@ -1,0 +1,68 @@
+<app-Navbar></app-Navbar>
+<div class="container">
+  <form [formGroup]="formData">
+    <h1>Registration Form</h1>
+    <mat-form-field>
+      <mat-label>First Name</mat-label>
+      <input matInput placeholder="First Name" formControlName="firstName" type="text">
+      <mat-error *ngIf="formData.get('firstName')?.errors?.['required'] && formData.get('firstName')?.touched">Please Enter First Name.</mat-error>  
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Last Name</mat-label>
+      <input matInput formControlName="lastName" placeholder="Enter your lastName" type="text"> 
+      <mat-error *ngIf="formData.get('lastName')?.errors?.['required'] && formData.get('lastName')?.touched">Please Enter Last Name.</mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Email</mat-label>
+      <input matInput formControlName="email" placeholder="Enter your email" type="email"> 
+      <mat-error *ngIf="formData.get('email')?.hasError('required')">Please Enter Email.</mat-error>
+      <mat-error *ngIf="formData.get('email')?.hasError('email')">Please Enter a Valid Email</mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Password</mat-label>
+      <input matInput formControlName="password" placeholder="Enter your password" type="password"> 
+      <mat-error *ngIf="formData.get('password')?.hasError('required') && formData.get('password')?.touched">Please Enter Password.</mat-error>
+    </mat-form-field>
+
+    <div formArrayName="address">
+      <div *ngFor="let value of address.controls; let i = index" [ngClass]="address.controls.length > 1 || value.valid ? 'address-list' : ''">
+        <mat-form-field class="add-field">
+          <mat-label>Address</mat-label>
+          <input matInput [formControlName]="i" placeholder="Enter your address">
+          <mat-error *ngIf="value.hasError('required')">Address is required</mat-error>
+        </mat-form-field>
+        <button mat-raised-button color="primary" *ngIf="value.valid" (click)="addAddress()">+</button>
+        <button mat-raised-button color="warn" *ngIf="address.controls.length > 1" (click)="removeAddress(i)">clear</button>
+      </div> 
+    </div> 
+    
+    <div formGroupName="subjects">
+      <mat-form-field appearance="fill" style="width: 100%;">
+        <mat-label>Subjects</mat-label>
+        <mat-select placeholder="Select Subjects" multiple (selectionChange)="addSubjects($event)">
+          <mat-option *ngFor="let subject of subjectData" [value]="subject">{{ subject }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <div> 
+      <mat-radio-group formControlName="gender" (change)="addGender($event)">
+        <span *ngFor="let gender of genderData">
+          <mat-radio-button [value]="gender.value">{{gender.name}}</mat-radio-button>
+        </span>
+      </mat-radio-group>
+    </div> 
+
+    <div>
+      <label>Hobbies:</label><br>
+      <div *ngFor="let hobby of hobbiesData">
+        <mat-checkbox (change)="onHobbyChange($event, hobby)">{{ hobby.name }}</mat-checkbox>
+      </div>
+    </div>
+    
+    <button class="button" mat-raised-button color="accent" [disabled]="formData.invalid" type="submit" (click)="onSubmit()">Submit</button>
+  </form>
+</div>

@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { MultiChartComponent } from './multi-chart.component';
 
 describe('MultiChartComponent', () => {
@@ -17,14 +16,5 @@ describe('MultiChartComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
-
-
-
-    //  console.log(id)
-    //  const dataApi = localStorage.getItem('apiData')
-    //  console.log(dataApi?.match(id))
-    //  if(dataApi?.match(id)) {
-    //    localStorage.removeItem(id)
-    //  }
   });
 });

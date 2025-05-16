@@ -1,0 +1,66 @@
+<app-Navbar></app-Navbar>
+<div>
+  <input matInput placeholder="enter value" class="input" [(ngModel)]="searchInput" (ngModelChange)="search()">
+</div>
+<div>
+  <table mat-table [dataSource]="filterData" class="mat-elevation-z8">
+    
+    <ng-container matColumnDef="Id">
+      <th mat-header-cell *matHeaderCellDef>Id</th>
+      <td mat-cell *matCellDef="let element">
+        <span *ngIf="!element.isEdit">{{element.id}}</span>
+        <input matInput placeholder="enter name" value="{{element.id}}" *ngIf="element.isEdit" (change)="handleOnChange($event, element, 'id')">
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="Name">
+      <th mat-header-cell *matHeaderCellDef>Name</th>
+      <td mat-cell *matCellDef="let element">
+        <span *ngIf="!element.isEdit">{{element.name}}</span>
+        <input matInput placeholder="enter name" value="{{element.name}}" *ngIf="element.isEdit" (change)="handleOnChange($event, element, 'name')">
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="Age">
+      <th mat-header-cell *matHeaderCellDef>Age</th>
+      <td mat-cell *matCellDef="let element">
+        <span *ngIf="!element.isEdit">{{element.age}}</span>
+        <input matInput placeholder="enter name" value="{{element.age}}" *ngIf="element.isEdit" (change)="handleOnChange($event, element, 'age')">
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="Contact">
+      <th mat-header-cell *matHeaderCellDef>Contact</th>
+      <td mat-cell *matCellDef="let element">
+        <span *ngIf="!element.isEdit">{{element.contact}}</span>
+        <input matInput placeholder="enter name" value="{{element.contact}}" *ngIf="element.isEdit" (change)="handleOnChange($event, element, 'contact')">
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="Post">
+      <th mat-header-cell *matHeaderCellDef>Post</th>
+      <td mat-cell *matCellDef="let element">
+        <span *ngIf="!element.isEdit">{{element.post}}</span>
+        <input matInput placeholder="enter name" value="{{element.post}}" *ngIf="element.isEdit" (change)="handleOnChange($event, element, 'post')">
+      </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="Delete">
+      <th mat-header-cell *matHeaderCellDef>Delete</th>
+      <td mat-cell *matCellDef="let element">
+        <button mat-raised-button color=warn (click)="removeData(element.id)">Delete</button>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="Action">
+      <th mat-header-cell *matHeaderCellDef>Action</th>
+      <td mat-cell *matCellDef="let element">
+        <button mat-raised-button color=primary *ngIf="!element.isEdit" (click)="editData(element)">Edit</button>
+        <button mat-raised-button color=primary *ngIf="element.isEdit" (click)="saveData(element)">Save</button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+</div>
