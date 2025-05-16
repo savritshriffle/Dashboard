@@ -10,7 +10,7 @@ export class tableService {
 
   constructor(private http: HttpClient) { }
   
-  getData(): Observable<any> {
+  public getData(): Observable<any> {
     return this.http.get(`${this.apiUrl}`)
   }
-}
+};

@@ -130,7 +130,7 @@ export class StockChartComponent {
           else{
             data.visible = false;
           }
-        })
+        });
       }
     }
     Highcharts.charts[0]?.update(this.chartOptions);

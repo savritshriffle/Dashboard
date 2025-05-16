@@ -11,12 +11,10 @@
   <input
     matInput
     placeholder="New fruit..."
-    #fruitInput
-    #autocompleteTrigger="matAutocompleteTrigger"
     [formControl]="fruitCtrl"
     [matAutocomplete]="auto"
   >
-  <mat-autocomplete #auto="matAutocomplete" autoActiveFirstOption>
+  <mat-autocomplete #auto="matAutocomplete">
     <mat-option class="option" *ngFor="let fruit of filteredFruits | async" [value]="fruit">
       <mat-checkbox [checked]="fruits.includes(fruit)" (click)="selected(fruit, $event)">{{fruit}}</mat-checkbox>
     </mat-option>

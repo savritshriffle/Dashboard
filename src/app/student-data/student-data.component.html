@@ -5,13 +5,13 @@
     <mat-form-field>
       <mat-label>First Name</mat-label>
       <input matInput placeholder="First Name" formControlName="firstName" type="text">
-      <mat-error *ngIf="formData.get('firstName')?.errors?.['required'] && formData.get('firstName')?.touched">Please Enter First Name.</mat-error>  
+      <mat-error *ngIf="formData.get('firstName')?.hasError('required')">Please Enter First Name.</mat-error>  
     </mat-form-field>
 
     <mat-form-field>
       <mat-label>Last Name</mat-label>
       <input matInput formControlName="lastName" placeholder="Enter your lastName" type="text"> 
-      <mat-error *ngIf="formData.get('lastName')?.errors?.['required'] && formData.get('lastName')?.touched">Please Enter Last Name.</mat-error>
+      <mat-error *ngIf="formData.get('lastName')?.hasError('required')">Please Enter Last Name.</mat-error>
     </mat-form-field>
 
     <mat-form-field>
@@ -24,7 +24,7 @@
     <mat-form-field>
       <mat-label>Password</mat-label>
       <input matInput formControlName="password" placeholder="Enter your password" type="password"> 
-      <mat-error *ngIf="formData.get('password')?.hasError('required') && formData.get('password')?.touched">Please Enter Password.</mat-error>
+      <mat-error *ngIf="formData.get('password')?.hasError('required')">Please Enter Password.</mat-error>
     </mat-form-field>
 
     <div formArrayName="address">
@@ -32,9 +32,9 @@
         <mat-form-field>
           <mat-label>Address</mat-label>
           <input matInput [formControlName]="i" placeholder="Enter your address">
-          <mat-error *ngIf="formData.get('address')?.errors?.['required'] && formData.get('address')?.touched">Each Address required</mat-error>
+          <mat-error *ngIf="formData.get('address')?.hasError('required')">Each Address required</mat-error>
         </mat-form-field>
-        <button mat-raised-button color="primary" *ngIf="add.valid"  (click)="addAddress()">+</button>
+        <button mat-raised-button color="primary" *ngIf="add.valid" (click)="addAddress()">+</button>
         <button mat-raised-button color="warn" *ngIf="address.controls.length > 1" (click)="removeAddress(i)">clear</button>
       </div> 
     </div> 
@@ -45,7 +45,7 @@
         <mat-select placeholder="Select Subjects" multiple (selectionChange)="addSubjects($event)">
           <mat-option *ngFor="let subject of subjectData" [value]="subject">{{ subject }}</mat-option>
         </mat-select>
-        <mat-error *ngIf="formData.get('subjects')?.errors?.['required'] && formData.get('subjects')?.touched">Subjects required</mat-error>
+        <mat-error *ngIf="formData.get('subjects')?.hasError('required')">Subjects required</mat-error>
       </mat-form-field>
     </div>
 
@@ -54,7 +54,7 @@
         <span *ngFor="let gender of genderData">
           <mat-radio-button [value]="gender.value">{{gender.name}}</mat-radio-button>
         </span>
-        <mat-error *ngIf="formData.get('gender')?.errors?.['required'] && formData.get('gender')?.touched">Gender required</mat-error>
+        <mat-error *ngIf="formData.get('gender')?.hasError('required')">Gender required</mat-error>
       </mat-radio-group>
     </div> 
 
@@ -63,7 +63,7 @@
       <div *ngFor="let hobby of hobbiesData">
         <mat-checkbox (change)="onHobbyChange($event, hobby)">{{ hobby.name }}</mat-checkbox>
       </div>
-      <mat-error *ngIf="formData.get('hobbies')?.errors?.['required'] && formData.get('hobbies')?.touched">Hobbies required</mat-error>
+      <mat-error *ngIf="formData.get('hobbies')?.hasError('required')">Hobbies required</mat-error>
     </div>
     
     <button class="button" mat-raised-button color="accent" [disabled]="formData.invalid" type="submit" (click)="onSubmit()">Submit</button>

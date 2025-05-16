@@ -21,15 +21,15 @@ export class LoginComponent {
 
   constructor(
     private router: Router,
-    private toastr: ToastrService) { }
+    private toaster: ToastrService) { }
 
   public logIn() {
     if(this.loginForm.controls.email.value === this.userData.email && this.loginForm.controls.password.value === this.userData.password) {
       this.router.navigate(['/home']);
-      this.toastr.success('Login Successfully Completed!...', 'Done', {timeOut: 1000});
+      this.toaster.success('Login Successfully Completed!...', 'Done', {timeOut: 1000});
     }
     else {
-      this.toastr.error(' Invalid Credentials..');
+      this.toaster.error(' Invalid Credentials..');
     }
   }
 };

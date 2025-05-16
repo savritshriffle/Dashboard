@@ -21,7 +21,7 @@ export class AutoSearchCompoent {
   private studentData = Data;
   public filterData = this.studentData;
 
-  constructor(private toastr: ToastrService) { }
+  constructor(private toaster: ToastrService) { }
   
   public search() {
     const input = this.searchInput.toLowerCase().trim();
@@ -41,7 +41,7 @@ export class AutoSearchCompoent {
     const isConfirm = confirm("Are You Sure ?");
     if(isConfirm) {
       this.filterData = this.filterData.filter(item => item.id !== id);
-      this.toastr.success("Deleted Data" + id);
+      this.toaster.success("Deleted Data" + id);
     }
   }
 
@@ -51,10 +51,11 @@ export class AutoSearchCompoent {
 
   public handleOnChange(event:any , post:{[key: string]: string | number}, key: string) {
     post[key] = event.target.value;
+    this.filterData = this.filterData;
   }
 
   public saveData(post: {[key: string]: boolean}) {
     post['isEdit'] = false;
-    this.toastr.success("Data Changes Save Successfully...");
+    this.toaster.success("Data Changes Save Successfully...");
   }
 };

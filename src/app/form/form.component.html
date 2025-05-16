@@ -5,13 +5,13 @@
     <mat-form-field>
       <mat-label>First Name</mat-label>
       <input matInput placeholder="First Name" formControlName="firstName" type="text">
-      <mat-error *ngIf="formData.get('firstName')?.errors?.['required'] && formData.get('firstName')?.touched">Please Enter First Name.</mat-error>  
+      <mat-error *ngIf="formData.get('firstName')?.hasError('required')">Please Enter First Name.</mat-error>  
     </mat-form-field>
 
     <mat-form-field>
       <mat-label>Last Name</mat-label>
       <input matInput formControlName="lastName" placeholder="Enter your lastName" type="text"> 
-      <mat-error *ngIf="formData.get('lastName')?.errors?.['required'] && formData.get('lastName')?.touched">Please Enter Last Name.</mat-error>
+      <mat-error *ngIf="formData.get('lastName')?.hasError('required')">Please Enter Last Name.</mat-error>
     </mat-form-field>
 
     <mat-form-field>
@@ -24,7 +24,7 @@
     <mat-form-field>
       <mat-label>Password</mat-label>
       <input matInput formControlName="password" placeholder="Enter your password" type="password"> 
-      <mat-error *ngIf="formData.get('password')?.hasError('required') && formData.get('password')?.touched">Please Enter Password.</mat-error>
+      <mat-error *ngIf="formData.get('password')?.hasError('required')">Please Enter Password.</mat-error>
     </mat-form-field>
 
     <br>

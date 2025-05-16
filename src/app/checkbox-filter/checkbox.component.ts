@@ -25,15 +25,15 @@ export class CheckboxComponent implements OnInit {
   }
 
   public onFilterData() {
-    const isCheckData = this.filterData.find((data) => data.name === 'complete')?.value;
-    const isUnCheckedData = this.filterData.find((data) => data.name === 'Incomplete')?.value;
-    if(isCheckData && isUnCheckedData){
+    const isCompleteData = this.filterData.find((data) => data.name === 'complete')?.value;
+    const isInCompleteData = this.filterData.find((data) => data.name === 'Incomplete')?.value;
+    if(isCompleteData && isInCompleteData){
       this.filterValue = this.studentData;
     }
-    else if(isCheckData) {
+    else if(isCompleteData) {
       this.filterValue = this.studentData.filter((data) => data.complete === true);
     }
-    else if(isUnCheckedData) {
+    else if(isInCompleteData) {
       this.filterValue = this.studentData.filter((data) => data.complete === false);
     }
     else {

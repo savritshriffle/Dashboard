@@ -9,7 +9,7 @@
   </mat-select>
 </mat-form-field>
  
-<div *ngFor="let chart of chartOptions; let i = index">
+<div *ngFor="let chart of chartOptions">
   <highcharts-chart 
     [Highcharts]="Highcharts"
     [options]="chart"

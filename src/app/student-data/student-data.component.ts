@@ -3,8 +3,6 @@ import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatCheckboxChange } from '@angular/material/checkbox';
 import { MatRadioChange } from '@angular/material/radio';
 import { MatSelectChange } from '@angular/material/select';
-import { Router } from '@angular/router';
-import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-student',
