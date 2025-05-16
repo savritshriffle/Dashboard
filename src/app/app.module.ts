@@ -31,8 +31,9 @@ import { AutoSearchCompoent } from './auto-search/auto-search.component';
 import { FormComponent } from './form/form.component';
 import { CheckboxComponent } from './checkbox-filter/checkbox.component';
 import { MatRadioModule } from '@angular/material/radio';
-import { StudentComponent } from './student-data/student-data.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { RegistrationForm } from './registration-form/registration-form.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -45,8 +46,8 @@ import { NavbarComponent } from './navbar/navbar.component';
     AutoSearchCompoent,
     FormComponent,
     CheckboxComponent,
-    StudentComponent,
-    DialogboxComponent
+    DialogboxComponent,
+    RegistrationForm
   ],
   imports: [
     BrowserModule,

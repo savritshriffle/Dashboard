@@ -7,7 +7,7 @@ import { MultiChartComponent } from './multi-chart/multi-chart.component';
 import { AutoCompleteComponent } from './auto-complete/auto-complete.component';
 import { AutoSearchCompoent } from './auto-search/auto-search.component';
 import { CheckboxComponent } from './checkbox-filter/checkbox.component';
-import { StudentComponent } from './student-data/student-data.component';
+import { RegistrationForm } from './registration-form/registration-form.component';
 import { FormComponent } from './form/form.component';
 
 const routes: Routes = [
@@ -41,8 +41,8 @@ const routes: Routes = [
     component: CheckboxComponent
   },
   {
-    path: 'student-data',
-    component: StudentComponent,
+    path: 'registration-form',
+    component: RegistrationForm,
   },
   {
     path: "auto-complete",

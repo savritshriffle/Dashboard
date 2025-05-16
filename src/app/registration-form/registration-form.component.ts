@@ -6,10 +6,10 @@ import { MatSelectChange } from '@angular/material/select';
 
 @Component({
   selector: 'app-student',
-  templateUrl: './student-data.component.html',
-  styleUrls: ['./student-data.component.css']
+  templateUrl: './registration-form.component.html',
+  styleUrls: ['./registration-form.component.css']
 })
-export class StudentComponent {
+export class RegistrationForm {
   public formData: FormGroup;
   public genderData = [
     {
@@ -52,10 +52,10 @@ export class StudentComponent {
       email:  ['', [Validators.required, Validators.email]],
       password:  ['', Validators.required ],
       address: this.fb.array([
-        this.fb.control('',[Validators.required])
+        this.fb.control([], Validators.required)
       ]), 
       subjects: this.fb.array([
-        this.fb.control('',[Validators.required])
+        this.fb.control([],[Validators.required])
       ]),
       gender: ['', Validators.required],
       hobbies: this.fb.array([], Validators.required)
@@ -71,13 +71,13 @@ export class StudentComponent {
   }
 
   public addAddress() {
-    this.address.push(this.fb.control(''));
+    this.address.push(this.fb.control('', Validators.required));
   }
   
   public removeAddress(index: number) {
     this.address.removeAt(index);
   }
-
+  
   get subjects() {
     return this.formData.get('subjects') as FormArray;
   }

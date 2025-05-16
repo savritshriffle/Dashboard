@@ -3,9 +3,9 @@
   <i class="fa-solid fa-magnifying-glass"></i>
   <input type="text" [(ngModel)]="searchText" placeholder="Enter UserId or Id" class="search" (ngModelChange)="search($event)">
 </div>
-<table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+<table mat-table [dataSource]="dataSources" matSort class="mat-elevation-z8">
   <ng-container matColumnDef="UserId">
-    <th mat-header-cell *matHeaderCellDef mat-sort-header="UserId">UserId</th>
+    <th mat-header-cell *matHeaderCellDef mat-sort-header="userId">UserId</th>
     <td mat-cell *matCellDef="let element">
       <span *ngIf="!element.isEdit">{{ element.userId }}</span>
       <input matInput *ngIf="element.isEdit" value={{element.userId}} (change)="handleOnChange($event, element, 'userId')">
@@ -13,7 +13,7 @@
   </ng-container>
 
   <ng-container matColumnDef="Id">
-    <th mat-header-cell *matHeaderCellDef mat-sort-header="Id">Id</th>
+    <th mat-header-cell *matHeaderCellDef mat-sort-header="id">Id</th>
     <td mat-cell *matCellDef="let element">
       <span *ngIf="!element.isEdit">{{ element.id }}</span>
       <input *ngIf="element.isEdit" matInput value={{element.id}} (change)="handleOnChange($event, element, 'id')">
@@ -21,7 +21,7 @@
   </ng-container>
 
   <ng-container matColumnDef="Title">
-    <th mat-header-cell *matHeaderCellDef mat-sort-header="Title">Title</th>
+    <th mat-header-cell *matHeaderCellDef mat-sort-header="title">Title</th>
     <td mat-cell *matCellDef="let element">
       <span *ngIf="!element.isEdit">{{ element.title }}</span>
       <input *ngIf="element.isEdit" matInput value={{element.title}} (change)="handleOnChange($event, element, 'title')">
@@ -29,7 +29,7 @@
   </ng-container>
 
   <ng-container matColumnDef="Body">
-    <th mat-header-cell *matHeaderCellDef mat-sort-header="Body">Body</th>
+    <th mat-header-cell *matHeaderCellDef mat-sort-header="body">Body</th>
     <td mat-cell *matCellDef="let element">
       <span *ngIf="!element.isEdit">{{ element.body }}</span>
       <input *ngIf="element.isEdit" matInput value={{element.body}} (change)="handleOnChange($event, element, 'body')">

@@ -14,7 +14,7 @@ export class HomeComponent implements OnInit {
   @ViewChild(MatSort) sort!: MatSort;
   @ViewChild(MatPaginator, {static: false}) paginator!: MatPaginator;
   public searchText: string = '';
-  public dataSource = new MatTableDataSource<any>();
+  public dataSources = new MatTableDataSource<any>();
   public displayedColumns: string[] = [
     'UserId',
     'Id',
@@ -37,14 +37,14 @@ export class HomeComponent implements OnInit {
       data.forEach((element: {[key: string]: boolean}) => {
         element['isEdit'] = false;
       });
-      this.dataSource = new MatTableDataSource(data);
-      this.dataSource.paginator = this.paginator;
-      this.dataSource.sort = this.sort;            
+      this.dataSources = new MatTableDataSource(data)  
+      this.dataSources.paginator = this.paginator;
+      this.dataSources.sort = this.sort;         
     });
   }
 
   public search(searchText: string){
-    this.dataSource.filter = searchText.trim().toLowerCase();
+    this.dataSources.filter = searchText.trim().toLowerCase();
   }
 
   public editData(post: {[key: string]: string | number | boolean}) {
@@ -53,21 +53,21 @@ export class HomeComponent implements OnInit {
     
   public onSaveData(post: {[key: string]: string | number | boolean}){
     post['isEdit'] = false;
-    this.dataSource.data = this.dataSource.data;
+    this.dataSources.data = this.dataSources.data;
     this.toaster.success("Data Changes Save Successfully...");
   }
 
   public handleOnChange(e: any, post: {[key: string]: string | number}, key: string) {
     post[key] = e.target.value;
-    this.dataSource.data = this.dataSource.data;
+    this.dataSources.data = this.dataSources.data;
   }
 
   public deleteData(id: string) {
     const isConfirm = confirm("Are You Sure ?");
     if(isConfirm){
-      let index = this.dataSource.data.find((data) =>data['id'] === id); 
-      this.dataSource.data.splice(index, 1);
-      this.dataSource.data = this.dataSource.data;
+      let index = this.dataSources.data.find((data) =>data['id'] === id); 
+      this.dataSources.data.splice(index, 1);
+      this.dataSources.data = this.dataSources.data;
       this.toaster.success("Deleted Data" + id);
     }
   }     
