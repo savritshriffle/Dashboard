@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
-import { DialogboxComponent } from './dialog-box/dialog-box.component';
+import { DialogboxComponent } from './material/dialog-box/dialog-box.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDialogModule } from "@angular/material/dialog";
 import { MatIconModule } from "@angular/material/icon";
@@ -19,20 +19,21 @@ import { MatInputModule } from '@angular/material/input'
 import { provideAnimations } from '@angular/platform-browser/animations';
 import { provideToastr } from 'ngx-toastr';
 import { MatButtonModule } from '@angular/material/button';
-import { StockChartComponent } from './chart/chart.component';
+import { StockChartComponent } from './highchart/chart/chart.component';
 import { HighchartsChartModule } from 'highcharts-angular';
-import { MultiChartComponent } from './multi-chart/multi-chart.component';
+import { MultiChartComponent } from './highchart/multi-chart/multi-chart.component';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatSelectModule } from '@angular/material/select';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatChipsModule} from '@angular/material/chips';
-import { AutoCompleteComponent } from './auto-complete/auto-complete.component';
-import { AutoSearchCompoent } from './auto-search/auto-search.component';
-import { FormComponent } from './form/form.component';
-import { CheckboxComponent } from './checkbox-filter/checkbox.component';
+import { AutoCompleteComponent } from './material/auto-complete/auto-complete.component';
+import { AutoSearchCompoent } from './material/auto-search/auto-search.component';
+import { FormComponent } from './material/form/form.component';
+import { CheckboxComponent } from './material/checkbox-filter/checkbox.component';
 import { MatRadioModule } from '@angular/material/radio';
 import { NavbarComponent } from './navbar/navbar.component';
-import { RegistrationForm } from './registration-form/registration-form.component';
+import { RegistrationForm } from './material/registration-form/registration-form.component';
+import { UserRegistrationComponent } from './user-registration/user-registration.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,8 @@ import { RegistrationForm } from './registration-form/registration-form.componen
     FormComponent,
     CheckboxComponent,
     DialogboxComponent,
-    RegistrationForm
+    RegistrationForm,
+    UserRegistrationComponent
   ],
   imports: [
     BrowserModule,

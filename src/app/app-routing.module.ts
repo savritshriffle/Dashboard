@@ -2,13 +2,18 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
-import { StockChartComponent } from './chart/chart.component';
-import { MultiChartComponent } from './multi-chart/multi-chart.component';
-import { AutoCompleteComponent } from './auto-complete/auto-complete.component';
-import { AutoSearchCompoent } from './auto-search/auto-search.component';
-import { CheckboxComponent } from './checkbox-filter/checkbox.component';
-import { RegistrationForm } from './registration-form/registration-form.component';
-import { FormComponent } from './form/form.component';
+import { StockChartComponent } from './highchart/chart/chart.component';
+import { MultiChartComponent } from './highchart/multi-chart/multi-chart.component';
+import { AutoCompleteComponent } from './material/auto-complete/auto-complete.component';
+import { AutoSearchCompoent } from './material/auto-search/auto-search.component';
+import { CheckboxComponent } from './material/checkbox-filter/checkbox.component';
+import { RegistrationForm } from './material/registration-form/registration-form.component';
+import { FormComponent } from './material/form/form.component';
+import { authGuard } from './auth.module/auth.guard';
+import { UserRegistrationComponent } from './user-registration/user-registration.component';
+import { NavbarComponent } from './navbar/navbar.component';
+
+
 
 const routes: Routes = [
   {
@@ -17,41 +22,62 @@ const routes: Routes = [
     pathMatch:'full'
   },
   {
+    path:'dashboard',
+    component: NavbarComponent,
+    canActivate: [authGuard],
+    children: [
+      {
+        path:'home',
+        component: HomeComponent,
+        canActivateChild: [authGuard]
+      },
+      {
+        path:'chart',
+        component: StockChartComponent,
+        canActivateChild: [authGuard]
+      },
+      {
+        path:'multi-chart',
+        component: MultiChartComponent,
+        canActivateChild: [authGuard]
+      },
+      {
+        path:'auto-search',
+        component: AutoSearchCompoent,
+        canActivateChild: [authGuard]
+      },
+      {
+        path:'checkbox',
+        component: CheckboxComponent,
+        canActivateChild: [authGuard]
+      },
+      {
+        path: 'registration-form',
+        component: RegistrationForm,
+        canActivateChild: [authGuard]
+      },
+      {
+        path: "auto-complete",
+        component: AutoCompleteComponent,
+        canActivateChild: [authGuard]
+      },
+      {
+        path: "form",
+        component: FormComponent,
+        canActivateChild: [authGuard]
+      }  
+    ]
+  },
+
+  {
     path:'login',
     component: LoginComponent,
   },
   {
-    path:'home',
-    component: HomeComponent
+    path: 'user-registration',
+    component: UserRegistrationComponent
   },
-  {
-    path:'chart',
-    component: StockChartComponent
-  },
-  {
-    path:'multi-chart',
-    component: MultiChartComponent
-  },
-  {
-    path:'auto-search',
-    component: AutoSearchCompoent
-  },
-  {
-    path:'checkbox',
-    component: CheckboxComponent
-  },
-  {
-    path: 'registration-form',
-    component: RegistrationForm,
-  },
-  {
-    path: "auto-complete",
-    component: AutoCompleteComponent
-  },
-  {
-    path: "form",
-    component: FormComponent
-  },
+
 ];
 
 @NgModule({
