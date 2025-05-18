@@ -36,4 +36,4 @@ export class LoginComponent {
       this.router.navigate(['/user-registration']);
     }
   }
-}
+};

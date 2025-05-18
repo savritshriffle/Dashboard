@@ -13,8 +13,6 @@ import { authGuard } from './auth.module/auth.guard';
 import { UserRegistrationComponent } from './user-registration/user-registration.component';
 import { NavbarComponent } from './navbar/navbar.component';
 
-
-
 const routes: Routes = [
   {
     path: '',
@@ -25,50 +23,41 @@ const routes: Routes = [
     path:'dashboard',
     component: NavbarComponent,
     canActivate: [authGuard],
-    children: [
-      {
-        path:'home',
-        component: HomeComponent,
-        canActivateChild: [authGuard]
-      },
-      {
-        path:'chart',
-        component: StockChartComponent,
-        canActivateChild: [authGuard]
-      },
-      {
-        path:'multi-chart',
-        component: MultiChartComponent,
-        canActivateChild: [authGuard]
-      },
-      {
-        path:'auto-search',
-        component: AutoSearchCompoent,
-        canActivateChild: [authGuard]
-      },
-      {
-        path:'checkbox',
-        component: CheckboxComponent,
-        canActivateChild: [authGuard]
-      },
-      {
-        path: 'registration-form',
-        component: RegistrationForm,
-        canActivateChild: [authGuard]
-      },
-      {
-        path: "auto-complete",
-        component: AutoCompleteComponent,
-        canActivateChild: [authGuard]
-      },
-      {
-        path: "form",
-        component: FormComponent,
-        canActivateChild: [authGuard]
-      }  
+      children: [
+        {
+          path:'home',
+          component: HomeComponent
+        },
+        {
+          path:'chart',
+          component: StockChartComponent
+        },
+        {
+          path:'multi-chart',
+          component: MultiChartComponent
+        },
+        {
+          path:'auto-search',
+          component: AutoSearchCompoent
+        },
+        {
+          path:'checkbox',
+          component: CheckboxComponent
+        },
+        {
+          path: 'registration-form',
+          component: RegistrationForm
+        },
+        {
+          path: "auto-complete",
+          component: AutoCompleteComponent
+        },
+        {
+          path: "form",
+          component: FormComponent
+        }  
     ]
   },
-
   {
     path:'login',
     component: LoginComponent,
@@ -76,8 +65,7 @@ const routes: Routes = [
   {
     path: 'user-registration',
     component: UserRegistrationComponent
-  },
-
+  }
 ];
 
 @NgModule({

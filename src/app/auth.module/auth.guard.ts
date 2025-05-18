@@ -1,7 +1,7 @@
 import { inject } from '@angular/core';
-import { CanActivateChildFn, CanActivateFn, Router } from '@angular/router';
+import { CanActivateFn, Router } from '@angular/router';
 
-export const authGuard: CanActivateFn & CanActivateChildFn = () => {
+export const authGuard: CanActivateFn = () => {
   const router = inject(Router);
   const users = JSON.parse(localStorage.getItem('users') || '[]');
   const isUserFound = users.some((user: any) => user.isLoggedIn === true);
