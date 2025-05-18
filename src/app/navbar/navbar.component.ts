@@ -22,10 +22,12 @@ export class NavbarComponent {
   }
 
   public logout() {
-    const users = JSON.parse(localStorage.getItem('users') || '[]');
-    users.forEach((user: any) => user.isLoggedIn = false);
-    localStorage.setItem('users', JSON.stringify(users));
-    this.router.navigate(['/login']);
-
+    const isConfirmed = confirm('Are you sure you want to logout?');
+    if (isConfirmed) {
+      const users = JSON.parse(localStorage.getItem('users') || '[]');
+      users.forEach((user: any) => user.isLoggedIn = false);
+      localStorage.setItem('users', JSON.stringify(users));
+      this.router.navigate(['/login']);
+    }
   }
-}
+};
