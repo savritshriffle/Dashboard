@@ -3,48 +3,22 @@ import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatCheckboxChange } from '@angular/material/checkbox';
 import { MatRadioChange } from '@angular/material/radio';
 import { MatSelectChange } from '@angular/material/select';
+import { gender } from './gender';
+import { subjects } from './subjects';
+import { hobbies } from './hobbies';
 
 @Component({
   selector: 'app-student',
   templateUrl: './registration-form.component.html',
   styleUrls: ['./registration-form.component.css']
 })
+
 export class RegistrationForm {
   public formData: FormGroup;
-  public genderData = [
-    {
-      name: 'Female',
-      value: 'female',
-    },
-    {
-      name: 'Male',
-      value: 'male',
-    }
-  ]
-  public subjectData = [
-    'Maths',
-    'Science',
-    'English',
-    'Hindi',
-    'Telugu',
-    'Tamil',
-    'Sanskrit',
-    'History',
-    'Geography',
-    'Civics',
-    'Computer Science',
-    'Biology',
-    'Physics',
-    'Chemistry'
-  ];
-
-  public hobbiesData = [
-    { id: 1, name: 'Reading' },
-    { id: 2, name: 'Traveling' },
-    { id: 3, name: 'Gaming' },
-    { id: 4, name: 'Cooking' }
-  ];
- 
+  public genderData = gender; 
+  public subjectData = subjects;
+  public hobbiesData = hobbies;
+  
   constructor(private fb: FormBuilder) {
     this.formData = this.fb.group({
       firstName:  ['', Validators.required],

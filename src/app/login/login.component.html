@@ -1,6 +1,6 @@
 <div class="container">
   <h1>Log-In Here</h1>
-  <form [formGroup]="loginForm">
+  <form class="form" [formGroup]="loginForm">
     <mat-form-field>
       <mat-label>Email</mat-label>
       <input matInput type="email" placeholder="enter valid email" formControlName="email">
@@ -15,5 +15,7 @@
     </mat-form-field>
     <br>
     <button mat-raised-button color="primary" type="submit" (click)="onLogin()">Submit</button>
+    <br>
   </form>
+  <a class="registration-link" routerLink="/user-registration">Registration</a>
 </div>    

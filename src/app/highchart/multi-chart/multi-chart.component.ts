@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { MatOptionSelectionChange } from '@angular/material/core';
 import * as Highcharts from 'highcharts';
+import { dataOrder } from './data-order';
 
 @Component({
   selector: 'app-multi-chart',
@@ -14,17 +15,7 @@ export class MultiChartComponent {
   public chartFilter: string = 'ascending';
   public Highcharts = Highcharts;  
   public chartOptions: any; 
-  public dataOrder = [
-    {
-      name: 'ascending',
-      value: 'ascending'
-    },
-    {
-      name: 'descending',
-      value: 'descending'
-    }
-  ]
-
+  public dataOrder = dataOrder;
   constructor() {  
     this.chartOptions = [
       {

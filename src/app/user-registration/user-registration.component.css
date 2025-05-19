@@ -1,7 +1,7 @@
 .container {
   border: 1px solid grey;
   margin-top: 6%;
-  margin-left: 38%;
+  margin-left: 33%;
   padding-top: 45px;
   padding: 20px;
   width: 300px;
@@ -18,5 +18,5 @@ mat-form-field{
 }
 
 button {
-  margin-left: 33%;
+  margin-left: 37%;
 }

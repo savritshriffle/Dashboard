@@ -29,11 +29,11 @@ export class LoginComponent {
       users[matchingUserIndex].isLoggedIn = true;
       localStorage.setItem('users', JSON.stringify(users)); 
       this.toaster.success('Login Successfully Done...');
-      this.router.navigate(['/dashboard/home']);
+      this.router.navigate(['/home']);
     } 
     else {
       this.toaster.error('Invalid email or password');
-      this.router.navigate(['/user-registration']);
+      this.router.navigate(['/login']);
     }
   }
 };

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogboxComponent } from '../material/dialog-box/dialog-box.component';
-import { Router } from '@angular/router';
+import { NavigationEnd, Router } from '@angular/router';
 
 @Component({
   selector: 'app-Navbar',
@@ -9,10 +9,22 @@ import { Router } from '@angular/router';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent {
+  public isVisible = false;
+  
   constructor(
     private dialog: MatDialog,
-    private router: Router
-  ) {}
+    private router: Router) {
+    this.router.events.subscribe((event) => {
+      if (event instanceof NavigationEnd) {
+        if(event.url === '/' || event.url === '/login' || event.url === '/user-registration') {
+          this.isVisible = false;
+        }
+        else {
+          this.isVisible = true;
+        }
+      }
+    })
+  }
 
   public openDialog() {
     this.dialog.open(DialogboxComponent,{

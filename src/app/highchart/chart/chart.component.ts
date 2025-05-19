@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { MatOptionSelectionChange } from '@angular/material/core';
 import * as Highcharts from 'highcharts';
+import { dataOrder } from './data-order';
+import { typeChart } from './chart-type';
 
 @Component({
   selector: 'app-chart',
@@ -17,38 +19,8 @@ export class StockChartComponent {
   public searchData: string = '';
   public chartFilter: string = 'ascending';
   private filterData = this.data;
-  public dataOrder = [
-    {
-      name: 'ascending',
-      value: 'ascending',
-    },
-    {
-      name: 'descending',
-      value: 'descending',
-    }
-  ]
-  public typeChart = [
-    {
-      name: 'column',
-      value: 'column'
-    },
-    {
-      name: 'line',
-      value: 'line'
-    },
-    {
-      name: 'spline',
-      value: 'spline'
-    },
-    {
-      name: 'area',
-      value: 'area'
-    },
-    {
-      name: 'scatter',
-      value: 'scatter'
-    },  
-  ]
+  public dataOrder = dataOrder;
+  public typeChart = typeChart;
   public Highcharts: typeof Highcharts = Highcharts;
   public chartOptions: Highcharts.Options = {  
     title: {
