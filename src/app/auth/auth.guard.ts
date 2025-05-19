@@ -1,13 +1,15 @@
 import { inject } from '@angular/core';
 import { CanActivateFn, Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 export const authGuard: CanActivateFn = () => {
   const router = inject(Router);
+   const toaster = inject(ToastrService);
   const users = JSON.parse(localStorage.getItem('users') || '[]');
-  const isUserFound = users.some((user: any) => user.isLoggedIn === true);
+  const isUserFound = users.some((user: {[key: string]: string | boolean}) => user['isLoggedIn'] === true);
   console.log(isUserFound)
   if (!isUserFound) {
-    alert('Please login to access this page');
+    toaster.info("Please login to access this page")
     router.navigate(['/login']);
     return false;
   }
