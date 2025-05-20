@@ -1,65 +1,65 @@
 export const Data = [
     {
       id:1,
-      name: 'rahul',
+      name: "rahul",
       age: 20,
       contact: 1234567,
-      post: 'student'
+      post: "student"
     },
     {
       id:2,
-      name: 'ram',
+      name: "ram",
       age: 20,
       contact: 1234567,
-      post: 'student'
+      post: "student"
     },
     {
       id:3,
-      name: 'kiran',
+      name: "kiran",
       age: 20,
       contact: 1234567,
-      post: 'student'
+      post: "student"
     },
     {
       id:4,
-      name: 'jyoti',
+      name: "jyoti",
       age: 20,
       contact: 1234567,
-      post: 'student'
+      post: "student"
     },
     {
       id:5,
-      name: 'priya',
+      name: "priya",
       age: 20,
       contact: 1234567,
-      post: 'student'
+      post: "student"
     },
     {
       id:7,
-      name: 'savri',
+      name: "savri",
       age: 20,
       contact: 1234567,
-      post: 'student'
+      post: "student"
     },
     {
       id:8,
-      name: 'siya',
+      name: "siya",
       age: 20,
       contact: 1234567,
-      post: 'student'
+      post: "student"
     },
     {
       id:9,
-      name: 'riya',
+      name: "riya",
       age: 20,
       contact: 1234567,
-      post: 'student'
+      post: "student"
     },
     {
       id:10,
-      name: 'arya',
+      name: "arya",
       age: 20,
       contact: 1234567,
-      post: 'student'
+      post: "student"
     },
   ]

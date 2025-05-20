@@ -1,73 +1,73 @@
 export const Data = [
   {
     id: 1,
-    name: 'Aadi',
+    name: "Aadi",
     contect: 10235,
     complete: true,
   },
   {
     id: 2,
-    name: 'Book',
+    name: "Book",
     contect: 10235,
     complete: true
   },
   {
     id: 3,
-    name: 'Cat',
+    name: "Cat",
     contect: 10235,
     complete: true
   },
   {
     id: 4,
-    name: 'diya',
+    name: "diya",
     contect: 10235,
     complete: false
   },
   {
     id: 5,
-    name: 'Siva',
+    name: "Siva",
     contect: 10235,
     complete: false
   },
   {
     id: 6,
-    name: 'Ram',
+    name: "Ram",
     contect: 10235,
     complete: true
   },
   {
     id: 7,
-    name: 'Raghav',
+    name: "Raghav",
     contect: 10235,
     complete: false
   },
   {
     id: 8,
-    name: 'Siya',
+    name: "Siya",
     contect: 10235,
     complete: false
   },
   {
     id: 9,
-    name: 'Riya',
+    name: "Riya",
     contect: 10235,
     complete: true
   },
   {
     id: 10,
-    name: 'Priya',
+    name: "Priya",
     contect: 10235,
     complete: true
   },
   {
     id: 10,
-    name: 'Priya',
+    name: "Priya",
     contect: 10235,
     complete: true
   },
   {
     id: 11,
-    name: 'Tiya',
+    name: "Tiya",
     contect: 10235,
     complete: true
   },

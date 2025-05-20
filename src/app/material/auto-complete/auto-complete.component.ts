@@ -2,6 +2,7 @@ import {Component} from '@angular/core';
 import {FormControl} from '@angular/forms';
 import {Observable} from 'rxjs';
 import {map, startWith} from 'rxjs/operators';
+import { fruitlist } from './fruit-data';
 
 @Component({
   selector: 'app-auto-complete',
@@ -12,18 +13,7 @@ export class AutoCompleteComponent {
   public fruitCtrl = new FormControl();
   public filteredFruits: Observable<string[]>;
   public fruits: string[] = [];
-  private allFruits: string[] = [
-    'Apple', 
-    'Lemon', 
-    'Lime', 
-    'Orange', 
-    'Strawberry',
-    'Mango',
-    'Pineapple',
-    'Dragonfruit',
-    'BlackBerry',
-    'The Long Name of a Fruit That is Yet to be Discovered',
-  ];
+  private allFruits = fruitlist;
 
   constructor() {
     this.filteredFruits = this.fruitCtrl.valueChanges.pipe(

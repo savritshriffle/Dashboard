@@ -55,16 +55,16 @@ export class AutoSearchCompoent implements OnInit{
     }
   }
 
-  public editData(post: {[key: string]: boolean}) {
+  public editData(post: Record<string, boolean>) {
     post['isEdit'] = true;
   }
 
-  public handleOnChange(event: any , post:{[key: string]: string | number}, key: string) {
+  public handleOnChange(event: any , post:Record<string, string | number>, key: string) {
     post[key] = event.target.value;
     this.filterData = this.filterData;
   }
 
-  public saveData(post: {[key: string]: boolean}) {
+  public saveData(post: Record<string, boolean>) {
     post['isEdit'] = false;
     this.toaster.success("Data Changes Save Successfully...");
   }

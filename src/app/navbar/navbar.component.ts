@@ -37,7 +37,7 @@ export class NavbarComponent {
     const isConfirmed = confirm('Are you sure you want to logout?');
     if (isConfirmed) {
       const users = JSON.parse(localStorage.getItem('users') || '[]');
-      users.forEach((user: {[key: string]: string | boolean}) => user['isLoggedIn'] = false);
+      users.forEach((user: Record<string, string | boolean>) => user['isLoggedIn'] = false);
       localStorage.setItem('users', JSON.stringify(users));
       this.router.navigate(['/login']);
     }

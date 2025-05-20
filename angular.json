@@ -25,14 +25,14 @@
               "src/assets"
             ],
             "styles": [
-               "node_modules/ngx-toastr/toastr.css",
+              "node_modules/ngx-toastr/toastr.css",
               "@angular/material/prebuilt-themes/indigo-pink.css",
               "src/styles.css",
               "src/assets/bryntum/bryntumfile.css"
             ],
             "scripts": [
-               "src/assets/bryntum/bryntumfile.js"
-            ] 
+              "src/assets/bryntum/bryntumfile.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -97,11 +97,23 @@
             ],
             "scripts": []
           }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "src/**/*.ts",
+              "src/**/*.html"
+            ]
+          }
         }
       }
     }
   },
   "cli": {
-    "analytics": "dea5ae65-ab58-490f-a34d-269d445a27cc"
+    "analytics": "dea5ae65-ab58-490f-a34d-269d445a27cc",
+    "schematicCollections": [
+      "angular-eslint"
+    ]
   }
 }

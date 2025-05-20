@@ -22,7 +22,7 @@ export class LoginComponent {
   public onLogin() {
     const users = JSON.parse(localStorage.getItem('users') || '[]');
 
-    const matchingUserIndex = users.findIndex((u: {[key: string]: string | number}) => u['email'] === this.loginForm.value.email && u['password'] === this.loginForm.value.password);
+    const matchingUserIndex = users.findIndex((u: Record<string, string | number>) => u['email'] === this.loginForm.value.email && u['password'] === this.loginForm.value.password);
 
     if (matchingUserIndex !== -1) {
       users[matchingUserIndex].isLoggedIn = true;
