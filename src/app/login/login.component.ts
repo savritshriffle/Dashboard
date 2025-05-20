@@ -9,28 +9,30 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
-  private userData = {
-    email: 'savri@gmail.com',
-    password: '12345'
-  }
-
   public loginForm = new FormGroup({
-    email: new FormControl<string>('',[Validators.required,  Validators.email]),
-    password: new FormControl<string>('', [Validators.required, Validators.maxLength(6)])
+    email: new FormControl<string>('', [Validators.required, Validators.email]),
+    password: new FormControl<string>('', [Validators.required])
   });
 
   constructor(
     private router: Router,
-    private toaster: ToastrService) {
-  }
+    private toaster: ToastrService
+  ) {}
 
-  public logIn() {
-    if(this.loginForm.controls.email.value === this.userData.email && this.loginForm.controls.password.value === this.userData.password) {
+  public onLogin() {
+    const users = JSON.parse(localStorage.getItem('users') || '[]');
+
+    const matchingUserIndex = users.findIndex((u: {[key: string]: string | number}) => u['email'] === this.loginForm.value.email && u['password'] === this.loginForm.value.password);
+
+    if (matchingUserIndex !== -1) {
+      users[matchingUserIndex].isLoggedIn = true;
+      localStorage.setItem('users', JSON.stringify(users)); 
+      this.toaster.success('Login Successfully Done...');
       this.router.navigate(['/home']);
-      this.toaster.success('Login Successfully Completed!...', 'Done', {timeOut: 1000});
-    }
+    } 
     else {
-      this.toaster.error(' Invalid Credentials..');
+      this.toaster.error('Invalid email or password');
+      this.router.navigate(['/user-registration']);
     }
   }
 };

@@ -1,6 +1,5 @@
-<app-Navbar></app-Navbar>
 <div>
-  <input type="search" placeholder="enter number" class="input" [(ngModel)]="searchData" (ngModelChange)="search()">
+  <input matInput type="search" placeholder="enter number" class="input" [(ngModel)]="searchData" (ngModelChange)="search()">
 </div>
 <mat-form-field>
   <mat-select [(value)]="chartFilter">

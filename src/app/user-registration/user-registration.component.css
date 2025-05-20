@@ -1,0 +1,22 @@
+.container {
+  border: 1px solid grey;
+  margin-top: 6%;
+  margin-left: 32%;
+  padding-top: 45px;
+  padding: 20px;
+  width: 300px;
+  height: auto;
+  box-shadow: 5px 5px 5px grey;
+}
+
+h1 {
+  text-align: center;
+}
+
+mat-form-field{
+  display: inline;
+}
+
+button {
+  margin-left: 33%;
+}
