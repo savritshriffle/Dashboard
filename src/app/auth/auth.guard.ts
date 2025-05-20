@@ -4,7 +4,7 @@ import { ToastrService } from 'ngx-toastr';
 
 export const authGuard: CanActivateFn = () => {
   const router = inject(Router);
-   const toaster = inject(ToastrService);
+  const toaster = inject(ToastrService);
   const users = JSON.parse(localStorage.getItem('users') || '[]');
   const isUserFound = users.some((user: {[key: string]: string | boolean}) => user['isLoggedIn'] === true);
   console.log(isUserFound)
