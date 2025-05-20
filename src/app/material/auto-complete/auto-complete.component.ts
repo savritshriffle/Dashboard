@@ -1,0 +1,46 @@
+import {Component} from '@angular/core';
+import {FormControl} from '@angular/forms';
+import {Observable} from 'rxjs';
+import {map, startWith} from 'rxjs/operators';
+import { fruitlist } from './fruit-data';
+
+@Component({
+  selector: 'app-auto-complete',
+  templateUrl: 'auto-complete.component.html',
+  styleUrls: ['auto-complete.component.css'],
+})
+export class AutoCompleteComponent {
+  public fruitCtrl = new FormControl();
+  public filteredFruits: Observable<string[]>;
+  public fruits: string[] = [];
+  private allFruits = fruitlist;
+
+  constructor() {
+    this.filteredFruits = this.fruitCtrl.valueChanges.pipe(
+      startWith(null),
+      map((fruit: string) => fruit ? this._filter(fruit) : this.allFruits.slice())
+    );
+  }
+
+  public remove(fruit: string): void {
+    const index = this.fruits.indexOf(fruit);
+    if (index != -1) {
+      this.fruits.splice(index, 1);
+    }    
+  }
+
+  public selected(fruit: string, event: Event): void {
+    event.stopPropagation();
+    const index = this.fruits.indexOf(fruit);
+    if (index != -1) {
+      this.fruits.splice(index, 1);
+    } else {
+      this.fruits.push(fruit);
+    }
+    this.fruitCtrl.setValue('');
+  }
+  
+  private _filter(value: string): string[] {
+    return this.allFruits.filter(fruit => fruit.toLowerCase().indexOf(value.toLowerCase()) >= 0);
+  }
+};

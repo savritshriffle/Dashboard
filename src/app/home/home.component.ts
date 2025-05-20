@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { tableService } from '../table.service';
+import { tableService } from '../service/table.service';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatSort} from '@angular/material/sort';
 import { MatPaginator } from '@angular/material/paginator';
@@ -13,7 +13,7 @@ import { ToastrService } from 'ngx-toastr';
 export class HomeComponent implements OnInit {
   @ViewChild(MatSort) sort!: MatSort;
   @ViewChild(MatPaginator, {static: false}) paginator!: MatPaginator;
-  public searchText: string = '';
+  public searchText = '';
   public dataSources = new MatTableDataSource<any>();
   public displayedColumns: string[] = [
     'UserId',
@@ -34,7 +34,7 @@ export class HomeComponent implements OnInit {
 
   private getData() {
     this.service.getData().subscribe((data) => { 
-      data.forEach((element: {[key: string]: boolean}) => {
+      data.forEach((element: Record<string, boolean>) => {
         element['isEdit'] = false;
       });
       this.dataSources = new MatTableDataSource(data)  
@@ -47,17 +47,17 @@ export class HomeComponent implements OnInit {
     this.dataSources.filter = searchText.trim().toLowerCase();
   }
 
-  public editData(post: {[key: string]: string | number | boolean}) {
+  public editData(post: Record<string, string | number | boolean>) {
     post['isEdit'] = true;
   }
     
-  public onSaveData(post: {[key: string]: string | number | boolean}){
+  public onSaveData(post: Record<string, string | number | boolean>){
     post['isEdit'] = false;
     this.dataSources.data = this.dataSources.data;
     this.toaster.success("Data Changes Save Successfully...");
   }
 
-  public handleOnChange(e: any, post: {[key: string]: string | number}, key: string) {
+  public handleOnChange(e: any, post: Record<string, string | number>, key: string) {
     post[key] = e.target.value;
     this.dataSources.data = this.dataSources.data;
   }
@@ -65,7 +65,7 @@ export class HomeComponent implements OnInit {
   public deleteData(id: string) {
     const isConfirm = confirm("Are You Sure ?");
     if(isConfirm){
-      let index = this.dataSources.data.find((data) =>data['id'] === id); 
+      const index = this.dataSources.data.find((data) =>data['id'] === id); 
       this.dataSources.data.splice(index, 1);
       this.dataSources.data = this.dataSources.data;
       this.toaster.success("Deleted Data" + id);
