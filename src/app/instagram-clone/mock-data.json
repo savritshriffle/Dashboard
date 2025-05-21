@@ -1,0 +1,590 @@
+{
+  "posts": [
+    {
+      "id": "1",
+      "username": "travel_lover",
+      "userImage": "https://avatar.iran.liara.run/public",
+      "imageUrl": "https://picsum.photos/100/100?random=1",
+      "caption": "Beautiful sunset at the beach! 🌅",
+      "hashtags": [
+        "travel",
+        "sunset",
+        "beach",
+        "vacation"
+      ],
+      "likes": 248,
+      "comments": [
+        {
+          "id": 1,
+          "username": "user2",
+          "text": "Amazing view!",
+          "timestamp": "2023-05-20T10:30:00Z"
+        }
+      ],
+      "timestamp": "2023-05-19T18:45:00Z"
+    },
+    {
+      "id": "2",
+      "username": "foodie_gram",
+      "userImage": "https://avatar.iran.liara.run/public/boy",
+      "imageUrl": "https://picsum.photos/600/600?random=2",
+      "caption": "Homemade pasta for dinner 🍝",
+      "hashtags": [
+        "foodie",
+        "homecooking",
+        "pasta",
+        "italianfood"
+      ],
+      "likes": 192,
+      "comments": [
+        {
+          "id": 2,
+          "username": "food_critic",
+          "text": "Looks delicious!",
+          "timestamp": "2023-05-19T19:20:00Z"
+        }
+      ],
+      "timestamp": "2023-05-18T20:15:00Z"
+    },
+    {
+      "id": "3",
+      "username": "fitness_guru",
+      "userImage": "https://avatar.iran.liara.run/public/girl",
+      "imageUrl": "https://picsum.photos/600/600?random=3",
+      "caption": "Morning workout complete! 💪 #fitness",
+      "hashtags": [
+        "fitness",
+        "workout",
+        "gym",
+        "health"
+      ],
+      "likes": 315,
+      "comments": [],
+      "timestamp": "2023-05-17T07:30:00Z"
+    },
+    {
+      "id": "4",
+      "username": "tech_enthusiast",
+      "userImage": "https://avatar.iran.liara.run/public/1",
+      "imageUrl": "https://picsum.photos/600/600?random=4",
+      "caption": "New gadget day! #tech",
+      "hashtags": [
+        "tech",
+        "gadgets",
+        "electronics"
+      ],
+      "likes": 178,
+      "comments": [
+        {
+          "id": 3,
+          "username": "geek_42",
+          "text": "Which model is this?",
+          "timestamp": "2023-05-16T14:45:00Z"
+        }
+      ],
+      "timestamp": "2023-05-16T12:00:00Z"
+    },
+    {
+      "id": "5",
+      "username": "pet_lover",
+      "userImage": "https://avatar.iran.liara.run/public/2",
+      "imageUrl": "https://picsum.photos/600/600?random=5",
+      "caption": "My cute buddy 🐶 #dogs",
+      "hashtags": [
+        "dogs",
+        "pets",
+        "animals"
+      ],
+      "likes": 432,
+      "comments": [
+        {
+          "id": 4,
+          "username": "dog_trainer",
+          "text": "So adorable!",
+          "timestamp": "2023-05-15T18:20:00Z"
+        }
+      ],
+      "timestamp": "2023-05-15T16:30:00Z"
+    },
+    {
+      "id": "6",
+      "username": "art_creator",
+      "userImage": "https://avatar.iran.liara.run/public/3",
+      "imageUrl": "https://picsum.photos/600/600?random=6",
+      "caption": "New painting finished 🎨",
+      "hashtags": [
+        "art",
+        "painting",
+        "creative"
+      ],
+      "likes": 276,
+      "comments": [],
+      "timestamp": "2023-05-14T20:00:00Z"
+    },
+    {
+      "id": "7",
+      "username": "book_worm",
+      "userImage": "https://avatar.iran.liara.run/public/4",
+      "imageUrl": "https://picsum.photos/600/600?random=7",
+      "caption": "Current read 📚 #books",
+      "hashtags": [
+        "books",
+        "reading",
+        "literature"
+      ],
+      "likes": 154,
+      "comments": [
+        {
+          "id": 5,
+          "username": "library_ghost",
+          "text": "One of my favorites!",
+          "timestamp": "2023-05-13T22:10:00Z"
+        }
+      ],
+      "timestamp": "2023-05-13T19:45:00Z"
+    },
+    {
+      "id": "8",
+      "username": "music_producer",
+      "userImage": "https://avatar.iran.liara.run/public/5",
+      "imageUrl": "https://picsum.photos/600/600?random=8",
+      "caption": "Studio session today 🎵",
+      "hashtags": [
+        "music",
+        "producer",
+        "studio"
+      ],
+      "likes": 321,
+      "comments": [],
+      "timestamp": "2023-05-12T23:30:00Z"
+    },
+    {
+      "id": "9",
+      "username": "fashion_icon",
+      "userImage": "https://avatar.iran.liara.run/public/6",
+      "imageUrl": "https://picsum.photos/600/600?random=9",
+      "caption": "New outfit alert! 👗",
+      "hashtags": [
+        "fashion",
+        "style",
+        "ootd"
+      ],
+      "likes": 287,
+      "comments": [
+        {
+          "id": 6,
+          "username": "style_expert",
+          "text": "Love this look!",
+          "timestamp": "2023-05-11T15:20:00Z"
+        }
+      ],
+      "timestamp": "2023-05-11T13:00:00Z"
+    },
+    {
+      "id": "10",
+      "username": "coffee_addict",
+      "userImage": "https://avatar.iran.liara.run/public/7",
+      "imageUrl": "https://picsum.photos/600/600?random=10",
+      "caption": "Morning coffee ritual ☕",
+      "hashtags": [
+        "coffee",
+        "morning",
+        "caffeine"
+      ],
+      "likes": 198,
+      "comments": [],
+      "timestamp": "2023-05-10T08:15:00Z"
+    },
+    {
+      "id": "11",
+      "username": "mountain_climber",
+      "userImage": "https://avatar.iran.liara.run/public/8",
+      "imageUrl": "https://picsum.photos/600/600?random=11",
+      "caption": "Summit achieved! ⛰️",
+      "hashtags": [
+        "hiking",
+        "mountains",
+        "adventure"
+      ],
+      "likes": 412,
+      "comments": [
+        {
+          "id": 7,
+          "username": "outdoor_enthusiast",
+          "text": "Which mountain is this?",
+          "timestamp": "2023-05-09T19:30:00Z"
+        }
+      ],
+      "timestamp": "2023-05-09T16:45:00Z"
+    },
+    {
+      "id": "12",
+      "username": "car_enthusiast",
+      "userImage": "https://avatar.iran.liara.run/public/9",
+      "imageUrl": "https://picsum.photos/600/600?random=12",
+      "caption": "New wheels! 🚗 #cars",
+      "hashtags": [
+        "cars",
+        "automotive",
+        "vehicles"
+      ],
+      "likes": 376,
+      "comments": [],
+      "timestamp": "2023-05-08T14:00:00Z"
+    },
+    {
+      "id": "13",
+      "username": "yoga_master",
+      "userImage": "https://avatar.iran.liara.run/public/10",
+      "imageUrl": "https://picsum.photos/600/600?random=13",
+      "caption": "Morning flow 🌞 #yoga",
+      "hashtags": [
+        "yoga",
+        "fitness",
+        "wellness"
+      ],
+      "likes": 231,
+      "comments": [
+        {
+          "id": 8,
+          "username": "zen_seeker",
+          "text": "Beautiful pose!",
+          "timestamp": "2023-05-07T11:20:00Z"
+        }
+      ],
+      "timestamp": "2023-05-07T09:00:00Z"
+    },
+    {
+      "id": "14",
+      "username": "gaming_pro",
+      "userImage": "https://avatar.iran.liara.run/public/11",
+      "imageUrl": "https://picsum.photos/600/600?random=14",
+      "caption": "New high score! 🎮",
+      "hashtags": [
+        "gaming",
+        "videogames",
+        "esports"
+      ],
+      "likes": 523,
+      "comments": [],
+      "timestamp": "2023-05-06T22:15:00Z"
+    },
+    {
+      "id": "15",
+      "username": "plant_parent",
+      "userImage": "https://avatar.iran.liara.run/public/12",
+      "imageUrl": "https://picsum.photos/600/600?random=15",
+      "caption": "My growing family 🌿",
+      "hashtags": [
+        "plants",
+        "greenery",
+        "home"
+      ],
+      "likes": 267,
+      "comments": [
+        {
+          "id": 9,
+          "username": "green_thumb",
+          "text": "What species is this?",
+          "timestamp": "2023-05-05T18:40:00Z"
+        }
+      ],
+      "timestamp": "2023-05-05T16:00:00Z"
+    },
+    {
+      "id": "16",
+      "username": "photo_pro",
+      "userImage": "https://avatar.iran.liara.run/public/13",
+      "imageUrl": "https://picsum.photos/600/600?random=16",
+      "caption": "Captured this moment 📸",
+      "hashtags": [
+        "photography",
+        "photo",
+        "camera"
+      ],
+      "likes": 389,
+      "comments": [],
+      "timestamp": "2023-05-04T12:30:00Z"
+    },
+    {
+      "id": "17",
+      "username": "bike_rider",
+      "userImage": "https://avatar.iran.liara.run/public/14",
+      "imageUrl": "https://picsum.photos/600/600?random=17",
+      "caption": "50km today! 🚴‍♂️",
+      "hashtags": [
+        "cycling",
+        "bike",
+        "exercise"
+      ],
+      "likes": 211,
+      "comments": [
+        {
+          "id": 10,
+          "username": "road_warrior",
+          "text": "Great distance!",
+          "timestamp": "2023-05-03T20:15:00Z"
+        }
+      ],
+      "timestamp": "2023-05-03T18:00:00Z"
+    },
+    {
+      "id": "18",
+      "username": "diy_expert",
+      "userImage": "https://avatar.iran.liara.run/public/15",
+      "imageUrl": "https://picsum.photos/600/600?random=18",
+      "caption": "Weekend project complete! 🔨",
+      "hashtags": [
+        "diy",
+        "homeimprovement",
+        "crafts"
+      ],
+      "likes": 187,
+      "comments": [],
+      "timestamp": "2023-05-02T15:45:00Z"
+    },
+    {
+      "id": "19",
+      "username": "movie_buff",
+      "userImage": "https://avatar.iran.liara.run/public/16",
+      "imageUrl": "https://picsum.photos/600/600?random=19",
+      "caption": "Movie night picks 🎬",
+      "hashtags": [
+        "movies",
+        "film",
+        "cinema"
+      ],
+      "likes": 156,
+      "comments": [
+        {
+          "id": 11,
+          "username": "film_critic",
+          "text": "Excellent choices!",
+          "timestamp": "2023-05-01T23:10:00Z"
+        }
+      ],
+      "timestamp": "2023-05-01T21:00:00Z"
+    },
+    {
+      "id": "20",
+      "username": "science_geek",
+      "userImage": "https://avatar.iran.liara.run/public/17",
+      "imageUrl": "https://picsum.photos/600/600?random=20",
+      "caption": "Fascinating discovery today! 🔬",
+      "hashtags": [
+        "science",
+        "discovery",
+        "research"
+      ],
+      "likes": 298,
+      "comments": [],
+      "timestamp": "2023-04-30T14:20:00Z"
+    },
+    {
+      "id": "21",
+      "username": "fitness_trainer",
+      "userImage": "https://avatar.iran.liara.run/public/18",
+      "imageUrl": "https://picsum.photos/600/600?random=21",
+      "caption": "New workout routine 💪",
+      "hashtags": [
+        "fitness",
+        "workout",
+        "training"
+      ],
+      "likes": 342,
+      "comments": [
+        {
+          "id": 12,
+          "username": "gym_buddy",
+          "text": "Can I join you?",
+          "timestamp": "2023-04-29T19:30:00Z"
+        }
+      ],
+      "timestamp": "2023-04-29T17:00:00Z"
+    },
+    {
+      "id": "22",
+      "username": "travel_addict",
+      "userImage": "https://avatar.iran.liara.run/public/19",
+      "imageUrl": "https://picsum.photos/600/600?random=22",
+      "caption": "New country visited! ✈️",
+      "hashtags": [
+        "travel",
+        "adventure",
+        "wanderlust"
+      ],
+      "likes": 421,
+      "comments": [],
+      "timestamp": "2023-04-28T11:45:00Z"
+    },
+    {
+      "id": "23",
+      "username": "baking_pro",
+      "userImage": "https://avatar.iran.liara.run/public/20",
+      "imageUrl": "https://picsum.photos/600/600?random=23",
+      "caption": "Fresh from the oven! 🍪",
+      "hashtags": [
+        "baking",
+        "dessert",
+        "homemade"
+      ],
+      "likes": 276,
+      "comments": [
+        {
+          "id": 13,
+          "username": "sweet_tooth",
+          "text": "Recipe please!",
+          "timestamp": "2023-04-27T20:15:00Z"
+        }
+      ],
+      "timestamp": "2023-04-27T18:00:00Z"
+    },
+    {
+      "id": "24",
+      "username": "tech_reviewer",
+      "userImage": "https://avatar.iran.liara.run/public/21",
+      "imageUrl": "https://picsum.photos/600/600?random=24",
+      "caption": "Testing new tech gadget 📱",
+      "hashtags": [
+        "tech",
+        "gadget",
+        "review"
+      ],
+      "likes": 312,
+      "comments": [],
+      "timestamp": "2023-04-26T15:30:00Z"
+    },
+    {
+      "id": "25",
+      "username": "art_lover",
+      "userImage": "https://avatar.iran.liara.run/public/22",
+      "imageUrl": "https://picsum.photos/600/600?random=25",
+      "caption": "Museum day 🖼️",
+      "hashtags": [
+        "art",
+        "museum",
+        "culture"
+      ],
+      "likes": 198,
+      "comments": [
+        {
+          "id": 14,
+          "username": "culture_vulture",
+          "text": "Which exhibition?",
+          "timestamp": "2023-04-25T22:10:00Z"
+        }
+      ],
+      "timestamp": "2023-04-25T19:45:00Z"
+    },
+    {
+      "id": "26",
+      "username": "fashion_designer",
+      "userImage": "https://avatar.iran.liara.run/public/23",
+      "imageUrl": "https://picsum.photos/600/600?random=26",
+      "caption": "New collection preview 👗",
+      "hashtags": [
+        "fashion",
+        "design",
+        "style"
+      ],
+      "likes": 387,
+      "comments": [],
+      "timestamp": "2023-04-24T14:00:00Z"
+    },
+    {
+      "id": "27",
+      "username": "coffee_artist",
+      "userImage": "https://avatar.iran.liara.run/public/24",
+      "imageUrl": "https://picsum.photos/600/600?random=27",
+      "caption": "Latte art today ☕",
+      "hashtags": [
+        "coffee",
+        "latteart",
+        "barista"
+      ],
+      "likes": 254,
+      "comments": [
+        {
+          "id": 15,
+          "username": "caffeine_fiend",
+          "text": "Beautiful!",
+          "timestamp": "2023-04-23T18:30:00Z"
+        }
+      ],
+      "timestamp": "2023-04-23T16:15:00Z"
+    },
+    {
+      "id": "28",
+      "username": "nature_photographer",
+      "userImage": "https://avatar.iran.liara.run/public/25",
+      "imageUrl": "https://picsum.photos/600/600?random=28",
+      "caption": "Morning in the forest 🌲",
+      "hashtags": [
+        "nature",
+        "photography",
+        "outdoors"
+      ],
+      "likes": 412,
+      "comments": [],
+      "timestamp": "2023-04-22T09:00:00Z"
+    },
+    {
+      "id": "29",
+      "username": "book_reviewer",
+      "userImage": "https://avatar.iran.liara.run/public/26",
+      "imageUrl": "https://picsum.photos/600/600?random=29",
+      "caption": "Just finished this masterpiece 📖",
+      "hashtags": [
+        "books",
+        "reading",
+        "literature"
+      ],
+      "likes": 176,
+      "comments": [
+        {
+          "id": 16,
+          "username": "literary_fan",
+          "text": "How was it?",
+          "timestamp": "2023-04-21T21:45:00Z"
+        },
+        {
+          "id": 1747760568668,
+          "username": "current_user",
+          "text": "wqwewe",
+          "timestamp": "2025-05-20T17:02:48.668Z"
+        }
+      ],
+      "timestamp": "2023-04-21T19:30:00Z"
+    },
+    {
+      "id": "30",
+      "username": "fitness_motivator",
+      "userImage": "https://avatar.iran.liara.run/public/27",
+      "imageUrl": "https://picsum.photos/600/600?random=30",
+      "caption": "Transformation Tuesday 💪",
+      "hashtags": [
+        "fitness",
+        "transformation",
+        "progress"
+      ],
+      "likes": 498,
+      "comments": [
+        {
+          "id": 17,
+          "username": "gym_newbie",
+          "text": "Inspirational!",
+          "timestamp": "2023-04-20T20:15:00Z"
+        }
+      ],
+      "timestamp": "2023-04-20T18:00:00Z"
+    }
+  ],
+  "users": {
+    "id": "1",
+    "username": "travel_lover",
+    "fullName": "Alex Johnson",
+    "profilePic": "https://avatar.iran.liara.run/public",
+    "followers": 1243,
+    "following": 567
+  }
+}
