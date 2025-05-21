@@ -52,6 +52,10 @@ const routes: Routes = [
     path: "form",
     component: FormComponent
   },
+  {
+    path: 'instagram-clone',
+    loadChildren: () => import("./instagram-clone/instagram-clone.module").then(m => m.InstagramCloneModule)
+  }
 ];
 
 @NgModule({

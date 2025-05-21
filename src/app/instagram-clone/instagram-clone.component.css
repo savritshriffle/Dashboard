@@ -1,0 +1,31 @@
+.container {
+  background-color: white;
+  width: 400px;
+  height: 500px;
+  padding: 50px;
+}
+
+.image {
+  width: 300px;
+  height: 200px;
+}
+
+.card {
+  margin: 20px;
+}
+
+.caption {
+  padding: 8px;
+}
+
+.hashtag {
+  padding: 10px;
+}
+
+.inputField {
+  margin: 20px;
+  height: 40px;
+  width: 200px;
+  border: 1px solid grey;
+}
+
