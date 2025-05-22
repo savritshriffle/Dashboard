@@ -1,26 +1,29 @@
 <div class="container">
   <mat-card class="card" *ngFor="let data of post">
     <mat-toolbar class="toolbar">
-      <mat-icon>account_circle</mat-icon>
-      <div>
-        <span>{{data.username}}</span>
-      </div>
+      <img class="user-image" mat-card-sm-image src="{{data.userImage}}">
+      <span>{{data.username}}</span>
     </mat-toolbar>
-    <mat-card-content>
-      <p><img class="image" src="{{data.imageUrl}}"></p>
-    </mat-card-content>
-
+    <div>
+      <img class="image" src="{{data.imageUrl}}">
+    </div>
+  
     <mat-card-actions>
-      <mat-icon (click)="onLike(data.id)">favorite</mat-icon><span>{{data.likes}}</span>
-      <mat-icon>message</mat-icon><span *ngFor="let comment of data.comments">{{comment.id}}</span>
+      <mat-icon class="liked" (click)="onLike(data.id)">favorite</mat-icon>{{data.likes}}
+      <mat-icon (click)="openText(data.id)">message</mat-icon>
+      <span *ngFor="let comment of data.comments">{{comment.commentLength}}</span>
+    </mat-card-actions>
+    
+    <p class="caption"><span class="font-bold">{{data.username}}</span> : {{data.caption}}</p>
+    <mat-card-actions>
+      <span *ngFor="let hashtag of data.hashtags">#{{hashtag}}</span>
     </mat-card-actions>
 
-    <p class="caption">{{data.username}}  : {{data.caption}}</p>
-    <div class="hashtag">#{{data.hashtags}}</div>
-    <span class="hashtag" *ngIf="showComment">{{comment}}</span>
+    <span class="comment" *ngFor="let comment of data.comments; let i = index"><span class="font-bold">{{comment.username}}</span> : {{comment.text}} <br>
+    <span><span class="font-bold">{{comment.username}}</span> : {{data.comment}}</span></span>
     <div>
-      <input class="inputField" [(ngModel)]="comment" type="search" placeholder="comment">
-      <button mat-raised-button color="primary" (click)="onComment()">Post</button>
+      <input class="inputField" type="text" placeholder="commentText" [(ngModel)]="commentInput">
+      <button mat-button color="primary" (click)="onComment(data.id)">Post</button>
     </div>
   </mat-card>
 </div>

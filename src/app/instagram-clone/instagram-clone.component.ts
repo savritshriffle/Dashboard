@@ -7,30 +7,43 @@ import { DataService } from './service/data.service';
   styleUrls: ['./instagram-clone.component.css']
 })
 export class InstagramCloneComponent implements OnInit{
-  public post: [key: string] | any;
-  public comment: string = '';
-  public showComment: boolean = false;
-  public data!: number;
+  public post: any;
+  public user: any;
+  public commentInput: string = '';
   constructor(private service: DataService) {}
 
   ngOnInit(): void {
     this.service.getData().subscribe((data) => {
       this.post = data;
     });
+
+    this.service.getUsreData().subscribe((data) => {
+      this.user = data;
+    });
   }
 
   public onLike(id: number) {
-    for(let like of this.post){
-      if(like.id === id) {
-        this.data = like.likes+1;
-        console.log(this.data);
-      }
-    }
-    this.service.updateData(id, this.data);
+    const post = this.post.find((value: {[key: string]: number}) => value['id'] === id);
+    post.liked =!post.liked
+    post.likes += post.liked ? 1: -1;
+    this.service.updateData(id, {likes: post.likes}).subscribe();
   }
 
-  public onComment() {
-    this.showComment = true;
-    console.log(this.comment)
+  public openText(id: number) {
+    const post = this.post.find((value: {[key: string]: number}) => value['id'] === id);
+    for(let p of post.comments) {
+      post.comments[0].commentLength = [p.text].length;
+      console.log("opentext", post)
+    }
+  }
+
+  public onComment(id: number) {
+    const post = this.post.find((value: {[key: string]: number}) => value['id'] === id);
+    for(let p of post.comments){
+      p.commentInput = [];
+      p.commentInput = this.commentInput;
+      console.log(this.commentInput)
+      this.service.updateData(id, {comment :p.commentInput}).subscribe();
+    }
   } 
 }

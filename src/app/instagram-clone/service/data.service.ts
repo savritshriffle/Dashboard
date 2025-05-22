@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -7,6 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class DataService {
   private apiUrl = 'http://localhost:3000/posts';
+  private apiUsersUrl = 'http://localhost:3000/users';
 
   constructor(private http : HttpClient) { }
 
@@ -14,9 +15,12 @@ export class DataService {
     return this.http.get(`${this.apiUrl}`);
   }
 
-  public updateData(id: number, data: number): Observable<{[key: string]: any}> {
+  public getUsreData(): Observable<{[key: string]: any}> {
+    return this.http.get(`${this.apiUsersUrl}`);
+  }
+
+  public updateData(id: number, likes: { [key: string]: string | number}): Observable<{[key: string]: string |any}> {
     const url = `${this.apiUrl}/${id}`;
-    console.log(id, data, url)
-    return this.http.patch(url, data);
+    return this.http.patch(url, likes);
   }
 }
