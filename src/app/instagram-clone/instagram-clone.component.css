@@ -1,0 +1,61 @@
+.container {
+  margin-left: 30%;
+  width: 400px;
+  height: 500px;
+  display: flex;
+  justify-items: center;
+  flex-direction: column;
+}
+
+.heading {
+  text-align: end;
+  margin-top: 7%;
+  padding: 0px;
+  font-weight: 500;
+  font-family: 'Franklin Gothic Medium';
+}
+.user-image {
+  height: 30px;
+  width: auto;
+}
+.card {
+  margin-top: 20px;
+}
+.image {
+  width: 400px;
+  height: 300px;
+}
+
+.caption {
+  padding-left: 8px;
+}
+
+.hashtag {
+  padding:5px;
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+  cursor: pointer;
+}
+
+.comment {
+  padding-left: 10px;
+}
+
+.inputField {
+  margin: 10px;
+  height: 40px;
+  width: 300px;
+  border: 1px solid grey;
+  border-radius: 10px;
+}
+
+.liked:hover{
+  font-size: 25px;
+  cursor: pointer;
+}
+.liked {
+  color: red;
+}
+
+

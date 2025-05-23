@@ -1,0 +1,35 @@
+<div class="container">
+  <h1 class="heading">Instagram Feed</h1>
+  <mat-card class="card" *ngFor="let data of post">
+    <mat-toolbar class="toolbar">
+      <img class="user-image" mat-card-sm-image src="{{data.userImage}}">
+      <strong>{{data.username}}</strong>
+    </mat-toolbar>
+    <div>
+      <img class="image" src="{{data.imageUrl}}">
+    </div>
+  
+    <div class="hashtag">
+      <mat-icon class="liked" (click)="onLike(data.id)">favorite</mat-icon>{{data.likes}}
+      <mat-icon class="comment-icon" (click)="openText(data.id)">message</mat-icon>{{data.comments.length}}
+    </div>
+    
+    <p class="caption"><span class="font-bold"><strong>{{data.username}}</strong></span>: {{data.caption}}</p>
+
+    <div class="hashtag">
+      <span *ngFor="let hashtag of data.hashtags">#{{hashtag}}</span>
+    </div>
+
+    <div>
+      <div class="comment" *ngFor="let comment of data.comments">
+        <span><strong>{{comment.username}}</strong>: {{comment.text}}</span>
+      </div>
+      <div *ngIf="showComments[data.id]">
+        <input class="inputField" type="text" placeholder="commentText" [(ngModel)]="commentInput[data.id]">
+        <button mat-button color="primary" (click)="onComment(data.id)">Post</button>
+      </div>
+    </div>
+  </mat-card>
+</div>
+
+<mat-divider></mat-divider>
