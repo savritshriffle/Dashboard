@@ -9,7 +9,9 @@ import { DataService } from './service/data.service';
 export class InstagramCloneComponent implements OnInit{
   public post: any;
   public user: any;
-  public commentInput: string = '';
+  public commentInput: {[key: string]: string | {}} = {};
+  public showComments: {[key: string]: string | {}} = {};
+
   constructor(private service: DataService) {}
 
   ngOnInit(): void {
@@ -24,26 +26,28 @@ export class InstagramCloneComponent implements OnInit{
 
   public onLike(id: number) {
     const post = this.post.find((value: {[key: string]: number}) => value['id'] === id);
-    post.liked =!post.liked
-    post.likes += post.liked ? 1: -1;
+    post.liked = !post.liked;
+    post.likes += post.liked ? 1 : -1;
     this.service.updateData(id, {likes: post.likes}).subscribe();
   }
 
   public openText(id: number) {
-    const post = this.post.find((value: {[key: string]: number}) => value['id'] === id);
-    for(let p of post.comments) {
-      post.comments[0].commentLength = [p.text].length;
-      console.log("opentext", post)
-    }
+    this.showComments[id] = !this.showComments[id];
+    console.log(this.showComments[id]);
   }
 
   public onComment(id: number) {
     const post = this.post.find((value: {[key: string]: number}) => value['id'] === id);
-    for(let p of post.comments){
-      p.commentInput = [];
-      p.commentInput = this.commentInput;
-      console.log(this.commentInput)
-      this.service.updateData(id, {comment :p.commentInput}).subscribe();
-    }
+    const user = this.user.username;
+    const text = this.commentInput[id];
+
+    post.comments.push({
+      id: Date.now(),
+      username: user,
+      text: text
+    });
+     
+    this.service.updateData(id, {comments :post.comments}).subscribe();
+    this.commentInput[id];
   } 
 }

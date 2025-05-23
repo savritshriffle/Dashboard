@@ -1,10 +1,18 @@
 .container {
   margin-left: 30%;
-  margin-top: 10px;
   width: 400px;
   height: 500px;
-  justify-content: center;
+  display: flex;
   justify-items: center;
+  flex-direction: column;
+}
+
+.heading {
+  text-align: end;
+  margin-top: 7%;
+  padding: 0px;
+  font-weight: 500;
+  font-family: 'Franklin Gothic Medium';
 }
 .user-image {
   height: 30px;
@@ -22,6 +30,14 @@
   padding-left: 8px;
 }
 
+.hashtag {
+  padding:5px;
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+  cursor: pointer;
+}
+
 .comment {
   padding-left: 10px;
 }
@@ -31,10 +47,7 @@
   height: 40px;
   width: 300px;
   border: 1px solid grey;
-}
-
-.like-icon {
-  font-size: 20px;
+  border-radius: 10px;
 }
 
 .liked:hover{
@@ -45,7 +58,4 @@
   color: red;
 }
 
-.font-bold {
-  font-weight: bold;
-}
 

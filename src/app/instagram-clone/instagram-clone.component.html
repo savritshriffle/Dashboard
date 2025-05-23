@@ -1,30 +1,35 @@
 <div class="container">
+  <h1 class="heading">Instagram Feed</h1>
   <mat-card class="card" *ngFor="let data of post">
     <mat-toolbar class="toolbar">
       <img class="user-image" mat-card-sm-image src="{{data.userImage}}">
-      <span>{{data.username}}</span>
+      <strong>{{data.username}}</strong>
     </mat-toolbar>
     <div>
       <img class="image" src="{{data.imageUrl}}">
     </div>
   
-    <mat-card-actions>
+    <div class="hashtag">
       <mat-icon class="liked" (click)="onLike(data.id)">favorite</mat-icon>{{data.likes}}
-      <mat-icon (click)="openText(data.id)">message</mat-icon>
-      <span *ngFor="let comment of data.comments">{{comment.commentLength}}</span>
-    </mat-card-actions>
+      <mat-icon class="comment-icon" (click)="openText(data.id)">message</mat-icon>{{data.comments.length}}
+    </div>
     
-    <p class="caption"><span class="font-bold">{{data.username}}</span> : {{data.caption}}</p>
-    <mat-card-actions>
-      <span *ngFor="let hashtag of data.hashtags">#{{hashtag}}</span>
-    </mat-card-actions>
+    <p class="caption"><span class="font-bold"><strong>{{data.username}}</strong></span>: {{data.caption}}</p>
 
-    <span class="comment" *ngFor="let comment of data.comments; let i = index"><span class="font-bold">{{comment.username}}</span> : {{comment.text}} <br>
-    <span><span class="font-bold">{{comment.username}}</span> : {{data.comment}}</span></span>
+    <div class="hashtag">
+      <span *ngFor="let hashtag of data.hashtags">#{{hashtag}}</span>
+    </div>
+
     <div>
-      <input class="inputField" type="text" placeholder="commentText" [(ngModel)]="commentInput">
-      <button mat-button color="primary" (click)="onComment(data.id)">Post</button>
+      <div class="comment" *ngFor="let comment of data.comments">
+        <span><strong>{{comment.username}}</strong>: {{comment.text}}</span>
+      </div>
+      <div *ngIf="showComments[data.id]">
+        <input class="inputField" type="text" placeholder="commentText" [(ngModel)]="commentInput[data.id]">
+        <button mat-button color="primary" (click)="onComment(data.id)">Post</button>
+      </div>
     </div>
   </mat-card>
 </div>
+
 <mat-divider></mat-divider>

@@ -12,16 +12,47 @@
         "beach",
         "vacation"
       ],
-      "likes": 154,
+      "likes": 149,
       "comments": [
+        {
+          "id": 1747978180106,
+          "username": "travel_lover",
+          "text": "wfffffffffff"
+        },
+        {
+          "id": 1747978313772,
+          "username": "travel_lover",
+          "text": "sadfsdfasd"
+        },
+        {
+          "id": 1747978414517,
+          "username": "travel_lover",
+          "text": "sdfsadfsadf"
+        },
+        {
+          "id": 1747983038961,
+          "username": "travel_lover",
+          "text": "asdaSD"
+        },
+        {
+          "id": 1747984954416,
+          "username": "travel_lover",
+          "text": "sssss"
+        }
+      ],
+      "comment": [
         {
           "id": 1,
           "username": "user2",
           "text": "Amazing view!",
           "timestamp": "2023-05-20T10:30:00Z"
+        },
+        {
+          "id": 1747972280439,
+          "username": "travel_lover",
+          "text": "sdfksafdka"
         }
-      ],
-      "comment": "sadasd"
+      ]
     },
     {
       "id": "2",
@@ -35,16 +66,26 @@
         "pasta",
         "italianfood"
       ],
-      "likes": 197,
+      "likes": 198,
       "comments": [
         {
           "id": 2,
           "username": "food_critic",
           "text": "Looks delicious!",
           "timestamp": "2023-05-19T19:20:00Z"
+        },
+        {
+          "id": 1747978199729,
+          "username": "travel_lover",
+          "text": "aaaaaaaaaaaaaaaa"
+        },
+        {
+          "id": 1747983495131,
+          "username": "travel_lover",
+          "text": "asdaaaaaa"
         }
       ],
-      "comment": "dasdasd"
+      "comment": "fdsfsdf"
     },
     {
       "id": "3",
@@ -118,8 +159,14 @@
         "painting",
         "creative"
       ],
-      "likes": 276,
-      "comments": [],
+      "likes": 277,
+      "comments": [
+        {
+          "id": 1747984966503,
+          "username": "travel_lover",
+          "text": "sssss"
+        }
+      ],
       "timestamp": "2023-05-14T20:00:00Z",
       "comment": "sdsads"
     },
@@ -134,7 +181,7 @@
         "reading",
         "literature"
       ],
-      "likes": 154,
+      "likes": 156,
       "comments": [
         {
           "id": 5,
