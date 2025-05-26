@@ -15,32 +15,42 @@
       "likes": 149,
       "comments": [
         {
-          "id": 1747978180106,
-          "username": "travel_lover",
-          "text": "wfffffffffff"
+          "id": 1,
+          "username": "user2",
+          "text": "Amazing view!",
+          "timestamp": "2023-05-20T10:30:00Z"
         },
         {
-          "id": 1747978313772,
-          "username": "travel_lover",
-          "text": "sadfsdfasd"
+          "id": 1748258754145,
+          "username": "travel_lover"
         },
         {
-          "id": 1747978414517,
-          "username": "travel_lover",
-          "text": "sdfsadfsadf"
-        },
-        {
-          "id": 1747983038961,
-          "username": "travel_lover",
-          "text": "asdaSD"
-        },
-        {
-          "id": 1747984954416,
+          "id": 1748259995882,
           "username": "travel_lover",
           "text": "sssss"
+        },
+        {
+          "id": 1748260508934,
+          "username": "travel_lover",
+          "text": "ffffffffff"
+        },
+        {
+          "id": 1748262183681,
+          "username": "travel_lover",
+          "text": "Amazing view!"
+        },
+        {
+          "id": 1748265473617,
+          "username": "travel_lover",
+          "text": "aaa"
+        },
+        {
+          "id": 1748266039427,
+          "username": "travel_lover",
+          "text": "aaa sss"
         }
       ],
-      "comment": [
+      "data": [
         {
           "id": 1,
           "username": "user2",
@@ -48,9 +58,19 @@
           "timestamp": "2023-05-20T10:30:00Z"
         },
         {
-          "id": 1747972280439,
+          "id": 1748260523046,
           "username": "travel_lover",
-          "text": "sdfksafdka"
+          "text": "wwwwwwwww"
+        },
+        {
+          "id": 1748260699131,
+          "username": "travel_lover",
+          "text": "Amazing view! aaaaaa"
+        },
+        {
+          "id": 1748260885167,
+          "username": "travel_lover",
+          "text": "aaa"
         }
       ]
     },
@@ -75,14 +95,18 @@
           "timestamp": "2023-05-19T19:20:00Z"
         },
         {
-          "id": 1747978199729,
-          "username": "travel_lover",
-          "text": "aaaaaaaaaaaaaaaa"
+          "id": 1748262535251,
+          "username": "travel_lover"
         },
         {
-          "id": 1747983495131,
+          "id": 1748262540540,
           "username": "travel_lover",
-          "text": "asdaaaaaa"
+          "text": "aaaaa"
+        },
+        {
+          "id": 1748266005762,
+          "username": "travel_lover",
+          "text": "aaaaa qqqqq"
         }
       ],
       "comment": "fdsfsdf"
@@ -100,7 +124,7 @@
         "health"
       ],
       "likes": 317,
-      "comments": [],
+      "comments": "ffffffffff",
       "timestamp": "2023-05-17T07:30:00Z",
       "comment": "SDSD"
     },
@@ -116,14 +140,7 @@
         "electronics"
       ],
       "likes": 178,
-      "comments": [
-        {
-          "id": 3,
-          "username": "geek_42",
-          "text": "Which model is this?",
-          "timestamp": "2023-05-16T14:45:00Z"
-        }
-      ],
+      "comments": "Amazing view!",
       "comment": "RRRRR"
     },
     {
@@ -138,14 +155,7 @@
         "animals"
       ],
       "likes": 432,
-      "comments": [
-        {
-          "id": 4,
-          "username": "dog_trainer",
-          "text": "So adorable!",
-          "timestamp": "2023-05-15T18:20:00Z"
-        }
-      ],
+      "comments": "aaa",
       "comment": "TYUUU"
     },
     {
@@ -160,13 +170,7 @@
         "creative"
       ],
       "likes": 277,
-      "comments": [
-        {
-          "id": 1747984966503,
-          "username": "travel_lover",
-          "text": "sssss"
-        }
-      ],
+      "comments": "aaa sss",
       "timestamp": "2023-05-14T20:00:00Z",
       "comment": "sdsads"
     },

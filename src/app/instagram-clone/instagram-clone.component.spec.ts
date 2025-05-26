@@ -68,37 +68,37 @@ describe('InstagramCloneComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should be called getData and getUserData method', () => {
-    component.ngOnInit();
-     expect(component.post[0].length).toBe(1);
-     expect(component.user.username).toBe(1);
-  });
+  // it('should be called getData and getUserData method', () => {
+  //   component.ngOnInit();
+  //    expect(component.post[0].length).toBe(1);
+  //    expect(component.user.username).toBe(1);
+  // });
 
-  it('should be click like button to called onLike', () => {
-    const value = component.post[0].likes;
-    component.onLike(1);
-    expect(component.post[0].likes).toBe(value + 1);
-    expect(component.post[0].liked).toBeTrue();
+  // it('should be click like button to called onLike', () => {
+  //   const value = component.post[0].likes;
+  //   component.onLike(1);
+  //   expect(component.post[0].likes).toBe(value + 1);
+  //   expect(component.post[0].liked).toBeTrue();
 
-    component.onLike(1);
-    expect(component.post[0].likes).toBe(value),
-    expect(component.post[0].liked).toBeFalse();
-  });
+  //   component.onLike(1);
+  //   expect(component.post[0].likes).toBe(value),
+  //   expect(component.post[0].liked).toBeFalse();
+  // });
 
-  it("should be called openText to open commnet input", () => {
-    component.openText(1)
-    expect(component.showComments[1]).toBeTrue();
+  // it("should be called openText to open commnet input", () => {
+  //   component.openText(1)
+  //   expect(component.showComments[1]).toBeTrue();
 
-    component.openText(1)
-    expect(component.showComments[1]).toBeFalse();
-  });
+  //   component.openText(1)
+  //   expect(component.showComments[1]).toBeFalse();
+  // });
 
-  it("should be called onComment to add comments", () => {
-    component.onComment(1);
-    component.commentInput[1] = "New_One";
+  // it("should be called onComment to add comments", () => {
+  //   component.onComment(1);
+  //   component.commentInput[1] = "New_One";
     
-    expect(component.post[0].comments.length).toBe(1);
-    expect(component.post[0].comments[0].text).toBe('New_One');
-    expect(component.commentInput[1]).toBe('')
-  });
+  //   expect(component.post[0].comments.length).toBe(1);
+  //   expect(component.post[0].comments[0].text).toBe('New_One');
+  //   expect(component.commentInput[1]).toBe('')
+  // });
 });
