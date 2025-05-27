@@ -12,6 +12,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { FormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { NO_ERRORS_SCHEMA } from '@angular/compiler';
+import { HttpClientModule } from '@angular/common/http';
 
 describe('InstagramCloneComponent', () => {
   let component: InstagramCloneComponent;
@@ -23,8 +24,8 @@ describe('InstagramCloneComponent', () => {
       getData: jasmine.createSpy('getData').and.returnValues(of([
         {
           "id": "1",
-          "userImage": "https://avatar.iran.liara.run/public/boy",
           "username": 'New_One',
+          "userImage": "https://avatar.iran.liara.run/public/boy",
           "imageUrl": "https://avatar.iran.liara.run/public/boy",
           "caption": 'caption',
           "hashtags": [],
@@ -51,11 +52,12 @@ describe('InstagramCloneComponent', () => {
         MatToolbarModule,
         MatInputModule,
         FormsModule,
-        MatButtonModule
+        MatButtonModule,
+        HttpClientModule
       ],
       providers: [{provide: DataService,'userValue': mockService}],
     }).compileComponents();
-    
+
   });
 
   beforeEach(() => {
@@ -68,21 +70,39 @@ describe('InstagramCloneComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  // it('should be called getData and getUserData method', () => {
-  //   component.ngOnInit();
-  //    expect(component.post[0].length).toBe(1);
-  //    expect(component.user.username).toBe(1);
-  // });
+  it('should be called getData and getUserData method', () => {
+    const service = TestBed.inject(DataService)
+    const mockResponse = { mockService: 'test data' };
+    spyOn(service, 'getData').and.returnValue(of(mockResponse))
+    service.getData().subscribe((mock: any) => {
+      expect(mock).toEqual(mockResponse);
+    });
+
+    const user = {user : 'username'}
+    spyOn(service, 'getUsreData').and.returnValue(of(user))
+    service.getUsreData().subscribe((user: any) => {
+      expect(user).toEqual(user);
+    })
+  
+  });
 
   // it('should be click like button to called onLike', () => {
-  //   const value = component.post[0].likes;
-  //   component.onLike(1);
-  //   expect(component.post[0].likes).toBe(value + 1);
-  //   expect(component.post[0].liked).toBeTrue();
+  //   const service = TestBed.inject(DataService)
+  //   const mockResponse = { mockService};
+  //   spyOn(service, 'getData').and.returnValue(of(mockResponse))
+  //   service.getData().subscribe((component: any) => {
+  //     expect(component).toEqual(mockResponse);
+  //     console.log(component)
+  //     const value = component.post[0].likes;
+     
+  //     component.onLike(1);
+  //     expect(component.post[0].likes).toBe(value + 1);
+  //     expect(component.post[0].liked).toBeTrue();
 
-  //   component.onLike(1);
-  //   expect(component.post[0].likes).toBe(value),
-  //   expect(component.post[0].liked).toBeFalse();
+  //     component.onLike(1);
+  //     expect(component.post[0].likes).toBe(value),
+  //     expect(component.post[0].liked).toBeFalse();
+  //   });
   // });
 
   // it("should be called openText to open commnet input", () => {
@@ -94,11 +114,48 @@ describe('InstagramCloneComponent', () => {
   // });
 
   // it("should be called onComment to add comments", () => {
-  //   component.onComment(1);
-  //   component.commentInput[1] = "New_One";
+  //   const service = TestBed.inject(DataService)
+  //   const mockResponse = { mockService: 'test data' };
+  //   spyOn(service, 'getData').and.returnValue(of(mockResponse))
+  //   service.getData().subscribe((component: any) => {
+  //     expect(component).toEqual(mockResponse);
     
-  //   expect(component.post[0].comments.length).toBe(1);
-  //   expect(component.post[0].comments[0].text).toBe('New_One');
-  //   expect(component.commentInput[1]).toBe('')
+  //     component.onComment(1, 1);
+  //     component.commentInput[1] = "New_One";
+      
+  //     expect(component.post.comments.length).toBe(1);
+  //     expect(component.post.comments[0].text).toBe('New_One');
+  //     expect(component.commentInput[1]).toBe('')
+  //   });
   // });
+
+  // it("should called delete comments", () => {
+  //   const service = TestBed.inject(DataService)
+  //   const mockResponse = { mockService: 'test data' };
+  //   spyOn(service, 'getData').and.returnValue(of(mockResponse))
+  //     service.getData().subscribe((component: any) => {
+  //     expect(component).toEqual(mockResponse);
+  //     component.onDelete(2,1);
+  //     expect(component.post.commnets[0].splice(1,1)).toBe(1)
+  //   })
+  // })
+
+  // it('should be called isEdit functionality', () => {
+  //   const service = TestBed.inject(DataService)
+  //   const mockResponse = { mockService: 'test data' };
+  //   spyOn(service, 'getData').and.returnValue(of(mockResponse))
+  //     service.getData().subscribe((component: any) => {
+  //     component.onEdit(1, 0, 0);
+  //     const value = component.post.commnets[0].text;
+  //     component.post.commentInput[0] = value;
+  //     const newValue = component.commentInput[0];
+  //     component.post.comments[0].text = newValue;
+
+  //     expect(component.post.comments[0]).toBe(value);
+  //     expect(component.post.commentInput).toBe(1);
+  //     expect(component.post.comments[0]).toBe(newValue);
+  //   })
+  // })
 });
+
+

@@ -11,8 +11,9 @@ export class InstagramCloneComponent implements OnInit{
   public user: any;
   public commentInput: {[key: string]: string | {}} = {};
   public showComments: {[key: string]: string | {}} = {};
-  public isEdit: {[key: string]: string | boolean} = {};
-
+  public isShow!: boolean;
+  public getCommentIndex!: number;
+  
   constructor(private service: DataService) {}
 
   ngOnInit(): void {
@@ -34,31 +35,46 @@ export class InstagramCloneComponent implements OnInit{
 
   public openText(i: number) {
     this.showComments[i] = !this.showComments[i];
-    this.isEdit[i] = !this.isEdit[i];
   }
 
-  public onComment(i: number, id: number) {
+  public onComment(postIndex: number, id: number) {
     const post = this.post.find((value: {[key: string]: number}) => value['id'] === id);
     const user = this.user.username;
-    const text = this.commentInput[i];
+    const text = this.commentInput[postIndex];
 
-    post.comments.push({
-      id: Date.now(),
-      username: user,
-      text: text
+    if(!this.isShow) {
+      post.comments.push({
+        id: Date.now(),
+        username: user,
+        text: text
     });
-     
+    }
+    else {
+      post.comments[this.getCommentIndex].text = text;
+    }
+    
     this.service.updateData(id, {comments :post.comments}).subscribe();
-    this.commentInput[i] = '';
+    this.commentInput[postIndex] = '';
+    this.isShow = false;
   } 
 
-  onEditComment(data: any, index: number) {
-    this.isEdit[index] = true;
-    this.commentInput[index] = data.comments[index].text;
-    console.log(data.comments[index].text);
-    console.log(this.commentInput[index]);
-    console.log(index)
-    // this.service.updateData(index, {comments: data.comments[index].text}).subscribe();
+  public onEdit(id: number, commentIndex: number, postIndex: number) {
+    this.getCommentIndex = commentIndex;
+
+    const post = this.post.find((value: {[key: string]: number}) => value['id'] === id);
+    const updateText = post.comments[commentIndex].text;
+    this.isShow = !this.isShow;
+  
+    this.commentInput[postIndex] = updateText;
+    const newComment = this.commentInput[postIndex];
+
+    post.comments[commentIndex].text = newComment;
+  }
+
+  public onDelete(id: number, index: number) {
+    const post = this.post.find((value: {[key: string]: number}) => value['id'] === id);
+    post.comments.splice(index, 1);
+    this.service.updateData(id, {comments :post.comments}).subscribe();
   }
 
 }

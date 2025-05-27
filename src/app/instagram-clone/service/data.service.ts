@@ -19,8 +19,8 @@ export class DataService {
     return this.http.get(`${this.usersApiUrl}`);
   }
   
-  public updateData(id: number, data: { [key: string]: string | number}): Observable<{[key: string]: string |any}> {
+  public updateData(id: number, comments: { [key: string]: string | number}): Observable<{[key: string]: string |any}> {
     const url = `${this.apiUrl}/${id}`;
-    return this.http.patch(url, data);
+    return this.http.patch(url, comments);
   }
 }
