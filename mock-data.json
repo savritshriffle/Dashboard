@@ -12,28 +12,15 @@
         "beach",
         "vacation"
       ],
-      "likes": 248,
+      "likes": 1,
       "comments": [
         {
-          "id": 1,
-          "username": "user2",
-          "text": "Amazing view! eee",
-          "timestamp": "2023-05-20T10:30:00Z"
+          "id": 1748441980636,
+          "username": "testUser",
+          "text": "comment text"
         },
         {
-          "id": 1748345562108,
-          "username": "travel_lover",
-          "text": "aaaaa  rrrr"
-        },
-        {
-          "id": 1748345621037,
-          "username": "travel_lover",
-          "text": "qqqqq qqq"
-        },
-        {
-          "id": 1748345651148,
-          "username": "travel_lover",
-          "text": "qqqqq tttt"
+          "id": 1748441981169
         }
       ],
       "timestamp": "2023-05-19T18:45:00Z"
@@ -62,6 +49,11 @@
           "id": 1748345626556,
           "username": "travel_lover",
           "text": "aaaaaa"
+        },
+        {
+          "id": 1748439057085,
+          "username": "travel_lover",
+          "text": "user new text 01"
         }
       ],
       "timestamp": "2023-05-18T20:15:00Z"
@@ -223,7 +215,13 @@
         "caffeine"
       ],
       "likes": 198,
-      "comments": [],
+      "comments": [
+        {
+          "id": 1748416234564,
+          "username": "travel_lover",
+          "text": "tea or coffe"
+        }
+      ],
       "timestamp": "2023-05-10T08:15:00Z"
     },
     {

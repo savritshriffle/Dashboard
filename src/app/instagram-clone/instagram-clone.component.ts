@@ -7,8 +7,8 @@ import { DataService } from './service/data.service';
   styleUrls: ['./instagram-clone.component.css']
 })
 export class InstagramCloneComponent implements OnInit{
-  public post: any;
-  public user: any;
+  public post: any = [];
+  public user: any = [];
   public commentInput: {[key: string]: string | {}} = {};
   public showComments: {[key: string]: string | {}} = {};
   public isShow!: boolean;
@@ -30,6 +30,7 @@ export class InstagramCloneComponent implements OnInit{
     const post = this.post.find((value: {[key: string]: number}) => value['id'] === id);
     post.liked = !post.liked;
     post.likes += post.liked ? 1 : -1;
+
     this.service.updateData(id, {likes: post.likes}).subscribe();
   }
 
@@ -41,7 +42,7 @@ export class InstagramCloneComponent implements OnInit{
     const post = this.post.find((value: {[key: string]: number}) => value['id'] === id);
     const user = this.user.username;
     const text = this.commentInput[postIndex];
-
+    console.log(text)
     if(!this.isShow) {
       post.comments.push({
         id: Date.now(),

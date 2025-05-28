@@ -13,33 +13,34 @@ import { FormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { NO_ERRORS_SCHEMA } from '@angular/compiler';
 import { HttpClientModule } from '@angular/common/http';
+import { By } from '@angular/platform-browser';
+
+const postsMock = [
+  {
+    "id": 1,
+    "username": 'New_One',
+    "userImage": "https://avatar.iran.liara.run/public/boy",
+    "imageUrl": "https://avatar.iran.liara.run/public/boy",
+    "caption": 'caption',
+    "hashtags": [],
+    "likes": 1,
+    "liked": false,
+    "comments": [
+      {
+        id: Date.now(),
+        username: "testUser",
+        text: "comment text"
+      }
+    ],
+  }
+] 
 
 describe('InstagramCloneComponent', () => {
   let component: InstagramCloneComponent;
   let fixture: ComponentFixture<InstagramCloneComponent>;
-  let mockService: {[key: string]: string | number | any} = {};
+  let dataService: DataService;
 
   beforeEach( async() => {
-    mockService = {
-      getData: jasmine.createSpy('getData').and.returnValues(of([
-        {
-          "id": "1",
-          "username": 'New_One',
-          "userImage": "https://avatar.iran.liara.run/public/boy",
-          "imageUrl": "https://avatar.iran.liara.run/public/boy",
-          "caption": 'caption',
-          "hashtags": [],
-          "likes": 1,
-          "leked": false,
-          "comments": [],
-          }
-      ])),
-      getUsreData: jasmine.createSpy('getUsreData').and.returnValue(of({
-        username: 'New_One'
-      })),
-      updateData: jasmine.createSpy('updateData').and.returnValue(of({}))
-    },
-
     await TestBed.configureTestingModule({
       declarations: [InstagramCloneComponent],
       schemas: [NO_ERRORS_SCHEMA],
@@ -55,9 +56,12 @@ describe('InstagramCloneComponent', () => {
         MatButtonModule,
         HttpClientModule
       ],
-      providers: [{provide: DataService,'userValue': mockService}],
+      providers: [{provide: DataService,}],
     }).compileComponents();
 
+    dataService = TestBed.inject(DataService);
+    spyOn(dataService, 'getData').and.returnValue(of(postsMock))
+    
   });
 
   beforeEach(() => {
@@ -71,91 +75,56 @@ describe('InstagramCloneComponent', () => {
   });
 
   it('should be called getData and getUserData method', () => {
-    const service = TestBed.inject(DataService)
-    const mockResponse = { mockService: 'test data' };
-    spyOn(service, 'getData').and.returnValue(of(mockResponse))
-    service.getData().subscribe((mock: any) => {
-      expect(mock).toEqual(mockResponse);
-    });
-
-    const user = {user : 'username'}
-    spyOn(service, 'getUsreData').and.returnValue(of(user))
-    service.getUsreData().subscribe((user: any) => {
-      expect(user).toEqual(user);
-    })
-  
+     expect(component.post.length).toBe(1);
   });
 
-  // it('should be click like button to called onLike', () => {
-  //   const service = TestBed.inject(DataService)
-  //   const mockResponse = { mockService};
-  //   spyOn(service, 'getData').and.returnValue(of(mockResponse))
-  //   service.getData().subscribe((component: any) => {
-  //     expect(component).toEqual(mockResponse);
-  //     console.log(component)
-  //     const value = component.post[0].likes;
-     
-  //     component.onLike(1);
-  //     expect(component.post[0].likes).toBe(value + 1);
-  //     expect(component.post[0].liked).toBeTrue();
-
-  //     component.onLike(1);
-  //     expect(component.post[0].likes).toBe(value),
-  //     expect(component.post[0].liked).toBeFalse();
-  //   });
-  // });
-
-  // it("should be called openText to open commnet input", () => {
-  //   component.openText(1)
-  //   expect(component.showComments[1]).toBeTrue();
-
-  //   component.openText(1)
-  //   expect(component.showComments[1]).toBeFalse();
-  // });
-
-  // it("should be called onComment to add comments", () => {
-  //   const service = TestBed.inject(DataService)
-  //   const mockResponse = { mockService: 'test data' };
-  //   spyOn(service, 'getData').and.returnValue(of(mockResponse))
-  //   service.getData().subscribe((component: any) => {
-  //     expect(component).toEqual(mockResponse);
+  it('should be click like button to called onLike', () => {
+    component.onLike(1);
+    fixture.detectChanges();
+  
+    expect(component.post[0].likes).toBe(2);
+    expect(component.post[0].liked).toBeTrue();
     
-  //     component.onComment(1, 1);
-  //     component.commentInput[1] = "New_One";
-      
-  //     expect(component.post.comments.length).toBe(1);
-  //     expect(component.post.comments[0].text).toBe('New_One');
-  //     expect(component.commentInput[1]).toBe('')
-  //   });
-  // });
+    component.onLike(1);
+    expect(component.post[0].likes).toBe(1);
+    expect(component.post[0].liked).toBeFalse();  
+  });
 
-  // it("should called delete comments", () => {
-  //   const service = TestBed.inject(DataService)
-  //   const mockResponse = { mockService: 'test data' };
-  //   spyOn(service, 'getData').and.returnValue(of(mockResponse))
-  //     service.getData().subscribe((component: any) => {
-  //     expect(component).toEqual(mockResponse);
-  //     component.onDelete(2,1);
-  //     expect(component.post.commnets[0].splice(1,1)).toBe(1)
-  //   })
-  // })
+  it("should be called openText to open commnet input", () => {
+    component.openText(1);
+    fixture.detectChanges();
+    expect(component.showComments[1]).toBeTrue();
 
-  // it('should be called isEdit functionality', () => {
-  //   const service = TestBed.inject(DataService)
-  //   const mockResponse = { mockService: 'test data' };
-  //   spyOn(service, 'getData').and.returnValue(of(mockResponse))
-  //     service.getData().subscribe((component: any) => {
-  //     component.onEdit(1, 0, 0);
-  //     const value = component.post.commnets[0].text;
-  //     component.post.commentInput[0] = value;
-  //     const newValue = component.commentInput[0];
-  //     component.post.comments[0].text = newValue;
+    component.openText(1);
+    expect(component.showComments[1]).toBeFalse();
+  });
 
-  //     expect(component.post.comments[0]).toBe(value);
-  //     expect(component.post.commentInput).toBe(1);
-  //     expect(component.post.comments[0]).toBe(newValue);
-  //   })
-  // })
+  it("should be called onComment to add comments", () => {
+    component.onComment(0, 1);
+    fixture.detectChanges();
+
+    expect(component.post[0].comments.length).toBe(2);
+    expect(component.user.username).toBe(undefined)
+
+    component.isShow = true;
+    component.onComment(0, 1);
+    expect(component.post[0].comments[0].text).toBe("New_Text");
+
+    expect(component.commentInput[0]).toBe('');
+    component.isShow = false;
+  });
+
+  it("should called delete comments", () => {
+    component.onDelete(1, 1);
+    fixture.detectChanges();
+    expect(component.post[0].commnets.length).toBe(0);
+
+  })
+
+  it('should be called isEdit functionality', () => {
+    component.onEdit(1, 0, 0);
+    fixture.detectChanges();
+    expect(component.post[0].comments[0].text).toBe('comment text');
+    expect(component.commentInput[0]).toBe('comment text'); 
+  })
 });
-
-
