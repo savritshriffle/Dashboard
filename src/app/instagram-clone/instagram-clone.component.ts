@@ -51,9 +51,7 @@ export class InstagramCloneComponent implements OnInit{
     });
     }
     else {
-    
       post.comments[this.getCommentIndex].text = text;
-      // console.log(post.comments[this.getCommentIndex].text)
     }
     
     this.service.updateData(id, {comments :post.comments}).subscribe();
@@ -66,7 +64,6 @@ export class InstagramCloneComponent implements OnInit{
 
     const post = this.post.find((value: {[key: string]: number}) => value['id'] === id);
     const updateText = post.comments[commentIndex].text;
-    // console.log(updateText)
     this.isShow = !this.isShow;
   
     this.commentInput[postIndex] = updateText;

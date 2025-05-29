@@ -60,8 +60,7 @@ describe('InstagramCloneComponent', () => {
   });
 
   it('should be click like button to called onLike', () => {
-    const likeButton = fixture.debugElement.query(By.css('.liked'));
-    likeButton.nativeElement.click(1);
+    fixture.debugElement.query(By.css('.liked')).nativeElement.click(1);
     fixture.detectChanges();
 
     expect(component.post[0].likes).toBe(postsMock[0].likes);
@@ -80,8 +79,7 @@ describe('InstagramCloneComponent', () => {
   });
 
   it("should be called onComment to add comments", () => {
-    const commentIcon = fixture.debugElement.query(By.css('.comment-icon'));
-    commentIcon.nativeElement.click(0);
+    fixture.debugElement.query(By.css('.comment-icon')).nativeElement.click(0);
     component.onEdit(1,0,0);
     component.onDelete(1,1);
 
@@ -111,7 +109,7 @@ describe('InstagramCloneComponent', () => {
 
 
   it('should be called isEdit functionality', () => {
-    const commentIcon = fixture.debugElement.query(By.css('.comment-icon')).nativeElement.click(0);
+    fixture.debugElement.query(By.css('.comment-icon')).nativeElement.click(0);
     fixture.detectChanges();
 
     const editButton = fixture.debugElement.query(By.css('.edit')).nativeElement.click(1,0,0);
