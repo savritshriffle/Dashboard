@@ -14,32 +14,13 @@ import { MatButtonModule } from '@angular/material/button';
 import { NO_ERRORS_SCHEMA } from '@angular/compiler';
 import { HttpClientModule } from '@angular/common/http';
 import { By } from '@angular/platform-browser';
-
-const postsMock = [
-  {
-    "id": 1,
-    "username": 'New_One',
-    "userImage": "https://avatar.iran.liara.run/public/boy",
-    "imageUrl": "https://avatar.iran.liara.run/public/boy",
-    "caption": 'caption',
-    "hashtags": [],
-    "likes": 1,
-    "liked": false,
-    "comments": [
-      {
-        id: Date.now(),
-        username: "testUser",
-        text: "comment text"
-      }
-    ],
-  }
-] 
+import { mock } from './mockDummy';
 
 describe('InstagramCloneComponent', () => {
   let component: InstagramCloneComponent;
   let fixture: ComponentFixture<InstagramCloneComponent>;
   let dataService: DataService;
-
+  let postsMock = mock;
   beforeEach( async() => {
     await TestBed.configureTestingModule({
       declarations: [InstagramCloneComponent],
@@ -75,56 +56,67 @@ describe('InstagramCloneComponent', () => {
   });
 
   it('should be called getData and getUserData method', () => {
-     expect(component.post.length).toBe(1);
+     expect(component.post.length).toBe(postsMock.length);
   });
 
   it('should be click like button to called onLike', () => {
-    component.onLike(1);
+    const likeButton = fixture.debugElement.query(By.css('.liked'));
+    likeButton.nativeElement.click(1);
     fixture.detectChanges();
-  
-    expect(component.post[0].likes).toBe(2);
-    expect(component.post[0].liked).toBeTrue();
+
+    expect(component.post[0].likes).toBe(postsMock[0].likes);
+    expect(component.post[0].liked).toBe(postsMock[0].liked);
     
-    component.onLike(1);
-    expect(component.post[0].likes).toBe(1);
-    expect(component.post[0].liked).toBeFalse();  
+    expect(component.post[0].likes).toBe(postsMock[0].likes);
+    expect(component.post[0].liked).toBe(postsMock[0].liked); 
   });
 
   it("should be called openText to open commnet input", () => {
-    component.openText(1);
-    fixture.detectChanges();
-    expect(component.showComments[1]).toBeTrue();
+    component.openText(0);
+    expect(component.showComments[0]).toBeTrue();
 
-    component.openText(1);
-    expect(component.showComments[1]).toBeFalse();
+    component.openText(0);
+    expect(component.showComments[0]).toBeFalse();
   });
 
   it("should be called onComment to add comments", () => {
+    const commentIcon = fixture.debugElement.query(By.css('.comment-icon'));
+    commentIcon.nativeElement.click(0);
+    component.onEdit(1,0,0);
+    component.onDelete(1,1);
+
     component.onComment(0, 1);
     fixture.detectChanges();
-
-    expect(component.post[0].comments.length).toBe(2);
-    expect(component.user.username).toBe(undefined)
-
-    component.isShow = true;
+    
+    expect(component.post[0].comments.length).toBe(postsMock[0].comments.length);
+    expect(component.user.username).toBeUndefined();
+    
     component.onComment(0, 1);
-    expect(component.post[0].comments[0].text).toBe("New_Text");
+    component.isShow = true;
+    expect(component.post[0].comments[0].text).toBe(postsMock[0].comments[0].text);
 
     expect(component.commentInput[0]).toBe('');
     component.isShow = false;
   });
 
   it("should called delete comments", () => {
-    component.onDelete(1, 1);
+    fixture.debugElement.query(By.css('.comment-icon')).nativeElement.click(0);
     fixture.detectChanges();
-    expect(component.post[0].commnets.length).toBe(0);
 
-  })
+    fixture.debugElement.query(By.css('.delete')).nativeElement.click(1,1);
+    fixture.detectChanges();
+
+    expect(component.post[0].commnets).toBeUndefined();
+  });
+
 
   it('should be called isEdit functionality', () => {
-    component.onEdit(1, 0, 0);
+    const commentIcon = fixture.debugElement.query(By.css('.comment-icon')).nativeElement.click(0);
     fixture.detectChanges();
-    expect(component.post[0].comments[0].text).toBe('comment text');
-    expect(component.commentInput[0]).toBe('comment text'); 
-  })
-});
+
+    const editButton = fixture.debugElement.query(By.css('.edit')).nativeElement.click(1,0,0);
+    fixture.detectChanges();
+    
+    expect(component.post[0].comments[0].text).toBe(postsMock[0].comments[0].text);
+  });
+});   

@@ -23,12 +23,12 @@
     <div *ngIf="showComments[postIndex]">
       <div class="comment" *ngFor="let comment of data.comments; let commentIndex = index">
         <span><strong>{{comment.username }}</strong>: {{comment.text}}</span>
-        <button *ngIf="comment.username === 'travel_lover'" mat-button (click)="onEdit(data.id, commentIndex, postIndex)">Edit</button>
-        <button *ngIf="comment.username === 'travel_lover'" mat-button color="warn" (click)="onDelete(data.id, commentIndex)">Delete</button>
+        <mat-icon class="edit" *ngIf="comment.username === 'travel_lover'" mat-button (click)="onEdit(data.id, commentIndex, postIndex)">border_color</mat-icon>
+        <mat-icon class="delete" *ngIf="comment.username === 'travel_lover'" mat-button color="warn" (click)="onDelete(data.id, commentIndex)">delete</mat-icon>
       </div>
       <div>
         <input class="inputField" type="text" placeholder="commentText" [(ngModel)]="commentInput[postIndex]">
-        <button mat-button color="primary" (click)="onComment(postIndex, data.id)">{{isShow? 'Save' : 'Post'}}</button>
+        <button class="comment-btn" mat-raised-button color="primary" (click)="onComment(postIndex, data.id)">{{isShow? 'Save' : 'Post'}}</button>
       </div>
     </div>
   </mat-card>
