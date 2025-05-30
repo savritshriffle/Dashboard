@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../service/data.service';
+import { DialogRef } from '@angular/cdk/dialog';
 
 @Component({
   selector: 'app-profile-page',
@@ -8,13 +9,20 @@ import { DataService } from '../service/data.service';
 })
 export class ProfilePageComponent implements OnInit{
   public profile: any = [];
-  constructor(private service: DataService) { }
+  constructor(
+    private service: DataService,
+    private dialog: DialogRef
+  ) { }
+
   ngOnInit(): void {
     this.service.getUsreData().subscribe((data) => {
       this.profile = data;
       console.log(this.profile)
     })
-  }
+  };
 
+  public closeProfile() {
+    this.dialog.close();
+  };
 
 }
