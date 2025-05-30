@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
+
 export class DataService {
   private apiUrl = 'http://localhost:3000/posts';
   private usersApiUrl = 'http://localhost:3000/users';

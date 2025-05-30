@@ -9,9 +9,12 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatInputModule } from '@angular/material/input';
 import { FormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
+import { StoryContentComponent } from './story-content/story-content.component';
+import { MatDialogModule } from '@angular/material/dialog';
 @NgModule({
   declarations: [
     InstagramCloneComponent,
+    StoryContentComponent
   ],
   imports: [
     CommonModule,
@@ -22,7 +25,9 @@ import { MatButtonModule } from '@angular/material/button';
     MatToolbarModule,
     MatInputModule,
     FormsModule,
-    MatButtonModule
-  ]
+    MatButtonModule,
+    MatDialogModule
+  ],
+  providers: []
 })
 export class InstagramCloneModule { }

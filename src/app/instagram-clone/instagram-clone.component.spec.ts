@@ -41,7 +41,7 @@ describe('InstagramCloneComponent', () => {
     }).compileComponents();
 
     dataService = TestBed.inject(DataService);
-    spyOn(dataService, 'getData').and.returnValue(of(postsMock))
+    // spyOn(dataService, 'getPostsData').and.returnValue(of(postsMock))
     
   });
 
@@ -112,7 +112,7 @@ describe('InstagramCloneComponent', () => {
     fixture.debugElement.query(By.css('.comment-icon')).nativeElement.click(0);
     fixture.detectChanges();
 
-    const editButton = fixture.debugElement.query(By.css('.edit')).nativeElement.click(1,0,0);
+    fixture.debugElement.query(By.css('.edit')).nativeElement.click(1,0,0);
     fixture.detectChanges();
     
     expect(component.post[0].comments[0].text).toBe(postsMock[0].comments[0].text);

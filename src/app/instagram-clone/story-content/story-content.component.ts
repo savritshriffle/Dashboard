@@ -1,35 +1,38 @@
-import { Component, OnInit } from '@angular/core';
-import { DataService } from './service/data.service';
-import { MatDialog } from '@angular/material/dialog';
-import { StoryContentComponent } from './story-content/story-content.component';
+import { Component, Inject } from '@angular/core';
+import { DataService } from '../service/data.service';
+import { DialogRef } from '@angular/cdk/dialog';
+import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 @Component({
-  selector: 'app-instagram-clone',
-  templateUrl: './instagram-clone.component.html',
-  styleUrls: ['./instagram-clone.component.css']
+  selector: 'app-story-content',
+  templateUrl: './story-content.component.html',
+  styleUrls: ['./story-content.component.css']
 })
-export class InstagramCloneComponent implements OnInit{
-  public post: any = [];
+export class StoryContentComponent {
+  public post : any = [];
   public user: any = [];
   public commentInput: {[key: string]: string | {}} = {};
   public showComments: {[key: string]: string | {}} = {};
   public isShow!: boolean;
   public getCommentIndex!: number;
-
+  
   constructor(
     private service: DataService,
-    private dialog: MatDialog
+    private dialogRef: DialogRef<StoryContentComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: any[]
   ) {}
 
   ngOnInit(): void {
-    this.service.getData().subscribe((data) => {
-      this.post = data;
-    });
+    Object.values(this.data).map((v => {
+      this.post = [v];
+      
+    }));
 
     this.service.getUsreData().subscribe((data) => {
       this.user = data;
     });
   }
+  
 
   public onLike(id: number) {
     const post = this.post.find((value: {[key: string]: number}) => value['id'] === id);
@@ -83,17 +86,7 @@ export class InstagramCloneComponent implements OnInit{
     this.service.updateData(id, {comments :post.comments}).subscribe();
   }
 
-  public openProfile(story: {[key: string]: string| number}) {
-    this.post.find((value: {[key: string]: number}) => {
-      if(value['id'] === story['id']) {
-        this.dialog.open(StoryContentComponent, {
-          width: 'auto',
-          height: 'auto',
-          data: {
-            data: story
-          }
-        });
-      }
-    });
-  } 
+  public closeStory() {
+    this.dialogRef.close();
+  }
 }

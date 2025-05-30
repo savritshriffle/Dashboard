@@ -1,11 +1,5 @@
+<mat-icon class="story-clear" (click)="closeStory()">clear</mat-icon>
 <div class="container">
-  <h1 class="heading">Instagram Feed</h1>
-  <div class="story-container">
-    <div class="story" *ngFor="let story of post">
-      <div (click)="openProfile(story)"><img mat-card-sm-image src="{{story.userImage}}"></div>
-      <div>{{story.username}}</div>
-    </div>
-  </div>
   <mat-card class="card" *ngFor="let data of post; let postIndex = index">
     <mat-toolbar class="toolbar">
       <img class="user-image" mat-card-sm-image src="{{data.userImage}}">

@@ -34,6 +34,7 @@ import { MatRadioModule } from '@angular/material/radio';
 import { NavbarComponent } from './navbar/navbar.component';
 import { RegistrationForm } from './registration-form/registration-form.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -47,7 +48,7 @@ import { RegistrationForm } from './registration-form/registration-form.componen
     FormComponent,
     CheckboxComponent,
     DialogboxComponent,
-    RegistrationForm
+    RegistrationForm,
   ],
   imports: [
     BrowserModule,
