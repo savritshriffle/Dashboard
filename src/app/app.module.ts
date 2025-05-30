@@ -48,7 +48,7 @@ import { RegistrationForm } from './registration-form/registration-form.componen
     FormComponent,
     CheckboxComponent,
     DialogboxComponent,
-    RegistrationForm,
+    RegistrationForm
   ],
   imports: [
     BrowserModule,

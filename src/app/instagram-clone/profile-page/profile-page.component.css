@@ -1,0 +1,12 @@
+.profile-photo {
+  height: 50px;
+  width: 50px;
+}
+
+.profile {
+  display: flex;
+  justify-content: space-around;  
+}
+.container, .card {
+  padding: 20px;
+}

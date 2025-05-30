@@ -11,10 +11,14 @@ import { FormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { StoryContentComponent } from './story-content/story-content.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import {MatSidenavModule} from '@angular/material/sidenav';
+import { ProfilePageComponent } from './profile-page/profile-page.component';
+
 @NgModule({
   declarations: [
     InstagramCloneComponent,
-    StoryContentComponent
+    StoryContentComponent,
+    ProfilePageComponent
   ],
   imports: [
     CommonModule,
@@ -26,7 +30,8 @@ import { MatDialogModule } from '@angular/material/dialog';
     MatInputModule,
     FormsModule,
     MatButtonModule,
-    MatDialogModule
+    MatDialogModule,
+    MatSidenavModule
   ],
   providers: []
 })

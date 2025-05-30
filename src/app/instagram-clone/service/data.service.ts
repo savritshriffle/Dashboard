@@ -7,17 +7,16 @@ import { Observable } from 'rxjs';
 })
 
 export class DataService {
-  private apiUrl = 'http://localhost:3000/posts';
-  private usersApiUrl = 'http://localhost:3000/users';
+  private apiUrl = 'http://localhost:3000';
 
   constructor(private http : HttpClient) { }
 
   public getData(): Observable<{[key: string]: any}> {
-    return this.http.get(`${this.apiUrl}`);
+    return this.http.get(`${this.apiUrl}/posts`);
   }
 
   public getUsreData(): Observable<{[key: string]: any}> {
-    return this.http.get(`${this.usersApiUrl}`);
+    return this.http.get(`${this.apiUrl}/users`);
   }
   
   public updateData(id: number, comments: { [key: string]: string | number}): Observable<{[key: string]: string |any}> {

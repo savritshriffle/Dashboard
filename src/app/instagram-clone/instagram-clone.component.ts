@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { DataService } from './service/data.service';
 import { MatDialog } from '@angular/material/dialog';
 import { StoryContentComponent } from './story-content/story-content.component';
+import { ProfilePageComponent } from './profile-page/profile-page.component';
 
 @Component({
   selector: 'app-instagram-clone',
@@ -96,4 +97,11 @@ export class InstagramCloneComponent implements OnInit{
       }
     });
   } 
+
+  public openSideNav() {
+    this.dialog.open(ProfilePageComponent, {
+      width: 'auto',
+      height: 'auto'
+    });
+  }
 }
